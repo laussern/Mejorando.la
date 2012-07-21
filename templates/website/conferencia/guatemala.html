@@ -9,13 +9,16 @@
 		<div class="content">
 			<div id="cinta">
 			</div>
-			<header>
+			<header style="height:703px;">
 				<a id="logo" href="http://mejorando.la/conferencia" title="mejorando.la/conferencia"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/mejorandola-conferencia-logo.png"/></a>
 				<h2 class="stream"><strong>25 de agosto</strong>streaming para el mundo</h2>
 				
 				<article id="inscripcion">
 
-	                <h3>¡Aparta tu lugar YA!</h3>
+	                <a class="todoticket-boton" href="http://www.todoticket.com/mejorando.la-conferencia-centroamerica#!/show-58/artist">Comprar entradas en TodoTicket</a>
+	                <p class="precio">Q400 por persona. <br/>Q300 para estudiantes.<br/>
+	                	<span>Recibe novedades del evento</span>
+	                </p>
 	                <form action="mailchimp.php" method="POST" id="formulario">
 
 	                    <input class="input" type="text" id="nombre" name="nombre" class="text-field"  placeholder="Nombre"required />
@@ -23,36 +26,12 @@
 	                    <input class="input" type="email" name="email" class="text-field" placeholder="Email" required />
 
 	                    <input class="submit" type="submit" value="inscribeme" id="inscribete-btn" />
-	                    <a class="todoticket" href="http://www.todoticket.com/mejorando.la-conferencia-centroamerica#!/show-58/artist">Adquiere tu entrada en Todoticket</a>
+	                    
 	                </form>
 
 	               <!--  <p id="confirmacion"><strong>¡Revisa tu mail!</strong> Twittea, Facebookea, Plusea e invita a tus amigos.</p> -->
 	            </article>
-	            <aside id="social">
-	                	<span>Comparte la experiencia</span>
-	                	<div class="cont twitter">
-	                    	<p><strong>4.5k</strong><span>tweets</span></p>
-	                    </div>
-	                    <div class="cont facebook">
-	                    	<p><strong>5.1k</strong><span>likes</span></p>
-	                    </div>
-	                    <div class="cont google">
-	                    	<p><strong>2.1k</strong><span>+1</span></p>
-	                    </div>
-	                    <div class="btn_twitter">
-	                        <a href="http://twitter.com/share" class="twitter-share-button" data-text="Mejorando.la Conferencia en Centroamérica. 25 de agosto de 2012." data-url="http://mejorando.la/conferencia/" data-count="vertical" data-related="mejorandola:freddier:cvander">Tweet</a>
-	                        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-	                    </div>
-
-	                    <div class="btn_facebook">
-	                        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-	                        <script type="text/javascript">_gaq.push(['_trackFacebook']);</script>
-	                        <fb:like href="http://mejorando.la/conferencia/" send="false" layout="box_count" width="49" show_faces="false" font=""></fb:like>
-	                    </div>
-	                    <div class="btn_google">
-	                        <g:plusone size="tall" href="http://mejorando.la/conferencia/"></g:plusone>
-	                    </div>
-                	</aside>
+	            
 			</header>
 			<article id="tema">
 				<nav>
@@ -78,13 +57,38 @@
 						Marroquín.</p>
 						<div class="loc"></div>
 		            </div>
+		            <aside id="social" style="margin-left:0; float:left">
+	                	<span>Comparte la experiencia</span>
+	                	<div class="cont twitter" style="top:25px">
+	                    	<p><strong>4.5k</strong><span>tweets</span></p>
+	                    </div>
+	                    <div class="cont facebook" style="top:25px">
+	                    	<p><strong>5.1k</strong><span>likes</span></p>
+	                    </div>
+	                    <div class="cont google" style="top:25px">
+	                    	<p><strong>2.1k</strong><span>+1</span></p>
+	                    </div>
+	                    <div class="btn_twitter">
+	                        <a href="http://twitter.com/share" class="twitter-share-button" data-text="Mejorando.la Conferencia en Centroamérica. 25 de agosto de 2012." data-url="http://mejorando.la/conferencia/" data-count="vertical" data-related="mejorandola:freddier:cvander">Tweet</a>
+	                        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	                    </div>
+
+	                    <div class="btn_facebook">
+	                        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	                        <script type="text/javascript">_gaq.push(['_trackFacebook']);</script>
+	                        <fb:like href="http://mejorando.la/conferencia/" send="false" layout="box_count" width="49" show_faces="false" font=""></fb:like>
+	                    </div>
+	                    <div class="btn_google">
+	                        <g:plusone size="tall" href="http://mejorando.la/conferencia/"></g:plusone>
+	                    </div>
+                	</aside>
 	            </div>        
 			</article>
 		</section>			
 		</div>
-		<section id="sponsors-ghost" style="height:244px; background-position-y:9px;">
+		<section id="sponsors-ghost" style="height:244px; background-position-y:9px; top:-52px;">
 		</section>
-		<section id="sponsors">
+		<section id="sponsors" style="margin-top:-314px">
 			<div class="content">
 				<div class="col oro">
 					 <a href="http://www.ufm.edu"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/ufm.png" height="56" width="113" alt="Universidad Francisco Marroquín"/></a>					
