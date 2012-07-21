@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 from django.core import serializers
 from django.utils import simplejson
 from django.template import TemplateDoesNotExist
+from django.template.defaultfilters import slugify
 from akismet import Akismet
 import GeoIP
 import image
@@ -287,6 +288,6 @@ def usuarios_chat(solicitud):
 
 def conferencia(solicitud):
     try:
-        return render_to_response('website/conferencia/%s.html' % get_pais(solicitud.META))
+        return render_to_response('website/conferencia/%s.html' % slugify(get_pais(solicitud.META)))
     except TemplateDoesNotExist:
         return render_to_response('website/conferencia/default.html')
