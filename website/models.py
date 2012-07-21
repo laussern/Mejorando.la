@@ -133,6 +133,9 @@ class MailRegistroCurso(models.Model):
     code    = models.CharField(max_length=100)
     tipo    = models.CharField(max_length=3, choices=TIPOS)
 
+    def __unicode__(self):
+        return self.subject
+
 # hooks
 def registro_post_save(sender, instance, created, *args, **kwargs):
     if settings.DEBUG: return
