@@ -1,0 +1,114 @@
+{% extends "website/conferencia/base.html" %}
+
+
+{% block body %}
+
+
+	<div id="wrapper">
+		<section id="portada">
+		<div class="content">
+			<div id="cinta">
+			</div>
+			<header style="height:703px;">
+				<a id="logo" href="http://mejorando.la/conferencia" title="mejorando.la/conferencia"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/mejorandola-conferencia-logo.png"/></a>
+				<h2 class="stream"><strong>25 de agosto</strong>streaming para el mundo</h2>
+				
+				<article id="inscripcion">
+
+	                <a class="todoticket-boton" href="http://www.todoticket.com/mejorando.la-conferencia-centroamerica#!/show-58/artist">Comprar entradas en TodoTicket</a>
+	                <p class="precio">Q400 por persona. <br/>Q300 para estudiantes.<br/>
+	                	<span>Recibe novedades del evento</span>
+	                </p>
+	                <form action="mailchimp.php" method="POST" id="formulario">
+
+	                    <input class="input" type="text" id="nombre" name="nombre" class="text-field"  placeholder="Nombre"required />
+
+	                    <input class="input" type="email" name="email" class="text-field" placeholder="Email" required />
+
+	                    <input class="submit" type="submit" value="inscribeme" id="inscribete-btn" />
+	                    
+	                </form>
+
+	               <!--  <p id="confirmacion"><strong>¡Revisa tu mail!</strong> Twittea, Facebookea, Plusea e invita a tus amigos.</p> -->
+	            </article>
+	            
+			</header>
+			<article id="tema">
+				<nav>
+					<ul>
+						<li><a href="http://maestrosdelweb.com" target="blank"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/maestrosdelweb.png" alt="cristalab" width="140"/></a>
+						<li><a href="http://cristalab.com" target="blank"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/cristalab.png" alt="cristalab" width="140"/></a>
+					</ul>
+				</nav>
+				<div class="wrap">
+					<h1>Liderazgo &amp; <br/>  emprendimiento tecnológico</h1>
+					<p>Descubre comunidades y empresarios hispanoamericanos que han logrado el éxito con proyectos relevantes a nivel internacional. </p>
+
+	                <p>Participa del evento a través de nuestro Streaming en vivo. Se impartirán <strong>12 conferencias</strong> desde Centroamérica sobre el futuro del emprendimiento y liderazgo tecnológico. 
+
+	                <!--p>Quedas invitado a la Ciudad de Guatemala para compartir con los conferencistas del evento en el Auditorio Juan Bautista Gutiérrez en la Universidad Francisco Marroquín.</p-->
+	                <div id="locacion">
+		            	<h2>Acompañanos</h2>
+		            	<p>Quedas invitado a la Ciudad de 
+						Guatemala para compartir con los 
+						conferencistas del evento en  el 
+						Auditorio Juan Bautista Gutiérrez 
+						en la Universidad Francisco 
+						Marroquín.</p>
+						<div class="loc"></div>
+		            </div>
+		            <aside id="social" style="margin-left:0; float:left">
+	                	<span>Comparte la experiencia</span>
+	                	<div class="cont twitter" style="top:25px">
+	                    	<p><strong>4.5k</strong><span>tweets</span></p>
+	                    </div>
+	                    <div class="cont facebook" style="top:25px">
+	                    	<p><strong>5.1k</strong><span>likes</span></p>
+	                    </div>
+	                    <div class="cont google" style="top:25px">
+	                    	<p><strong>2.1k</strong><span>+1</span></p>
+	                    </div>
+	                    <div class="btn_twitter">
+	                        <a href="http://twitter.com/share" class="twitter-share-button" data-text="Mejorando.la Conferencia en Centroamérica. 25 de agosto de 2012." data-url="http://mejorando.la/conferencia/" data-count="vertical" data-related="mejorandola:freddier:cvander">Tweet</a>
+	                        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	                    </div>
+
+	                    <div class="btn_facebook">
+	                        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+	                        <script type="text/javascript">_gaq.push(['_trackFacebook']);</script>
+	                        <fb:like href="http://mejorando.la/conferencia/" send="false" layout="box_count" width="49" show_faces="false" font=""></fb:like>
+	                    </div>
+	                    <div class="btn_google">
+	                        <g:plusone size="tall" href="http://mejorando.la/conferencia/"></g:plusone>
+	                    </div>
+                	</aside>
+	            </div>        
+			</article>
+		</section>			
+		</div>
+		<section id="sponsors-ghost" style="height:244px; background-position-y:9px; top:-52px;">
+		</section>
+		<section id="sponsors" style="margin-top:-314px">
+			<div class="content">
+				<div class="col oro">
+					 <a href="http://www.ufm.edu"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/ufm.png" height="56" width="113" alt="Universidad Francisco Marroquín"/></a>					
+					<a href="http://mediastream.cl"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/mediastream.png" height="56" width="231" alt="mediastream" id="Mediastream"/></a>			
+				</div>
+				<div class="col plata">
+					<a href="http://www.infranetworking.com"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/infranetworking.png" height="56" width="217" alt="Infranetworking"/></a>
+
+					 <a href="http://www.ilifebelt.com"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/life-belt.png" height="56" width="118" alt="i Life Belt"/></a>
+
+					 <a href="http://www.gpovallas.com/paises/guatemala/"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/gpo.png" height="56" width="164" alt="gpovallas"/></a>
+				</div>
+		
+				<div class="col cobre">
+					<a href="http://www.libertopolis.com/"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/libertopolis.png" height="56" width="134" alt="Libertopolis"/></a> 
+					<a href="http://www.prensalibre.com/"><img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/sponsors/prensa-libre.png"  height="56" width="134" alt="Prensa Libre"/></a>
+				</div>
+			</div>
+		</section>
+		
+
+
+{% endblock %}
