@@ -76,7 +76,7 @@
     <h3><a href="{% url website.views.cursos %}">Cursos</a></h3>
 
     {% for curso in cursos %}
-    <div class="pais azulclaro"><a href="{{ curso.slug }}" title="iphone-android-colombia" target="_blank">
+    <div class="pais azulclaro"><a href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
         <div class="imagen"><img src="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" title="{{ curso.pais }}"/></div>
         <div class="fecha">
           <h4>{{ curso.pais }}</h4>
