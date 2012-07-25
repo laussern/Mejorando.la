@@ -19,7 +19,9 @@
 	                <p class="precio">Q400 por persona. <br/>Q300 para estudiantes.<br/>
 	                	<span>Recibe novedades del evento</span>
 	                </p>
-	                <form action="mailchimp.php" method="POST" id="formulario">
+	                <form action="{% url website.views.conferencia_registro %}" method="POST" id="formulario">
+
+	                	<input type="hidden" name="asunto" value="Inscripción a la Conferencia desde Guatemala" />
 
 	                    <input class="input" type="text" id="nombre" name="nombre" class="text-field"  placeholder="Nombre"required />
 

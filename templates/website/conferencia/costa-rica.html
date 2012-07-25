@@ -123,9 +123,13 @@ $710 USD por persona mediante transferencia bancaria o pago en efectivo. (En hab
 					8854-7204 / 8322-4080<br />
 					<a href="http://twitter.com/NRBKStudio" style="color:lightSkyBlue">@NRBKStudio</a></p>
 				</div>
-				<form action="mailchimp-viaje.php" id="f-viaje" style="width:50%" method="POST">
+				<form action="{% url website.views.conferencia_registro %}" id="f-viaje" style="width:50%" method="POST">
 					<label id="inscri"></label>
 					<label id="confirmacion"></label>
+
+					<input type="hidden" name="extended" value="viaje" />
+					<input type="hidden" name="asunto" value="Inscripción a la Conferencia desde Costa Rica" />
+
 					<input type="text" name="nombre" placeholder="Nombre" class="input" required/>
 					<input type="text" name="apellidos" placeholder="Apellidos" class="input" required/>
 					<input type="email" name="email" placeholder="Correo electrónico" class="input" required/>
