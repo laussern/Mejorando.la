@@ -2,6 +2,7 @@
 
 {% block head %}
 <script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+<script src="{{ STATIC_PREFIX }}js/formulario-viaje.js.js"></script>
 <script>
 	$(function(){
 		$('#f-viaje').validate({
@@ -125,6 +126,8 @@ $710 USD por persona mediante transferencia bancaria o pago en efectivo. (En hab
 					<a href="http://twitter.com/NRBKStudio" style="color:lightSkyBlue">@NRBKStudio</a></p>
 				</div>
 				<form action="" id="f-viaje" style="width:50%">
+					<label id="inscripcion"></label>
+					<label id="confirmacion"></label>
 					<input type="text" name="nombre" placeholder="Nombre" class="input" required/>
 					<input type="text" name="apellidos" placeholder="Apellidos" class="input" required/>
 					<input type="email" name="email" placeholder="Correo electrónico" class="input" required/>
