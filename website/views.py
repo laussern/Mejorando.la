@@ -13,7 +13,7 @@ from django.template.defaultfilters import slugify
 from akismet import Akismet
 import GeoIP
 import image
-from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso
+from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia
 import datetime
 import time
 import requests
@@ -295,15 +295,20 @@ def conferencia(solicitud):
 
 @require_POST
 def conferencia_registro(solicitud):
-    #if settings.DEBUG: return HttpResponse()
+    if settings.DEBUG: return HttpResponse()
 
     asunto = 'Inscripción a la conferencia'
 
     if solicitud.POST.get('asunto'): asunto = solicitud.POST.get('asunto')
 
+    if not solicitud.POST.get('nombre') or not solicitud.POST.get('email'): return HttpResponse()
+
+    registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
+    registro.save()
+
     if solicitud.POST.get('extended') == 'viaje':
         send_mail(asunto, u'Nombre: %s\nApellidos: %s\nEmail: %s\nSexo: %s\nTipo de habitación: %s\nTeléfono: %s\nUsuario de Twitter: %s\nComentario: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('apellidos'), solicitud.POST.get('email'), solicitud.POST.get('sexo'), solicitud.POST.get('tipo'), solicitud.POST.get('telefono'), solicitud.POST.get('twitter'), solicitud.POST.get('comentario')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
-    elif solicitud.POST.get('nombre') and solicitud.POST.get('email'):    
+    else:    
         send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
 
     return HttpResponse('OK')

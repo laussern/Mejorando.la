@@ -121,6 +121,16 @@ class RegistroCurso(models.Model):
     def __unicode__(self):
         return '%s en %s' % (self.nombre, self.curso)
 
+
+class RegistroConferencia(models.Model):
+    nombre    = models.CharField(max_length=500)
+    email     = models.EmailField()
+    pais      = models.CharField(max_length=100)
+    fecha     = models.DateField(auto_now_add=True)
+
+    def __unicode__(self):
+        return '%s' % self.nombre
+
 class MailRegistroCurso(models.Model):
     TIPOS = (
         ('REG', 'Registro'),

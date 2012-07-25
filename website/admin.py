@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Video, VideoComentario, Setting, Curso, RegistroCurso, MailRegistroCurso
+from models import Video, VideoComentario, Setting, Curso, RegistroCurso, MailRegistroCurso, RegistroConferencia
 from django.conf import settings
 
 
@@ -32,3 +32,4 @@ admin.site.register(Setting)
 admin.site.register(Curso)
 admin.site.register(RegistroCurso, RegistroCursoAdmin)
 admin.site.register(MailRegistroCurso)
+admin.site.register(RegistroConferencia)
