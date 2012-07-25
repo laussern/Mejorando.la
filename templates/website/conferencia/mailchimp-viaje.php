@@ -1,17 +1,28 @@
 <?
 $nombre=$_POST['nombre'];
+$apellidos=$_POST['apellidos'];
 $correo=$_POST['email'];
+$sexo=$_POST['sexo'];
+$habitacion = $_POST['tipo'];
+$telefono = $_POST['telefono'];
+$twitter = $_POST['twitter'];
+$comentario = $_POST['comentario'];
 $ipusr = getenv('REMOTE_ADDR');
 
 $para = 'cursos@maestrosdelweb.com';
 $desde = "From: Cuarta Conferencia <cursos@maestrosdelweb.com>";
-$asunto = "Cuarta Conferencia mejorando.la";
+$asunto = "viaje a guatemala - Cuarta Conferencia mejorando.la";
 $mensaje ='
 La siguiente persona se ha inscrito:
 
 Nombre: '.$nombre.'
+Apellidos: '.$apellidos.'
 E-mail: '.$correo.'
 Pais/IP: '.$ipusr.'
+Sexo: '.$sexo.'
+Tipo de habitacion: '.$habitacion.'
+Cuenta de twitter: '.$twitter.'
+comentario: '.$comentario.'
 ';
 
 $apikey = '05f4144fdc54b5e377dec5a4a10575de-us2';
