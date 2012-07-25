@@ -1,15 +1,11 @@
-$(document).ready(
-	function ()
-	{
-		var opciones = {
-		beforeSubmit: enviando,
-		success: recepcion
-		};
-	
-		$('#f-viaje').ajaxForm(opciones); 
-	}
-	
-);
+$(function(){
+	var opciones = {
+	beforeSubmit: enviando,
+	success: recepcion
+	};
+
+	$('#f-viaje').ajaxForm(opciones); 
+})
 function enviando()
 {
 	$("#f-viaje #inscri").text("Inscribiendote...").fadeOut().fadeIn();
