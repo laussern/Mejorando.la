@@ -5,6 +5,10 @@
 	<title></title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/guatemala.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
+	<script src="{{ STATIC_PREFIX }}js/codiguito-conferencia.js"></script>
+	{% block head %}{% endblock %}
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<link rel="stylesheet" href="iexplorer.css"/>
@@ -32,7 +36,15 @@
 		<section id="ponentes">
 			<div class="content">
 				<h2>Los ponentes de <strong>#mejorandola</strong><span>Centroamérica</span></h2>
-				
+				<article class="ponente">
+					<div class="imagen">
+	                	<img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/luisvonahn.png" height="180" width="185" alt="Luis Von Ahn"/>
+	                </div>
+	                <div class="biografia">
+						<h3 class="grilla">Luis Von Ahn</h3><h4 class="grilla"><a href="http://twitter.com/luisvonahn">@luisvonahn</a></h4>
+	                	<p>Profesor de ciencias de la computación en Carnegie Mellon University quien ha destacado por ser un pionero en el Crowdsourcing. De origen guatemalteco, reside en Estados Unidos y es reconocido como un investigador influyente en el ámbito científico y tecnológico con premios como el MacArthur otorgado a personas destacadas en sus áreas. Además, es el creador de Captcha y reCaptcha test diseñado para el ojo humano que impide el spam y que a través de las palabras escritas por los humanos en el test se esta contribuyendo a la digitalización de millones de libros, este proyecto fue adquirido por la empresa Google. Su proyecto más reciente se denomina Duolingo que tiene como objetivo que millones de personas aprendan otros idiomas de forma gratuita y al mismo tiempo ayudan a traducir el contenido de Internet a otros idiomas.</p>
+	                </div>
+				</article>
 				<article class="ponente">
 					<div class="imagen">
                 		<img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/Christian.png" height="180" width="185" alt="Christian"/>
@@ -87,15 +99,7 @@
                 		<p>Emprendedor hondureño, desarrollador web y fundador de Icoms Technologies empresa de consultoría web con más de 15 años de experiencia. Organizador del evento internacional WebConfLatino que fomenta el crecimiento de proyectos web en centroamérica y creador del proyecto TuBabel un diccionario social de regionalismos latinos. Participante de la incubadora de Startups Dreamit Ventures en Nueva York, junto a su equipo lanzan el proyecto Pictour una plataforma móvil que permite compartir guías de viajes creadas por la comunidad. </p>
 	                </div>
 				</article>
-				<article class="ponente">
-					<div class="imagen">
-	                	<img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/luisvonahn.png" height="180" width="185" alt="Luis Von Ahn"/>
-	                </div>
-	                <div class="biografia">
-						<h3 class="grilla">Luis Von Ahn  (por confirmar)</h3><h4 class="grilla"><a href="http://twitter.com/luisvonahn">@luisvonahn</a></h4>
-	                	<p>Profesor de ciencias de la computación en Carnegie Mellon University quien ha destacado por ser un pionero en el Crowdsourcing. De origen guatemalteco, reside en Estados Unidos y es reconocido como un investigador influyente en el ámbito científico y tecnológico con premios como el MacArthur otorgado a personas destacadas en sus áreas. Además, es el creador de Captcha y reCaptcha test diseñado para el ojo humano que impide el spam y que a través de las palabras escritas por los humanos en el test se esta contribuyendo a la digitalización de millones de libros, este proyecto fue adquirido por la empresa Google. Su proyecto más reciente se denomina Duolingo que tiene como objetivo que millones de personas aprendan otros idiomas de forma gratuita y al mismo tiempo ayudan a traducir el contenido de Internet a otros idiomas.</p>
-	                </div>
-				</article>
+				
 			</div>
 			<div id="sedes">
 				<img src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/participa.jpg" alt="participa"/>
@@ -129,9 +133,8 @@
 			</div>
 		</footer>
 	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
-<script src="{{ STATIC_PREFIX }}js/codiguito-conferencia.js"></script>
+
+
 </body>
 
 </html>

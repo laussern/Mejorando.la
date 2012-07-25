@@ -1,5 +1,21 @@
 {% extends "website/conferencia/base.html" %}
 
+{% block head %}
+<script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+<script src="{{ STATIC_PREFIX }}js/formulario-viaje.js"></script>
+<script>
+	$(function(){
+		$('#f-viaje').validate({
+			messages:{
+				nombre:'Ingrese su nombre',
+				apellidos:'Ingrese sus apellidos',
+				email:'Ingrese su email',
+				telefono:'Ingrese su telefono',
+			}
+		})
+	})
+</script>
+{% endblock %}
 
 {% block body %}
 	<div id="wrapper">
@@ -72,11 +88,9 @@
 			<div class="content avion">
 				<div class="bus">
 					<h3>El Avion Alegre desde Costa Rica</h3>
-					<p>Salida el Jueves 23 de Agosto del 2012, a las 10:32am desde San José
-(llegando a Guatemala a las 12:12pm)<br/>
-Conferencias el Sábado 25 de Agosto del 2012 </p>
+					<p>Salida el Jueves 23 de Agosto del 2012, a las 10:32am desde San José (llegando a Guatemala a las 12:12pm)<br/>Taller de HTML5 el viernes 24 y Conferencias el Sábado 25. </p>
 					<div class="fila">
-						<p>Hospedaje en el Hotel Lo Máximo de Guatemala.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
+						<p>Hospedaje en el Hotel Biltmore (zona 10) de Guatemala.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="Hotel Biltmore "/>
 					</div>
 					<div class="fila">
 						<img id="hotel2" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel2.jpg" alt="hotel Maximo"/><p>Regreso el Domingo 26 de Agosto del 2012, a las 4:05pm desde Guatemala (llegando a Costa Rica a las 5:40pm)</p>
@@ -109,7 +123,13 @@ $710 USD por persona mediante transferencia bancaria o pago en efectivo. (En hab
 					8854-7204 / 8322-4080<br />
 					<a href="http://twitter.com/NRBKStudio" style="color:lightSkyBlue">@NRBKStudio</a></p>
 				</div>
-				<form action="" id="f-viaje" style="width:50%">
+				<form action="{% url website.views.conferencia_registro %}" id="f-viaje" style="width:50%" method="POST">
+					<label id="inscri"></label>
+					<label id="confirmacion"></label>
+
+					<input type="hidden" name="extended" value="viaje" />
+					<input type="hidden" name="asunto" value="Inscripción a la Conferencia desde Costa Rica" />
+
 					<input type="text" name="nombre" placeholder="Nombre" class="input" required/>
 					<input type="text" name="apellidos" placeholder="Apellidos" class="input" required/>
 					<input type="email" name="email" placeholder="Correo electrónico" class="input" required/>
@@ -120,13 +140,13 @@ $710 USD por persona mediante transferencia bancaria o pago en efectivo. (En hab
 					</div>
 					<select name="tipo" class="input">
 						<option>Tipo de habitación</option>
-						<option value="simple">simple</option>
-						<option value="doble">doble</opcion>
+						<option value="simple">Simple</option>
+						<option value="doble">Doble</opcion>
 					</select>
-					<input type="text" name="telefono" required placeholder="cuenta de twitter" class="input" />
+					<input type="text" name="telefono" required placeholder="Telefono" class="input" />
 					<input type="text" name="twitter" placeholder="cuenta de twitter" class="input" />
 					<label>Comentario</label>
-					<textarea class="coment input" >
+					<textarea class="coment input" name="comentario">
 					</textarea>
 					<input class="submit" type="submit" value="participa"  />
 				</form>

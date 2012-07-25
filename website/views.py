@@ -6,13 +6,14 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.core import serializers
+from django.core.mail import send_mail
 from django.utils import simplejson
 from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
 from akismet import Akismet
 import GeoIP
 import image
-from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso
+from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia
 import datetime
 import time
 import requests
@@ -291,3 +292,23 @@ def conferencia(solicitud):
         return render_to_response('website/conferencia/%s.html' % slugify(get_pais(solicitud.META)))
     except TemplateDoesNotExist:
         return render_to_response('website/conferencia/default.html')
+
+@require_POST
+def conferencia_registro(solicitud):
+    if settings.DEBUG: return HttpResponse()
+
+    asunto = 'Inscripción a la conferencia'
+
+    if solicitud.POST.get('asunto'): asunto = solicitud.POST.get('asunto')
+
+    if not solicitud.POST.get('nombre') or not solicitud.POST.get('email'): return HttpResponse()
+
+    registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
+    registro.save()
+
+    if solicitud.POST.get('extended') == 'viaje':
+        send_mail(asunto, u'Nombre: %s\nApellidos: %s\nEmail: %s\nSexo: %s\nTipo de habitación: %s\nTeléfono: %s\nUsuario de Twitter: %s\nComentario: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('apellidos'), solicitud.POST.get('email'), solicitud.POST.get('sexo'), solicitud.POST.get('tipo'), solicitud.POST.get('telefono'), solicitud.POST.get('twitter'), solicitud.POST.get('comentario')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
+    else:    
+        send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
+
+    return HttpResponse('OK')

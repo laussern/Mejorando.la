@@ -1,5 +1,21 @@
 {% extends "website/conferencia/base.html" %}
 
+{% block head %}
+<script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+<script src="{{ STATIC_PREFIX }}js/formulario-viaje.js"></script>
+<script>
+	$(function(){
+		$('#f-viaje').validate({
+		messages:{
+			nombre:'Ingrese su nombre',
+			apellidos:'Ingrese sus apellidos',
+			email:'Ingrese su email',
+			telefono:'Ingrese su telefono',
+		}
+		})
+	})
+</script>
+{% endblock %}
 
 {% block body %}
 	<div id="wrapper">
@@ -72,12 +88,12 @@
 			<div class="content">
 				<div class="bus">
 					<h3>El Bus Alegre desde El Salvador</h3>
-					<p>Partiendo de San Salvador a las 6:00 am via Pullmantur. Y llegando a la Ciudad de Guatemala a las 13:00 pm </p>
+					<p>Partiendo de San Salvador a las 6:00 am via Pullmantur el 23 de agosto. Y llegando a la Ciudad de Guatemala a las 13:00 pm. Regreso el domingo 26 de agosto.</p>
 					<div class="fila">
-						<p>Hospedaje en el Hotel Lo Máximo de Guate.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
+						<p>Hospedaje en el Hotel Biltmore (zona 10) de Guate.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="Hotel Biltmore"/>
 					</div>
 					<div class="fila">
-						<img id="hotel2" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel2.jpg" alt="hotel Maximo"/><p>Tips de viaje: llevar churritos para el camino, empacar una media docena de pupusas para compatir con los hermanos centroamericanos</p>
+						<img id="hotel2" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel2.jpg" alt="Hotel Biltmore"/><p>Tips de viaje: llevar churritos para el camino, empacar una media docena de pupusas para compatir con los hermanos centroamericanos</p>
 					</div>
 				</div>
 			</div>
@@ -89,7 +105,13 @@
 					<h4>250 USD (tarjeta o paypal) incluye inscripcion y transporte<h4>
 					<p>Completa los campos del formulario y te entregaremos mas detalles</p>
 				</div>
-				<form action="" id="f-viaje">
+				<form action="{% url website.views.conferencia_registro %}" id="f-viaje" method="POST">
+					<label id="inscri"></label>
+					<label id="confirmacion"></label>
+
+					<input type="hidden" name="extended" value="viaje" />
+					<input type="hidden" name="asunto" value="Inscripción a la Conferencia desde El Salvador" />
+
 					<input type="text" name="nombre" placeholder="Nombre" class="input" required/>
 					<input type="text" name="apellidos" placeholder="Apellidos" class="input" required/>
 					<input type="email" name="email" placeholder="Correo electrónico" class="input" required/>
@@ -100,13 +122,13 @@
 					</div>
 					<select name="tipo" class="input">
 						<option>Tipo de habitación</option>
-						<option value="simple">simple</option>
-						<option value="doble">doble</opcion>
+						<option value="simple">Simple</option>
+						<option value="doble">Doble</opcion>
 					</select>
-					<input type="text" name="telefono" required placeholder="cuenta de twitter" class="input" />
+					<input type="text" name="telefono" required placeholder="Telefono" class="input" />
 					<input type="text" name="twitter" placeholder="cuenta de twitter" class="input" />
 					<label>Comentario</label>
-					<textarea class="coment input" >
+					<textarea class="coment input" name="comentario">
 					</textarea>
 					<input class="submit" type="submit" value="participa"  />
 				</form>
