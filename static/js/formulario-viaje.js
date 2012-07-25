@@ -1,26 +1,29 @@
 jQuery(function ($) {
-	function enviando()
-	{
-		$("#f-viaje #inscri").text("Inscribiendote...").fadeOut().fadeIn();
-	}
+	var opciones = {
+			beforeSubmit: enviando,
+			success: recepcion
+			
+		};
+	$('#f-viaje').ajaxForm(opciones); 
 
-	function recepcion(datos)
-	{
-		datos = JSON.parse(datos);
+function enviando()
+{
+	$("#inscripcion h3").text("Inscribiendote...").fadeOut().fadeIn();
+}
 
-		if(datos.error)
+function recepcion(datos)
+{
+	datos = $.trim(datos);
+	if(datos=="OK")
 		{
-			$("#f-viaje  #confirmacion").text("Verifica que todos los datos estén bien escritos").slideDown();
-		} else {
 			$("#f-viaje #inscri").text("¡Ya estás inscrito!").fadeOut().fadeIn();
 			$('#f-viaje')[0].reset()
+		} else {
+			$("#f-viaje  #confirmacion").text("Verifica que todos los datos estén bien escritos").slideDown();
+			
 		}
-	}
+}
 
-	var opciones = {
-		beforeSubmit: enviando,
-		success: recepcion
-	};
+
 	
-	$('#f-viaje').ajaxForm(opciones); 
 });
