@@ -10,17 +10,16 @@ jQuery(function ($) {
 
 		if(datos.error)
 		{
-			//$("#formulario #inscripcion").text("Seguro ya estabas inscrito").fadeOut().fadeIn();
 			$("#f-viaje  #confirmacion").text("Verifica que todos los datos estén bien escritos").slideDown();
 		} else {
 			$("#f-viaje #inscri").text("¡Ya estás inscrito!").fadeOut().fadeIn();
+			$('#f-viaje')[0].reset()
 		}
 	}
 
 	var opciones = {
 		beforeSubmit: enviando,
-		success: recepcion,
-		clearForm: true
+		success: recepcion
 	};
 	
 	$('#f-viaje').ajaxForm(opciones); 
