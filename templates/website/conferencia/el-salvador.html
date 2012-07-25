@@ -3,13 +3,15 @@
 {% block head %}
 <script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
 <script>
-	$('#f-viaje').validate({
+	$(function(){
+		$('#f-viaje').validate({
 		messages:{
 			nombre:'Ingrese su nombre',
 			apellidos:'Ingrese sus apellidos',
 			email:'Ingrese su email',
 			telefono:'Ingrese su telefono',
 		}
+		})
 	})
 </script>
 {% endblock %}
