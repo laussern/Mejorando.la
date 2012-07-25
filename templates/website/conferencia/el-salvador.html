@@ -1,5 +1,18 @@
 {% extends "website/conferencia/base.html" %}
 
+{% block head %}
+<script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+<script>
+	$('#f-viaje').validate({
+		messages:{
+			nombre:'Ingrese su nombre',
+			apellidos:'Ingrese sus apellidos',
+			email:'Ingrese su email',
+			telefono:'Ingrese su telefono',
+		}
+	})
+</script>
+{% endblock %}
 
 {% block body %}
 	<div id="wrapper">
@@ -74,7 +87,7 @@
 					<h3>El Bus Alegre desde El Salvador</h3>
 					<p>Partiendo de San Salvador a las 6:00 am via Pullmantur. Y llegando a la Ciudad de Guatemala a las 13:00 pm </p>
 					<div class="fila">
-						<p>Hospedaje en el Hotel Lo Máximo de Guate.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
+						<p>Hospedaje en el Hotel Biltmore.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
 					</div>
 					<div class="fila">
 						<img id="hotel2" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel2.jpg" alt="hotel Maximo"/><p>Tips de viaje: llevar churritos para el camino, empacar una media docena de pupusas para compatir con los hermanos centroamericanos</p>
