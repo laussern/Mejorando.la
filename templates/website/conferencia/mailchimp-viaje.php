@@ -10,8 +10,8 @@ $comentario = $_POST['comentario'];
 $ipusr = getenv('REMOTE_ADDR');
 
 $para = 'cursos@maestrosdelweb.com';
-$desde = "From: Cuarta Conferencia <cursos@maestrosdelweb.com>";
-$asunto = "viaje a guatemala - Cuarta Conferencia mejorando.la";
+$desde = "From: Segunda Conferencia <cursos@maestrosdelweb.com>";
+$asunto = "viaje a guatemala - Segunda Conferencia mejorando.la";
 $mensaje ='
 La siguiente persona se ha inscrito:
 

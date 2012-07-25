@@ -4,8 +4,8 @@ $correo=$_POST['email'];
 $ipusr = getenv('REMOTE_ADDR');
 
 $para = 'cursos@maestrosdelweb.com';
-$desde = "From: Cuarta Conferencia <cursos@maestrosdelweb.com>";
-$asunto = "Cuarta Conferencia mejorando.la";
+$desde = "From: Segunda Conferencia <cursos@maestrosdelweb.com>";
+$asunto = "Segunda Conferencia mejorando.la";
 $mensaje ='
 La siguiente persona se ha inscrito:
 
