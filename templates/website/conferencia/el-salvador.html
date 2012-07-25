@@ -2,6 +2,7 @@
 
 {% block head %}
 <script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+<script src="{{ STATIC_PREFIX }}js/formulario-viaje.js.js"></script>
 <script>
 	$(function(){
 		$('#f-viaje').validate({
@@ -105,6 +106,8 @@
 					<p>Completa los campos del formulario y te entregaremos mas detalles</p>
 				</div>
 				<form action="" id="f-viaje">
+					<label id="inscripcion"></label>
+					<label id="confirmacion"></label>
 					<input type="text" name="nombre" placeholder="Nombre" class="input" required/>
 					<input type="text" name="apellidos" placeholder="Apellidos" class="input" required/>
 					<input type="email" name="email" placeholder="Correo electrónico" class="input" required/>
