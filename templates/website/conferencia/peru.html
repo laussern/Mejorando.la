@@ -1,5 +1,8 @@
 {% extends "website/conferencia/base.html" %}
 
+{% block head %}
+<script src="{{ STATIC_PREFIX }}js/jquery.validate.js"></script>
+{% endblock %}
 
 {% block body %}
 	<div id="wrapper">
@@ -76,7 +79,7 @@
 (llegando a Guatemala a las 12:12pm)<br/>
 Conferencias el Sábado 25 de Agosto del 2012 </p>
 					<div class="fila">
-						<p>Hospedaje en el Hotel Lo Máximo de Guatemala.</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
+						<p>Hospedaje en el Hotel Biltmore</p> <img id="hotel1" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel1.jpg" alt="hotel Maximo"/>
 					</div>
 					<div class="fila">
 						<img id="hotel2" src="{{ STATIC_PREFIX }}/images/conferencia/guatemala/hotel2.jpg" alt="hotel Maximo"/><p>Regreso el Domingo 26 de Agosto del 2012, a las 4:05pm desde Guatemala (llegando a Costa Rica a las 5:40pm)</p>
@@ -120,10 +123,10 @@ $710 USD por persona mediante transferencia bancaria o pago en efectivo. (En hab
 					</div>
 					<select name="tipo" class="input">
 						<option>Tipo de habitación</option>
-						<option value="simple">simple</option>
-						<option value="doble">doble</opcion>
+						<option value="simple">Simple</option>
+						<option value="doble">Doble</opcion>
 					</select>
-					<input type="text" name="telefono" required placeholder="cuenta de twitter" class="input" />
+					<input type="text" name="telefono" required placeholder="Telefono" class="input" />
 					<input type="text" name="twitter" placeholder="cuenta de twitter" class="input" />
 					<label>Comentario</label>
 					<textarea class="coment input" >
