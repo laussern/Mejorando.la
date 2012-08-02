@@ -117,7 +117,7 @@ class RegistroCurso(models.Model):
     descuento = models.FloatField()
     tipo      = models.CharField(max_length=100, default="paypal")
     fecha     = models.DateField(auto_now_add=True)
-    #currency  = models.CharField(max_length=10)
+    currency  = models.CharField(max_length=10)
 
     def __unicode__(self):
         return '%s en %s' % (self.nombre, self.curso)
