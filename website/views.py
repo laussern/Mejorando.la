@@ -183,12 +183,11 @@ from django.http import HttpResponse
 
 @require_POST
 def cursos_registro(solicitud):
-
     if solicitud.POST.get('nombre') and solicitud.POST.get('telefono') and solicitud.POST.get('email') and solicitud.POST.get('curso') and solicitud.POST.get('code') and solicitud.POST.get('total'):
         if RegistroCurso.objects.filter(email=solicitud.POST.get('email'), code=solicitud.POST.get('code')).exists():
             return HttpResponse('ERROR: Ya te has registrado a este curso.')
 
-        registro = RegistroCurso(nombre=solicitud.POST.get('nombre'), telefono=solicitud.POST.get('telefono'), email=solicitud.POST.get('email'), curso=solicitud.POST.get('curso'), pais=get_pais(solicitud.META), code=solicitud.POST.get('code'), total=solicitud.POST.get('total'))
+        registro = RegistroCurso(nombre=solicitud.POST.get('nombre'), telefono=solicitud.POST.get('telefono'), email=solicitud.POST.get('email'), curso=solicitud.POST.get('curso'), pais=get_pais(solicitud.META), code=solicitud.POST.get('code'), total=solicitud.POST.get('total'), currency=solicitud.POST.get('currency'))
 
         if solicitud.POST.get('personas'):
             registro.personas = int(solicitud.POST.get('personas'))
@@ -312,3 +311,8 @@ def conferencia_registro(solicitud):
         send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
 
     return HttpResponse('OK')
+
+def track(solicitud, registro_id):
+    registro = get_object_or_404(RegistroCurso, id=registro_id)
+
+    return render_to_response('website/track.html', {'registro': registro })
