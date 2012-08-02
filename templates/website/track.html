@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Checkout</title>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+</head>
+<body>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display:none !important">
+<input type="hidden" name="charset" value="utf-8" />
+<input type="hidden" name="business" value="cursos@mejorando.la">
+<input type="hidden" name="return" value="http://mejorando.la/cursos/pago/success" />
+<input type="hidden" name="rm" value="2" />
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="item_name" value="{{ registro.curso }}">
+<input type="hidden" name="amount" value="{{ registro.total|floatformat }}">
+<input type="hidden" name="currency_code" value="{{ registro.currency }}">
+</form>
+
+<script>
+jQuery(function ($) {
+	$('form').submit();
+});
+</script>
+</body>
+</html>
