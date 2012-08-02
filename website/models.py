@@ -158,7 +158,7 @@ def registro_post_save(sender, instance, created, *args, **kwargs):
             mail = MailRegistroCurso.objects.get(code=instance.code, tipo='REG')
 
             # mail confirmando registro
-            send_mail(mail.subject, '%s\nTambién puedes realizar tu pago en http://mejorando.la/track/%s\n' % (mail.content, instance.id), settings.FROM_CURSOS_EMAIL, [instance.email])
+            send_mail(mail.subject, u'%s\nTambién puedes realizar tu pago en http://mejorando.la/track/%s\n' % (mail.content, instance.id), settings.FROM_CURSOS_EMAIL, [instance.email])
         except MailRegistroCurso.DoesNotExist: pass
 
         if instance.tipo == 'deposito':
