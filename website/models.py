@@ -117,6 +117,7 @@ class RegistroCurso(models.Model):
     descuento = models.FloatField()
     tipo      = models.CharField(max_length=100, default="paypal")
     fecha     = models.DateField(auto_now_add=True)
+    currency  = models.CharField(max_length=10)
 
     def __unicode__(self):
         return '%s en %s' % (self.nombre, self.curso)
@@ -151,13 +152,13 @@ def registro_post_save(sender, instance, created, *args, **kwargs):
     if settings.DEBUG: return
 
     if created:
-        send_mail('Registro al "%s"' % instance.curso, 'Nombre: %s\nEmail: %s\nTelefono: %s\nTipo de pago: %s\nCurso: %s\nPais: %s\n' % (instance.nombre, instance.email, instance.telefono, instance.tipo, instance.curso, instance.pais), settings.FROM_CURSOS_EMAIL, settings.TO_CURSOS_EMAIL)
+        send_mail('Registro al "%s"' % instance.curso, 'Nombre: %s\nEmail: %s\nTelefono: %s\nTipo de pago: %s\nCurso: %s\nPais: %s\nLink: http://mejorando.la/track/%s\n' % (instance.nombre, instance.email, instance.telefono, instance.tipo, instance.curso, instance.pais, instance.id), settings.FROM_CURSOS_EMAIL, settings.TO_CURSOS_EMAIL)
 
         try:    
             mail = MailRegistroCurso.objects.get(code=instance.code, tipo='REG')
 
             # mail confirmando registro
-            send_mail(mail.subject, mail.content, settings.FROM_CURSOS_EMAIL, [instance.email])
+            send_mail(mail.subject, '%s\nTambién puedes realizar tu pago en http://mejorando.la/track/%s\n' % (mail.content, instance.id), settings.FROM_CURSOS_EMAIL, [instance.email])
         except MailRegistroCurso.DoesNotExist: pass
 
         if instance.tipo == 'deposito':
