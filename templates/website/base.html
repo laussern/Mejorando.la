@@ -56,12 +56,13 @@
       <header>
           <div class="mejor"> 
               <h1><a href="{% url website.views.home %}" title="mejorando.la"><img class="logo-chico" src="{{ STATIC_PREFIX }}images/logos/mejorandola.png" alt="mejorando.la"><img class="logo-grande" src="{{ STATIC_PREFIX }}images/logos/mejorandola-grande.png" alt="mejorando.la"></a>
-              <a href="http://mejorando.la/cursos/iphone-android-peru/"><img alt="Curso de iphone y android en Lima Peru" src="{{ STATIC_PREFIX }}images/home/banners/banner_home_lima.jpg"/></a>
+
               </h1>
               <a id="maestros" href="http://maestrosdelweb.com" target="_blank" title="maestros del web"><img src="{{ STATIC_PREFIX }}images/logos/maestros.png" alt="maestros del web"></a><a id="cristalab" href="http://cristalab.com" target="_blank" title="cristalab"><img src="{{ STATIC_PREFIX }}images/logos/cristalab.png" alt="cristalab"></a>
           </div>
      
             <nav class="menu">
+                <a class="banner-link" href="http://mejorando.la/cursos/iphone-android-peru/"><img class="banner-img"alt="Curso de iphone y android en Lima Peru" src="{{ STATIC_PREFIX }}images/home/banners/banner_home_lima.jpg"/></a>
                 <ul>
                   <li><a href="{% url website.views.cursos %}" title="cursos">Cursos</a></li>
                   <li><a href="http://mejorando.la/cursos/exalumnos/" title="ex alumnos">Ex alumnos</a></li>
