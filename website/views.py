@@ -47,7 +47,8 @@ def home(solicitud):
         'videos': ultimos_4_videos,  # ultimos 4 videos
         'pais': get_pais(solicitud.META),  # el horario del programa localizado
         'timestamp': get_timestamp(),  # Obtiene el timestamp del sig. program.
-        'cursos': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now())
+        'cursos': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now()),
+        'cursos_geo': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now(), pais=get_pais(solicitud.META))
     })
 
 
