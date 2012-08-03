@@ -126,7 +126,7 @@ strong{font-weight:bold}
 .ie8 .tela{background:url("../images/home/tela.png")}
 .ie8 .block .tit{background:url("../images/home/tela.png")}
 #envivo{background:#000;height:60px;margin:0 auto;width:1000px;position:relative;overflow:hidden;display:block}
-.banner-link{padding:0;right:0;top:42px;position:absolute}
+.banner-link{padding:0 !important;right:0;top:42px;position:absolute}
 @-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
 0%{-webkit-transform:translateX(-1000px)}
 }@-moz-keyframes envivo{100%{-moz-transform:translateX(0)}
