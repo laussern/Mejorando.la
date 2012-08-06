@@ -60,7 +60,7 @@ header .stream strong{font-family:Arial;color:#fff;display:block;font-size:40px;
 #nosotros div{float:left;width:50%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:14px;}
 #nosotros div:nth-of-type(1){padding-right:50px;padding-left:15px}
 #ponentes{background:url("../images/conferencia/guatemala/background-paisaje.jpg") no-repeat top,url("../images/conferencia/guatemala/patron-troncos.jpg") repeat-y center;padding-top}
-#ponentes h2{color:#2d5401;text-align:center;text-transform:uppercase;font-size:45px;font-weight:normal;padding:160px 0;}
+#ponentes h2{color:#2d5401;text-align:center;text-transform:uppercase;font-size:45px;font-weight:normal;padding-top:50px;}
 #ponentes h2 strong{display:block;font-weight:normal;font-size:71px;line-height:50px}
 #ponentes h2 span{color:#36a7ff;font-size:24px;display:block}
 #ponentes .content{max-width:885px}
@@ -72,7 +72,7 @@ header .stream strong{font-family:Arial;color:#fff;display:block;font-size:40px;
 #ponentes .biografia p{font-family:'LatoRegular';font-size:16px;line-height:auto;text-align:justify}
 #ponentes .ponente .imagen{-o-transition:.3s;-ms-transition:.3s;-moz-transition:.3s;-webkit-transition:.3s;transition:.3s}
 #ponentes .ponente:hover .imagen{-o-transform:rotateY(360deg);-ms-transform:rotateY(360deg);-moz-transform:rotateY(360deg);-webkit-transform:rotateY(360deg);transform:rotateY(360deg)}
-#ponentes .ponente:nth-of-type(1){margin-top:340px}
+#ponentes .ponente:nth-of-type(1){margin-top:10px}
 #ponentes .ponente:nth-of-type(odd) .imagen{float:left}
 #ponentes .ponente:nth-of-type(odd) .biografia{float:left;left:-1px}
 #ponentes .ponente:nth-of-type(even) .imagen{float:right}
