@@ -40,3 +40,4 @@ settings.py
 
 # archivos de la bd
 media/*
+/mejorandola.db
