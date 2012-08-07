@@ -477,34 +477,51 @@ a.banner-link
 	right 0
 	top 42px
 	width 736px
-	color red
+	color white
 	font-size 20px
 	line-height 20px
 	text-transform uppercase
+	text-align left
+	font-family Arial
 	> div 
 		display inline-block
 		vertical-align top
 	.titulo
 		width 275px
 		margin-top 13px
-		margin-left 10px
+		margin-left 59px
 		text-align left
 	.fecha 
-		margin-top 20px
+		
 		position relative
-		left 20px
+		left 30px
 		font-size 30px
-		width 217px
+		width 219px
+		color #313f4a
 		.dia 
 			float left 
+			margin-top 24px
+		.col2 
+			float left
+			vertical-align top
+			margin-top 18px
+			margin-left 2px
 		.mes 
 			display block
 			font-size 10px
 			float right
 		.lugar 
 			display block
-			font-size 15px
+			font-size 12px
 			text-align left
+			font-weight bold
+			position relative
+			top -7px
+			left -5px
+	.img-tec
+		margin 9px 0 0 46px
+	&:hover 
+		text-decoration none
 
 
 @-webkit-keyframes envivo
@@ -841,6 +858,8 @@ a.banner-link
 					height 44px 
 					//padding 0
 					line-height 44px
+	a.banner-link
+		display none
 @media screen and (max-width:480px)
 	.menu 
 

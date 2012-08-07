@@ -126,13 +126,16 @@ strong{font-weight:bold}
 .ie8 .tela{background:url("../images/home/tela.png")}
 .ie8 .block .tit{background:url("../images/home/tela.png")}
 #envivo{background:#000;height:60px;margin:0 auto;width:1000px;position:relative;overflow:hidden;display:block}
-a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;height:64px;padding:0;position:absolute;right:0;top:42px;width:736px;color:#f00;font-size:20px;line-height:20px;text-transform:uppercase;}
+a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;height:64px;padding:0;position:absolute;right:0;top:42px;width:736px;color:#fff;font-size:20px;line-height:20px;text-transform:uppercase;text-align:left;font-family:Arial;}
 a.banner-link > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
-a.banner-link .titulo{width:275px;margin-top:13px;margin-left:10px;text-align:left}
-a.banner-link .fecha{margin-top:20px;position:relative;left:20px;font-size:30px;width:217px;}
-a.banner-link .fecha .dia{float:left}
+a.banner-link .titulo{width:275px;margin-top:13px;margin-left:59px;text-align:left}
+a.banner-link .fecha{position:relative;left:30px;font-size:30px;width:219px;color:#313f4a;}
+a.banner-link .fecha .dia{float:left;margin-top:24px}
+a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:2px}
 a.banner-link .fecha .mes{display:block;font-size:10px;float:right}
-a.banner-link .fecha .lugar{display:block;font-size:15px;text-align:left}
+a.banner-link .fecha .lugar{display:block;font-size:12px;text-align:left;font-weight:bold;position:relative;top:-7px;left:-5px}
+a.banner-link .img-tec{margin:9px 0 0 46px}
+a.banner-link:hover{text-decoration:none}
 @-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
 0%{-webkit-transform:translateX(-1000px)}
 }@-moz-keyframes envivo{100%{-moz-transform:translateX(0)}
@@ -211,5 +214,6 @@ h3{font-size:30px;font-weight:normal;letter-spacing:2px}
 .menu ul{min-width:320px;padding-top:0;text-align:center;li-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:auto;}
 .menu ul:nth-child(even){background:none;border-left:1px solid #fff;border-right:1px solid #fff}
 .menu ul a{height:44px;line-height:44px}
+a.banner-link{display:none}
 }@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:12px}
 }
