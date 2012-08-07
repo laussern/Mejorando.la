@@ -126,7 +126,13 @@ strong{font-weight:bold}
 .ie8 .tela{background:url("../images/home/tela.png")}
 .ie8 .block .tit{background:url("../images/home/tela.png")}
 #envivo{background:#000;height:60px;margin:0 auto;width:1000px;position:relative;overflow:hidden;display:block}
-.banner-link{padding:0 !important;right:0;top:42px;position:absolute}
+a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;height:64px;padding:0;position:absolute;right:0;top:42px;width:736px;color:#f00;font-size:20px;line-height:20px;text-transform:uppercase;}
+a.banner-link > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
+a.banner-link .titulo{width:275px;margin-top:13px;margin-left:10px;text-align:left}
+a.banner-link .fecha{margin-top:20px;position:relative;left:20px;font-size:30px;width:217px;}
+a.banner-link .fecha .dia{float:left}
+a.banner-link .fecha .mes{display:block;font-size:10px;float:right}
+a.banner-link .fecha .lugar{display:block;font-size:15px;text-align:left}
 @-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
 0%{-webkit-transform:translateX(-1000px)}
 }@-moz-keyframes envivo{100%{-moz-transform:translateX(0)}
