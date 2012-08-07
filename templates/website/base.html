@@ -64,7 +64,7 @@
             <nav class="menu">
                 {% if cursos_geo %}
                 {% for curso in cursos_geo %}
-                <a class="banner-link" href="http://mejorando.la/cursos/iphone-android-peru/">
+                <a class="banner-link" href="{{ curso.slug }}">
                   <div class="titulo">
                     {{ curso.titulo }}
                   </div>
