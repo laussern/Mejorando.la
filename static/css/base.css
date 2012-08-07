@@ -134,7 +134,7 @@ a.banner-link .fecha .dia{float:left;margin-top:24px;letter-spacing:-2px}
 a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:3px}
 a.banner-link .fecha .mes{display:block;font-size:10px}
 a.banner-link .fecha .lugar{display:block;font-size:12px;text-align:left;font-weight:bold;position:relative;top:-7px}
-a.banner-link .img-tec{margin:9px 0 0 32px}
+a.banner-link .img-tec{margin:9px 0 0 31px}
 a.banner-link:hover{text-decoration:none}
 @-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
 0%{-webkit-transform:translateX(-1000px)}
