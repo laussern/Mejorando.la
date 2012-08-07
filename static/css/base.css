@@ -130,10 +130,10 @@ a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-r
 a.banner-link > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
 a.banner-link .titulo{width:275px;margin-top:13px;margin-left:59px;text-align:left}
 a.banner-link .fecha{position:relative;left:30px;font-size:30px;width:219px;color:#313f4a;}
-a.banner-link .fecha .dia{float:left;margin-top:24px}
-a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:2px}
+a.banner-link .fecha .dia{float:left;margin-top:24px;letter-spacing:-2px}
+a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:3px}
 a.banner-link .fecha .mes{display:block;font-size:10px;float:right}
-a.banner-link .fecha .lugar{display:block;font-size:12px;text-align:left;font-weight:bold;position:relative;top:-7px;left:-5px}
+a.banner-link .fecha .lugar{display:block;font-size:12px;text-align:left;font-weight:bold;position:relative;top:-7px}
 a.banner-link .img-tec{margin:9px 0 0 46px}
 a.banner-link:hover{text-decoration:none}
 @-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
