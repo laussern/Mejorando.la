@@ -469,12 +469,60 @@ strong
 	overflow hidden
 	display block
 //banners
-.banner-link
-	padding 0 !important
+a.banner-link
+	background url('../images/home/banners/banner_home_lima.jpg') no-repeat left top
+	height 64px 
+	padding 0 
+	position absolute
 	right 0
 	top 42px
-	position absolute
-
+	width 736px
+	color white
+	font-size 20px
+	line-height 20px
+	text-transform uppercase
+	text-align left
+	font-family Arial
+	> div 
+		display inline-block
+		vertical-align top
+	.titulo
+		width 280px
+		margin-top 13px
+		margin-left 59px
+		text-align left
+	.fecha 
+		
+		position relative
+		left 30px
+		font-size 30px
+		width 229px
+		color #313f4a
+		.dia 
+			float left 
+			margin-top 24px
+			letter-spacing -2px
+		.col2 
+			float left
+			vertical-align top
+			margin-top 18px
+			margin-left 3px
+		.mess 
+			display block
+			font-size 10px
+	
+		.lugar 
+			display block
+			font-size 12px
+			text-align left
+			font-weight bold
+			position relative
+			top -7px
+			
+	.img-tec
+		margin 9px 0 0 31px
+	&:hover 
+		text-decoration none
 
 
 @-webkit-keyframes envivo
@@ -811,6 +859,8 @@ strong
 					height 44px 
 					//padding 0
 					line-height 44px
+	a.banner-link
+		display none
 @media screen and (max-width:480px)
 	.menu 
 
