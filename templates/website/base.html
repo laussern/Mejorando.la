@@ -62,21 +62,24 @@
           </div>
      
             <nav class="menu">
+                {% if cursos_geo %}
+                {% for curso in cursos_geo %}
                 <a class="banner-link" href="http://mejorando.la/cursos/iphone-android-peru/">
                   <div class="titulo">
-                    Curso de programación para <strong>Iphone y Android</strong>
+                    {{ curso.titulo }}
                   </div>
                   <div class="fecha">
-                    <strong class="dia">31 - 01</strong>
+                    <strong class="dia">{{ curso.fecha|date:"d" }}</strong>
                     <div class="col2" >
-                      <span class="mess">Agosto / Septiembre</span>
-                      <span class="lugar">Lima</span>
+                      <span class="mess">{{ curso.fecha|date:"F" }}</span>
+                      <span class="lugar">{{ curso.pais }}</span>
                     </div>
                   </div>
-                  <div class="img-tec">
-                    <img src="{{ STATIC_PREFIX }}images/home/banners/iphone-android.jpg" alt="iphone android" width="64" height="48"/>
-                  </div>
+                  <div class="img-tec"></div>
                 </a>
+                {% endfor %}
+                {% endif %}
+
                 <ul>
                   <li><a href="{% url website.views.cursos %}" title="cursos">Cursos</a></li>
                   <li><a href="http://mejorando.la/cursos/exalumnos/" title="ex alumnos">Ex alumnos</a></li>
