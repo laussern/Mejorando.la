@@ -34,7 +34,7 @@ urlpatterns = patterns('',
 
     url(r'^usuarios_chat$', 'website.views.usuarios_chat'),
 
-    url(r'^conferencia/?$', 'website.views.conferencia'),
+    url(r'^conferencia/(?P<template>.*?)/?$', 'website.views.conferencia'),
 
     url(r'^conferencia_registro/?$', 'website.views.conferencia_registro'),
 
