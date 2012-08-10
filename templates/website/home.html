@@ -89,25 +89,6 @@
         </div></a>
     </div>
     {% endfor %}
-
-    {% if cursos_geo %}
-    <h3>Cursos en tu país</h3>
-
-    {% for curso in cursos_geo %}
-    <div class="pais azulclaro"><a href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
-        <div class="imagen"><img src="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" title="{{ curso.pais }}"/></div>
-        <div class="fecha">
-          <h4>{{ curso.pais }}</h4>
-          <p>{{ curso.fecha|date:"M.d" }}<strong>/</strong></p>
-        </div>
-        <div class="nombre">
-          <h5>{{ curso.titulo }}</h5>
-        </div>
-        <div class="tec"><img src="{{ curso.get_image_url }}" alt="{{ curso.titulo }}" width="45" />
-        </div></a>
-    </div>
-    {% endfor %}
-    {% endif %}
   </section>
 </section>
 
