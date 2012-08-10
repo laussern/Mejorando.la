@@ -287,11 +287,17 @@ def usuarios_chat(solicitud):
     return render_to_response('website/usuarios_chat.html', { 'usuarios': simplejson.dumps(users) })
 
 
-def conferencia(solicitud):
+def conferencia(solicitud, template):
+    if template:
+        try:
+            return render_to_response('%s.html' % template)
+        except TemplateDoesNotExist:
+            return render_to_response('default.html')        
+
     try:
-        return render_to_response('website/conferencia/%s.html' % slugify(get_pais(solicitud.META)))
+        return render_to_response('%s.html' % slugify(get_pais(solicitud.META)))
     except TemplateDoesNotExist:
-        return render_to_response('website/conferencia/default.html')
+        return render_to_response('default.html')
 
 @require_POST
 def conferencia_registro(solicitud):
