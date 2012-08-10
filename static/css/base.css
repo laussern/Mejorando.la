@@ -129,7 +129,7 @@ strong{font-weight:bold}
 a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;height:64px;padding:0;position:absolute;right:0;top:42px;width:736px;color:#fff;font-size:20px;line-height:20px;text-transform:uppercase;text-align:left;font-family:Arial;}
 a.banner-link > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
 a.banner-link .titulo{width:290px;margin-top:13px;margin-left:60px;text-align:left}
-a.banner-link .fecha{position:relative;left:80px;font-size:30px;width:229px;color:#313f4a;}
+a.banner-link .fecha{position:relative;left:70px;font-size:30px;width:229px;color:#313f4a;}
 a.banner-link .fecha .dia{float:left;font-size:37px;letter-spacing:-2px;margin-right:3px;margin-top:24px}
 a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:3px}
 a.banner-link .fecha .mess{display:block;font-size:12px}
