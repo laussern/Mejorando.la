@@ -56,7 +56,7 @@ header .stream h2{font-size:22px}
 header .stream strong{font-family:Arial;color:#fff;display:block;font-size:40px;line-height:30px;text-transform:uppercase}
 #cinta{background:url("../images/conferencia/guatemala/cinta.jpg") no-repeat left top;width:580px;height:1012px;position:absolute;z-index:-1;left:-299px}
 #horario{background:#688b00;border-top:3px solid #fbce17;border-bottom:3px solid #fbce17;padding:10px 0;}
-#horario table{width:1000px;margin:0 auto;background:#547001;color:#fff;padding:20px;font-size:14px;-o-border-radius:10px;-ms-border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;border-collapse:collapse}
+#horario table{width:1000px;margin:10px auto;background:#2c3a02;color:#fff;padding:20px;font-size:14px;-o-border-radius:10px;-ms-border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;border-collapse:collapse;overflow:hidden}
 #horario tr{border-bottom:1px solid #8ba737}
 #horario td{padding:3px 5px}
 #horario .hora{letter-spacing:2px;font-family:Arial}
