@@ -61,7 +61,7 @@ header .stream strong{font-family:Arial;color:#fff;display:block;font-size:40px;
 #horario td{padding:3px 5px}
 #horario .hora{letter-spacing:2px;font-family:Arial}
 #horario .heroe{font-weight:bold;font-size:15px}
-#horario .th{font-weight:bold;font-size:16px;text-transform:uppercase;font-family:Arial}
+#horario .th{font-weight:bold;background:#547001;font-size:16px;text-transform:uppercase;font-family:Arial}
 #nosotros{float:right;max-width:760px;width:100%;position:relative;z-index:2;}
 #nosotros a{margin-bottom:10px;display:block}
 #nosotros div{float:left;width:50%;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:14px;}
