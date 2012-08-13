@@ -7,13 +7,13 @@
   <article id="ultimo">
     <div class="tela"></div>
     
-    <img src="{{ ultimo_video.get_home_image_url }}" alt="{{ ultimo_video.titulo }}" width="999" height="442" class="absolute"/>
+    <img src="{{ STATIC_PREFIX }}images/conferencia.jpg" alt="La mejor conferencia de tecnología y web, registrate" width="999" height="442" class="absolute"/>
     
     <div class="datos">
-      <p class="horario"><span class="block">todos los jueves - <strong>en vivo </strong></span>{% if pais %}<span class="big">{{ pais }} /</span>{% endif %}<strong id="hora" class="big"> 4:00PM GMT-5</strong>
-      </p><a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="titulo">
-        <h2 class="titulo">{{ ultimo_video.titulo }}</h2></a><span class="fecha">{{ ultimo_video.fecha|date:"F • j" }}</span>
-        <a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="boton">&#62; ver capitulo &#60;</a>
+      <p class="horario"><span class="block">La mejor conferencia de tecnología y web, registrate</span>{% if pais == 'Guatemala' %}<strong class="big">Guatemala</strong>{% else %}<strong class="big">Online</strong>{% endif %}
+      </p><a href="http://mejorando.la/conferencia/" class="titulo">
+        <h2 class="titulo">Mejorando.la Conferencia Centroamérica</h2></a><span class="fecha">Agosto • 25</span>
+        <a href="http://mejorando.la/conferencia/" class="boton">&#62; Registrate &#60;</a>
     </div>
   </article>
   <aside id="social">
