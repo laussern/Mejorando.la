@@ -319,6 +319,12 @@ def conferencia_registro(solicitud):
 
     return HttpResponse('OK')
 
+@login_required
+def conferencia_registros(solicitud):
+
+    return HttpResponse(RegistroConferencia.objects.distinct('pais'))
+
+
 def track(solicitud, registro_id):
     registro = get_object_or_404(RegistroCurso, id=registro_id)
 
