@@ -125,7 +125,7 @@ class RegistroCurso(models.Model):
 
 class RegistroConferencia(models.Model):
     nombre    = models.CharField(max_length=500)
-    email     = models.EmailField()
+    email     = models.EmailField(unique=True)
     pais      = models.CharField(max_length=100)
     fecha     = models.DateField(auto_now_add=True)
 

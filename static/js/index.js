@@ -1,4 +1,5 @@
 jQuery(function ($) {
+	// contador
 	var _hora, hora = $("#hora"),
 		proximo = $("#proximo"),
 		timestamp = parseInt(proximo.attr('data-timestamp'));
