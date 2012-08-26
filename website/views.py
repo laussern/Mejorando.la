@@ -40,7 +40,7 @@ def home(solicitud):
     except Video.DoesNotExist:
         ultimo_video = None
 
-    ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[:4]
+    ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[1:5]
     # plantilla
     return render_to_response('website/home.html', {
         'ultimo_video': ultimo_video,  # El ultimo video
