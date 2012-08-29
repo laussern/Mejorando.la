@@ -40,7 +40,7 @@ def home(solicitud):
     except Video.DoesNotExist:
         ultimo_video = None
 
-    ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[:4]
+    ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[1:5]
     # plantilla
     return render_to_response('website/home.html', {
         'ultimo_video': ultimo_video,  # El ultimo video
@@ -309,8 +309,11 @@ def conferencia_registro(solicitud):
 
     if not solicitud.POST.get('nombre') or not solicitud.POST.get('email'): return HttpResponse()
 
-    registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
-    registro.save()
+    try:
+        registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
+        registro.save()
+    except:
+        return HttpResponse('FAIL')
 
     if solicitud.POST.get('extended') == 'viaje':
         send_mail(asunto, u'Nombre: %s\nApellidos: %s\nEmail: %s\nSexo: %s\nTipo de habitación: %s\nTeléfono: %s\nUsuario de Twitter: %s\nComentario: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('apellidos'), solicitud.POST.get('email'), solicitud.POST.get('sexo'), solicitud.POST.get('tipo'), solicitud.POST.get('telefono'), solicitud.POST.get('twitter'), solicitud.POST.get('comentario')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
