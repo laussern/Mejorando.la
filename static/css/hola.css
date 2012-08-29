@@ -34,8 +34,8 @@ footer .centro h4{text-transform:uppercase;font-weight:normal;letter-spacing:5px
 #formulario input[type="text"]{position:absolute;right:0;top:0}
 #formulario input[type="text"],#formulario input[type="email"]{border:3px solid rgba(6,112,221,0.50);padding:10px 5px;-o-border-radius:3px;-ms-border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;font-size:16px;width:100%;max-width:740px;display:inline-block;zoom:1;*display:inline;outline:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
 #formulario input[type="text"]:focus,#formulario input[type="email"]:focus{border-color:#fe9c13}
-#formulario input[type="submit"]{background:#fe9c13;border:3px solid #fff;-o-border-radius:2px;-ms-border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;color:#fff;cursor:pointer;display:inline-block;zoom:1;*display:inline;font-size:17px;font-weight:bold;margin:0 auto;padding:12px 40px;position:relative;text-transform:uppercase;top:-30px}
-#formulario #inputs{position:relative;max-width:740px;text-align:left;margin:0 auto;margin-top:-20px}
+#formulario input[type="submit"]{background:#fe9c13;border:3px solid #fff;-o-border-radius:2px;-ms-border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;color:#fff;cursor:pointer;display:inline-block;zoom:1;*display:inline;font-size:17px;font-weight:bold;margin:0 auto;padding:12px 40px;position:relative;text-transform:uppercase;margin-top:-30px;margin-bottom:5px}
+#formulario #inputs{position:relative;max-width:740px;text-align:left;margin:5px auto 0}
 @media screen and (max-width:740px){footer .centro span{margin:0 10px}
 #cuerpo #azul{background:#fff}
 #cuerpo #items .item{width:100%;}
