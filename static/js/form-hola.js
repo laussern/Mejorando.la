@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
 	function enviando()
 	{
+		$("#formulario  #confirmacion").hide()
 		$("#formulario #inscripcion").text("Inscribiendote...").fadeOut().fadeIn();
 	}
 
