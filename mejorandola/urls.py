@@ -37,6 +37,7 @@ urlpatterns = patterns('',
     url(r'^conferencia/(?P<template>.*?)/?$', 'website.views.conferencia'),
 
     url(r'^conferencia_registro/?$', 'website.views.conferencia_registro'),
+    url(r'^conferencia_registro2/?$', 'website.views.conferencia_registro2'),
 
     url(r'^track/(?P<registro_id>\d+?)$', 'website.views.track'),
 )
