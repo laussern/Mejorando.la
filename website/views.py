@@ -320,27 +320,6 @@ def conferencia_registro(solicitud):
     else:    
         send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
 
-
-     # por si el usuario esta detras de un proxy
-    if solicitud.META.get('HTTP_X_FORWARDED_FOR'):
-        ip = solicitud.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
-    else:
-        ip = solicitud.META['REMOTE_ADDR']
-
-    payload = {
-        'email_address': solicitud.POST.get('email'),
-        'apikey': settings.MAILCHIMP_APIKEY,
-        'merge_vars': {
-            'FNAME': solicitud.POST.get('nombre'),
-            'OPTINIP': ip,
-            'OPTIN_TIME': time.time()
-        },
-        'id': settings.MAILCHIMP_LISTID2,
-        'email_type': 'html'
-    }
-
-    r = requests.post('http://us2.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
-
     return HttpResponse('OK')
 
 @require_POST
@@ -364,6 +343,26 @@ def conferencia_registro2(solicitud):
     else:    
         send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
 
+    # por si el usuario esta detras de un proxy
+    if solicitud.META.get('HTTP_X_FORWARDED_FOR'):
+        ip = solicitud.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
+    else:
+        ip = solicitud.META['REMOTE_ADDR']
+
+    payload = {
+        'email_address': solicitud.POST.get('email'),
+        'apikey': settings.MAILCHIMP_APIKEY,
+        'merge_vars': {
+            'FNAME': solicitud.POST.get('nombre'),
+            'OPTINIP': ip,
+            'OPTIN_TIME': time.time()
+        },
+        'id': settings.MAILCHIMP_LISTID2,
+        'email_type': 'html'
+    }
+
+    r = requests.post('http://us2.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
+    
     return HttpResponse('OK')
 
 def track(solicitud, registro_id):
