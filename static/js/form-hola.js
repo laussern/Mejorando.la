@@ -12,7 +12,7 @@
 		if(datos.error)
 		{
 			//$("#formulario #inscripcion").text("Seguro ya estabas inscrito").fadeOut().fadeIn();
-			$("#formulario  #confirmacion").text("Verifica que todos los datos estén bien escritos").slideDown();
+			$("#formulario  #inscripcion").text("Ya estabas registrado").fadeOut().fadeIn();
 			$("#formulario  #email").focus();
 		} else {
 			$("#formulario #inscripcion").text("¡Ya estás inscrito!").fadeOut().fadeIn();
