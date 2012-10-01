@@ -72,7 +72,7 @@
 	{% endfor %}
   </section>
 
-  {% if cursos|length == 0 %}  
+  {% if cursos|length > 0 %}  
   <section id="cursos">
     <h3><a href="{% url website.views.cursos %}">Cursos</a></h3>
 
