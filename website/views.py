@@ -255,7 +255,8 @@ def hola(solicitud):
             'merge_vars': {
                 'FNAME': nombre,
                 'OPTINIP': ip,
-                'OPTIN_TIME': time.time()
+                'OPTIN_TIME': time.time(),
+                'PAIS': pais
             },
             'id': settings.MAILCHIMP_LISTID,
             'email_type': 'html'
