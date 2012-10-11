@@ -350,13 +350,16 @@ def conferencia_registro2(solicitud):
     else:
         ip = solicitud.META['REMOTE_ADDR']
 
+    pais   = get_pais(solicitud.META)
+    
     payload = {
         'email_address': solicitud.POST.get('email'),
         'apikey': settings.MAILCHIMP_APIKEY,
         'merge_vars': {
             'FNAME': solicitud.POST.get('nombre'),
             'OPTINIP': ip,
-            'OPTIN_TIME': time.time()
+            'OPTIN_TIME': time.time(),
+            'PAIS': pais
         },
         'id': settings.MAILCHIMP_LISTID2,
         'email_type': 'html'
