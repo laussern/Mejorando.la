@@ -29,7 +29,7 @@
 
 
 	$(window).on('load', function(){
-		$('#col2').html('<div class="chat"><iframe src="http://chat.mejorando.la" width="100%" height="75%" frameborder="0"></iframe></div>');
+		$('#col2').html('<div class="chat"><iframe src="http://chat.mejorando.la:3000" width="100%" height="75%" frameborder="0"></iframe></div>');
 	});
 
 
