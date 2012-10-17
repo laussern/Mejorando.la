@@ -51,7 +51,7 @@ jQuery(function ($) {
 						':) Felicidades'],
 			tmpl_cont = ['<h1><strong>Paso 1 / <span>3</span></strong>Modo de Pago</h1><div class="pago-methods"><a class="pago-method tarjeta active">Tarjeta de Credito</a><a class="pago-method deposito">Deposito Bancario</a></div><div class="pago-btns"><button class="cancel">cancelar</button><button class="next">siguiente</button></div>', 
 						 '<h1><strong>Paso 2 / <span>3</span></strong>Numero de Reservas</h1><div class="pago-count"><span class="pago-num">'+quantity+'</span><a class="pago-menos">-</a><a class="pago-mas">+</a></div><div class="pago-btns"><button class="cancel">cancelar</button><button class="next">siguiente</button></div>', 
-						 '<h1><strong>Paso 3 / <span>3</span></strong>Datos Personales</h1><form class="buy-form" method="post"><input name="nombre" type="text" placeholder="Nombre" class="nombre" /><input name="email" type="text" placeholder="Email" class="email" /><input name="telefono" type="text" placeholder="Teléfono" class="tel" /></form><div class="pago-btns"><button class="cancel">cancelar</button><button class="next">Comprar</button></div>', 
+						 '<h1><strong>Paso 3 / <span>3</span></strong>Datos Personales</h1><form class="buy-form" method="post"><input name="nombre" type="text" placeholder="Nombre" class="nombre" /><input name="email" type="text" placeholder="Email" class="email" /><input name="telefono" type="text" placeholder="Teléfono" class="tel" /><input type="text" placeholder="Número de tarjeta" class="card-number numero" /><input type="text" size="4" placeholder="CVC" class="card-cvc" /><input type="text" placeholder="Expiración (MM/YYYY)" class="card-expiry" /></form><div class="pago-btns"><button class="cancel">cancelar</button><button class="next">Comprar</button></div>', 
 						 '<p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div>'], default_btn = default_cont = '';
 
 
@@ -107,24 +107,39 @@ jQuery(function ($) {
 
 				var $form = $('.buy-form');
 
-				$.post($form.attr('action'), $form.serialize(), 
-					function (r) {
-						step++;
+				var expiry = $form.find('.card-expiry').val().split('/');
+				Stripe.createToken({
+					number: $form.find('.card-number').val(),
+					cvc: $form.find('.card-cvc').val(),
+					exp_month: expiry[0],
+					exp_year: expiry[1]
+				}, function (status, response) {	
+					if(response.error) {
+						
+					} else {
+						$form.append('<input type="hidden" name="stripeToken" value="'+response.id+'" />')
+						$.post($form.attr('action'), $form.serialize(), 
+							function (r) {
+								return
+								step++;
 
-						// same here
-						$btn.fadeOut(time, function () {
-							$btn.html(format(tmpl_btn[step-1]));
-							$pago.removeClass('step'+(step-1));
-							$pago.addClass('step'+step);
+								// same here
+								$btn.fadeOut(time, function () {
+									$btn.html(format(tmpl_btn[step-1]));
+									$pago.removeClass('step'+(step-1));
+									$pago.addClass('step'+step);
 
-							$btn.fadeIn();
+									$btn.fadeIn();
+								});
+
+								$content.fadeOut(time, function () {
+									$content.html(format(tmpl_cont[step-1]));
+									$content.fadeIn();
+								});
 						});
 
-						$content.fadeOut(time, function () {
-							$content.html(format(tmpl_cont[step-1]));
-							$content.fadeIn();
-						});
-				});
+					}
+				})
 
 				return;
 			}
@@ -205,5 +220,9 @@ jQuery(function ($) {
 		$(this).html('<iframe width="660" height="370" src="http://www.youtube.com/embed/x4ZwpiKR7ew?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
 		return false;
 	});
+
+
+	// Stripe
+	Stripe.setPublishableKey('pk_test_4JlnsSvabjP6ynQdQM3WPZEy');
 
 });

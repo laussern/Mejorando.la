@@ -11,13 +11,13 @@ from django.utils import simplejson
 from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
 from akismet import Akismet
-import GeoIP
 import image
 from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia
 import datetime
 import time
 import requests
 import urllib
+from utils import get_pais
 
 
 # La vista del home muestra el ultimo video destacado
@@ -159,25 +159,6 @@ def regenerate(solicitud):
 
 def handler404(solicitud):
     return redirect('website.views.home')
-
-
-# devuelve el horario del programa
-# localizado por pais gracias a la
-# libreria GeoIP
-def get_pais(meta):
-    geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
-
-    # por si el usuario esta detras de un proxy
-    if 'HTTP_X_FORWARDED_FOR' in meta and meta['HTTP_X_FORWARDED_FOR']:
-        ip = meta['HTTP_X_FORWARDED_FOR'].split(',')[0]
-    else:
-        ip = meta['REMOTE_ADDR']
-
-    country = geo.country_name_by_addr(ip)
-    if country is None:
-        country = ''
-
-    return country
 
 
 from django.http import HttpResponse

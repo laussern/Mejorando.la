@@ -64,9 +64,14 @@ class CursoDocente(models.Model):
 
 		image.resize((67, 67), self.imagen)
 
-class CursoAlumno(models.Model):
+class CursoRegistro(models.Model):
 	nombre 	 = models.CharField(max_length=500)
 	email  	 = models.EmailField()
 	telefono = models.CharField(max_length=500)
+	pais     = models.CharField(max_length=100)
+	pagado   = models.BooleanField(default=False)
+
+	def __unicode__(self):
+		return self.nombre
 
 	
