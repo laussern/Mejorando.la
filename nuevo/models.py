@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.template.defaultfilters import slugify
 import image
 
 class Curso(models.Model):
@@ -20,7 +21,7 @@ class Curso(models.Model):
 		return '%s%s' % (settings.MEDIA_URL, self.imagen)
 
 	def get_pais_imagen(self):
-		return ''
+		return '%snuevo/images/pais/%s.jpg' % (settings.STATIC_URL, slugify(self.pais))
 
 	def dias(self):
 		return CursoDia.objects.filter(curso=self)

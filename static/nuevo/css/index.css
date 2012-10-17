@@ -399,24 +399,36 @@ header ul {
   top: 0;
   background: #fff;
 }
+.middle .direccion {
+  background: #eaedf2;
+  width: 333px;
+  height: 232px;
+  float: left;
+  font-size: 15px;
+}
+.middle .direccion address {
+  padding: 9px 25px;
+  font-style: normal;
+}
+.middle .direccion h2 {
+  font-size: 30px;
+}
 /* DOCENTES */
 .docentes {
   overflow: hidden;
-  background: #eaedf2;
-  padding: 43px 10px;
+  background: #eaedf2 url("../images/docentes.png") center top repeat-y;
+  padding: 0 10px;
+  border-top: 10px solid #eaedf2;
+  border-bottom: 10px solid #eaedf2;
   margin: 20px 0;
 }
 .docentes .docente {
   float: left;
-  width: 446px;
+  width: 445px;
   padding: 20px;
-  background: #fff;
 }
-.docentes .docente.uno {
-  margin-right: 3px;
-}
-.docentes .docente.dos {
-  margin-left: 4px;
+.docentes .docente.docente2 {
+  float: right;
 }
 .docentes .docente p {
   line-height: 16px;
@@ -542,14 +554,19 @@ footer ul {
     width: auto;
     float: none;
   }
+  .middle .direccion {
+    width: auto;
+    float: none;
+  }
+  .docentes {
+    background-image: none;
+  }
   .docentes .docente {
     width: auto;
+    background: #fff;
+    float: none;
   }
-  .docentes .docente.uno {
-    margin-right: 0;
-  }
-  .docentes .docente.dos {
-    margin-left: 0;
+  .docentes .docente.docente2 {
     margin-top: 10px;
   }
   .quieres h2 {

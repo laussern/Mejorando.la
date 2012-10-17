@@ -442,25 +442,36 @@ header
 			top 0
 			background white
 
+	.direccion
+		background #eaedf2
+		width 333px
+		height 232px
+		float left
+		font-size 15px
+
+		address
+			padding 9px 25px
+			font-style normal
+
+		h2 
+			font-size 30px
 
 /* DOCENTES */
 .docentes 
 	overflow hidden
-	background #eaedf2
-	padding 43px 10px
+	background #eaedf2 url(../images/docentes.png) center top repeat-y
+	padding 0 10px
+	border-top 10px solid #eaedf2
+	border-bottom 10px solid #eaedf2
 	margin 20px 0
 
 	.docente 
 		float left
-		width 446px
+		width 445px
 		padding 20px
-		background white
 
-		&.uno
-			margin-right 3px
-
-		&.dos 
-			margin-left 4px
+		&.docente2
+			float right
 
 		p 
 			line-height 16px
@@ -593,17 +604,22 @@ footer
 			width auto
 			float none
 
+		.direccion
+			width auto
+			float none
+
 	
 
-	.docentes .docente 
-		width auto
+	.docentes 
+		background-image none
 
-		&.uno
-			margin-right 0
+		.docente 
+			width auto
+			background white
+			float none
 
-		&.dos
-			margin-left 0
-			margin-top	10px
+			&.docente2
+				margin-top 10px
 	
 
 	.quieres 
