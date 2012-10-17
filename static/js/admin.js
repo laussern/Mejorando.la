@@ -1,6 +1,6 @@
 tinyMCE.init({
 	mode : "exact",
-	elements: "id_descripcion",
+	elements: "id_descripcion, id_temario, id_perfil, id_descripcion",
 	theme : "advanced",
 	theme_advanced_toolbar_location: "top",
 	theme_advanced_toolbar_align: "left",

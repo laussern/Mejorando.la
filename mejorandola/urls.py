@@ -40,6 +40,8 @@ urlpatterns = patterns('',
     url(r'^conferencia_registro2/?$', 'website.views.conferencia_registro2'),
 
     url(r'^track/(?P<registro_id>\d+?)$', 'website.views.track'),
+
+    url(r'^nuevo/', include('nuevo.urls')),
 )
 
 if settings.DEBUG:

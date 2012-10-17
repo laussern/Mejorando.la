@@ -1,0 +1,116 @@
+{% load static %} {% get_static_prefix as STATIC_PREFIX %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width = device-width , initial-scale=1 ,maximum-scale=1 " />
+	<title>{{ curso.nombre }} | Mejorando.la</title>
+
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/css/index.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+	<script>
+	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}'}
+	</script>
+	<script src="{{ STATIC_PREFIX }}nuevo/js/index.js"></script>
+</head>
+<body>
+
+	<header><div class="wrapper">
+		<h1><a href="{% url website.views.home %}"><img src="{{ STATIC_PREFIX }}nuevo/images/logo.gif" alt="Mejorando.la" /></a></h1>
+
+		<ul>
+			<li><a href="http://maestrosdelweb.com" target="_blank"><img src="{{ STATIC_PREFIX }}nuevo/images/maestros.gif" alt="maestrosdelweb.com" /></a></li>
+			<li><a href="http://cristalab.com" target="_blank"><img src="{{ STATIC_PREFIX }}nuevo/images/cristalab.gif" alt="cristalab.com" /></a></li>
+		</ul>
+	</div></header>
+
+
+	<div class="main"><div class="wrapper">
+		<div class="top">
+			<img src="{{ curso.get_imagen }}" width="666" height="430" alt="{{ curso.nombre }}" class="main-image" />
+
+			<div class="pago" id="pago">
+				<button class="pago-main"><span id="pago-btn"><strong>Paga {{ curso.moneda }}{{ curso.precio }}</strong>
+					y registrate
+				</span></button>
+
+				<div id="pago-content" class="pago-content">
+					<h1>{{ curso.nombre }}</h1>
+
+					<p>{{ curso.descripcion|safe }}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="middle">
+			<div class="tabs" id="tabs">
+			{% for dia in curso.dias %}
+			<a class="selector">
+				<h2><strong>Día {{ forloop.counter }}</strong>{{ dia.fecha|date:"l · d F" }}</h2>
+				<h3>{{ dia.tema }}</h3>
+			</a>
+
+			<div class="tab">
+				{{ dia.temario|safe }}
+			</div>
+			{% endfor %}
+
+			</div>
+			
+			<div class="direccion">
+				<a href="https://maps.google.com/maps?q=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&hl=es&ll=4.660555,-74.059321&spn=0.008373,0.009109&sll=4.660587,-74.05946&sspn=0.008373,0.009109&hq=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&radius=15000&t=m&z=17&iwloc=A" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?size=335x124&maptype=roadmap&markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C4.660523,-74.059473&zoom=17&sensor=false" /></a>
+
+				<address>
+				<h2><img src="{{ curso.get_pais_imagen }}" width="38" height="24" alt="{{ curso.pais }}" /> {{ curso.pais }}</h2>
+
+				<p>{{ curso.direccion }}</p>
+				</address>
+			</div>
+		</div>
+
+		<div class="docentes">
+			{% for docente in curso.docentes %}
+			<div class="docente">
+				<div class="pic">
+					<img src="{{ docente.get_imagen }}" alt="{{ docente.nombre }} @{{ docente.twitter }}" width="67" height="67" />
+					<h3>{{ docente.nombre }} <strong>@{{ docente.twitter}}</strong></h3>
+				</div>
+
+				{{ docente.perfil|safe }}
+
+			</div>
+			{% endfor %}
+
+		</div>
+
+		<div class="quieres">
+			<h2>¿Quieres ver cómo son los cursos de Mejorando.la?</h2>
+
+			<div class="video">
+				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
+			    	<img src="{{ STATIC_PREFIX }}nuevo/images/video.jpg" alt="¿Quieres ver cómo son los cursos de Mejorando.la?" />
+
+			    	<button></button>
+			    </a>
+			</div>
+
+			<h3>Nosotros te enseñamos a crear la web</h3>
+
+			<p>Organizamos y participamos en eventos, cursos y talleres de muchas ramas del diseño y desarrollo online.
+	En nuestros sitios se han gestado profesionales certificados de Adobe, líderes locales, empresarios, emprendedores, diseñadores premiados y grandes programadores.</p>
+	<p>Como los fundadores de las comunidades más importantes de desarrolladores y diseñadores de habla hispana nos juntamos para enseñar y compartir nuestro conocimiento.
+	Sabemos de Internet y es nuestra misión enseñar y compartir el conocimiento de la comunidad.</p>
+		</div>
+
+		<footer>
+			<ul>
+				<li><a href="http://maestrosdelweb.com" target="_blank"><img src="{{ STATIC_PREFIX }}nuevo/images/mdw.gif" alt="maestrosdelweb.com" /></a></li>
+				<li><a href="http://cristalab.com" target="_blank"><img src="{{ STATIC_PREFIX }}nuevo/images/clab.gif" alt="cristalab.com" /></a></li>
+			</ul>
+		</footer>
+	</div></div>
+
+</body>
+</html>
