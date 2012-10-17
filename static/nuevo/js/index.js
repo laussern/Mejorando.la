@@ -120,7 +120,6 @@ jQuery(function ($) {
 						$form.append('<input type="hidden" name="stripeToken" value="'+response.id+'" />')
 						$.post($form.attr('action'), $form.serialize(), 
 							function (r) {
-								return
 								step++;
 
 								// same here
