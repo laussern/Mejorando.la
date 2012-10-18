@@ -13,6 +13,7 @@ class Curso(models.Model):
 	imagen      = models.ImageField(upload_to='nuevo_curso')
 	moneda      = models.CharField(max_length=10)
 	descripcion = models.TextField()
+	info_pago   = models.TextField()
 
 	def __unicode__(self):
 		return self.nombre 

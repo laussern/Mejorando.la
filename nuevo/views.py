@@ -16,28 +16,43 @@ def curso(req, curso_slug):
 	curso = get_object_or_404(Curso, slug=curso_slug)
 
 	if req.method == 'POST':
-		
-		if req.POST.get('nombre') and req.POST.get('email') and req.POST.get('stripeToken'):
+	
+		if req.POST.get('nombre') and req.POST.get('email') and req.POST.get('telefono'):
 			registro = CursoRegistro(nombre=req.POST.get('nombre'), email=req.POST.get('email'), telefono=req.POST.get('telefono'), pais=get_pais(req.META))
-
-			charge = stripe.Charge.create(
-				amount=curso.precio,
-				currency='usd',
-				card=req.POST.get('stripeToken'),
-				description=req.POST.get('email')
-			)
-
-			if charge.paid: registro.pagado = True
-
 			registro.save()
 
-			html_content = render_to_string('nuevo/email/curso_pago.html', { 'curso': curso })
-			mail = EmailMultiAlternatives('Confirmacion de pago | %s' % curso.nombre,
-			strip_tags(html_content), 'Cursos Mejorando.la <adan@mejorando.la>', [req.POST.get('email')])
+			if req.POST.get('method') == 'tarjeta':
+				if not req.POST.get('stripeToken'): return HttpResponse('ERR')
 
-			mail.attach_alternative(html_content, 'text/html')
-			mail.send()
+				charge = stripe.Charge.create(
+					amount=curso.precio,
+					currency='usd',
+					card=req.POST.get('stripeToken'),
+					description=req.POST.get('email')
+				)
 
-		return HttpResponse('OK')
+				if charge.paid: 
+					registro.pagado = True
+					registro.save()
+
+					html_content = render_to_string('nuevo/email/curso_pago.html', { 'curso': curso })
+					mail = EmailMultiAlternatives('Confirmacion de pago | %s' % curso.nombre,
+						strip_tags(html_content), 'Cursos Mejorando.la <ventas@mejorando.la>', [req.POST.get('email')])
+
+					mail.attach_alternative(html_content, 'text/html')
+					mail.send()
+				else: return HttpResponse('ERR')
+
+			elif req.POST.get('method') == 'deposito':
+
+				html_content = render_to_string('nuevo/email/curso_info.html', { 'curso': curso })
+				mail = EmailMultiAlternatives('Informacion para pago | %s' % curso.nombre,
+					strip_tags(html_content), 'Cursos Mejorando.la <ventas@mejorando.la>', [req.POST.get('email')])
+
+				mail.attach_alternative(html_content, 'text/html')
+				mail.send()
+
+
+			return HttpResponse('OK')
 	
 	return render_to_response('nuevo/curso.html', { 'curso': curso })
