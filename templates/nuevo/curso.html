@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width = device-width , initial-scale=1 ,maximum-scale=1 " />
 	<title>{{ curso.nombre }} | Mejorando.la</title>
 
+	<link rel="shortcut icon" href="{{ STATIC_PREFIX }}images/favicon.ico" />
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/css/index.css" />
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -38,9 +39,61 @@
 				</span></button>
 
 				<div id="pago-content" class="pago-content">
-					<h1>{{ curso.nombre }}</h1>
+					<div class="screen active">
+						<h1>{{ curso.nombre }}</h1>
+						<p>{{ curso.descripcion|safe }}</p>
+					</div>
 
-					<p>{{ curso.descripcion|safe }}</p>
+					<div class="screen step">
+						<h1><strong>Paso 1 / <span>3</span></strong>Modo de Pago</h1>
+						<div class="pago-methods">
+							<a class="pago-method tarjeta active">Tarjeta de Credito</a>
+							<a class="pago-method deposito">Deposito Bancario</a>
+						</div>
+						<div class="pago-btns">
+							<button class="cancel">cancelar</button>
+							<button class="next">siguiente</button>
+						</div>
+					</div>
+
+					<div class="screen step">
+						<h1><strong>Paso 2 / <span>3</span></strong>Numero de Reservas</h1>
+						<div class="pago-count">
+							<span class="pago-num">1</span>
+							<a class="pago-menos">-</a>
+							<a class="pago-mas">+</a>
+						</div>
+						<div class="pago-btns">
+							<button class="cancel">cancelar</button>
+							<button class="next">siguiente</button>
+						</div>
+					</div>
+
+					<div class="screen step">
+						<h1><strong>Paso 3 / <span>3</span></strong>Datos Personales</h1>
+						<form class="buy-form" method="post" id="buy-form">
+							<input type="hidden" name="quantity" value="1" />
+							<input type="hidden" name="method" value="tarjeta" />
+							<input type="hidden" name="stripeToken" />
+							
+							<input type="text" placeholder="Nombre" class="nombre" name="nombre" />
+							<input type="text" placeholder="Email" class="email"   name="email" />
+							<input type="text" placeholder="Teléfono" class="tel"  name="telefono" />
+							<div class="method-card">
+							<input type="text" placeholder="Número de tarjeta" class="card-number numero" />
+							<input type="text" size="4" placeholder="CVC" class="card-cvc input-medium" />
+							<input type="text" placeholder="MM" class="card-expiry-month input-small" /> / 
+							<input type="text" placeholder="YYYY" class="card-expiry-year input-small" />
+							</div>
+
+							<p class="notice"></p>
+
+							<div class="pago-btns">
+								<button type="button" class="cancel">cancelar</button>
+								<button type="submit">Comprar</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
