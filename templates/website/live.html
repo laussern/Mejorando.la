@@ -1,38 +1,113 @@
-{% extends "website/base.html" %}
+<!DOCTYPE html>
+<html lang="es_ES">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mejorando.la Conferencia Guatemala en Vivo</title>   
+    <link rel="shortcut icon" href="/static/images/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+    <meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1" />
+    <meta property="fb:page_id" content="198868566791554" />
+    <meta property="og:title" content="Mejorando.la" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mejorando.la/"/>
+    <meta property="og:image" content="http://mejorando.la/images/isotipo.png" />
+    <meta property="og:site_name" content="mejorando.la" />
+    <meta property="fb:admins" content="1030603473" />
+    <link href="/static/css/live.css" rel="stylesheet" />
+    <link href="/static2/css/live-conferencia-guatemala.css?v=2" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/jquery.scountdown.min.js"></script>
+    <script src="/static/js/index.js?f=27032012"></script>
+    <script src="/static/js/css_browser_selector.js"></script>
+    <script src="/static/js/jquery.form.js"></script>
+    <script src="/static/js/jquery.debouncedresize.js"></script>
+    <script src="/static/js/live.js"></script>
 
-{% block title %}Mejorando la Web en vivo{% endblock %}
 
-{% block head %}
-<link href="{{ STATIC_PREFIX }}css/live.css" rel="stylesheet" />
-<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
-<script src="{{ STATIC_PREFIX }}js/jquery.debouncedresize.js"></script>
-<script src="{{ STATIC_PREFIX }}js/live.js"></script>
-{% endblock %}
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
+    <script src="/static/js/selectivizr-min.js"></script>
+    <script src="/static/js/respond.min.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="[fallback css]">
+    </noscript><![endif]-->
 
-{% block body %}
+    <script>
+     var analyticsFileTypes = [''];
+     var analyticsEventTracking = 'enabled';
+    </script>
+    <script>
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-76863-8']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      
+      <header>
+          <div class="mejor"> 
+              <h1><a href="/" title="mejorando.la"><img class="logo-chico" src="/static/images/logos/mejorandola.png" alt="mejorando.la"><img class="logo-grande" src="/static/images/logos/mejorandola-grande.png" alt="mejorando.la"></a>
+
+              </h1>
+              <a id="maestros" href="http://maestrosdelweb.com" target="_blank" title="maestros del web"><img src="/static/images/logos/maestros.png" alt="maestros del web"></a><a id="cristalab" href="http://cristalab.com" target="_blank" title="cristalab"><img src="/static/images/logos/cristalab.png" alt="cristalab"></a>
+          </div>
+     
+            <nav class="menu">
+                
+
+                <ul>
+                  <li><a href="/cursos" title="cursos">Cursos</a></li>
+                  <li><a href="http://mejorando.la/cursos/exalumnos/" title="ex alumnos">Ex alumnos</a></li>
+                  <li><a href="http://mejorando.la/conferencias" title="conferencias">conferencias</a></li>
+                  <li><a href="/videos" title="videos">Videos</a></li>
+                </ul>
+            </nav>
+          
+      </header>
+      
+      
 <section id="contenido">
   <div class="wrap">
+    
     <section id="col1">
+     <!--  <div id="proximo" style="text-align:center">
+        <h3 class="centro">¡Hola, Mejorando.la Conferencia est&aacute; de vuelta!</h3>
+      </div> -->
       <div  id="contvideo">
         <div class="videolive">
           <img class="video" src="/static/images/live/video.png" />
-          <div id="playerMediastream">
+           <div id="playerMediastream">
             <script src="http://embed.mediastre.am/e.js"></script><script>config={"mlw":[{stream:"livestream",size:"640x?",aspect:"16:9",autoplay:true,zones:["us"]},{stream:"livestream2",size:"640x?",aspect:"16:9",autoplay:true,zones:["us"]}]};e = new MEmbed(config);</script>
           </div>
+          <!-- <iframe width="560" height="315" src="http://www.youtube.com/embed/9RV5T-sLRdc?rel=0" frameborder="0" allowfullscreen></iframe> -->
         </div>
       </div>
       <div id="fila2">
         <div id="mail">
           <form action="http://mejorando.la/mailchimp.php" method="POST" id="formulario" >
-            <label class="tit">¡Enterate de nuestros eventos! <p id="confirmacion" style="display:none"><strong>¡Revisa tu mail!</strong></p></label>
+            <!-- <label class="tit">¡Enterate de nuestros eventos! <p id="confirmacion" style="display:none"><strong>¡Revisa tu mail!</strong></p></label>
             <p id="name-container"><label class="txt" for="nombre">nombre</label><span><input type="text" id="nombre" name="nombre" class="text-field"  required  /></span></p>
             <p id="email-container"><label class="txt" for="email">mail</label><span><input type="email" id="email" name="email" class="text-field" required  /></span></p>
-            <input type="submit" value="suscribirme" id="inscribete-btn" />
+            <input type="submit" value="suscribirme" id="inscribete-btn" /> -->
+            <label class="tithasg">Hashtag oficial</label>
+            <label class="hash"><a href="http://twitter.com/search/?q=%23mejorandobcn" target="_blank">#mejorandobcn</a></label>
+            <a class="button" href="http://mejorando.la/hola" target="_blank">Suscribeme</a>
+            <!-- <a class="button" href="http://mejorando.la/conferencia/agenda" target="_blank">Agenda</a> -->
           </form>
 
         </div>
         <aside id="social">
-          <div class="btn_youtube" data-id="mejorandolaweb" style="position:relative;"><a href="http://www.youtube.com/subscription_center?add_user=mejorandolaweb&amp;feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png"><span class="count" style="font-weight:bold; position:absolute; left:20px; top:18px; color:#333;"></span><img src="{{ STATIC_PREFIX }}images/home/boton-youtube.png" alt="Subscribe to me on YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png" style="display:none"/>
+          <div class="btn_youtube" data-id="mejorandolaweb" style="position:relative;"><a target="_blank" href="http://www.youtube.com/subscription_center?add_user=mejorandolaweb&amp;feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png"><span class="count" style="font-weight:bold; position:absolute; left:20px; top:18px; color:#333;"></span><img src="/static/images/home/boton-youtube.png" alt="Subscribe to me on YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png" style="display:none"/>
 
           </div>
           <div class="btn_twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-text="Yo también sintonizo #mejorandola" data-url="http://mejorando.la/" data-count="vertical" data-related="mejorandolaweb">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -44,10 +119,23 @@
           <div class="btn_googlemas"><g:plusone size="tall" href="http://mejorando.la/"></g:plusone>
 
           </div>
+          <span class="click">click, click, click a estos botoncitos :)</span>
         </aside>
       </div>
     </section>
     <section id="col2"></section>
   </div>
 </section>
-{% endblock %}
+
+
+    </div>
+    <footer>
+      <div class="izquierda">
+        <div class="text"><span>transmisión en vivo</span><span>cada jueves</span>
+        </div>
+      </div>
+      <div class="derecha"><span>con</span><a href="http://twitter.com/freddier" title="@freddier" target="_blank">@freddier</a><span>+</span><a href="http://twitter.com/cvander" title="@cvander" target="_blank">@cvander</a>
+      </div>
+    </footer>
+  </body>
+</html>
