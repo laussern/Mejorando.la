@@ -5,7 +5,6 @@ from feeds import VideoFeed
 
 admin.autodiscover()
 
-handler404 = 'website.views.handler404'
 
 urlpatterns = patterns('',
 	url(r'^$', 		   'website.views.home'), # home
