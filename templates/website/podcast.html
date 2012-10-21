@@ -30,7 +30,7 @@
 
 			<h2>{{ podcast.titulo }}</h2>
 
-			{{ podcast.descripcion|safe }}
+			<p>{{ podcast.descripcion|striptags|safe|truncatechars:120 }}</p>
 
 			<div class="podcast-btns">
 				<a href="{{ podcast.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
