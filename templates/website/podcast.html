@@ -30,11 +30,11 @@
 
 			<h2>{{ podcast.titulo }}</h2>
 
-			<p>{{ podcast.descripcion|striptags|safe|truncatechars:120 }}</p>
+			<p>{{ podcast.descripcion|striptags|safe|truncatechars:240 }}</p>
 
 			<div class="podcast-btns">
 				<a href="{{ podcast.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
-				<a href="{{ podcast.audio }}" class="podcast-btn">Descargar</a>
+				<a href="{{ podcast.audio }}" class="podcast-btn" target="_blank">Descargar</a>
 			</div>
 		</div>
 		{% endfor %}
