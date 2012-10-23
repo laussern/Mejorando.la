@@ -49,9 +49,11 @@ body
 	font-family: 'open sans', Arial,Sans-serif
 	font-size 16px
 footer
+	background white
 	color #3d4043 
 	padding-top 75px
 	text-transform uppercase
+	overflow hidden
 	a
 		color #3d4043
 		text-transform lowercase
@@ -217,7 +219,7 @@ strong
 		font-weight normal
 		text-align center
 		letter-spacing 2px
-#cuerpo,hgroup,footer
+#cuerpo
 	background white
 	margin 0 auto
 	width 1000px
@@ -602,14 +604,6 @@ a.banner-link
 		.derecha span:nth-child(1) 
 			display none
 
-
-	#cuerpo
-	hgroup
-	footer 
-		max-width 1000px
-		min-width 800px
-		width auto
-
 	#anteriores
 		.capitulo 
 			border-left 1px solid white
@@ -652,7 +646,8 @@ a.banner-link
 			position  absolute
 			right 20px
 			width 100%
-
+	#cuerpo 
+		width auto
 	#cursos 
 		.curso 
 			.left 
@@ -729,12 +724,9 @@ a.banner-link
 		font-weight normal
 		letter-spacing 2px
 	
-	#cuerpo,
-	hgroup,
-	footer 
-		max-width:800px
-		min-width:320px
-		width: auto
+	#cuerpo
+		min-width 320px
+	
 	
 	#anteriores
 		.tit
