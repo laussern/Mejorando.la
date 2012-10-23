@@ -132,42 +132,48 @@ strong
 
 #anteriores
 	background white
+	font-size 0
+	margin-top 35px
 	min-width 100%
 	overflow hidden
 	position relative
+	text-align center
 	text-align center
 	text-transform uppercase
 	.todos
 		background  url("../images/home/playall_largo.png") no-repeat left top
 		color #3f4044
+		height 33px
+		line-height 33px
+		padding 0 20px 0 30px
 		position absolute
 		right 0
-		padding 7px 20px 7px 30px
 
 		a
 			color #3f4044
 			font-size 14px
 			font-weight bold
+	h3.tit 
+		font-size 33px
+		font-weight normal
+		letter-spacing 15px
+		margin 20px 0 15px 0
+		text-transform uppercase
 
-	h3
-		margin-left 80px
-		text-align left
-	.capitulo:nth-child(5)
-		margin-right 0
+	
 	.capitulo
-		border-right 1px solid white
-		display inline-block
-		height 157px
-		margin 0 21px 0 0
+		float left
+		padding-bottom 5px
+		position relative
 		vertical-align top
-		width 230px
-		zoom 1
+		width 25%
+
+	
+		a 
+			display block	
 		p
 			background rgba(0,0,0,.5)
 			display inline
-		.hora
-			opacity 0
-			-webkit-transition .3s
 		h2
 			background rgba(0,0,0,.5)
 			display inline
@@ -179,29 +185,38 @@ strong
 			font-weight bold
 			margin-bottom 12px
 		.imagen
-			position absolute
-			z-index 1
+			height 167px
 			img
 				width 230px
-				height 157px
+				height auto
+				box-shadow -5px 5px 0 #c8cacd
+			&:hover 
+				img 
+					box-shadow -5px 5px 0 #3d4043
+					transition .2s box-shadow
+			
 		.texto
 			line-height 20px
 			padding 15px 15px 0 15px
-			position relative
+			position absolute
 			text-align left
 			text-transform none
+			top 0
 			word-break break-word
 			z-index 2
-	.capitulo article:nth-child(1) 
-		border-left 2px solid #fff
-	.capitulo article:nth-child(4) 
-		border-right 2px solid #fff
-	.capitulo:hover .hora
-		opacity 1	
+			&:first-letter
+				text-transform uppercase
+	
 	.tit
 		font-size 23px
 
-
+#empresas
+	margin-top 65px
+	h3.tit
+		font-size 33px
+		font-weight normal
+		text-align center
+		letter-spacing 2px
 #cuerpo,hgroup,footer
 	background white
 	margin 0 auto
@@ -209,95 +224,105 @@ strong
 
 #cursos
 	background white
-	padding-top 65px
 	text-transform uppercase
 
-	h3
-		margin-left 80px
+	h3.tit
+		font-size 33px
+		margin 35px 0 20px
+		text-align center
+
 		a 
 			color #3D4043
-	a
-		color white
-	a:hover
-		text-decoration none
-	a:hover h5
-		text-decoration underline
-	.azulclaro
-		background azulclaro
-	.azuloscuro
-		background azuloscuro
-	.verdeclaro 
-		background verdeclaro
-	.verdeoscuro
-		background verdeoscuro
-	.pais
-		height 56px
-		margin-top 3px
+			font-weight normal
+			letter-spacing 2px
+	a 
+		color #808285
+	.curso
+		@extends .clearfix
 		position relative
-		div
-			*display inline
-			display inline-block
-			vertical-align top
-			zoom 1
-		.imagen
-			img 
-				height 56px
-		.fecha
-			margin-left 25px
-			h4
-				font-size 15px
-				font-weight bold
-				margin 7px 0 -7px 3px	
-			p
-				font-size 32px
-			strong
-				font-weight normal
-		.nombre
-			font-size 32px
-			padding-top 18px
-			text-align left
-			width 656px
-			margin-left 5px
-			position relative
-			a
-				position relative
-
-
-		.tec
-			background url("../images/home/fondo-logo-tec.png")
-			height 66px
+		display block
+		margin-bottom 5px
+		overflow hidden
+		&:hover 
+			.left 
+				img 
+					box-shadow -5px 5px 0 #3d4043
+					transition .2s box-shadow
+			.center 
+				h3
+					color #3d4043
+					transition .2s
+			.right 
+				border-color #3d4043
+				transition .2s
+				.mes
+					color #3d4043
+					transition .2s
+		.left 
+			padding-left 25px
 			position absolute
-			right 0
-			width 115px
-			
-			img
-				
-				margin-left 60px
-				margin-top -5px
-				vertical-align middle
+			left 0 
+			top 0 
+			img 
+				width 68px
+				height auto
+				box-shadow -5px 5px 0 #d2d3d5
+		.center
+			border 1px solid #919599
+			border-right none
+			padding-left 10px
+			margin-left 103px
+			margin-right 60px
+			max-width 822px
+			width 100%
+			height 50px
+			h3 
+				color #808285
+				font-size 25px
+				letter-spacing .5px
 
-		.tec:after
-			display block
-			clear both
+			.pais 
+				color #808285
+				font-size 10.5px
+		.right
+			background white
+			border 2px solid #919599
+			height 48px
+			padding 0 8px
+			position absolute
+			right 0 
+			text-align center
+			top 0
+			z-index 2
+			.mes 
+				font-size 23px
+			.dia 
+				font-size 10.5px
+
+	
 
 #proximo
 	background white
+	background url('../images/post/pattern_participantes_post.png')
 	color #3d4043
-	margin-bottom 20px
-	padding-top 25px
+	margin-bottom 45px
+	margin-top 50px
 	text-align center
 
 	h3
-		font-size 35px
+		font-size 33px
 		font-weight normal
 		letter-spacing 15px
-		margin 10px 0px 10px
+		margin 0 0 10px
 		text-transform uppercase
-
+	.content 
+		background white
+		display inline-block
+		padding 0 15px
 	.cuenta
 		display inline-block
 		*display inline
-		margin-right 40px
+		margin-right 50px
 		vertical-align top
 		zoom 1
 
@@ -305,17 +330,19 @@ strong
 			margin-right 0
 
 		.leyenda
-			font-size 12px
+			font-size 10px
 			margin-top 10px
 			text-transform uppercase
 
 		.digito
-			background #3d4043 url("../images/home/punto-blanco.gif") center repeat-x
-			color white
-			font-size 50px
+			background white
+			border 2px solid #b7bbbf
+			border-radius 3px
+			color #3d4043
+			font-size 54px
 			font-weight bold
 			font-size 57px
-			padding 10px 5px
+			padding 8px 5px
 
 #social
 	margin -50px auto 0 auto
@@ -364,13 +391,13 @@ strong
 		position relative
 		z-index 4
 		.titulo
-			-webkit-transition.3s
-			margin-right 20px
 			font-size 60px
 			font-weight normal
 			line-height 50px
+			margin-right 20px
 			margin-top 5px
 			max-width 90%
+			transition.3s text-shadow
 		.titulo:hover
 			text-shadow 0 0 20px rgba(255,255,255,.5)
 			text-decoration none
@@ -390,9 +417,9 @@ strong
 		font-weight bold
 		margin-top 10px
 		text-transform uppercase
-		transition .5s
-	.boton:hover
-		text-shadow 0 0 10px white
+		transition .3s text-shadow
+		&:hover
+			text-shadow 0 0 10px white
 	.fecha
 		font-size 15px
 		letter-spacing 10px
@@ -410,7 +437,7 @@ strong
 			letter-spacing 1px
 		
 .cinta
-	background url("../images/home/countdown_separador.jpg")
+	background url("../images/home/countdown_separador.jpg") repeat-y
 	background-size 100%
 	border-bottom 1px solid white
 	height 32px
@@ -436,6 +463,7 @@ strong
 			position relative
 			text-align center
 			text-transform uppercase 
+			transition .2s background
 			vertical-align top
 			z-index 5
 			&:hover 
@@ -551,7 +579,7 @@ a.banner-link
 	display block
 	z-index 2
 
-@media screen and (min-width:801px) and (max-width:1000px)
+@media screen and (max-width:1000px)
 	body
 		overflow-x hidden
 	footer
@@ -575,22 +603,26 @@ a.banner-link
 			display none
 
 
-	#cuerpo,
-	hgroup,
+	#cuerpo
+	hgroup
 	footer 
 		max-width 1000px
 		min-width 800px
 		width auto
 
 	#anteriores
-		height:190px
+		.capitulo 
+			border-left 1px solid white
+			box-sizing border-box
+			float left
+			width 25%
+			padding-bottom 0
+			.imagen
+				img 
+					box-shadow none !important
+			&:nth-of-type(1)
+				border none
 	
-	#cursos .pais .nombre 
-		width 60%
-		font-size 25px
-	
-	#cursos .pais .fecha p 
-		font-size 25px
 	
 	#social
 		position relative
@@ -621,8 +653,19 @@ a.banner-link
 			right 20px
 			width 100%
 
-
+	#cursos 
+		.curso 
+			.left 
+				padding 0
+			.center 
+				margin-left 67px
+				h3
+					font-size 16px
+					font-weight normal
 @media screen and (max-width:800px)
+	h3.tit 
+		letter-spacing 0 !important
+		font-size 20px !important
 	header
 		height 87px
 		#maestros
@@ -693,99 +736,21 @@ a.banner-link
 		min-width:320px
 		width: auto
 	
-	#anteriores 
-		height 148px
-
-
-		.capitulo 
-			border-right 1px solid #fff
-			height 115px
-			margin 0
-			width 156px
-
-			.imagen img 
-				width 156px
-				height 115px
-
-			.texto 
-				padding 10px
-
-			article:nth-child(1) 
-				border-left 0
-
-			article:nth-child(2) 
-				border-right 0
-
-		.tit 
-			font-size 20px
-			word-break break-all
+	#anteriores
+		.tit
+			font-size 18px
 	
 
-	#cursos 
-		padding-top 10px
-
-		h3 
-			margin-left 20px
-
-		.pais 
-			height 65px
-			padding-bottom 10px
-
-			.imagen
-				left 65%
-				position absolute
-				top 40%
-				z-index 2
-
-				img 
-					height 19px
-	
-	.pais.azuloscuro .fecha 
-		background #01729e url("../images/home/azul_oscuro.jpg") no-repeat left
-
-	.pais.azulclaro .fecha 
-		background #0062c5 url("../images/home/azul_claro.jpg") no-repeat left
-	
-	#cursos .pais .fecha 
-		height 50px
-		margin-left 0
-		padding 10px 2% 15px 0
-		position absolute
-		right 0
-		text-align right
-		width 35%
-		z-index 1
-
-		p 
-			font-size 15px
-			font-weight bold
-			margin-top 5px
-
-		strong 
-			display none
-
-	#cursos .pais .nombre 
-		font-size 20px
-		width 61%
-		margin-left 2%
-
-	#cursos .pais .nombre a 
-		position: relative
-
-	#cursos .pais .tec 
-		display: none
-	
  
 	#proximo 
-		padding-top: 1px
+
 
 		h3 
 			font-size 22px
 			letter-spacing 2px
 
 
-		.cuenta:nth-child(even) 
-			margin 0 30px
+		
 
 	#social
 		display none
@@ -813,9 +778,9 @@ a.banner-link
 		.tela
 			width 100%
 
-		.boton,
-		.fecha,
-		.horario,
+		.boton
+		.fecha
+		.horario
 		.titulo 
 			float none
 			margin-right auto
@@ -863,9 +828,28 @@ a.banner-link
 					line-height 44px
 	a.banner-link
 		display none
+@media screen and (max-width:600px)
+	#anteriores
+		height auto
+		.capitulo 
+			border none
+			width 50%
+			height auto
+			// &:hover 
+			// 	box-shadow none
+			.imagen
+				height auto
+				img 
+					width 100%
+	#proximo 
+		.cuenta
+			margin 0 !important
+			.digito
+				font-size 40px
 @media screen and (max-width:480px)
 	.menu 
-
 		ul  li a 
 			padding 0 5px	
 			font-size 12px
+
+

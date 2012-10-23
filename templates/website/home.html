@@ -33,32 +33,77 @@
   </aside>
 
   <div id="proximo" data-timestamp="{{ timestamp }}">
-    <div class="cinta"></div>
-    <h3 class="centro">próximo capítulo en</h3> 
-    <div class="cuenta">
-      <div class="dias digito"></div>
-      <div class="leyenda">días</div>
+    <div class="content">
+      <h3 class="centro">próximo <strong>capítulo</strong> en</h3> 
+      <div class="cuenta">
+        <div class="dias digito"></div>
+        <div class="leyenda">días</div>
+      </div>
+      <div class="cuenta">
+        <div class="horas digito"></div>
+        <div class="leyenda">horas</div>
+      </div>
+      <div class="cuenta">
+        <div class="minutos digito"></div>
+        <div class="leyenda">minutos</div>
+      </div>
+      <div class="cuenta">
+        <div class="segundos digito"></div>
+        <div class="leyenda">segundos</div>
+      </div>
     </div>
-    <div class="cuenta">
-      <div class="horas digito"></div>
-      <div class="leyenda">horas</div>
-    </div>
-    <div class="cuenta">
-      <div class="minutos digito"></div>
-      <div class="leyenda">minutos</div>
-    </div>
-    <div class="cuenta">
-      <div class="segundos digito"></div>
-      <div class="leyenda">segundos</div>
-    </div>
+    
   </div>
+  <div class="cinta"></div>
+  {% if cursos|length > 0 %}  
+  <section id="cursos">
+    <h3 class="tit"><a href="{% url website.views.cursos %}">Nuevos <strong>cursos</strong></a></h3>
 
+    {% for curso in cursos %}
+   <!--  <div class="pais azulclaro"><a href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
+        <div class="imagen"><img src="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" title="{{ curso.pais }}"/></div>
+        <div class="fecha">
+          <h4>{{ curso.pais }}</h4>
+          <p>{{ curso.fecha|date:"M.d" }}<strong>/</strong></p>
+        </div>
+        <div class="nombre">
+          <h5>{{ curso.titulo }}</h5>
+        </div>
+        <div class="tec"><img src="{{ curso.get_image_url }}" alt="{{ curso.titulo }}" width="45" />
+        </div></a>
+    </div> -->
+    <div>
+      <a class="curso" href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
+        <div class="left">
+          <img src="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" alt="{{ curso.pais }}" class="bandera">
+        </div>
+        <div class="center">
+          <span class="pais">
+            {{ curso.pais }}
+          </span>
+          <h3 class="nombre">
+            {{ curso.titulo }}
+          </h3>
+        </div>
+        <div class="right">
+          <h4 class="mes">
+            {{ curso.fecha|date:"M" }}
+          </h4>
+          <h4 class="dia">
+            {{ curso.fecha|date:"d" }}
+          </h4>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
   <section id="anteriores">
     <div class="cinta">
       <div class="todos"><a href="{% url website.views.videos %}" title="ver todos">archivo completo</a>
       </div>
     </div>
-
+    <h3 class="tit">Ultimos <strong>Programas</strong></h3>
     {% for video in videos %}
     <article class="capitulo"><a href="{{ video.get_absolute_url }}" title="{{ video.titulo }}">
         <div class="imagen">
@@ -72,27 +117,10 @@
     </article>
 	{% endfor %}
   </section>
-
-  {% if cursos|length > 0 %}  
-  <section id="cursos">
-    <h3><a href="{% url website.views.cursos %}">Cursos</a></h3>
-
-    {% for curso in cursos %}
-    <div class="pais azulclaro"><a href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
-        <div class="imagen"><img src="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" title="{{ curso.pais }}"/></div>
-        <div class="fecha">
-          <h4>{{ curso.pais }}</h4>
-          <p>{{ curso.fecha|date:"M.d" }}<strong>/</strong></p>
-        </div>
-        <div class="nombre">
-          <h5>{{ curso.titulo }}</h5>
-        </div>
-        <div class="tec"><img src="{{ curso.get_image_url }}" alt="{{ curso.titulo }}" width="45" />
-        </div></a>
-    </div>
-    {% endfor %}
+  <section id="empresas">
+    <h3 class="tit">Empresas que confían en nosotros</h3>
   </section>
-  {% endif %}
+  
 </section>
 
 {% endblock %}
