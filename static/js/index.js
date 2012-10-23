@@ -45,9 +45,14 @@ jQuery(function ($) {
 			});
 		}
 	})();
-
-	$("img").lazyload({
-              effect : "fadeIn",
+	var loadiamges = function(efecto){
+		$("img").lazyload({
+              effect : efecto,
             
           });
+	}
+	if ($(window).width() >= 1000)
+		loadiamges('fadeIn')
+	else
+		loadiamges('show')
 });
