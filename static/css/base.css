@@ -67,7 +67,7 @@ strong{font-weight:bold}
 #anteriores .tit{font-size:23px}
 #empresas{margin-top:65px;}
 #empresas h3.tit{font-size:33px;font-weight:normal;text-align:center;letter-spacing:2px}
-#cuerpo{background:#fff;margin:0 auto;width:1000px}
+#wrapper{background:#fff;margin:0 auto;max-width:1000px}
 #cursos{background:#fff;text-transform:uppercase;}
 #cursos h3.tit{font-size:33px;margin:35px 0 20px;text-align:center;}
 #cursos h3.tit a{color:#3d4043;font-weight:normal;letter-spacing:2px}
@@ -153,7 +153,7 @@ footer .derecha span:nth-child(1){display:none}
 #ultimo .tela{width:100%}
 #ultimo .boton{bottom:80px;position:absolute;right:20px;width:100%}
 #ultimo .fecha{bottom:60px;position:absolute;right:20px;width:100%}
-#cuerpo{width:auto}
+#wrapper{width:auto}
 #cursos .curso .left{padding:0}
 #cursos .curso .center{margin-left:67px;}
 #cursos .curso .center h3{font-size:16px;font-weight:normal}
