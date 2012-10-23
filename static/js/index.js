@@ -45,4 +45,9 @@ jQuery(function ($) {
 			});
 		}
 	})();
+
+	$("img").lazyload({
+              effect : "fadeIn",
+            
+          });
 });
