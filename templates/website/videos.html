@@ -22,7 +22,7 @@
 	        <div class="cintaver">
 	        </div><a href="{{ video.get_absolute_url }}" title="{{ video.titulo }}">
 	          
-	          <div class="imagen"><img data-original="{{ video.get_thumb_image_url }}" alt="{{ video.titulo }}"/></div>
+	          <div class="imagen"><img data-original="{{ video.get_thumb_image_url }}" src="{{ STATIC_PREFIX }}images/transparent.gif" alt="{{ video.titulo }}"/></div>
 	          <div class="texto">
 	            <div class="block">
 	              <h2 class="tit">{{ video.titulo|truncatechars:40 }}</h2>
