@@ -54,9 +54,10 @@
     </div>
     
   </div>
-  <div class="cinta"></div>
   {% if cursos|length > 0 %}  
   <section id="cursos">
+    <div class="cinta"></div>
+
     <h3 class="tit"><a href="{% url website.views.cursos %}">Nuevos <strong>cursos</strong></a></h3>
 
     {% for curso in cursos %}
