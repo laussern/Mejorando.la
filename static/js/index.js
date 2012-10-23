@@ -47,8 +47,8 @@ jQuery(function ($) {
 	})();
 	var loadiamges = function(efecto){
 		$("img").lazyload({
-              effect : efecto,
-            
+            	effect : efecto,
+            	threshold : 200
           });
 	}
 	if ($(window).width() >= 1000)
