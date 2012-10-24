@@ -70,7 +70,7 @@ strong{font-weight:bold}
 #empresas{margin-top:65px;text-align:center;}
 #empresas h3.tit{font-size:33px;font-weight:normal;letter-spacing:2px;margin-bottom:23px;text-align:center}
 #empresas .content{background:url("../images/sponsors/left.png") no-repeat left 5px,url("../images/sponsors/right.png") no-repeat right 5px}
-#empresas .cont{max-width:650px;margin:0 auto}
+#empresas .cont{max-width:700px;margin:0 auto}
 #empresas .sponsor{border:1px solid #ababab;display:inline-block;zoom:1;*display:inline;margin:5px;padding:5px;background:#fff;}
 #empresas .sponsor img{-webkit-filter:grayscale(1);-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);}
 #empresas .sponsor img:hover{-webkit-filter:grayscale(0);opacity:1;-ms-filter:none;filter:none}
@@ -154,6 +154,7 @@ footer .derecha span:nth-child(1){display:none}
 #anteriores .capitulo{border-left:1px solid #fff;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;width:25%;padding-bottom:0;}
 #anteriores .capitulo .imagen img{-o-box-shadow:none !important;-ms-box-shadow:none !important;-moz-box-shadow:none !important;-webkit-box-shadow:none !important;box-shadow:none !important;-webkit-background-clip:padding-box}
 #anteriores .capitulo:nth-of-type(1){border:none}
+#empresas .content{background:none}
 #social{position:relative;margin-left:auto}
 #ultimo{overflow:hidden;position:relative;}
 #ultimo .datos{position:relative;z-index:4;width:100%;height:500px}
@@ -185,7 +186,6 @@ footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
 footer .izquierda span:nth-child(2){font-size:15px;font-weight:normal}
 h3{font-size:30px;font-weight:normal;letter-spacing:2px}
 #cuerpo{min-width:320px}
-#empresas .content{background:none}
 #anteriores .tit{font-size:18px}
 #proximo h3{font-size:22px;letter-spacing:2px}
 #social{display:none}
