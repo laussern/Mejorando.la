@@ -41,6 +41,8 @@ urlpatterns = patterns('',
     url(r'^track/(?P<registro_id>\d+?)$', 'website.views.track'),
 
     url(r'^nuevo/', include('nuevo.urls')),
+
+    url(r'^podcast/?$', 'website.views.podcast'),
 )
 
 if settings.DEBUG:

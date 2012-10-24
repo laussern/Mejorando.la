@@ -1,0 +1,111 @@
+* {
+	margin: 0;
+	padding:0;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color:#747679;
+	font-size:16px;
+	
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: normal;
+}
+
+h1 {
+	font-size:72px;
+	text-transform: uppercase;
+	margin:25px 0;
+}
+
+h2 {
+	font-size:24px;
+	text-transform: uppercase;
+}
+
+header {
+	background:url( ../images/header_bg.gif) left top no-repeat;
+	padding:15px 30px;
+}
+
+#page {
+	background:url( ../images/page_bg.gif) 800px 50px no-repeat;
+	width:1000px;
+	margin:auto;
+	margin-bottom:30px;
+}
+
+a.suscribe-btn {
+	text-decoration: none;
+	color:#747679;
+	display: inline-block;
+	width:100px;
+	line-height: 18px;
+	padding-left:50px;
+}
+
+a.suscribe-btn.itunes {
+	background:url( ../images/itunes.gif) left top no-repeat;
+}
+
+a.suscribe-btn.rss {
+	background:url( ../images/rss.gif) left top no-repeat;
+	
+}
+
+a.suscribe-btn:hover {
+	background-position: left bottom;
+}
+
+a {
+	color:#a7a8ac;
+}
+
+a:hover {
+	color:#3a3c3f;
+}
+
+.podcast-list {
+	margin-top:50px;
+}
+
+time {
+	font-size:12px;
+}
+
+p {
+	margin:25px 0;
+}
+
+.podcast-item {
+	background: url( ../images/podcast_bg.gif) left bottom repeat-x;
+	padding-bottom:30px;
+}
+
+.podcast-item p {
+	width:620px;
+}
+
+.podcast-btn {
+	color:white;
+	background:#86ba40;
+	text-decoration: none;
+	padding:5px 20px;
+	display: inline-block;
+	-webkit-transition:background-color .4s;
+	-moz-transition:background-color .4s;
+	-o-transition:background-color .4s;
+	-ms-transition:background-color .4s;
+	transition:background-color .4s;
+}
+
+.podcast-btn:hover {
+	color:white;
+	background:#6ea226;
+}
+
+.podcast-btns {
+	text-align: right;
+}

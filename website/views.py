@@ -354,3 +354,9 @@ def track(solicitud, registro_id):
     registro = get_object_or_404(RegistroCurso, id=registro_id)
 
     return render_to_response('website/track.html', {'registro': registro })
+
+
+def podcast(solicitud):
+    return render_to_response('website/podcast.html', {
+        'podcast_list': Video.objects.all().order_by('-fecha').filter(activado=True).exclude(audio='')
+     })

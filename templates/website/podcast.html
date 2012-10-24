@@ -1,0 +1,44 @@
+{% load static %} {% get_static_prefix as STATIC_PREFIX %}
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Podcast | Mejorando.la</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' />
+	<link href="{{ STATIC_PREFIX }}podcast/css/index.css" rel="stylesheet" />
+</head>
+<body>
+<div id="page">
+	<header>
+		<a href="{% url website.views.home %}"><img src="{{ STATIC_PREFIX }}podcast/images/logo.gif" alt="Mejorando.la" /></a>
+
+		<h1>Podcast</h1>
+
+
+		<div class="suscribe-btns">
+			<a href="{% url feed %}" class="suscribe-btn itunes">Suscribirse por iTunes</a>
+			<a href="{% url feed %}" class="suscribe-btn rss">Suscribirse por RSS</a>
+		</div>
+	</header>
+
+
+	<div class="podcast-list">
+		{% for podcast in podcast_list %}
+		<div class="podcast-item">
+			<time>{{ podcast.fecha|date:"F d" }}</time>
+
+			<h2>{{ podcast.titulo }}</h2>
+
+			<p>{{ podcast.descripcion|striptags|safe|truncatechars:240 }}</p>
+
+			<div class="podcast-btns">
+				<a href="{{ podcast.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
+				<a href="{{ podcast.audio }}" class="podcast-btn" target="_blank">Descargar</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+</body>
+</html>
