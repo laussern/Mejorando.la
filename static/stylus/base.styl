@@ -223,11 +223,34 @@ strong
 
 #empresas
 	margin-top 65px
+	text-align center
 	h3.tit
 		font-size 33px
 		font-weight normal
-		text-align center
 		letter-spacing 2px
+		margin-bottom 23px
+		text-align center
+	.content
+		background url('../images/sponsors/left.png') no-repeat left 5px , url('../images/sponsors/right.png') no-repeat right 5px ;
+	.cont 
+		max-width 650px
+		margin 0 auto
+		//background white
+	.sponsor
+		border 1px solid #ababab
+		display inline-block
+		margin  5px
+		padding 5px
+		background white
+		img 
+			-webkit-filter grayscale(1)
+			transition .2s
+			opacity .8
+
+			&:hover
+				-webkit-filter grayscale(0)
+				opacity 1
+
 
 #wrapper
 	background white
@@ -673,6 +696,11 @@ a.banner-link
 		font-size 20px !important
 	header
 		height 87px
+		h1 
+			a 
+				img 
+					height 42px
+					width auto
 		#maestros
 			left 220px
 		#cristalab
@@ -737,7 +765,9 @@ a.banner-link
 	#cuerpo
 		min-width 320px
 	
-	
+	#empresas
+		.content 
+			background none
 	#anteriores
 		.tit
 			font-size 18px
@@ -843,6 +873,7 @@ a.banner-link
 				height auto
 				img 
 					width 100%
+
 	#proximo 
 		.cuenta
 			margin 0 !important

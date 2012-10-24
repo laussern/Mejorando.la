@@ -67,8 +67,13 @@ strong{font-weight:bold}
 #anteriores .capitulo .texto{line-height:20px;padding:15px 15px 0 15px;position:absolute;text-align:left;text-transform:none;top:0;word-break:break-word;z-index:2;}
 #anteriores .capitulo .texto:first-letter{text-transform:uppercase}
 #anteriores .tit{font-size:23px}
-#empresas{margin-top:65px;}
-#empresas h3.tit{font-size:33px;font-weight:normal;text-align:center;letter-spacing:2px}
+#empresas{margin-top:65px;text-align:center;}
+#empresas h3.tit{font-size:33px;font-weight:normal;letter-spacing:2px;margin-bottom:23px;text-align:center}
+#empresas .content{background:url("../images/sponsors/left.png") no-repeat left 5px,url("../images/sponsors/right.png") no-repeat right 5px}
+#empresas .cont{max-width:650px;margin:0 auto}
+#empresas .sponsor{border:1px solid #ababab;display:inline-block;zoom:1;*display:inline;margin:5px;padding:5px;background:#fff;}
+#empresas .sponsor img{-webkit-filter:grayscale(1);-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);}
+#empresas .sponsor img:hover{-webkit-filter:grayscale(0);opacity:1;-ms-filter:none;filter:none}
 #wrapper{background:#fff;margin:0 auto;max-width:1000px}
 #cursos{background:#fff;text-transform:uppercase;}
 #cursos h3.tit{font-size:33px;margin:35px 0 20px;text-align:center;}
@@ -161,6 +166,7 @@ footer .derecha span:nth-child(1){display:none}
 #cursos .curso .center h3{font-size:16px;font-weight:normal}
 }@media screen and (max-width:800px){h3.tit{letter-spacing:0 !important;font-size:20px !important}
 header{height:87px;}
+header h1 a img{height:42px;width:auto}
 header #maestros{left:220px}
 header #cristalab{left:285px}
 header .logo-chico{display:block}
@@ -179,6 +185,7 @@ footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
 footer .izquierda span:nth-child(2){font-size:15px;font-weight:normal}
 h3{font-size:30px;font-weight:normal;letter-spacing:2px}
 #cuerpo{min-width:320px}
+#empresas .content{background:none}
 #anteriores .tit{font-size:18px}
 #proximo h3{font-size:22px;letter-spacing:2px}
 #social{display:none}
