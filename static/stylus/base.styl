@@ -49,18 +49,18 @@ body
 	font-family: 'open sans', Arial,Sans-serif
 	font-size 16px
 footer
+	@extends .clearfix
 	background white
 	color #3d4043 
 	padding-top 75px
 	text-transform uppercase
-	overflow hidden
+
 	a
 		color #3d4043
 		text-transform lowercase
 		text-decoration underline
-	div
-		display inline-block
-		*display inline
+	> div
+		//display inline-block
 		min-height 70px
 		vertical-align top
 		zoom 1
@@ -69,16 +69,52 @@ footer
 		font-weight bold
 		height 50px
 		line-height 70px
-		a
-			margin 0 85px
+		float left
+		background white
+		width 70%
+		position relative
+		z-index 1
+		
+		.left 
+			float left 
+			margin-left 50px
+		.center
+			position absolute
+			right 0 
+			top 0 
+			left 160px
+			text-align center
+			.freddier 
+				float left 
+				display block
+				margin-left
+			.cvander 
+				float right
+				margin-right 5%
 	.izquierda
-		background #3d4043 url("../images/home/footer.jpg") no-repeat right top
+		background #3d4043 //url("../images/home/footer.jpg") no-repeat right top
 		color white
-		padding-right 20px
+		
 		text-align right
-		width 295px
+		float left
+		position relative
+		text-align right
+		width 30%
+		z-index 2
+		&:after 
+			border-bottom 70px solid transparent
+			border-left 40px solid #3d4043
+			content ""
+			height 0 
+			position absolute
+			right -40px
+			top 0
+			width 0 
+
 		.text
-			width 220px
+			//width 220px
+			overflow hidden
+			float right
 		span
 			display block
 			margin-right 20px
@@ -617,25 +653,52 @@ a.banner-link
 @media screen and (max-width:1000px)
 	body
 		overflow-x hidden
-	footer
-		.izquierda 
-			padding-left 15px
-			padding-right 3%
-			width 25%
+	footer 
+		padding-top 10px
+
+		a 
+			color white
+
+		div 
+			min-height 0
+			padding-bottom 5px
 
 		.derecha 
-			float  right
-			line-height 200%
+			background #3D4043
+			color white
 			text-align center
-			width 65%
+			width 100%
+			.center 
+				left 0
+			span:nth-child(1)
+				display none
 
-		.derecha a 
-			margin 0
-			display inline-block
-			width 40%
+			a 
+				display inline-block
+				margin 0
+				width 40%
 
-		.derecha span:nth-child(1) 
-			display none
+		.izquierda 
+			background white
+			padding-right 0
+			text-align center
+			width 100%
+
+			.text 
+				color #3D4043
+				width 100%
+
+			span 
+				display inline-block
+				margin-right 4px
+
+			span:nth-child(1) 
+				font-size 15px
+				letter-spacing 0
+
+			span:nth-child(2)
+				font-size 15px
+				font-weight normal	
 
 	#anteriores
 		.capitulo 
@@ -713,51 +776,7 @@ a.banner-link
 			display none 
 		.mejor 
 			width auto
-	footer 
-		padding-top 10px
-
-		a 
-			color white
-
-		div 
-			min-height 0
-			padding-bottom 5px
-
-		.derecha 
-			background #3D4043
-			color white
-			text-align center
-			width 100%
-
-			span:nth-child(1)
-				display none
-
-			a 
-				display inline-block
-				margin 0
-				width 40%
-
-		.izquierda 
-			background white
-			padding-right 0
-			text-align center
-			width 100%
-
-			.text 
-				color #3D4043
-				width 100%
-
-			span 
-				display inline-block
-				margin-right 4px
-
-			span:nth-child(1) 
-				font-size 15px
-				letter-spacing 0
-
-			span:nth-child(2)
-				font-size 15px
-				font-weight normal	
+	
 
 	h3 
 		font-size 30px

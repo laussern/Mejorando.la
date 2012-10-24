@@ -18,8 +18,8 @@ font-style: normal;
 .visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
 .invisible{visibility:hidden}
 .noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
-.clearfix,#cursos .curso{zoom:1;}
-.clearfix:after,#cursos .curso:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
+.clearfix,footer,#cursos .curso{zoom:1;}
+.clearfix:after,footer:after,#cursos .curso:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
 .clear{display:block;clear:both;zoom:1}
 .nomargin{margin:0 !important}
 *{margin:0}
@@ -30,13 +30,17 @@ p{margin:0}
 h1{position:absolute;z-index:10}
 h2,h5{font-weight:normal}
 body{background:#3c4043;color:#fff;font-family:'open sans',Arial,Sans-serif;font-size:16px}
-footer{background:#fff;color:#3d4043;padding-top:75px;text-transform:uppercase;overflow:hidden;}
+footer{background:#fff;color:#3d4043;padding-top:75px;text-transform:uppercase;}
 footer a{color:#3d4043;text-transform:lowercase;text-decoration:underline}
-footer div{display:inline-block;zoom:1;*display:inline;*display:inline;min-height:70px;vertical-align:top;zoom:1}
-footer .derecha{font-size:25px;font-weight:bold;height:50px;line-height:70px;}
-footer .derecha a{margin:0 85px}
-footer .izquierda{background:#3d4043 url("../images/home/footer.jpg") no-repeat right top;color:#fff;padding-right:20px;text-align:right;width:295px;}
-footer .izquierda .text{width:220px}
+footer > div{min-height:70px;vertical-align:top;zoom:1}
+footer .derecha{font-size:25px;font-weight:bold;height:50px;line-height:70px;float:left;background:#fff;width:70%;position:relative;z-index:1;}
+footer .derecha .left{float:left;margin-left:50px}
+footer .derecha .center{position:absolute;right:0;top:0;left:160px;text-align:center;}
+footer .derecha .center .freddier{float:left;display:block;margin-left}
+footer .derecha .center .cvander{float:right;margin-right:5%}
+footer .izquierda{background:#3d4043;color:#fff;text-align:right;float:left;position:relative;text-align:right;width:30%;z-index:2;}
+footer .izquierda:after{border-bottom:70px solid transparent;border-left:40px solid #3d4043;content:"";height:0;position:absolute;right:-40px;top:0;width:0}
+footer .izquierda .text{overflow:hidden;float:right}
 footer .izquierda span{display:block;margin-right:20px;text-align:left}
 footer .izquierda span:nth-child(1){font-size:20px;letter-spacing:-1px;margin-top:20px}
 footer .izquierda span:nth-child(2){font-size:12px;font-weight:bold}
@@ -146,10 +150,18 @@ a.banner-link:hover{text-decoration:none}
 }#envivo .patron{-webkit-animation:25s envivo infinite linear;-moz-animation:25s envivo infinite linear;background:url("../images/patron.jpg") repeat-x;width:2000px;height:60px;position:relative;z-index:1}
 #envivo .vivo{position:absolute;right:0;top:0;display:block;z-index:2}
 @media screen and (max-width:1000px){body{overflow-x:hidden}
-footer .izquierda{padding-left:15px;padding-right:3%;width:25%}
-footer .derecha{float:right;line-height:200%;text-align:center;width:65%}
-footer .derecha a{margin:0;display:inline-block;zoom:1;*display:inline;width:40%}
+footer{padding-top:10px;}
+footer a{color:#fff}
+footer div{min-height:0;padding-bottom:5px}
+footer .derecha{background:#3d4043;color:#fff;text-align:center;width:100%;}
+footer .derecha .center{left:0}
 footer .derecha span:nth-child(1){display:none}
+footer .derecha a{display:inline-block;zoom:1;*display:inline;margin:0;width:40%}
+footer .izquierda{background:#fff;padding-right:0;text-align:center;width:100%;}
+footer .izquierda .text{color:#3d4043;width:100%}
+footer .izquierda span{display:inline-block;zoom:1;*display:inline;margin-right:4px}
+footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
+footer .izquierda span:nth-child(2){font-size:15px;font-weight:normal}
 #anteriores .capitulo{border-left:1px solid #fff;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;width:25%;padding-bottom:0;}
 #anteriores .capitulo .imagen img{-o-box-shadow:none !important;-ms-box-shadow:none !important;-moz-box-shadow:none !important;-webkit-box-shadow:none !important;box-shadow:none !important;-webkit-background-clip:padding-box}
 #anteriores .capitulo:nth-of-type(1){border:none}
@@ -172,17 +184,6 @@ header #cristalab{left:285px}
 header .logo-chico{display:block}
 header .logo-grande{display:none}
 header .mejor{width:auto}
-footer{padding-top:10px;}
-footer a{color:#fff}
-footer div{min-height:0;padding-bottom:5px}
-footer .derecha{background:#3d4043;color:#fff;text-align:center;width:100%;}
-footer .derecha span:nth-child(1){display:none}
-footer .derecha a{display:inline-block;zoom:1;*display:inline;margin:0;width:40%}
-footer .izquierda{background:#fff;padding-right:0;text-align:center;width:100%;}
-footer .izquierda .text{color:#3d4043;width:100%}
-footer .izquierda span{display:inline-block;zoom:1;*display:inline;margin-right:4px}
-footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
-footer .izquierda span:nth-child(2){font-size:15px;font-weight:normal}
 h3{font-size:30px;font-weight:normal;letter-spacing:2px}
 #cuerpo{min-width:320px}
 #anteriores .tit{font-size:18px}
