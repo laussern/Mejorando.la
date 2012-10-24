@@ -63,13 +63,13 @@ strong{font-weight:bold}
 #anteriores .capitulo .cap{font-size:14px;font-weight:bold;margin-bottom:12px}
 #anteriores .capitulo .imagen{height:167px;}
 #anteriores .capitulo .imagen img{width:230px;height:auto;-o-box-shadow:-5px 5px 0 #c8cacd;-ms-box-shadow:-5px 5px 0 #c8cacd;-moz-box-shadow:-5px 5px 0 #c8cacd;-webkit-box-shadow:-5px 5px 0 #c8cacd;box-shadow:-5px 5px 0 #c8cacd;-webkit-background-clip:padding-box}
-#anteriores .capitulo .imagen:hover img{-o-box-shadow:-5px 5px 0 #3d4043;-ms-box-shadow:-5px 5px 0 #3d4043;-moz-box-shadow:-5px 5px 0 #3d4043;-webkit-box-shadow:-5px 5px 0 #3d4043;box-shadow:-5px 5px 0 #3d4043;-webkit-background-clip:padding-box;display:none;-o-transition:.2s box-shadow;-ms-transition:.2s box-shadow;-moz-transition:.2s box-shadow;-webkit-transition:.2s box-shadow;transition:.2s box-shadow}
+#anteriores .capitulo .imagen:hover img{-o-box-shadow:-5px 5px 0 #3d4043;-ms-box-shadow:-5px 5px 0 #3d4043;-moz-box-shadow:-5px 5px 0 #3d4043;-webkit-box-shadow:-5px 5px 0 #3d4043;box-shadow:-5px 5px 0 #3d4043;-webkit-background-clip:padding-box;-o-transition:.2s box-shadow;-ms-transition:.2s box-shadow;-moz-transition:.2s box-shadow;-webkit-transition:.2s box-shadow;transition:.2s box-shadow}
 #anteriores .capitulo .texto{line-height:20px;padding:15px 15px 0 15px;position:absolute;text-align:left;text-transform:none;top:0;word-break:break-word;z-index:2;}
 #anteriores .capitulo .texto:first-letter{text-transform:uppercase}
 #anteriores .tit{font-size:23px}
 #empresas{margin-top:65px;text-align:center;}
 #empresas h3.tit{font-size:33px;font-weight:normal;letter-spacing:2px;margin-bottom:23px;text-align:center}
-#empresas .content{background:url("../images/sponsors/left.png") no-repeat left 5px,url("../images/sponsors/right.png") no-repeat right 5px}
+#empresas .content{background:url("../images/sponsors/left.png") no-repeat left -2px,url("../images/sponsors/right.png") no-repeat right 0}
 #empresas .cont{max-width:700px;margin:0 auto}
 #empresas .sponsor{border:1px solid #ababab;display:inline-block;zoom:1;*display:inline;margin:5px;padding:5px;background:#fff;}
 #empresas .sponsor img{-webkit-filter:grayscale(1);-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);}

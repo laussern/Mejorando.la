@@ -97,7 +97,7 @@
     {% for video in videos %}
     <article class="capitulo"><a href="{{ video.get_absolute_url }}" title="{{ video.titulo }}">
         <div class="imagen">
-        	<img data-original="{{ video.get_thumb_image_url }}" alt="{{ video.titulo }}" width="245" height="176"/>
+        	<img src="{{ video.get_thumb_image_url }}" alt="{{ video.titulo }}" width="245" height="176"/>
         </div>
         <div class="texto">
           <div class="block">
@@ -112,19 +112,19 @@
     <h3 class="tit">Empresas que confían en nosotros</h3>
     <div class="content">
       <div class="cont">
-        <a href="http://mediastre.am/cl/" title="Mediastream" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/mediastream.jpg" alt="Mediastream" height="28"></a>
-        <a href="http://infranetworking.com" title="Infranetworking" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/infranetworking.jpg" alt="Infranetworking" height="28"></a>
-        <a href="http://movistar.com" title="Movistar" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/movistar.jpg" alt="Movistar" height="28"></a>
-        <a href="http://microsoft.com" title="Microsoft" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/microsoft.jpg" alt="Microsoft" height="28"></a>
-        <a href="http://adobe.com" title="Adobe" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/adobe.jpg" alt="adobe" height="28"></a>
-        <a href="https://www.ufm.edu/index.php/Portal" title="Universdad Francisco Marroquin" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/ufm.jpg" alt="Universdad Francisco Marroquin" height="28"></a>
-        <a href="http://welcu.com/cl/" title="Welcu" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/welcu.jpg" alt="Welcu" height="28"></a>
-        <a href="http://www.italkyou.com/" title="ITalkyou" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/italkyou.jpg" alt="Italkyou" height="28"></a>
-        <a href="http://www.shiftt.com/" title="Shiftt" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/shiftt.jpg" alt="Shiftt" height="28"></a>
-        <a href="http://www.prensalibre.com/" title="Prensa libre" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/prensalibre.jpg" alt="Prensa libre" height="28"></a>
-        <a href="http://www.geekoteca.com.mx/" title="Geekoteca" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/geekoteca.jpg" alt="Geekoteca" height="28"></a>
-        <a href="http://www.rubengomez.net/" title="Ruben Gomez" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/rubengomez.jpg" alt="Ruben Gomez" height="28"></a>
-        <a href="http://www.monterilla.cl/" title="Hotel Monterilla" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/monterilla.jpg" alt="Hotel Monterilla" height="28"></a>
+        <a href="http://mediastre.am/cl/" title="Mediastream" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/mediastream.jpg" alt="Mediastream" height="28"></a>
+        <a href="http://infranetworking.com" title="Infranetworking" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/infranetworking.jpg" alt="Infranetworking" height="28"></a>
+        <a href="http://movistar.com" title="Movistar" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/movistar.jpg" alt="Movistar" height="28"></a>
+        <a href="http://microsoft.com" title="Microsoft" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/microsoft.jpg" alt="Microsoft" height="28"></a>
+        <a href="http://adobe.com" title="Adobe" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/adobe.jpg" alt="adobe" height="28"></a>
+        <a href="https://www.ufm.edu/index.php/Portal" title="Universdad Francisco Marroquin" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/ufm.jpg" alt="Universdad Francisco Marroquin" height="28"></a>
+        <a href="http://welcu.com/cl/" title="Welcu" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/welcu.jpg" alt="Welcu" height="28"></a>
+        <a href="http://www.italkyou.com/" title="ITalkyou" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/italkyou.jpg" alt="Italkyou" height="28"></a>
+        <a href="http://www.shiftt.com/" title="Shiftt" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/shiftt.jpg" alt="Shiftt" height="28"></a>
+        <a href="http://www.prensalibre.com/" title="Prensa libre" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/prensalibre.jpg" alt="Prensa libre" height="28"></a>
+        <a href="http://www.geekoteca.com.mx/" title="Geekoteca" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/geekoteca.jpg" alt="Geekoteca" height="28"></a>
+        <a href="http://www.rubengomez.net/" title="Ruben Gomez" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/rubengomez.jpg" alt="Ruben Gomez" height="28"></a>
+        <a href="http://www.monterilla.cl/" title="Hotel Monterilla" class="sponsor"><img data-original="{{ STATIC_PREFIX }}images/sponsors/monterilla.jpg" alt="Hotel Monterilla" height="28"></a>
 
 
       </div>    
