@@ -69,9 +69,8 @@ strong{font-weight:bold}
 #anteriores .tit{font-size:23px}
 #empresas{margin-top:65px;text-align:center;}
 #empresas h3.tit{font-size:33px;font-weight:normal;letter-spacing:2px;margin-bottom:23px;text-align:center}
-#empresas .content{background:url("../images/sponsors/left.png") no-repeat left -2px,url("../images/sponsors/right.png") no-repeat right 0}
-#empresas .cont{max-width:700px;margin:0 auto}
-#empresas .sponsor{border:1px solid #ababab;display:inline-block;zoom:1;*display:inline;margin:5px;padding:5px;background:#fff;}
+#empresas .cont{max-width:800px;margin:0 auto}
+#empresas .sponsor{display:inline-block;zoom:1;*display:inline;margin:5px 10px;padding:5px;background:#fff;}
 #empresas .sponsor img{-webkit-filter:grayscale(1);-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);}
 #empresas .sponsor img:hover{-webkit-filter:grayscale(0);opacity:1;-ms-filter:none;filter:none}
 #wrapper{background:#fff;margin:0 auto;max-width:1000px}
