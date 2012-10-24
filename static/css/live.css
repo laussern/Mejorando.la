@@ -13,6 +13,7 @@
 	font-weight: bold;
 	font-style: normal;
 }
+/*  CSS3 ✰ Classes  */
 .ir{direction:ltr;display:block;height:100%;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:100%}
 .hidden,.videolive script{display:none}
 .visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
@@ -48,7 +49,7 @@ input.text-field:focus{outline:0}
 #col2{float:right;width:35%;}
 #col2 iframe{background:#3d4043;height:100%;position:absolute;width:35%}
 #cristalab,#maestros{position:absolute;top:10px;}
-#cristalab img,#maestros img{height:28px}
+#cristalab img,#maestros img{height:28px;width:auto}
 #contenido{margin:0 auto;padding-bottom:68px;width:85%;}
 #contenido .wrap{position:relative}
 #cristalab{left:70%;margin-left:103px}
@@ -65,7 +66,7 @@ input.text-field:focus{outline:0}
 #name-container span{left:120px}
 #name-container .txt{width:70px}
 #social{float:right;}
-#social > div{background:rgba(0,0,0,0.30);-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;float:left;height:62px;margin:0 0 0 10px;padding:10px;}
+#social > div{background:rgba(0,0,0,0.3);-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;float:left;height:62px;margin:0 0 0 10px;padding:10px;}
 #social > div:first-child{margin:0}
 .menu{display:none}
 .videolive{background:#000;border:6px solid #338ed3;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;left:-6px;overflow:hidden;position:relative;top:0;width:100%;}
@@ -74,7 +75,7 @@ input.text-field:focus{outline:0}
 .videolive a,.videolive embed,.videolive object,.videolive video{background:#000;height:100% !important;left:0;position:absolute;top:0;width:100% !important}
 .videolive img.video{height:auto;width:100%}
 #wrapper{min-height:100%;position:relative;}
-#wrapper:before{bottom:0;-o-box-shadow:0 0 250px rgba(0,0,0,0.90) inset;-ms-box-shadow:0 0 250px rgba(0,0,0,0.90) inset;-moz-box-shadow:0 0 250px rgba(0,0,0,0.90) inset;-webkit-box-shadow:0 0 250px rgba(0,0,0,0.90) inset;box-shadow:0 0 250px rgba(0,0,0,0.90) inset;-webkit-background-clip:padding-box;content:" ";left:0;position:absolute;right:0;top:0}
+#wrapper:before{bottom:0;-o-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-ms-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-moz-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-webkit-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-webkit-background-clip:padding-box;content:" ";left:0;position:absolute;right:0;top:0}
 @media screen and (max-width:1280px){#formulario{right:213px}
 #social .btn_facebook{clear:left;margin:10px 0 0;padding:10px 17px}
 #social .btn_googlemas{margin:10px 0 0 10px;padding:10px 20px}
