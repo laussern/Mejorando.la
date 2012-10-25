@@ -89,12 +89,12 @@ strong{font-weight:bold}
 #cursos .curso:hover .right .mes{color:#3d4043;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
 #cursos .curso .left{padding-left:25px;position:absolute;left:0;top:0;}
 #cursos .curso .left img{width:68px;height:auto;-o-box-shadow:-5px 5px 0 #d2d3d5;-ms-box-shadow:-5px 5px 0 #d2d3d5;-moz-box-shadow:-5px 5px 0 #d2d3d5;-webkit-box-shadow:-5px 5px 0 #d2d3d5;box-shadow:-5px 5px 0 #d2d3d5;-webkit-background-clip:padding-box}
-#cursos .curso .center{border:1px solid #919599;border-right:none;padding-left:10px;margin-left:103px;margin-right:60px;max-width:822px;width:100%;height:50px;}
+#cursos .curso .center{border:1px solid #919599;border-right:none;padding-left:10px;margin-left:103px;margin-right:60px;width:100%;height:50px;}
 #cursos .curso .center h3{color:#808285;font-size:25px;letter-spacing:.5px}
 #cursos .curso .center .pais{color:#808285;font-size:10.5px}
 #cursos .curso .right{background:#fff;border:2px solid #919599;height:48px;padding:0 8px;position:absolute;right:0;text-align:center;top:0;z-index:2;}
 #cursos .curso .right .mes{font-size:23px}
-#cursos .curso .right .dia{font-size:10.5px}
+#cursos .curso .right .dia{font-size:13.5px}
 #proximo{background:#fff;background:url("../images/post/pattern_participantes_post.png");color:#3d4043;margin-bottom:45px;margin-top:50px;text-align:center;}
 #proximo h3{font-size:33px;font-weight:normal;letter-spacing:15px;margin:0 0 10px;text-transform:uppercase}
 #proximo .content{background:#fff;display:inline-block;zoom:1;*display:inline;padding:0 15px}
@@ -158,6 +158,7 @@ footer .derecha .center{left:0}
 footer .derecha span:nth-child(1){display:none}
 footer .derecha a{display:inline-block;zoom:1;*display:inline;margin:0;width:40%}
 footer .izquierda{background:#fff;padding-right:0;text-align:center;width:100%;}
+footer .izquierda:after{display:none}
 footer .izquierda .text{color:#3d4043;width:100%}
 footer .izquierda span{display:inline-block;zoom:1;*display:inline;margin-right:4px}
 footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
@@ -204,10 +205,18 @@ h3{font-size:30px;font-weight:normal;letter-spacing:2px}
 .menu ul:nth-child(even){background:none;border-left:1px solid #fff;border-right:1px solid #fff}
 .menu ul a{height:44px;line-height:44px}
 a.banner-link{display:none}
-}@media screen and (max-width:600px){#anteriores{height:auto;}
+}@media screen and (max-width:600px){#empresas .sponsor{float:left;width:40%;margin:0;}
+#empresas .sponsor:nth-of-type(odd){text-align:right;padding-right:5%}
+#empresas .sponsor:nth-of-type(even){text-align:left;padding-left:5%}
+#anteriores{height:auto;}
 #anteriores .capitulo{border:none;width:50%;height:auto;}
 #anteriores .capitulo .imagen{height:auto;}
 #anteriores .capitulo .imagen img{width:100%}
+#cursos .curso:hover .right  .mes{color:#fff}
+#cursos .curso .center{max-width:none;width:auto;height:auto;margin-right:0}
+#cursos .curso .right{height:auto;border:none;background:#808285;}
+#cursos .curso .right h4{float:left;color:#fff;line-height:17px}
+#cursos .curso .right .mes{font-size:13px;margin-right:10px}
 #proximo .cuenta{margin:0 !important;}
 #proximo .cuenta .digito{font-size:40px}
 }@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:12px}
