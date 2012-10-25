@@ -83,9 +83,9 @@
 
                 <ul>
                   <li><a href="{% url website.views.cursos %}" title="cursos">Cursos</a></li>
-                  <li><a href="http://mejorando.la/cursos/exalumnos/" title="ex alumnos">Ex alumnos</a></li>
-                  <li><a href="http://mejorando.la/conferencias" title="conferencias">conferencias</a></li>
-                  <li><a href="{% url website.views.videos %}" title="videos">Videos</a></li>
+                  <li><a href="/cursos/exalumnos/" title="Ex Alumnos">Ex alumnos</a></li>
+                  <li><a href="/conferencias" title="Conferencias">Conferencias</a></li>
+                  <li><a href="{% url website.views.videos %}" title="Videos">Videos</a></li>
                 </ul>
             </nav>
           
@@ -94,7 +94,7 @@
       {% block body %}{% endblock %}
       <footer>
         <div class="izquierda">
-          <div class="text"><span>transmisión en vivo</span><span>cada jueves</span>
+          <div class="text"><span>Transmisión en vivo</span><span>cada jueves</span>
           </div>
         </div>
         <div class="derecha">

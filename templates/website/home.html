@@ -8,10 +8,10 @@
   <article id="ultimo">
     <div class="tela"></div>
     
-    <img src="{{ ultimo_video.get_home_image_url }}" alt="{{ ultimo_video.titulo }}" width="999" height="442" class="absolute"/>
+    <img src="{{ ultimo_video.get_home_image_url }}" alt="{{ ultimo_video.titulo }}" width="1000" height="500" class="absolute"/>
     
     <div class="datos">
-      <p class="horario"><span class="block">todos los jueves - <strong>en vivo </strong></span>{% if pais %}<span class="big">{{ pais }} /</span>{% endif %}<strong id="hora" class="big"> 4:00PM GMT-5</strong>
+      <p class="horario"><span class="block">Todos los jueves - <strong>en vivo </strong></span>{% if pais %}<span class="big">{{ pais }} /</span>{% endif %}<strong id="hora" class="big"> 4:00PM GMT-5</strong>
       </p><a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="titulo">
         <h2 class="titulo">{{ ultimo_video.titulo }}</h2></a><span class="fecha">{{ ultimo_video.fecha|date:"F • j" }}</span>
         <a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="boton">&#62; ver capitulo &#60;</a>
@@ -58,12 +58,12 @@
   <section id="cursos">
     <div class="cinta"></div>
 
-    <h3 class="tit"><a href="{% url website.views.cursos %}">Nuevos <strong>cursos</strong></a></h3>
+    <h3 class="tit"><a title="Próximos cursos" href="{% url website.views.cursos %}">Nuevos <strong>cursos</strong></a></h3>
 
     {% for curso in cursos %}
 
     <div>
-      <a class="curso" href="{{ curso.slug }}" title="{{ curso.titulo }}" target="_blank">
+      <a class="curso" href="{{ curso.slug }}" title="{{ curso.titulo }}">
         <div class="left">
           <img data-original="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" src="{{ STATIC_PREFIX }}images/transparent.gif" alt="{{ curso.pais }}" class="bandera">
         </div>
@@ -90,7 +90,7 @@
   {% endif %}
   <section id="anteriores">
     <div class="cinta">
-      <div class="todos"><a href="{% url website.views.videos %}" title="ver todos">ver mas videos</a>
+      <div class="todos"><a href="{% url website.views.videos %}" title="Videos de Mejorando.la">ver mas videos</a>
       </div>
     </div>
     <h3 class="tit">últimos <strong>Programas</strong></h3>
