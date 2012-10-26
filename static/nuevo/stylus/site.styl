@@ -1,0 +1,947 @@
+// web fonts
+@import url("http://fonts.googleapis.com/css?family=Rokkitt");
+
+// variables
+font_helvetica = "Helvetica", Arial, sans-serif
+font_opensans = "Open Sans", font_helvetica
+link_blue = #0e76bc
+
+// CSS Framework
+@import "normalize"
+@import "classes"
+@import "wordpress"
+
+.container
+	margin 0 auto
+	position relative
+	width 1000px
+
+body
+	background #008fd5
+	color #fff
+	font-size 14px
+	font-family font_helvetica
+	min-width 1000px
+	text-align justify
+
+a
+	color #fff
+	text-decoration underline
+
+	&:hover
+		text-decoration none
+
+p
+	margin 0 0 1em
+
+// debugging purposes
+pre
+	font-size 11px !important
+	text-transform none !important
+
+a.button
+	background #ffc43a
+	border-bottom 3px solid #bf932b
+	color #87620a
+	display inline-block
+	font-size 0.8em
+	padding 5px 15px
+	text-align center
+	text-decoration none
+	text-transform uppercase
+
+	&:hover
+		background-color lighten(#ffc43a, 5%)
+		color darken(#87620a, 5%)
+
+	strong
+		display block
+		font-size (32em / 12)
+
+hr
+	display none
+
+#overflow
+	position relative
+	z-index 1
+
+#wrap
+	@extends .container
+	background #fff url("../images/bg.png") repeat-x left bottom
+	color #6f7376
+	padding 0 0 17px
+	transition -webkit-filter .150s linear
+	z-index 1
+
+#header
+	@extends .clearfix
+	background #323e4a
+	border-bottom 15px solid #008fd5
+	line-height 43px
+
+	ul
+		list-style none
+		margin 0
+		padding 0
+
+	a
+	li
+		float left
+
+	a
+		color #98a0a9
+		height 43px
+
+#header-logos
+	float left
+
+	li
+		background url("http://mejorando.la/static/images/logos/linea.jpg") repeat-x
+
+#header-mejorandola a
+	background url("../images/logo.png") no-repeat
+
+	span
+		ir 216px 43px
+
+#header-mdw
+	padding-left 10px
+
+	a
+		background url("http://mejorando.la/static/images/logos/maestros.png") no-repeat center center
+		
+		span
+			ir 35px 43px
+
+#header-clab
+	padding-left 25px
+
+	a
+		background url("http://mejorando.la/static/images/logos/cristalab.png") no-repeat center center
+
+		span
+			ir 35px 43px
+
+#nav
+	float right
+	font-weight bold
+	text-transform uppercase
+
+	li
+		background none
+
+		&:first-child
+			margin-left 0
+
+	a
+		padding 0 20px
+		text-decoration none
+		transition background-color .150s linear
+
+		&:hover
+			background-color #1C2127
+			text-decoration underline
+
+#course-info
+	@extends .clearfix
+	background #323e4a
+
+	img
+		float left
+		width 666px
+	
+	.content
+		color #fff
+		float right
+		line-height 1.3
+		padding 20px 20px 0
+		width 1000px - 666 - 40
+
+	h1
+		font (33em / 14) font_opensans
+		line-height 0.9
+		margin 0 0 0.5em
+		text-transform uppercase
+
+	.buttons
+		margin-top 2em
+		text-align center
+
+	a.button
+		background-image url("../images/cart.png")
+		background-repeat no-repeat
+		background-position 20px 50%
+		line-height 1
+		padding 8px 25px 8px 75px
+
+	.register-skype
+		margin 1.75em 0 0
+		padding 1.25em 0 0
+
+	.skype-message
+		float left
+		line-height 1.1
+		margin 0
+		width 145px
+
+	.skype-buttons
+		float right
+		padding 4px 0 0
+
+	.skype-button
+		padding 0.85em .95em
+
+#syllabus-location
+	@extends .clearfix
+	margin 10px 0
+
+#syllabus
+	float left
+	font-size 0.9em
+	height 232px
+	padding-left 330px
+	position relative
+
+	.bg
+		background url("../images/tab_active.png") no-repeat
+		width 8px
+		height 15px
+		position absolute
+		right 0
+		top (115px / 2) - 7.5
+		transition top .150s linear
+
+	.active
+		.tab
+		.tab:hover
+			background #ffc43a
+			color #222
+
+		.content
+			opacity 1
+			z-index 2
+
+	.tab
+		@extends .noselect
+
+		background #eaedf1
+		color darken(#3d4043, 15%)
+		cursor pointer
+		font-family font_opensans
+		font-weight bold
+		height 115px - 20
+		left 0
+		padding 20px 0 0 20px
+		position absolute
+		text-transform uppercase
+		top 0
+		transition all .150s linear
+		transition-property background-color color
+		width 330px - 20
+	
+		&:hover
+			background darken(#eaedf1, 4%)
+
+		h3
+			font-size (24em / 14)
+			font-weight normal
+			line-height 0.9
+			margin 0 0 0.35em
+
+			strong
+				display block
+				font-size (33em / 24)
+
+	.content
+		line-height 1.25
+		padding 25px 0 0 25px
+		opacity 0
+		position absolute
+		transition opacity .150s linear
+		width 300px
+		z-index 1
+
+		ol
+			margin 0
+			padding 0 0 0 1.5em
+
+		li
+			margin 0 0 0.65em
+
+#day-2
+	.tab
+		bottom 0
+		top auto
+
+#location
+	background #eaedf1
+	color #3d4043
+	float right
+	height 232px - 145
+	padding 125px + 20 25px 0
+	position relative
+	width 335px - 50
+
+	.country
+		background none no-repeat
+		color darken(#3d4043, 5%)
+		font-size (31em / 14)
+		margin 0 0 0.35em
+		line-height 24px
+		padding-left 38px + 8
+		text-transform uppercase
+
+	.colombia
+		background-image url("../images/flag_colombia.png")
+
+	.espana
+		background-image url("../images/flag_spain.png")
+
+	.img
+		position absolute
+		top 0
+		left 0
+
+#speakers
+	background #eaedf1
+	padding 10px
+
+	.wrap
+		@extends .clearfix
+		background url("../images/speakers.png") repeat-y center top
+
+	#speaker-1
+	#speaker-2
+		background #fff
+		float left
+		width 485px
+
+	#speaker-2
+		float right
+
+	.header
+		@extends .clearfix
+		background #008fd5
+		color #fff
+		height 67px
+		padding 0 0 0 20px + 67
+		position relative
+
+		a
+			text-decoration none
+
+	.content
+		font-size 0.9em
+		padding 20px 20px 10px
+
+	img
+		left 20px
+		position absolute
+		top 0
+	
+	h3
+		font 0.9em font_opensans
+		line-height 1
+		margin 0
+		padding 15px
+		text-transform uppercase
+
+		strong
+			display block
+			font-size (26em / 13)
+			font-weight normal
+			text-transform none
+
+#video
+	padding 45px 0 25px
+
+	h2
+		color #3d4043
+		font (47em / 14)/0.8 font_opensans
+		letter-spacing -1px
+		margin 0 auto 30px
+		text-align center
+		text-transform uppercase
+		width 675px
+
+	.video
+		height 372px
+		position relative
+		text-align center
+
+		img
+			vertical-align bottom
+
+		> .bg
+			background #ffc43a
+			height 305px
+			left -10px
+			position absolute
+			right -10px
+			top 30px
+			z-index 1
+
+		a
+		.container
+			background #000
+			height 372px
+			position relative
+			margin 0 auto
+			width 661px
+			z-index 2
+
+		iframe
+			left 0
+			position absolute
+			top 0
+			z-index 1
+
+		a
+			display inline-block
+			z-index 2
+
+			&:hover .bg
+				opacity 1
+
+			.bg
+				background url("../images/video_bg.png") no-repeat center center
+				ir 120px 120px
+				left 50%
+				margin-left -(120px / 2)
+				margin-top -(120px / 2)
+				opacity 0.75
+				position absolute
+				top 50%
+				transition()
+
+#afterword
+	color #2b2b2b
+	font-size 0.8em
+	margin 0 auto
+	width 600px
+
+	h2
+		font bold (16em / 12) font_opensans
+		margin-top 0
+		text-align center
+		text-transform uppercase
+
+#footer-logos
+	margin 85px 0 45px
+	text-align center
+
+	ul
+		list-style none
+		margin 0
+		padding 0
+
+	li
+		display inline-block
+		margin 0 60px
+
+#footer-mdw
+	background url("../images/mdw.png") no-repeat center center
+
+	a
+		ir 136px 40px
+
+#footer-clab
+	background url("../images/clab.png") no-repeat center center
+	
+	a
+		ir 137px 40px
+
+#overlay
+	background #000
+	left 0
+	opacity 0
+	position fixed
+	top 0
+	transition opacity .550s linear
+	z-index 2
+
+#register
+	background #323e4a
+	border 1px solid #2c3743
+	box-shadow 0 0 20px rgba(#000, 0.5)
+	color #fff
+	display none
+	left 50%
+	line-height 1.3
+	margin-left -(296px / 2)
+	padding 20px
+	position absolute
+	top 50px
+	width 1000px - 666 - 40
+	z-index 3
+
+.cart
+	@extends a.button
+	background-image url("../images/cart.png")
+	background-position 20px 50%
+	background-repeat no-repeat
+	clear both
+	display block
+	height 42px
+	line-height 42px
+	margin 0 -31px 20px
+	padding 8px 25px 8px 75px
+	position relative
+
+	&.has-discount
+		line-height 1
+		
+		.discount
+			display inline
+
+	strong
+		display inline
+
+	.change-method
+		background-position left center
+		background-repeat no-repeat
+		font-size 1px
+		height 32px
+		left -9999px
+		margin -16px 0 0
+		opacity 0
+		position absolute
+		top 50%
+		transition opacity .150s linear
+		width 52px
+
+	.online &
+		background-image none
+
+		.change-method
+			background-image url("../images/button_card_3.png")
+			left 20px
+			opacity 1
+
+	.bank &
+		background-image none
+		
+		.change-method
+			background-image url("../images/button_bank_3.png")
+			left 20px
+			opacity 1
+
+	.done &
+		background-image none
+		padding 8px 25px 8px 25px
+
+		.change-method
+			opacity 0
+			left -9999px
+
+.discount
+	display none
+
+	em
+		display inline-block
+		margin-left 2px
+		font-size 1.2em
+		font-weight bold
+
+.js .step-container
+	display none
+
+	&.step-active
+		display block
+
+.step
+.caption
+	margin 0
+	text-align center
+	text-transform uppercase
+
+.step
+	color #667183
+	font bold 40px/1 font_opensans
+
+	strong
+		color #fff
+
+.caption
+	font 16px/1 font_opensans
+
+
+#step-1
+	.cart
+		line-height 42px
+	
+	ul
+		color #98a9bb
+		font-size 11px
+		list-style none
+		margin 40px 0 20px
+		padding 0
+		text-align center
+		text-transform uppercase
+
+	li
+	input
+	label
+		cursor pointer
+	
+	li
+		display inline-block
+		position relative
+		transition color .150s linear
+		width 100px
+
+		.bg
+			background-color #43505d
+			background-position center center
+			background-repeat no-repeat
+			box-shadow 0 0 0 2px #9da8b3
+			border-radius (94px / 2)
+			height 94px
+			transition none .150s linear
+			transition-property background-color, box-shadow
+			width 94px
+
+		&:hover
+		&.active
+			color lighten(#98a9bb, 35%)
+
+			.bg
+				background-color #fff
+				box-shadow 0 0 0 5px #0a7fb9
+
+			.price
+				color #fff
+
+	#option-card
+		.bg
+			background-image url("../images/button_card_1.png")
+
+		&:hover .bg
+		&.active .bg
+			background-image url("../images/button_card_2.png")
+
+	#option-bank
+		margin-left 40px
+		
+		.bg
+			background-image url("../images/button_bank_1.png")
+
+		&:hover .bg
+		&.active .bg
+			background-image url("../images/button_bank_2.png")
+
+	input
+		border 0
+		display block
+		height 100%
+		left 0
+		opacity 0
+		position absolute
+		top 0
+		width 100%
+
+		.lt-ie8 &
+			height 165px
+
+	label
+		display block
+		padding 0 15px
+
+	strong.price
+		color lighten(#98a9bb, 40%)
+		font-size 1.8em
+
+#step-2
+	text-align center
+
+	input
+		display none
+
+	.quantity
+		background url("../images/quantity.png") no-repeat 50% 0
+		display block
+		height 100px
+		font 83px/100px font_opensans
+		margin 10px 0
+
+		&.quantity-2
+			background-position 50% -100px
+
+		&.quantity-3
+			background-position 50% -200px
+
+		&.quantity-4
+			background-position 50% -300px
+
+		&.quantity-5
+			background-position 50% -400px
+
+	.back-next
+		margin-top 2.5em
+
+#step-3
+	.back-next
+		display none
+
+	.online & .online-buttons
+		display block
+
+	.bank & .bank-buttons
+		display block
+
+#step-4
+	text-align center
+
+	.caption
+		margin-bottom 1.5em
+
+	.online-confirmation
+	.bank-confirmation
+		display none
+		padding 20px
+
+	.online & .online-confirmation
+	.bank & .bank-confirmation
+		display block
+
+.register-skype
+	border-top 1px solid #414c57
+	color #a0a5ab
+	font-size 0.8em
+	margin 1em 0 0
+	padding 1em 0 0
+	text-align center
+
+	.skype-button
+		background #55c01b
+		background linear-gradient(top, #7cd344, #48ba0e)
+		border 1px solid #6cb53c
+		border-radius 15px
+		box-shadow inset 0 0 0 1px #abe686
+		color #e6f6de
+		display inline-block
+		font bold 1em/1 font_opensans
+		padding 0.25em 0.5em
+		text-align center
+		text-decoration none
+
+.step-container
+	.input-step
+	.back
+	.next
+		background #4a5765
+		border 0
+		border-radius 0
+		color #fff
+		display inline-block
+		font bold 46px/43px font_opensans
+		height 43px
+		margin 0 7px
+		text-align center
+		text-decoration none
+		transition none .150s linear
+		transition-property background, color
+		vertical-align middle
+		width 43px
+
+		&:hover
+			background #fff
+			color #323e4a
+
+		&.dec
+			line-height 34px
+
+	.lt-ie8 & .input-step
+		display block
+		float left
+		line-height 1
+
+		span
+			display block
+			height 43px
+
+		&.dec span
+			margin-top -14px
+
+		&.inc span
+			margin-top -10px
+
+	.back
+	.next
+		font-size 0.9em
+		font-weight normal
+		height 30px
+		line-height 30px
+		position relative
+		width auto
+
+		span.bg
+			border-bottom 15px solid transparent
+			border-top 15px solid transparent
+			content " "
+			display block
+			height 0
+			position absolute
+			top 0
+			width 0
+			transition none .150s linear
+			transition-property border, border-color
+
+	.back-next
+		margin 2em 0 1em
+		text-align center
+
+	.back
+		padding 0 1em 0 0.75em
+		
+		span.bg
+			border-right 10px solid #4a5765
+			right 100%
+
+		&:hover
+			background lighten(#4a5765, 10%)
+			color #fff
+			
+			span.bg
+				border-right-color lighten(#4a5765, 10%)
+
+	.next
+		padding 0 0.75em 0 1em
+		
+		span.bg
+			border-left 10px solid #4a5765
+			left 100%
+
+		&:hover
+			background lighten(#4a5765, 10%)
+			color #fff
+			
+			span.bg
+				border-left-color lighten(#4a5765, 10%)
+
+	button.next
+		background #FFC744
+		color #805D09
+		overflow visible
+
+		span.bg
+			border-left-color #FFC744
+
+		&:hover
+			background-color lighten(#ffc43a, 5%)
+			color darken(#87620a, 5%)
+
+			span.bg
+				border-left-color lighten(#ffc43a, 5%)
+
+		span.paypal
+			background url("../images/paypal.png") no-repeat
+			display inline-block
+			height 15px
+			margin-left 2px
+			vertical-align middle
+			width 59px
+
+#paypal
+	display none
+
+#payment-data
+	padding 20px 0 0
+	text-align center
+
+	input
+		background #4a5765
+		border 2px solid #707881
+		border-radius 4px
+		color #8d9aa7
+		outline none
+		padding 10px
+		transition none .150s linear
+		transition-property background-color, border-color
+		width 240px - 55
+
+		&:focus
+			background-color #fff
+			border-color #008fd5
+
+#paypal-submit
+	background url("https://www.paypalobjects.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif") no-repeat
+	border 0
+	box-shadow none
+	height 47px
+	margin 0 auto
+	padding 0
+	width 141px
+
+	span
+		display none
+
+#close
+	background #4a5765
+	color #fff
+	font-size 0.9em
+	height 26px
+	line-height 26px
+	padding 0 1em
+	text-decoration none
+	transition none .150s linear
+	transition-property background, color
+
+	position absolute
+	top -13px
+	right 10px
+
+	&:hover
+		background lighten(#4a5765, 10%)
+		color #fff
+
+.overlay
+	#wrap
+		-webkit-filter blur(2px)
+
+	#overlay
+		bottom 0
+		opacity 0.55
+		right 0
+
+	#register
+		display block
+
+.error
+	background #10151b
+	background rgba(#10151b, 0.8)
+	border 1px solid darken(#10151b, 15%)
+	box-shadow 0 0 5px rgba(#000, 0.25)
+	border-radius 5px
+	color #fff
+	font 0.8em font_opensans
+	height 1em
+	line-height 1
+	margin 0 0 0 0.75em
+	padding 0.8em 1em
+	text-transform uppercase
+	z-index 2
+
+// @css {
+// .error {
+//   height:15px;
+//   background-color:#FFFE36;
+//   border:1px solid #E1E16D;
+//   font-size:11px;
+//   color:#000;
+//   padding:3px 10px;
+//   margin-left:-2px;
+//   z-index: 2;
+ 
+
+//   -moz-border-radius:4px;
+//   -webkit-border-radius:4px;
+//   -moz-border-radius-bottomleft:0;
+//   -moz-border-radius-topleft:0;
+//   -webkit-border-bottom-left-radius:0;
+//   -webkit-border-top-left-radius:0;
+ 
+//   -moz-box-shadow:0 0 6px #ddd;
+//   -webkit-box-shadow:0 0 6px #ddd;
+// }
+// }
