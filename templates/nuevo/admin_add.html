@@ -5,13 +5,13 @@
 	<meta charset="utf-8" />
 	<title>{% if curso %}Editar Curso{% else %}Agregar Curso{% endif %} | Mejorando.la</title>
 
-	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/css/admin_add.css" />
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/admin/css/admin_add.css" />
 </head>
 <body>
 
 	<form method="POST" enctype="multipart/form-data">
 	<header>
-		<h1><a href="#"><img src="{{ STATIC_PREFIX }}nuevo/images/logo.gif" alt="Mejorando.la" /></a></h1>
+		<h1><a href="#"><img src="{{ STATIC_PREFIX }}nuevo/admin/images/logo.gif" alt="Mejorando.la" /></a></h1>
 		<nav>
 			<a href="{% url nuevo.views.admin %}">Cancelar</a>
 			<button type="submit">Guardar</button>
