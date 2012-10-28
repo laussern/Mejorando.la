@@ -12,7 +12,7 @@ from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
 from akismet import Akismet
 import image
-from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia
+from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia, Conferencia
 import datetime
 import time
 import requests
@@ -89,6 +89,14 @@ def videos(solicitud):
         } for fecha in Video.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
     })
 
+
+def conferencias(solicitud):
+    return render_to_response('website/conferencias.html', {
+        'meses': [{
+            'fecha' : fecha,
+            'confes': Conferencia.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')
+        } for fecha in Conferencia.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
+    })
 
 # la entrada de video muestra el video
 # del capitulo + comentarios + formulario de comentarios

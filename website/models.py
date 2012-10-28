@@ -103,6 +103,35 @@ class Curso(models.Model):
     def get_image_url(self):
         return '%s%s' % (settings.MEDIA_URL, str(self.imagen))
 
+class Conferencia(models.Model):
+    titulo           = models.CharField(max_length=150)
+    imagen           = models.ImageField(upload_to='conferencias')
+    ubicacion        = models.TextField()
+    pais             = models.CharField(max_length=150)
+    fecha            = models.DateField()
+    descripcion      = models.TextField()
+    num_asistentes   = models.IntegerField()
+    num_horas_video  = models.IntegerField()
+    num_conferencias = models.IntegerField()
+    activado         = models.BooleanField(default=False)
+
+
+    def __unicode__(self):
+        return self.titulo
+
+    def save(self, *args, **kwargs):
+        super(Conferencia, self).save(*args, **kwargs)
+
+        if not self.id and not self.imagen:
+            return
+
+        image.resize(image.THUMB, self.imagen)
+
+    def get_thumb_image_url(self):
+        return image.get_url_by(image.THUMB, self.imagen)
+
+    def get_image_url(self):
+        return '%s%s' % (settings.MEDIA_URL, str(self.imagen))
 
 class RegistroCurso(models.Model):
     nombre    = models.CharField(max_length=500)
