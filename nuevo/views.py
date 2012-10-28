@@ -56,3 +56,52 @@ def curso(req, curso_slug):
 			return HttpResponse('OK')
 	
 	return render_to_response('nuevo/curso.html', { 'curso': curso })
+
+
+def admin(req):
+	cursos = Curso.objects.all()
+
+	return render_to_response('nuevo/admin.html', { 'cursos': cursos })
+
+
+def admin_add(req):
+
+	if req.method == 'POST':
+		nombre = req.POST.get('titulo')
+		slug   = req.POST.get('slug')
+		pais   = req.POST.get('pais')
+		precio   = req.POST.get('precio')
+		descripcion   = req.POST.get('descripcion')
+		direccion   = req.POST.get('direccion')
+
+		if nombre and slug and pais and precio and descripcion and direccion:
+			curso = Curso(nombre=nombre, slug=slug, pais=pais, precio=precio, descripcion=descripcion, direccion=direccion)
+			curso.save()
+ 
+			return redirect('nuevo.views.admin')
+
+	return render_to_response('nuevo/admin_add.html')
+
+def admin_edit(req, curso_slug):
+	curso = get_object_or_404(Curso, slug=curso_slug)
+
+	if req.method == 'POST':
+		nombre = req.POST.get('titulo')
+		slug   = req.POST.get('slug')
+		pais   = req.POST.get('pais')
+		precio   = req.POST.get('precio')
+		descripcion   = req.POST.get('descripcion')
+		direccion   = req.POST.get('direccion')
+
+		if nombre and slug and pais and precio and descripcion and direccion:
+			curso.nombre = nombre
+			curso.slug  = slug
+			curso.pais = pais
+			curso.precio = precio
+			curso.descripcion = descripcion
+			curso.direccion = direccion
+			curso.save()
+ 
+			return redirect('nuevo.views.admin')
+
+	return render_to_response('nuevo/admin_add.html', { 'curso': curso})

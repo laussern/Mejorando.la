@@ -11,9 +11,8 @@ class Curso(models.Model):
 	direccion   = models.TextField()
 	mapa 	    = models.CharField(max_length=50, blank=True)
 	imagen      = models.ImageField(upload_to='nuevo_curso')
-	moneda      = models.CharField(max_length=10)
 	descripcion = models.TextField()
-	#info_pago   = models.TextField()
+	info_pago   = models.TextField()
 
 	def __unicode__(self):
 		return self.nombre 
@@ -33,6 +32,8 @@ class Curso(models.Model):
 	def save(self, *args, **kwargs):
 		super(Curso, self).save(*args, **kwargs)
 
+		return
+
 		if not self.id and not self.imagen: return
 
 		image.resize((666, 430), self.imagen)
@@ -51,7 +52,7 @@ class CursoDocente(models.Model):
 	twitter = models.CharField(max_length=300)
 	perfil  = models.TextField()
 	imagen  = models.ImageField(upload_to='nuevo_docentes')
-	curso   = models.ForeignKey(Curso)
+	curso   = models.ManyToManyField(Curso, blank=True)
 
 	def __unicode__(self):
 		return self.nombre
@@ -72,6 +73,7 @@ class CursoRegistro(models.Model):
 	telefono = models.CharField(max_length=500)
 	pais     = models.CharField(max_length=100)
 	pagado   = models.BooleanField(default=False)
+	curso    = models.ManyToManyField(Curso, blank=True)
 
 	def __unicode__(self):
 		return self.nombre
