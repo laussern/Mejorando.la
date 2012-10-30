@@ -24,9 +24,29 @@ jQuery(function () {
 		return false;
 	});
 
-	/*$('.curso a').click(function(){
-		var selector = $(this).attr('data-filter');
-		$container.isotope({ filter: selector });
+	$('.add').click(function () {
+		$('body').addClass('overlayed');
+
+		$('.panel').load($(this).attr('href')+' #add_form')
+
 		return false;
-	});*/
+	})
+
+	$('.edit').click(function () {
+		$('body').addClass('overlayed');
+
+		$('.panel').load($(this).attr('href')+' #edit_form')
+
+		return false;
+	})
+
+	$('#add_form').live('submit', function () {
+		$('body').removeClass('overlayed')
+
+		return false;
+	});
+
+	$('a.back').live('click', function () {
+		$('body').removeClass('overlayed')		
+	});
 });

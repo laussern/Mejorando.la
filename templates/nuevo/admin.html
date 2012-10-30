@@ -1,7 +1,8 @@
 {% extends "nuevo/base.html" %}
 
 {% block body %}
-	<h2><a href="{% url nuevo.views.admin_add %}"></a>Cursos</h2>
+<div id="main">
+	<h2><a href="{% url nuevo.views.admin_add %}" class="add"></a>Cursos</h2>
 
 	<div class="cursos">
 		{% if cursos|length > 0 %}
@@ -22,4 +23,10 @@
 		{% endif%}
 
 	</div>
+</div>
+
+<div class="overlay">
+	<div class="panel"></div>
+</div>
+
 {% endblock %}

@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
 }
-body {
+body,
+input,
+textarea,
+button {
   font-family: 'Open Sans', sans-serif;
   font-size: 13px;
   color: #303030;
@@ -176,4 +179,108 @@ h3 {
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
+}
+.overlayed .overlay {
+  display: block;
+}
+.overlayed #main {
+  -webkit-filter: blur(5px);
+}
+.overlay {
+  background: rgba(255,255,255,0.9);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  display: none;
+}
+.overlay .panel {
+  background: #fff;
+  width: 791px;
+  margin: auto;
+  margin-top: 50px;
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  padding: 20px;
+}
+input[type="text"],
+textarea {
+  background: #303030;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 16px;
+  width: 300px;
+}
+input[type="text"].input-large,
+textarea.input-large {
+  width: 411px;
+}
+input[type="text"].input-small,
+textarea.input-small {
+  width: 157px;
+}
+input[type="text"]:focus,
+textarea:focus {
+  background: #000;
+}
+button {
+  background: #303030;
+  color: #fff;
+  border: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -6px;
+  border: 1px solid #fff;
+}
+button:hover {
+  background: #000;
+}
+form {
+  font-size: 16px;
+}
+form h2 {
+  margin-left: 0;
+}
+form h2 a {
+  background-image: url("../images/back.gif");
+  width: 32px;
+  height: 36px;
+  margin-right: 10px;
+}
+form h3 {
+  background: url("../images/email.gif") left center no-repeat;
+  padding-left: 35px;
+  margin: 0;
+}
+form textarea {
+  height: 130px;
+}
+form .drop {
+  display: inline-block;
+  margin: 1px;
+  border: 2px dashed #303030;
+  text-align: center;
+  width: 352px;
+  line-height: 130px;
+  height: 136px;
+  float: right;
+  overflow: hidden;
+  position: relative;
+}
+form .drop img {
+  position: absolute;
+  opacity: 0.5;
+  -webkit-filter: grayscale(100%);
+}
+form .drop strong {
+  z-index: 1;
+  position: relative;
+}
+form .drop:hover {
+  border-color: #000;
+  color: #000;
 }
