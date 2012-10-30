@@ -48,9 +48,43 @@ jQuery(function () {
 		return false;
 	});
 
-	$('a.back').live('click', close_overlay);
+	/* drag de imagenes */
 
-	var $overlay = $('.overlay'), $panel = $overlay.find('.panel');
+	function ignore(e) {
+		var event = typeof e.originalEvent != 'undefined' ? e.originalEvent : e;
+		if (event.stopPropagation) event.stopPropagation();
+		if (event.preventDefault) event.preventDefault();
+	}
+
+	$('.drop')
+		.live('dragenter', ignore).live('drop', function (e) {
+			e = (e && e.originalEvent ? e.originalEvent: window.event) || e;
+			ignore(e);
+
+			var files = (e.files || e.dataTransfer.files), 
+				$self = $(this),
+				$img  = $self.find('img'),
+				$form = $self.closest('form');
+
+			var str = "";
+			for (var i = 0; i < files.length; i++) {
+				(function(i){
+					var reader = new FileReader();
+					reader.onload = function (event) {
+						$form.find('input[name="imagen"]').val(event.target.result);
+						$form.find('input[name="imagen_filename"]').val(files[i].name);
+						$img.attr('src', event.target.result);
+					};
+					reader.readAsDataURL(files[i]);
+				})(i);
+			}
+	});
+
+	/* popup de edicion */
+	var $overlay = $('.overlay'), 
+		$panel = $overlay.find('.panel');
+
+	$('a.back').live('click', close_overlay);
 	function close_overlay() {
 		$overlay.fadeOut(function () {
 			$('body').removeClass('overlayed');
