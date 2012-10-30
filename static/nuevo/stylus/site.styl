@@ -493,7 +493,7 @@ h1#title
 
 .cart
 	@extends a.button
-	background-image url("../images/cart.png")
+	//background-image url("../images/cart.png")
 	background-position 20px 50%
 	background-repeat no-repeat
 	clear both
@@ -986,14 +986,24 @@ h1#title
 			-webkit-filter none
 		#register 
 			position fixed
-	
-		
 			margin-left auto
 			max-width 294px
 			width auto 
 			left 0 
+			top 0
 			right 0 
 			margin 0 auto
+			padding-top 26px
+	.cart 
+		margin 0 -21px 20px
+	#close 
+		top 0 
+		right 0
+@media screen and (min-height:473px)
+	.overlay
+		#register
+			top -238px
+			margin-top 50%
 @media screen and (max-width:660px)
 	#afterword
 		width auto
