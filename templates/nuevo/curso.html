@@ -9,14 +9,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Curso de HTML5 en Madrid de mejorando.la</title>
 	<meta name="description" content="Curso de HTML5 y CSS3 los días 26 y 27 de Octubre en Madrid, España con @freddier y @cvander">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1" />
 	<meta property="og:title" content="Curso de HTML5 en Madrid">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="http://mejorando.la/cursos/html5-madrid/">
 	<meta property="og:image" content="http://mejorando.la/cursos/images/plantilla-cursos/html5-logo.png">
 	<meta property="og:site_name" content="http://mejorando.la/">
 	<meta property="fb:admins" content="1030603473">
-
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/css/site.css">
 	<script src="{{ STATIC_PREFIX }}nuevo/js/modernizr.custom.53065.js"></script>
 </head>
@@ -42,9 +42,12 @@
 
 		<hr>
 
+		<h1 id="title">{{ curso.nombre }}</h1>
+
 		<section id="course-info">
+			<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}" class="imagen_curso">
+
 			<div class="content">
-				<h1 id="title">{{ curso.nombre }}</h1>
 				<p>{{ curso.descripcion|safe }}</p>
 				<p class="buttons"><a class="button" href="#registrate" id="register-link">Registrate al curso por <strong></strong></a></p>
 
@@ -53,7 +56,6 @@
 					<p class="skype-buttons"><a class="skype-button" href="skype:mejorandola?call">Llama a <em>mejorandola</em></a></p>
 				</div>
 			</div>
-			<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}">
 		</section>
 
 		<hr>
@@ -78,10 +80,12 @@
 			<hr>
 
 			<section id="location">
-				<h2 class="hidden">Dirección</h2>
-				<p class="country espana"><strong>{{ curso.pais }}</strong></p>
-				<p>{{ curso.direccion }}</p>
 				<a class="img" href="https://maps.google.com/maps?q=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&amp;hl=es&amp;ll=4.660555,-74.059321&amp;spn=0.008373,0.009109&amp;sll=4.660587,-74.05946&amp;sspn=0.008373,0.009109&amp;hq=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&amp;radius=15000&amp;t=m&amp;z=17&amp;iwloc=A" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?size=335x125&amp;maptype=roadmap&amp;markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C40.446068,-3.673639&amp;zoom=17&amp;sensor=false" /></a>
+				<div class="datos">
+					<h2 class="hidden">Dirección</h2>
+					<p class="country espana"><strong>{{ curso.pais }}</strong></p>
+					<p>{{ curso.direccion }}</p>
+				</div>
 			</section>
 		</div>
 

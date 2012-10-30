@@ -85,10 +85,10 @@ hr{display:none}
 #header-mejorandola a{background:url("../images/logo.png") no-repeat;}
 #header-mejorandola a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:216px}
 #header-mdw{padding-left:10px;}
-#header-mdw a{background:url("http://mejorando.la/static/images/logos/maestros.png") no-repeat center center;}
+#header-mdw a{background:url("http://mejorando.la/static/images/logos/maestros.png") no-repeat center center;-moz-background-size:35px;-webkit-background-size:35px;background-size:35px;}
 #header-mdw a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:35px}
 #header-clab{padding-left:25px;}
-#header-clab a{background:url("http://mejorando.la/static/images/logos/cristalab.png") no-repeat center center;}
+#header-clab a{background:url("http://mejorando.la/static/images/logos/cristalab.png") no-repeat center center;-moz-background-size:35px;-webkit-background-size:35px;background-size:35px;}
 #header-clab a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:35px}
 #nav{float:right;font-weight:bold;text-transform:uppercase;}
 #nav li{background:none;}
