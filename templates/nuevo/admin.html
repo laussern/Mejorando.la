@@ -6,15 +6,15 @@
 	<div class="cursos">
 		{% if cursos|length > 0 %}
 		{% for curso in cursos %}
-		<div class="curso">
-			<time>{{ curso.fecha|date:"d" }} <a href="#">{{ curso.fecha|date:"F" }}</a></time>
+		<div class="curso {{ curso.fecha|date:"F" }} {{ curso.pais|slugify}}{% for docente in curso.docentes%} {{ docente.twitter}}{% endfor %}">
+			<time>{{ curso.fecha|date:"d" }} <a href="#" data-filter=".{{ curso.fecha|date:"F" }}">{{ curso.fecha|date:"F" }}</a></time>
 
-			<h3>{{ curso.nombre }} en <a href="#">{{ curso.pais}}</a></h3>
+			<h3>{{ curso.nombre }} en <a href="#" data-filter=".{{ curso.pais|slugify }}">{{ curso.pais}}</a></h3>
 
 			<p><img src="{{ curso.get_imagen }}" width="310" alt="{{ curso.nombre }}" /></p>
 
 
-			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url nuevo.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url nuevo.views.admin_edit curso.slug %}" class="edit"></a><a href="{% url nuevo.views.admin_delete curso.slug %}" class="del"></a></span></a>
+			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#" data-filter=".{{ docente.twitter }}">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url nuevo.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url nuevo.views.admin_edit curso.slug %}" class="edit"></a><a href="{% url nuevo.views.admin_delete curso.slug %}" class="del"></a></span></a>
 		</div>
 		{% endfor %}
 		{% else %}
