@@ -486,7 +486,7 @@ h1#title
 	line-height 1.3
 	margin-left -(296px / 2)
 	padding 20px
-	position absolute
+	position fixed
 	top 50px
 	width 1000px - 666 - 40
 	z-index 3
@@ -942,21 +942,15 @@ h1#title
 	#wrap
 	.container
 		width auto
-
 	#course-info
-		position relative
 
-		.imagen_curso 
-			display block	
-
+		.imagen_curso
+			max-width 100%
+			width auto
 		.content 
-			background #323E4A
-			bottom 0
-			position absolute
-			right 0
-			top 0
-			z-index 2
-
+			position static
+			width auto
+	
 	#location
 		float none
 		height auto
@@ -999,8 +993,9 @@ h1#title
 	#close 
 		top 0 
 		right 0
-@media screen and (min-height:473px)
+@media screen and (max-width:1000px) and (min-height:473px)
 	.overlay
+		overflow hidden
 		#register
 			top -238px
 			margin-top 50%
@@ -1025,14 +1020,14 @@ h1#title
 
 @media screen and (max-width:600px)
 
-	#course-info
+	// #course-info
 
-		.imagen_curso
-			max-width 100%
+	// 	.imagen_curso
+	// 		max-width 100%
 
-		.content 
-			position static
-			width auto
+	// 	.content 
+	// 		position static
+	// 		width auto
 	#syllabus
 		padding 0
 		height auto
