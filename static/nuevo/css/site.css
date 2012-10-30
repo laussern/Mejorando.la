@@ -74,7 +74,7 @@ a.button,.cart{background:#ffc43a;border-bottom:3px solid #bf932b;color:#87620a;
 a.button:hover,.cart:hover{background-color:#ffc744;color:#805d09}
 a.button strong,.cart strong{display:block;font-size:2.6666666666666665em}
 hr{display:none}
-h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid #008fd5;color:#323e4a;font:32px "Open Sans","Helvetica",Arial,sans-serif;margin:0;font-weight:200;padding:15px 0;text-align:center;text-transform:uppercase}
+h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid #008fd5;color:#323e4a;font:32px "Open Sans","Helvetica",Arial,sans-serif;margin:0;font-weight:200;padding:15px;text-align:center;text-transform:uppercase}
 #overflow{position:relative;z-index:1}
 #wrap{background:#fff url("../images/bg.png") repeat-x left bottom;color:#6f7376;padding:0 0 17px;-o-transition:-webkit-filter .15s linear;-ms-transition:-webkit-filter .15s linear;-moz-transition:-webkit-filter .15s linear;-webkit-transition:-webkit-filter .15s linear;transition:-webkit-filter .15s linear;z-index:1}
 #header{background:#323e4a;border-bottom:15px solid #008fd5;line-height:43px;}
@@ -243,7 +243,8 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 .overlay #overlay{bottom:0;opacity:.55;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=55);filter:alpha(opacity=55);right:0}
 .overlay #register{display:block}
 .error{background:#10151b;background:rgba(16,21,27,0.8);border:1px solid #0e1217;-o-box-shadow:0 0 5px rgba(0,0,0,0.25);-ms-box-shadow:0 0 5px rgba(0,0,0,0.25);-moz-box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.25);box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-background-clip:padding-box;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#fff;font:.8em "Open Sans","Helvetica",Arial,sans-serif;height:1em;line-height:1;margin:0 0 0 .75em;padding:.8em 1em;text-transform:uppercase;z-index:2}
-@media screen and (max-width:1000px){#wrap,.container{width:auto}
+@media screen and (max-width:1000px){h1#title{font-size:20px}
+#wrap,.container{width:auto}
 #course-info .imagen_curso{max-width:100%;width:auto}
 #course-info .content{position:static;width:auto}
 #location{float:none;height:auto;overflow:hidden;padding:0;width:auto;}
@@ -252,16 +253,18 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #speakers section{float:none !important;width:auto !important}
 #syllabus{float:none}
 .overlay #overlay{-o-transition:0;-ms-transition:0;-moz-transition:0;-webkit-transition:0;transition:0}
+.overlay #overflow{height:476px;overflow:hidden}
 .overlay #wrap{-webkit-filter:none}
-.overlay #register{position:fixed;margin-left:auto;max-width:294px;width:auto;left:0;top:0;right:0;margin:0 auto;padding-top:26px}
+.overlay #register{position:absolute;margin-left:auto;max-width:294px;width:auto;left:0;top:0;right:0;margin:0 auto;padding-top:26px}
 .cart{margin:0 -21px 20px}
 #close{top:0;right:0}
-}@media screen and (max-width:1000px) and (min-height:473px){.overlay{overflow:hidden;}
-.overlay #register{top:-238px;margin-top:50%}
+}@media screen and (max-width:1000px) and (min-height:476px){.overlay{overflow:hidden;height:auto;}
+.overlay #register{top:-238px;margin-top:50%;position:fixed}
+.overlay #wrap{max-height:none;overflow:auto;-webkit-overflow-scrolling:touch}
 }@media screen and (max-width:660px){#afterword{width:auto;padding:0 10px}
-#video h2{width:auto}
+#video h2{width:auto;font-size:30px}
 #video .video{height:auto;}
-#video .video a,#video .video .container{width:auto;height:auto;display:block;}
+#video .video a,#video .video .container{display:block;height:auto;width:auto;}
 #video .video a img,#video .video .container img{max-width:100%}
 #video .video .bg{display:none}
 }@media screen and (max-width:600px){#syllabus{padding:0;height:auto;}

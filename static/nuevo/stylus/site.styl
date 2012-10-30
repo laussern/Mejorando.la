@@ -68,7 +68,7 @@ h1#title
 	font 32px font_opensans
 	margin 0
 	font-weight 200
-	padding 15px 0
+	padding 15px 
 	text-align center
 	text-transform uppercase
 
@@ -939,6 +939,8 @@ h1#title
 	z-index 2
 
 @media screen and (max-width:1000px)
+	h1#title
+		font-size 20px
 	#wrap
 	.container
 		width auto
@@ -974,12 +976,17 @@ h1#title
 		float none
 
 	.overlay
+		
 		#overlay
 			transition 0
+		#overflow
+			height 476px
+			overflow hidden
 		#wrap 
 			-webkit-filter none
+			
 		#register 
-			position fixed
+			position absolute
 			margin-left auto
 			max-width 294px
 			width auto 
@@ -993,12 +1000,20 @@ h1#title
 	#close 
 		top 0 
 		right 0
-@media screen and (max-width:1000px) and (min-height:473px)
+@media screen and (max-width:1000px) and (min-height:476px)
 	.overlay
 		overflow hidden
+		height auto
 		#register
 			top -238px
 			margin-top 50%
+			position fixed
+		#wrap 
+			max-height none 
+			overflow auto
+
+
+		
 @media screen and (max-width:660px)
 	#afterword
 		width auto
@@ -1006,13 +1021,14 @@ h1#title
 	#video 
 		h2 
 			width auto
+			font-size 30px
 		.video 
 			height auto
 			a
 			.container 
-				width auto
-				height auto
 				display block
+				height auto
+				width auto
 				img 
 					max-width 100%
 			.bg 
