@@ -2,11 +2,11 @@
 
 {% block body %}
 <form method="post" action="{% if curso %}{% url nuevo.views.admin_edit curso.slug %}{% else %}{% url nuevo.views.admin_add %}{% endif %}" id="{% if curso %}edit{% else %}add{% endif %}_form">
-	<h2><a href="#" class="back"></a>{% if curso %}Editar{% else %}Agregar{% endif %} Curso</h2>
+	<h2><a href="{% url nuevo.views.admin %}" class="back"></a>{% if curso %}Editar{% else %}Agregar{% endif %} Curso</h2>
 
 	<p><input type="text" placeholder="Nombre del curso" value="{{ curso.nombre }}" /> mejorando.la/<input type="text" placeholder="slug-del-curso" class="input-small" value="{{ curso.slug }}" /> $<input type="text" placeholder="0.00" class="input-small-pre" value="{{ curso.precio }}" /></p>
 	<p><input type="text" placeholder="Dirección" class="input-large" value="{{ curso.direccion}}" /><input type="text" placeholder="Pais" class="input-small" value="{{ curso.pais }}" /><input type="text" placeholder="Coord. ej. 3.32,-5.246" class="input-small" value="{{ curso.mapa }}" /></p>
-	<p class="row"><textarea placeholder="Descripción" class="input-large">{{ curso.descripcion }}</textarea><span class="drop"><img src="{{ curso.get_imagen }}" width="356" /><strong>Arrastra la imagen del curso</strong></span></p>
+	<p class="row"><textarea placeholder="Descripción" class="input-large">{{ curso.descripcion|safe }}</textarea><span class="drop"><img src="{{ curso.get_imagen }}" width="356" /><strong>Arrastra la imagen del curso</strong></span></p>
 
 	<h3 class="docentes">Docentes</h3>
 	<p><input type="text" placeholder="Nombre" /> @<input type="text" placeholder="usuario" class="input-small" /></p>

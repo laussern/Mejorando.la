@@ -198,11 +198,10 @@ h3
 	.overlay
 		display block
 
-	#main 
-		-webkit-filter blur(5px)
+	
 
 .overlay
-	background rgba(255, 255, 255, 0.9)
+	background url(../images/cargando.gif) center center no-repeat, rgba(255, 255, 255, 0.9)
 	position absolute
 	top 0
 	bottom 0
@@ -218,6 +217,13 @@ h3
 		margin 50px auto
 		-webkit-box-shadow 0 0 10px rgba(0, 0, 0, 0.4)
 		padding 20px
+		-webkit-transition -webkit-transform .5s, opacity .5s
+		opacity 0
+		-webkit-transform translate3d(0, 100%, 0)
+
+		&.loaded
+			opacity 1
+			-webkit-transform none
 
 
 input[type="text"], textarea

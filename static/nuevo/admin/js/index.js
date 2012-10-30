@@ -25,17 +25,13 @@ jQuery(function () {
 	});
 
 	$('.add').click(function () {
-		$('body').addClass('overlayed');
-
-		$('.panel').load($(this).attr('href')+' #add_form')
+		cargar_overlay($(this).attr('href')+' #add_form');
 
 		return false;
 	})
 
 	$('.edit').click(function () {
-		$('body').addClass('overlayed');
-
-		$('.panel').load($(this).attr('href')+' #edit_form')
+		cargar_overlay($(this).attr('href')+' #edit_form');
 
 		return false;
 	})
@@ -46,10 +42,35 @@ jQuery(function () {
 		return false;
 	});
 
+	$('#edit_form').live('submit', function () {
+		close_overlay();
+
+		return false;
+	});
+
 	$('a.back').live('click', close_overlay);
 
+	var $overlay = $('.overlay'), $panel = $overlay.find('.panel');
 	function close_overlay() {
-		$('body').removeClass('overlayed');
-		$('.panel').html('')
+		$overlay.fadeOut(function () {
+			$('body').removeClass('overlayed');
+			$panel.removeClass('loaded').html('');
+		});
+
+		return false;
+	}
+
+	function open_overlay() {
+		$overlay.fadeIn(function () {
+			$('body').addClass('overlayed');
+		});
+	}
+
+	function cargar_overlay(url) {
+		open_overlay();	
+
+		setTimeout(function () {
+			$panel.load(url, function () { $(this).addClass('loaded'); });
+		}, 10);
 	}
 });
