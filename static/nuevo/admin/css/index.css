@@ -198,9 +198,9 @@ h3 {
 }
 .overlay .panel {
   background: #fff;
+  min-height: 500px;
   width: 791px;
-  margin: auto;
-  margin-top: 50px;
+  margin: 50px auto;
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
   padding: 20px;
 }
@@ -217,9 +217,17 @@ input[type="text"].input-large,
 textarea.input-large {
   width: 411px;
 }
+input[type="text"].input-xlarge,
+textarea.input-xlarge {
+  width: 627px;
+}
 input[type="text"].input-small,
 textarea.input-small {
   width: 157px;
+}
+input[type="text"].input-small-pre,
+textarea.input-small-pre {
+  width: 144px;
 }
 input[type="text"]:focus,
 textarea:focus {
@@ -252,9 +260,16 @@ form h2 a {
   margin-right: 10px;
 }
 form h3 {
-  background: url("../images/email.gif") left center no-repeat;
+  background: url("../images/email.gif") 5px center no-repeat;
   padding-left: 35px;
   margin: 0;
+  margin-top: 10px;
+}
+form h3.docentes {
+  background-image: url("../images/docentes.gif");
+}
+form h3.calendario {
+  background-image: url("../images/calendario.gif");
 }
 form textarea {
   height: 130px;
@@ -267,9 +282,11 @@ form .drop {
   width: 352px;
   line-height: 130px;
   height: 136px;
-  float: right;
   overflow: hidden;
   position: relative;
+}
+form .drop.drop-docente {
+  width: 136px;
 }
 form .drop img {
   position: absolute;
@@ -283,4 +300,11 @@ form .drop strong {
 form .drop:hover {
   border-color: #000;
   color: #000;
+}
+form .row {
+  overflow: hidden;
+}
+form .row textarea,
+form .row .drop {
+  float: left;
 }

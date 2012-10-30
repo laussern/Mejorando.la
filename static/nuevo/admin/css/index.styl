@@ -193,6 +193,7 @@ h3
 	pointer-events none
 	z-index 1
 
+
 .overlayed
 	.overlay
 		display block
@@ -212,9 +213,9 @@ h3
 
 	.panel
 		background white
+		min-height 500px
 		width 791px
-		margin auto
-		margin-top 50px
+		margin 50px auto
 		-webkit-box-shadow 0 0 10px rgba(0, 0, 0, 0.4)
 		padding 20px
 
@@ -230,9 +231,13 @@ input[type="text"], textarea
 	&.input-large
 		width 411px
 
+	&.input-xlarge
+		width 627px
 	&.input-small
 		width 157px
 
+	&.input-small-pre
+		width 144px
 
 	&:focus
 		background black
@@ -266,9 +271,18 @@ form
 
 
 	h3 
-		background url(../images/email.gif) left center no-repeat
+		background url(../images/email.gif) 5px center no-repeat
 		padding-left 35px
 		margin 0
+		margin-top 10px
+
+
+		&.docentes
+			background-image url(../images/docentes.gif)
+
+		&.calendario
+			background-image url(../images/calendario.gif)
+
 
 	textarea
 		height 130px
@@ -281,9 +295,12 @@ form
 		width 352px
 		line-height 130px
 		height 136px
-		float right
 		overflow hidden
 		position relative
+
+
+		&.drop-docente
+			width 136px
 
 		img
 			position absolute
@@ -297,3 +314,9 @@ form
 		&:hover	
 			border-color black
 			color black
+
+	.row	
+		overflow hidden
+
+		textarea, .drop
+			float left
