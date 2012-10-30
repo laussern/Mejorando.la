@@ -254,11 +254,12 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #syllabus{float:none}
 .overlay #overlay{-o-transition:0;-ms-transition:0;-moz-transition:0;-webkit-transition:0;transition:0}
 .overlay #overflow{height:476px;overflow:hidden}
-.overlay #wrap{-webkit-filter:none}
+.overlay #wrap{height:456px;-webkit-filter:none}
 .overlay #register{position:absolute;margin-left:auto;max-width:294px;width:auto;left:0;top:0;right:0;margin:0 auto;padding-top:26px}
 .cart{margin:0 -21px 20px}
 #close{top:0;right:0}
-}@media screen and (max-width:1000px) and (min-height:476px){.overlay{overflow:hidden;height:auto;}
+}@media screen and (max-width:1000px) and (min-height:476px){.overlay{overflow:hidden;}
+.overlay #overflow{height:auto}
 .overlay #register{top:-238px;margin-top:50%;position:fixed}
 .overlay #wrap{max-height:none;overflow:auto;-webkit-overflow-scrolling:touch}
 }@media screen and (max-width:660px){#afterword{width:auto;padding:0 10px}
