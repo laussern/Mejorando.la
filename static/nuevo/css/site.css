@@ -1,5 +1,4 @@
 @import url("http://fonts.googleapis.com/css?family=Rokkitt");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,600,700'");
 /*  HTML5 ✰ Boilerplate  */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
@@ -66,7 +65,7 @@ img.alignright{margin-top:0}
 .wp-caption img{border:0;height:auto;margin:0;max-width:98.5%;padding:0;width:auto}
 .wp-caption p.wp-caption-text{font-size:11px;line-height:17px;margin:0;padding:0 4px 5px}
 .container,#wrap{margin:0 auto;position:relative;width:1000px}
-body{background:#008fd5;color:#fff;font-size:14px;font-family:Arial;text-align:justify}
+body{background:#008fd5;color:#fff;font-size:14px;font-family:"Helvetica",Arial,sans-serif;min-width:1000px;text-align:justify}
 a{color:#fff;text-decoration:underline;}
 a:hover{text-decoration:none}
 p{margin:0 0 1em}
@@ -75,7 +74,6 @@ a.button,.cart{background:#ffc43a;border-bottom:3px solid #bf932b;color:#87620a;
 a.button:hover,.cart:hover{background-color:#ffc744;color:#805d09}
 a.button strong,.cart strong{display:block;font-size:2.6666666666666665em}
 hr{display:none}
-h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid #008fd5;color:#323e4a;font:32px "Open Sans","Helvetica",Arial,sans-serif;margin:0;font-weight:200;padding:15px 0;text-align:center;text-transform:uppercase}
 #overflow{position:relative;z-index:1}
 #wrap{background:#fff url("../images/bg.png") repeat-x left bottom;color:#6f7376;padding:0 0 17px;-o-transition:-webkit-filter .15s linear;-ms-transition:-webkit-filter .15s linear;-moz-transition:-webkit-filter .15s linear;-webkit-transition:-webkit-filter .15s linear;transition:-webkit-filter .15s linear;z-index:1}
 #header{background:#323e4a;border-bottom:15px solid #008fd5;line-height:43px;}
@@ -98,20 +96,21 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #nav a{padding:0 20px;text-decoration:none;-o-transition:background-color .15s linear;-ms-transition:background-color .15s linear;-moz-transition:background-color .15s linear;-webkit-transition:background-color .15s linear;transition:background-color .15s linear;}
 #nav a:hover{background-color:#1c2127;text-decoration:underline}
 #course-info{background:#323e4a;}
-#course-info .imagen_curso{float:left;width:666px}
+#course-info img{float:left;width:666px}
 #course-info .content{color:#fff;float:right;line-height:1.3;padding:20px 20px 0;width:294px}
+#course-info h1{font:2.357142857142857em "Open Sans","Helvetica",Arial,sans-serif;line-height:.9;margin:0 0 .5em;text-transform:uppercase}
 #course-info .buttons{margin-top:2em;text-align:center}
 #course-info a.button{background-image:url("../images/cart.png");background-repeat:no-repeat;background-position:20px 50%;line-height:1;padding:8px 25px 8px 75px}
 #course-info .register-skype{margin:1.75em 0 0;padding:1.25em 0 0}
 #course-info .skype-message{float:left;line-height:1.1;margin:0;width:145px}
 #course-info .skype-buttons{float:right;padding:4px 0 0}
 #course-info .skype-button{padding:.85em .95em}
-#syllabus-location{margin-bottom:14px}
+#syllabus-location{margin:10px 0}
 #syllabus{float:left;font-size:.9em;height:232px;padding-left:330px;position:relative;}
 #syllabus .bg{background:url("../images/tab_active.png") no-repeat;width:8px;height:15px;position:absolute;right:0;top:50px;-o-transition:top .15s linear;-ms-transition:top .15s linear;-moz-transition:top .15s linear;-webkit-transition:top .15s linear;transition:top .15s linear}
 #syllabus .active .tab,#syllabus .active .tab:hover{background:#ffc43a;color:#222}
 #syllabus .active .content{opacity:1;-ms-filter:none;filter:none;z-index:2}
-#syllabus .tab{background:#eaedf1;color:#343639;cursor:pointer;font-family:"Open Sans","Helvetica",Arial,sans-serif;font-weight:bold;height:95px;left:0;padding:20px 0 0 20px;position:absolute;text-transform:uppercase;top:0;-o-transition:all .15s linear;-ms-transition:all .15s linear;-moz-transition:all .15s linear;-webkit-transition:all .15s linear;transition:all .15s linear;-o-transition-property:background;-ms-transition-property:background;-moz-transition-property:background;-webkit-transition-property:background;transition-property:background;width:310px;}
+#syllabus .tab{background:#eaedf1;color:#343639;cursor:pointer;font-family:"Open Sans","Helvetica",Arial,sans-serif;font-weight:bold;height:95px;left:0;padding:20px 0 0 20px;position:absolute;text-transform:uppercase;top:0;-o-transition:all .15s linear;-ms-transition:all .15s linear;-moz-transition:all .15s linear;-webkit-transition:all .15s linear;transition:all .15s linear;-o-transition-property:background-color color;-ms-transition-property:background-color color;-moz-transition-property:background-color color;-webkit-transition-property:background-color color;transition-property:background-color color;width:310px;}
 #syllabus .tab:hover{background:#dfe3e9}
 #syllabus .tab h3{font-size:1.7142857142857142em;font-weight:normal;line-height:.9;margin:0 0 .35em;}
 #syllabus .tab h3 strong{display:block;font-size:1.375em}
@@ -124,7 +123,7 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #location .colombia{background-image:url("../images/flag_colombia.png")}
 #location .espana{background-image:url("../images/flag_spain.png")}
 #location .img{position:absolute;top:0;left:0}
-#speakers{background:#eaedf1;padding:50px 10px;}
+#speakers{background:#eaedf1;padding:10px;}
 #speakers .wrap{background:url("../images/speakers.png") repeat-y center top}
 #speakers #speaker-1,#speakers #speaker-2{background:#fff;float:left;width:485px}
 #speakers #speaker-2{float:right}
@@ -243,24 +242,3 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 .overlay #overlay{bottom:0;opacity:.55;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=55);filter:alpha(opacity=55);right:0}
 .overlay #register{display:block}
 .error{background:#10151b;background:rgba(16,21,27,0.8);border:1px solid #0e1217;-o-box-shadow:0 0 5px rgba(0,0,0,0.25);-ms-box-shadow:0 0 5px rgba(0,0,0,0.25);-moz-box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.25);box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-background-clip:padding-box;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#fff;font:.8em "Open Sans","Helvetica",Arial,sans-serif;height:1em;line-height:1;margin:0 0 0 .75em;padding:.8em 1em;text-transform:uppercase;z-index:2}
-@media screen and (max-width:1000px){#wrap,.container{width:auto}
-#course-info{position:relative;}
-#course-info .imagen_curso{display:block}
-#course-info .content{background:#323e4a;bottom:0;position:absolute;right:0;top:0;z-index:2}
-#location{float:none;height:auto;overflow:hidden;padding:0;width:auto;}
-#location .img{float:left;position:static}
-#location .datos{float:left;padding:20px}
-#speakers section{float:none !important;width:auto !important}
-#syllabus{float:none}
-}@media screen and (max-width:660px){#afterword{width:auto;padding:0 10px}
-#video h2{width:auto}
-#video .video{height:auto;}
-#video .video a,#video .video .container{width:auto;height:auto;}
-#video .video a img,#video .video .container img{max-width:100%}
-#video .video .bg{display:none}
-}@media screen and (max-width:600px){#course-info .imagen_curso{max-width:100%}
-#course-info .content{position:static;width:auto}
-#syllabus{padding:0;height:auto;}
-#syllabus .content{width:auto;position:static;opacity:1 !important;-ms-filter:none;filter:none}
-#syllabus .tab{position:static;width:auto;background:#ffc43a !important;-o-transition:0 !important;-ms-transition:0 !important;-moz-transition:0 !important;-webkit-transition:0 !important;transition:0 !important}
-}
