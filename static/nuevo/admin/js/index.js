@@ -41,12 +41,15 @@ jQuery(function () {
 	})
 
 	$('#add_form').live('submit', function () {
-		$('body').removeClass('overlayed')
+		close_overlay();
 
 		return false;
 	});
 
-	$('a.back').live('click', function () {
-		$('body').removeClass('overlayed')		
-	});
+	$('a.back').live('click', close_overlay);
+
+	function close_overlay() {
+		$('body').removeClass('overlayed');
+		$('.panel').html('')
+	}
 });
