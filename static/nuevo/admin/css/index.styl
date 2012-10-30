@@ -1,0 +1,135 @@
+* 
+	margin 0
+	padding 0
+
+body 
+	font-family 'Open Sans', sans-serif
+	font-size 13px
+	color #303030
+
+header
+	background #303030
+	height 45px
+
+#main
+	padding 30px
+
+
+h1, h2, h3, h4, h5, h6 
+	font-weight normal
+
+
+h2 
+	font-size 50px
+	text-transform uppercase
+	margin 10px 0
+	margin-left 30px
+
+	a
+		background url(../images/add.gif) left top no-repeat
+		width 35px 
+		height 35px
+		padding 0
+		display inline-block
+		margin-right 5px
+
+		&:hover
+			background-color transparent
+			background-position left bottom
+
+h3
+	font-size 25px
+	margin 3px 0
+	text-transform uppercase
+
+#cursos
+	margin 20px 0
+
+
+.curso
+	float left
+	width 310px
+	margin 30px 
+	position relative
+
+	&.disabled
+		opacity .4
+
+	a
+		background-color #303030
+		color white
+		padding 1px 5px
+		display inline block
+		text-decoration none
+
+		&:hover
+			background-color black
+
+	h3 
+		color white
+		line-height 35px
+		position absolute
+		padding 5px
+		left 0 
+		right 0
+		z-index 2
+
+		a
+			padding 0 5px 
+
+	img
+		-webkit-filter grayscale(100%)
+
+	time
+		text-transform uppercase
+		font-weight bold
+		display block
+		margin-bottom 7px
+
+	.bottom 
+		font-size 12px
+		margin-top 5px
+		position relative
+		width 100%
+
+		.asis
+			background url(../images/asistentes.gif) left center no-repeat
+			padding-left 12px
+			margin-right 10px
+
+		a
+			margin 0 2px
+
+			&:first-of-type
+				margin-left 0
+
+		.actions 
+			position absolute
+			display block
+			top 0
+			right 0
+
+			a
+				background url(../images/edit.gif) left top no-repeat
+				width 16px 
+				height 16px
+				padding 0
+				display inline-block
+
+				&:hover
+					background-color transparent
+					background-position left bottom
+
+
+				&.del
+					background-image url(../images/del.gif)
+
+				&.preview
+					width 26px
+					background-image url(../images/preview.gif)
+
+
+
+
+
+

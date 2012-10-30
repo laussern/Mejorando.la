@@ -1,36 +1,25 @@
-{% load static %} {% get_static_prefix as STATIC_PREFIX %}
-<!doctype html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Cursos | Mejorando.la</title>
+{% extends "nuevo/base.html" %}
 
-	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/admin/css/admin.css" />
-</head>
-<body>
+{% block body %}
+	<h2><a href="{% url nuevo.views.admin_add %}"></a>Cursos</h2>
 
-	<header>
-		<h1><a href="#"><img src="{{ STATIC_PREFIX }}nuevo/admin/images/logo.gif" alt="Mejorando.la" /></a></h1>
-		<nav>
-			<a href="{% url nuevo.views.admin_add %}">+</a>
-		</nav>
-	</header>
-
-
-	<div class="main">
-		<h2>Cursos</h2>
-
-
+	<div class="cursos">
 		{% if cursos|length > 0 %}
-		<div class="secciones">
-			{% for curso in cursos %}
-			<a href="{% url nuevo.views.admin_edit curso.slug %}"><span>{{ curso.nombre }}</span></a>
-			{% endfor %}
+		{% for curso in cursos %}
+		<div class="curso">
+			<time>{{ curso.fecha|date:"d" }} <a href="#">{{ curso.fecha|date:"F" }}</a></time>
+
+			<h3>{{ curso.nombre }} en <a href="#">{{ curso.pais}}</a></h3>
+
+			<p><img src="{{ curso.get_imagen }}" width="310" alt="{{ curso.nombre }}" /></p>
+
+
+			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url nuevo.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url nuevo.views.admin_edit curso.slug %}" class="edit"></a><a href="{% url nuevo.views.admin_delete curso.slug %}" class="del"></a></span></a>
 		</div>
+		{% endfor %}
 		{% else %}
 		<p>Aún no hay ningún curso</p>
 		{% endif%}
-	</div>
 
-</body>
-</html>
+	</div>
+{% endblock %}

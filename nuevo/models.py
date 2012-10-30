@@ -26,9 +26,15 @@ class Curso(models.Model):
 	def dias(self):
 		return CursoDia.objects.filter(curso=self)
 
+	def fecha(self):
+		return CursoDia.objects.filter(curso=self)[0].fecha
+
 	def docentes(self):
 		return CursoDocente.objects.filter(curso=self)
 
+	def registros(self):
+		return CursoRegistro.objects.filter(curso=self)
+		
 	def save(self, *args, **kwargs):
 		super(Curso, self).save(*args, **kwargs)
 

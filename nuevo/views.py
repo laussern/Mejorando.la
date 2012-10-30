@@ -7,6 +7,7 @@ from django.utils.html import strip_tags
 from models import Curso, CursoRegistro
 from django.http import HttpResponse
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 import stripe
 from website.utils import get_pais
 
@@ -58,12 +59,13 @@ def curso(req, curso_slug):
 	return render_to_response('nuevo/curso.html', { 'curso': curso })
 
 
+@login_required(login_url='/nuevo/admin')
 def admin(req):
 	cursos = Curso.objects.all()
 
 	return render_to_response('nuevo/admin.html', { 'cursos': cursos })
 
-
+@login_required(login_url='/nuevo/admin')
 def admin_add(req):
 
 	if req.method == 'POST':
@@ -82,6 +84,7 @@ def admin_add(req):
 
 	return render_to_response('nuevo/admin_add.html')
 
+@login_required(login_url='/nuevo/admin')
 def admin_edit(req, curso_slug):
 	curso = get_object_or_404(Curso, slug=curso_slug)
 
@@ -105,3 +108,7 @@ def admin_edit(req, curso_slug):
 			return redirect('nuevo.views.admin')
 
 	return render_to_response('nuevo/admin_add.html', { 'curso': curso})
+
+@login_required(login_url='/nuevo/admin')
+def admin_delete(req, curso_slug):
+	return HttpResponse()
