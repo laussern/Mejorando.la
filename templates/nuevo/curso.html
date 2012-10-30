@@ -18,7 +18,26 @@
 	<meta property="fb:admins" content="1030603473">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}nuevo/css/site.css">
+
 	<script src="{{ STATIC_PREFIX }}nuevo/js/modernizr.custom.53065.js"></script>
+	<script>
+		var payment_config = {
+			name: 'Curso de HTML5 en Madrid',
+			code: '20120901.Madrid.Html5',
+			cancel_url: 'http://mejorando.la/cursos/html5-madrid/',
+			redirect_url: 'http://mejorando.la/cursos/html5-madrid/?felicidades',
+			online: {
+				price: {{ curso.precio }},
+				currency: 'EUR',
+				sign: '€'
+			},
+			bank: {
+				price: {{ curso.precio }},
+				currency: 'EUR',
+				sign: '€'
+			}
+		};
+	</script>
 </head>
 <body>
 <div id="overflow">
@@ -52,8 +71,9 @@
 				<p class="buttons"><a class="button" href="#registrate" id="register-link">Registrate al curso por <strong></strong></a></p>
 
 				<div class="register-skype clearfix">
-					<p class="skype-message">¿Necesitas ayuda? Contactanos a nuestro Skype: "<em>mejorandola</em>"</p>
+					<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m<em>mejorandola</em>"</p>
 					<p class="skype-buttons"><a class="skype-button" href="skype:mejorandola?call">Llama a <em>mejorandola</em></a></p>
+					<p class="telefono"></p>
 				</div>
 			</div>
 		</section>
