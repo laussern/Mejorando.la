@@ -1,9 +1,9 @@
 // web fonts
 @import url("http://fonts.googleapis.com/css?family=Rokkitt");
-
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,600,700'");
 // variables
 font_helvetica = "Helvetica", Arial, sans-serif
-font_opensans = "Open Sans", font_helvetica
+font_opensans = "Open Sans", font_helvetica 
 link_blue = #0e76bc
 
 // CSS Framework
@@ -20,8 +20,8 @@ body
 	background #008fd5
 	color #fff
 	font-size 14px
-	font-family font_helvetica
-	min-width 1000px
+	font-family Arial
+	//min-width 1000px
 	text-align justify
 
 a
@@ -60,6 +60,17 @@ a.button
 
 hr
 	display none
+h1#title
+	background white
+	border-left 10px solid #008FD5
+	border-right 10px solid #008FD5
+	color #323e4a
+	font 32px font_opensans
+	margin 0
+	font-weight 200
+	padding 15px 0
+	text-align center
+	text-transform uppercase
 
 #overflow
 	position relative
@@ -146,7 +157,7 @@ hr
 	@extends .clearfix
 	background #323e4a
 
-	img
+	.imagen_curso
 		float left
 		width 666px
 	
@@ -157,11 +168,7 @@ hr
 		padding 20px 20px 0
 		width 1000px - 666 - 40
 
-	h1
-		font (33em / 14) font_opensans
-		line-height 0.9
-		margin 0 0 0.5em
-		text-transform uppercase
+	
 
 	.buttons
 		margin-top 2em
@@ -193,7 +200,7 @@ hr
 
 #syllabus-location
 	@extends .clearfix
-	margin 10px 0
+	margin-bottom 14px 
 
 #syllabus
 	float left
@@ -209,7 +216,7 @@ hr
 		position absolute
 		right 0
 		top (115px / 2) - 7.5
-		transition top .150s linear
+		transition top .150s linear 
 
 	.active
 		.tab
@@ -236,7 +243,7 @@ hr
 		text-transform uppercase
 		top 0
 		transition all .150s linear
-		transition-property background-color color
+		transition-property background 
 		width 330px - 20
 	
 		&:hover
@@ -304,7 +311,7 @@ hr
 
 #speakers
 	background #eaedf1
-	padding 10px
+	padding 50px 10px
 
 	.wrap
 		@extends .clearfix
@@ -921,6 +928,87 @@ hr
 	padding 0.8em 1em
 	text-transform uppercase
 	z-index 2
+
+@media screen and (max-width:1000px)
+	#wrap
+	.container
+		width auto
+
+	#course-info
+		position relative
+
+		.imagen_curso 
+			display block	
+
+		.content 
+			background #323E4A
+			bottom 0
+			position absolute
+			right 0
+			top 0
+			z-index 2
+
+	#location
+		float none
+		height auto
+		overflow hidden
+		padding 0
+		width auto 
+
+		.img 
+			float left 
+			position static
+
+		.datos 
+			float left
+			padding 20px
+
+	#speakers
+		section
+			float none !important
+			width auto !important
+	#syllabus
+		float none
+@media screen and (max-width:660px)
+	#afterword
+		width auto
+		padding 0 10px
+	#video 
+		h2 
+			width auto
+		.video 
+			height auto
+			a
+			.container 
+				width auto
+				height auto
+				img 
+					max-width 100%
+			.bg 
+				display none
+
+@media screen and (max-width:600px)
+
+	#course-info
+
+		.imagen_curso
+			max-width 100%
+
+		.content 
+			position static
+			width auto
+	#syllabus
+		padding 0
+		height auto
+		.content 
+			width auto
+			position static
+			opacity 1 !important
+		.tab 
+			position static
+			width auto
+			background #FFC43A !important
+			transition 0 !important
 
 // @css {
 // .error {
