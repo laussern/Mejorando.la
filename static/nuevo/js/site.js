@@ -37,6 +37,7 @@ var Site = {
 
 			$(window)[0].scrollTo(0, 0);
 			$('body').addClass('overlay');
+			
 			$('.change-method').trigger('click');
 
 			// Remove "success" message when opening a finished form
