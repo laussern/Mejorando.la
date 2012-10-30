@@ -11,7 +11,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.contrib.auth.decorators import login_required
 
-from models import Curso, CursoRegistro
+from models import Curso, CursoRegistro, CursoDocente
 from website.utils import get_pais
 
 import stripe
@@ -66,9 +66,11 @@ def curso(req, curso_slug):
 
 @login_required(login_url='/nuevo/admin')
 def admin(req):
-	cursos = Curso.objects.all()
-
-	return render_to_response('nuevo/admin.html', { 'cursos': cursos })
+	return render_to_response('nuevo/admin.html', { 
+		'cursos': Curso.objects.all(), 
+		'docentes': CursoDocente.objects.all(),
+		'alumnos': CursoRegistro.objects.all()
+	})
 
 @login_required(login_url='/nuevo/admin')
 def admin_add(req):

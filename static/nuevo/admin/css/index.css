@@ -43,6 +43,10 @@ h2 a:hover {
   background-color: transparent;
   background-position: left bottom;
 }
+.subtitle {
+  margin-left: 30px;
+  margin-top: -10px;
+}
 h3 {
   font-size: 25px;
   margin: 3px 0;
