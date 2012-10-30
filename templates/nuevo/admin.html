@@ -11,7 +11,7 @@
 
 			<h3>{{ curso.nombre }} en <a href="#" data-filter=".{{ curso.pais|slugify }}">{{ curso.pais}}</a></h3>
 
-			<p><img src="{{ curso.get_imagen }}" width="310" alt="{{ curso.nombre }}" /></p>
+			<p><img src="{{ curso.get_imagen }}" width="310" height="200" alt="{{ curso.nombre }}" /></p>
 
 
 			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#" data-filter=".{{ docente.twitter }}">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url nuevo.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url nuevo.views.admin_edit curso.slug %}" class="edit"></a><a href="{% url nuevo.views.admin_delete curso.slug %}" class="del"></a></span></a>
