@@ -2,6 +2,7 @@
 
 {% block body %}
 <form method="post" action="{% if curso %}{% url nuevo.views.admin_edit curso.slug %}{% else %}{% url nuevo.views.admin_add %}{% endif %}" id="{% if curso %}edit{% else %}add{% endif %}_form">
+	<div class="capa"></div>
 	{% if curso %}
 	<input type="hidden" name="action" value="edit_curso" />
 	{% else %}
@@ -13,22 +14,21 @@
 
 	<h2><a href="{% url nuevo.views.admin %}" class="back"></a>{% if curso %}Editar{% else %}Agregar{% endif %} Curso</h2>
 
-	<p><input type="text" placeholder="Nombre del curso" value="{{ curso.nombre }}" name="nombre" /> mejorando.la/<input type="text" placeholder="slug-del-curso" class="input-small" value="{{ curso.slug }}" name="slug" /> $<input type="text" placeholder="0.00" class="input-small-pre" value="{{ curso.precio }}" name="precio" /></p>
-	<p><input type="text" placeholder="Dirección" class="input-large" value="{{ curso.direccion}}" name="direccion" /><input type="text" placeholder="Pais" class="input-small" value="{{ curso.pais }}" name="pais" /><input type="text" placeholder="Coord. ej. 3.32,-5.246" class="input-small" value="{{ curso.mapa }}" name="mapa" /></p>
-	<p class="row"><textarea placeholder="Descripción" class="input-large" name="descripcion">{{ curso.descripcion|safe }}</textarea><span class="drop"><img src="{{ curso.get_imagen }}" width="356" /><strong>Arrastra la imagen del curso</strong></span></p>
+	<p><input type="text" placeholder="Nombre del curso" value="{{ curso.nombre }}" name="nombre" class="required" /> mejorando.la/<input type="text" placeholder="slug-del-curso" class="input-small required" value="{{ curso.slug }}" name="slug" /> $<input type="text" placeholder="0.00" class="input-small-pre required" value="{{ curso.precio }}" name="precio" /></p>
+
+	<p><input type="text" placeholder="Dirección" class="input-large required" value="{{ curso.direccion}}" name="direccion" /><input type="text" placeholder="Pais" class="input-small required" value="{{ curso.pais }}" name="pais" /><input type="text" placeholder="Coord. ej. 3.32,-5.246" class="input-small required" value="{{ curso.mapa }}" name="mapa" /></p>
+
+	<p class="row"><textarea placeholder="Descripción" class="input-large required" name="descripcion">{{ curso.descripcion|safe }}</textarea><span class="drop drop-curso"><img src="{{ curso.get_imagen }}" width="356" /><strong>Arrastra la imagen del curso</strong></span></p>
 
 	<h3 class="docentes">Docentes</h3>
-	<p><input type="text" placeholder="Nombre" /> @<input type="text" placeholder="usuario" class="input-small" /></p>
-	<p class="row"><textarea placeholder="Perfil del docente" class="input-large"></textarea><span class="drop drop-docente"><img src="" width="356" /><strong>Arrastra la docente</strong></span></p>
 
 	<h3 class="calendario">Calendario</h3>
 
-	<p><input type="text" placeholder="Tema" /> <input type="text" placeholder="Fecha" /></p>
-	<p><textarea placeholder="Temario" class="input-xlarge"></textarea></p>
-
 	<h3 class="email">Email</h3>
-	<p><textarea placeholder="Contenido del mail de deposito" class="input-large">{{ curso.info_pago|safe }}</textarea></p>
+	<p><textarea placeholder="Contenido del mail de deposito" class="input-large required" name="info_pago">{{ curso.info_pago|safe }}</textarea></p>
 
 	<button type="submit">Guardar</button>
+
+	<p class="notif"></p>
 </form>
 {% endblock %}

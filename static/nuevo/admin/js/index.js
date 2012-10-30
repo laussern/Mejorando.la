@@ -36,14 +36,62 @@ jQuery(function () {
 		return false;
 	})
 
+	/* formularios */
+	function validate_basic($form) {
+		$form.find('input.required, textarea.required').each(function () {
+			var $self = $(this);
+
+			$self.removeClass('error');
+
+			if($self.val().match(/^\s*$/)) $self.addClass('error');
+		});
+	}
+
+	function send_form($form) {
+		if($form.find('input.required.error, .drop.error, textarea.required.error').size() > 0) {
+			console.log($form);
+			error_overlay('Errores en los campos.');
+
+			return false;
+		}
+
+		send_overlay();
+		$.post($form.attr('action'), $form.serialize(),
+			function (r) {
+				unsend_overlay();
+
+				if(r == 'OK') {
+					close_overlay();
+				} else {
+					error_overlay('Error, porfavor vuelve a intentarlo más tarde.');
+				}
+		});
+
+		return true;
+	}
+
 	$('#add_form').live('submit', function () {
-		close_overlay();
+		var $self = $(this);
+
+		notif_overlay('');
+		validate_basic($self)
+
+		// validate imagen drop 
+		if($self.find('input[name="imagen"]').val().match(/^\s*$/)) $self.find('.drop-curso').addClass('error')
+		else $self.find('.drop-curso').removeClass('error')
+
+		send_form($self);
 
 		return false;
 	});
 
 	$('#edit_form').live('submit', function () {
-		close_overlay();
+		var $self = $(this);
+		
+		notif_overlay('');
+		validate_basic($self)
+
+		send_form($self);
 
 		return false;
 	});
@@ -82,7 +130,7 @@ jQuery(function () {
 
 	/* popup de edicion */
 	var $overlay = $('.overlay'), 
-		$panel = $overlay.find('.panel');
+		$panel 	 = $overlay.find('.panel');
 
 	$('a.back').live('click', close_overlay);
 	function close_overlay() {
@@ -92,6 +140,24 @@ jQuery(function () {
 		});
 
 		return false;
+	}
+
+	function notif_overlay(str) {
+		$panel.find('.notif').html(str);
+	}
+
+	function error_overlay(str) {
+		notif_overlay('<span class="error">*</span>'+str);
+	}
+
+	function send_overlay() { 
+		notif_overlay('Enviando...'); 
+		$panel.addClass('sending'); 
+	}
+
+	function unsend_overlay() { 
+		notif_overlay('');
+		$panel.removeClass('sending'); 
 	}
 
 	function open_overlay() {

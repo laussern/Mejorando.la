@@ -27,7 +27,11 @@ class Curso(models.Model):
 		return CursoDia.objects.filter(curso=self)
 
 	def fecha(self):
-		return CursoDia.objects.filter(curso=self)[0].fecha
+		dias = CursoDia.objects.filter(curso=self)
+		
+		if dias.count() > 0: return dias[0].fecha
+
+		return None
 
 	def docentes(self):
 		return CursoDocente.objects.filter(curso=self)
