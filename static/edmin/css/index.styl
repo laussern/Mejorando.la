@@ -11,21 +11,39 @@ header
 	background #303030
 	height 45px
 
-#main
-	padding 30px
+	a
+		padding 0
+		background none
+		display inline
+
+		&:hover
+			background none
 
 
 h1, h2, h3, h4, h5, h6 
 	font-weight normal
-
-
-h2 
-	font-size 50px
 	text-transform uppercase
+
+h2
+	font-size 50px
 	margin 10px 0
 	margin-left 30px
 
-	a
+h3
+	font-size 25px
+	margin 3px 0
+
+a
+	background-color #303030
+	color white
+	padding 1px 5px
+	display inline block
+	text-decoration none
+
+	&:hover, &.active
+		background-color black
+
+	&.add
 		background url(../images/add.gif) left top no-repeat
 		width 35px 
 		height 35px
@@ -37,15 +55,74 @@ h2
 			background-color transparent
 			background-position left bottom
 
+	&.edit
+		background url(../images/edit.gif) left top no-repeat
+		width 16px 
+		height 16px
+		padding 0
+		display inline-block
+
+		&:hover
+			background-color transparent
+			background-position left bottom
+	&.del
+		width 16px 
+		height 16px
+		padding 0
+		display inline-block
+		background-image url(../images/del.gif)
+
+	&.preview
+		width 26px
+		height 16px
+		padding 0
+		display inline-block
+		background-image url(../images/preview.gif)
+
+	&.back
+		background-image url(../images/back.gif)
+		width 22px
+		height 36px
+		margin-right 10px
+		display inline-block
+
+	&.edit-medium
+		background url(../images/edit.gif) left top no-repeat
+		width 16px 
+		height 16px
+		padding 0
+		margin-top 2px
+		display inline-block
+
+		&:hover
+			background-color transparent
+			background-position left bottom
+
+	&.del-medium
+		background-image url(../images/del.gif)
+		width 16px 
+		height 16px
+		padding 0
+		margin-top 2px
+		display inline-block
+
+		&:hover
+			background-color transparent
+			background-position left bottom
+
+	&.add-medium
+		background url(../images/add.gif) left top no-repeat
+		width 35px 
+		height 35px
+		display block
+			
+
+#main
+	padding 30px
+
 .subtitle
 	margin-left 30px
 	margin-top -10px
-
-h3
-	font-size 25px
-	margin 3px 0
-	text-transform uppercase
-
 
 .curso
 	float left
@@ -56,16 +133,6 @@ h3
 
 	&.disabled
 		opacity .4
-
-	a
-		background-color #303030
-		color white
-		padding 1px 5px
-		display inline block
-		text-decoration none
-
-		&:hover, &.active
-			background-color black
 
 	h3 
 		color white
@@ -111,98 +178,10 @@ h3
 			top 0
 			right 0
 
-			a
-				background url(../images/edit.gif) left top no-repeat
-				width 16px 
-				height 16px
-				padding 0
-				display inline-block
-
-				&:hover
-					background-color transparent
-					background-position left bottom
-
-
-				&.del
-					background-image url(../images/del.gif)
-
-				&.preview
-					width 26px
-					background-image url(../images/preview.gif)
-
-
-
-
-
-
-
-
-
-/**** Isotope Filtering ****/
-
-.isotope-item 
-	z-index 2
-
-
-.isotope-hidden.isotope-item 
-	pointer-events none
-	z-index 1
-
-
-/**** Isotope CSS3 transitions ****/
-
-.isotope,
-.isotope .isotope-item 
-	-webkit-transition-duration 0.8s
-	-moz-transition-duration 0.8s
-	-ms-transition-duration 0.8s
-	-o-transition-duration 0.8s
-	transition-duration 0.8s
-
-
-.isotope 
-	-webkit-transition-property height, width
-	-moz-transition-property height, width
-	-ms-transition-property height, width
-	-o-transition-property height, width
-	transition-property height, width
-
-
-.isotope .isotope-item 
-	-webkit-transition-property -webkit-transform, opacity
-	-moz-transition-property    -moz-transform, opacity
-	-ms-transition-property     -ms-transform, opacity
-	-o-transition-property      -o-transform, opacity
-	transition-property         transform, opacity
-
-
-/**** disabling Isotope CSS3 transitions ****/
-
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition 
-	-webkit-transition-duration 0s
-	-moz-transition-duration 0s
-	-ms-transition-duration 0s
-	-o-transition-duration 0s
-	transition-duration 0s
-
-
-/**** Isotope filtering ****/
-
-.isotope-item 
-	z-index 2
-
-.isotope-hidden.isotope-item
-	pointer-events none
-	z-index 1
-
-
 .overlayed
 	.overlay
 		display block
 
-	
 
 .overlay
 	background url(../images/cargando.gif) center center no-repeat, rgba(255, 255, 255, 0.9)
@@ -276,7 +255,8 @@ button
 	text-transform uppercase
 	font-weight bold
 	cursor pointer
-	margin-top -6px
+	position relative
+	top -36px
 	border 1px solid white
 
 	&:hover
@@ -288,13 +268,6 @@ form
 
 	h2
 		margin-left 0
-
-		a 
-			background-image url(../images/back.gif)
-			width 32px
-			height 36px
-			margin-right 10px
-
 
 	h3 
 		background url(../images/email.gif) 5px center no-repeat
@@ -363,3 +336,124 @@ form
 
 	input.error::-webkit-input-placeholder, textarea.error::-webkit-input-placeholder
 		color red
+
+
+.docentes
+	overflow hidden
+
+.docente
+	float left
+	margin 3px
+
+	&:nth-child(1)
+		margin-left 0
+
+	img
+		-webkit-filter grayscale(100%)
+		float left
+
+	h4
+		color white
+		background #303030
+		padding 5px
+		font-size 18px
+		float left
+
+	.actions 
+		text-align right
+
+.dias 
+	overflow hidden
+
+.dia
+	float left
+	margin 3px
+	text-transform uppercase
+
+	&:nth-child(1)
+		margin-left 0
+
+	h4
+		font-size 18px
+		color white
+		padding 5px
+		background #303030
+
+	.bottom 
+		position relative
+		width 100%
+
+		.actions 
+			position absolute
+			top 0
+			right 0
+
+fieldset
+	border 0
+	margin-top 30px
+	position relative
+
+	.add-docente, .add-dia
+		position absolute
+		right 0
+		top 0
+
+
+/**** Isotope Filtering ****/
+
+.isotope-item 
+	z-index 2
+
+
+.isotope-hidden.isotope-item 
+	pointer-events none
+	z-index 1
+
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item 
+	-webkit-transition-duration 0.8s
+	-moz-transition-duration 0.8s
+	-ms-transition-duration 0.8s
+	-o-transition-duration 0.8s
+	transition-duration 0.8s
+
+
+.isotope 
+	-webkit-transition-property height, width
+	-moz-transition-property height, width
+	-ms-transition-property height, width
+	-o-transition-property height, width
+	transition-property height, width
+
+
+.isotope .isotope-item 
+	-webkit-transition-property -webkit-transform, opacity
+	-moz-transition-property    -moz-transform, opacity
+	-ms-transition-property     -ms-transform, opacity
+	-o-transition-property      -o-transform, opacity
+	transition-property         transform, opacity
+
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition 
+	-webkit-transition-duration 0s
+	-moz-transition-duration 0s
+	-ms-transition-duration 0s
+	-o-transition-duration 0s
+	transition-duration 0s
+
+
+/**** Isotope filtering ****/
+
+.isotope-item 
+	z-index 2
+
+.isotope-hidden.isotope-item
+	pointer-events none
+	z-index 1

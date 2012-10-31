@@ -14,8 +14,13 @@ header {
   background: #303030;
   height: 45px;
 }
-#main {
-  padding: 30px;
+header a {
+  padding: 0;
+  background: none;
+  display: inline;
+}
+header a:hover {
+  background: none;
 }
 h1,
 h2,
@@ -24,14 +29,29 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+  text-transform: uppercase;
 }
 h2 {
   font-size: 50px;
-  text-transform: uppercase;
   margin: 10px 0;
   margin-left: 30px;
 }
-h2 a {
+h3 {
+  font-size: 25px;
+  margin: 3px 0;
+}
+a {
+  background-color: #303030;
+  color: #fff;
+  padding: 1px 5px;
+  display: inline block;
+  text-decoration: none;
+}
+a:hover,
+a.active {
+  background-color: #000;
+}
+a.add {
   background: url("../images/add.gif") left top no-repeat;
   width: 35px;
   height: 35px;
@@ -39,18 +59,78 @@ h2 a {
   display: inline-block;
   margin-right: 5px;
 }
-h2 a:hover {
+a.add:hover {
   background-color: transparent;
   background-position: left bottom;
+}
+a.edit {
+  background: url("../images/edit.gif") left top no-repeat;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  display: inline-block;
+}
+a.edit:hover {
+  background-color: transparent;
+  background-position: left bottom;
+}
+a.del {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  display: inline-block;
+  background-image: url("../images/del.gif");
+}
+a.preview {
+  width: 26px;
+  height: 16px;
+  padding: 0;
+  display: inline-block;
+  background-image: url("../images/preview.gif");
+}
+a.back {
+  background-image: url("../images/back.gif");
+  width: 22px;
+  height: 36px;
+  margin-right: 10px;
+  display: inline-block;
+}
+a.edit-medium {
+  background: url("../images/edit.gif") left top no-repeat;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin-top: 2px;
+  display: inline-block;
+}
+a.edit-medium:hover {
+  background-color: transparent;
+  background-position: left bottom;
+}
+a.del-medium {
+  background-image: url("../images/del.gif");
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin-top: 2px;
+  display: inline-block;
+}
+a.del-medium:hover {
+  background-color: transparent;
+  background-position: left bottom;
+}
+a.add-medium {
+  background: url("../images/add.gif") left top no-repeat;
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+#main {
+  padding: 30px;
 }
 .subtitle {
   margin-left: 30px;
   margin-top: -10px;
-}
-h3 {
-  font-size: 25px;
-  margin: 3px 0;
-  text-transform: uppercase;
 }
 .curso {
   float: left;
@@ -61,17 +141,6 @@ h3 {
 }
 .curso.disabled {
   opacity: 0.4;
-}
-.curso a {
-  background-color: #303030;
-  color: #fff;
-  padding: 1px 5px;
-  display: inline block;
-  text-decoration: none;
-}
-.curso a:hover,
-.curso a.active {
-  background-color: #000;
 }
 .curso h3 {
   color: #fff;
@@ -116,73 +185,6 @@ h3 {
   display: block;
   top: 0;
   right: 0;
-}
-.curso .bottom .actions a {
-  background: url("../images/edit.gif") left top no-repeat;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  display: inline-block;
-}
-.curso .bottom .actions a:hover {
-  background-color: transparent;
-  background-position: left bottom;
-}
-.curso .bottom .actions a.del {
-  background-image: url("../images/del.gif");
-}
-.curso .bottom .actions a.preview {
-  width: 26px;
-  background-image: url("../images/preview.gif");
-}
-/**** Isotope Filtering ****/
-.isotope-item {
-  z-index: 2;
-}
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
-/**** Isotope CSS3 transitions ****/
-.isotope,
-.isotope .isotope-item {
-  -webkit-transition-duration: 0.8s;
-  -moz-transition-duration: 0.8s;
-  -ms-transition-duration: 0.8s;
-  -o-transition-duration: 0.8s;
-  transition-duration: 0.8s;
-}
-.isotope {
-  -webkit-transition-property: height, width;
-  -moz-transition-property: height, width;
-  -ms-transition-property: height, width;
-  -o-transition-property: height, width;
-  transition-property: height, width;
-}
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-  -moz-transition-property: -moz-transform, opacity;
-  -ms-transition-property: -ms-transform, opacity;
-  -o-transition-property: -o-transform, opacity;
-  transition-property: transform, opacity;
-}
-/**** disabling Isotope CSS3 transitions ****/
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -ms-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  transition-duration: 0s;
-}
-/**** Isotope filtering ****/
-.isotope-item {
-  z-index: 2;
-}
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
 }
 .overlayed .overlay {
   display: block;
@@ -264,7 +266,8 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
-  margin-top: -6px;
+  position: relative;
+  top: -36px;
   border: 1px solid #fff;
 }
 button:hover {
@@ -275,12 +278,6 @@ form {
 }
 form h2 {
   margin-left: 0;
-}
-form h2 a {
-  background-image: url("../images/back.gif");
-  width: 32px;
-  height: 36px;
-  margin-right: 10px;
 }
 form h3 {
   background: url("../images/email.gif") 5px center no-repeat;
@@ -346,4 +343,114 @@ form .error {
 form input.error::-webkit-input-placeholder,
 form textarea.error::-webkit-input-placeholder {
   color: #f00;
+}
+.docentes {
+  overflow: hidden;
+}
+.docente {
+  float: left;
+  margin: 3px;
+}
+.docente:nth-child(1) {
+  margin-left: 0;
+}
+.docente img {
+  -webkit-filter: grayscale(100%);
+  float: left;
+}
+.docente h4 {
+  color: #fff;
+  background: #303030;
+  padding: 5px;
+  font-size: 18px;
+  float: left;
+}
+.docente .actions {
+  text-align: right;
+}
+.dias {
+  overflow: hidden;
+}
+.dia {
+  float: left;
+  margin: 3px;
+  text-transform: uppercase;
+}
+.dia:nth-child(1) {
+  margin-left: 0;
+}
+.dia h4 {
+  font-size: 18px;
+  color: #fff;
+  padding: 5px;
+  background: #303030;
+}
+.dia .bottom {
+  position: relative;
+  width: 100%;
+}
+.dia .bottom .actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+fieldset {
+  border: 0;
+  margin-top: 30px;
+  position: relative;
+}
+fieldset .add-docente,
+fieldset .add-dia {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/**** Isotope Filtering ****/
+.isotope-item {
+  z-index: 2;
+}
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+/**** Isotope CSS3 transitions ****/
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+}
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -ms-transition-property: -ms-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+}
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+}
+/**** Isotope filtering ****/
+.isotope-item {
+  z-index: 2;
+}
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
 }

@@ -24,14 +24,14 @@ jQuery(function () {
 		return false;
 	});
 
-	$('.add').click(function () {
-		cargar_overlay($(this).attr('href')+' #add_form');
+	$('.add-curso').click(function () {
+		cargar_overlay($(this).attr('href')+' #add_curso_form');
 
 		return false;
 	})
 
-	$('.edit').click(function () {
-		cargar_overlay($(this).attr('href')+' #edit_form');
+	$('.edit-curso').click(function () {
+		cargar_overlay($(this).attr('href')+' #edit_curso_form');
 
 		return false;
 	})
@@ -70,7 +70,7 @@ jQuery(function () {
 		return true;
 	}
 
-	$('#add_form').live('submit', function () {
+	$('#add_curso_form').live('submit', function () {
 		var $self = $(this);
 
 		notif_overlay('');
@@ -85,7 +85,7 @@ jQuery(function () {
 		return false;
 	});
 
-	$('#edit_form').live('submit', function () {
+	$('#edit_curso_form').live('submit', function () {
 		var $self = $(this);
 		
 		notif_overlay('');

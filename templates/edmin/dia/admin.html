@@ -1,0 +1,19 @@
+{% extends "edmin/base.html" %}
+
+{% block body %}
+
+<form method="post" action="{% if dia %}{% url edmin.views.dia_edit dia.id %}{% else %}{% url edmin.views.dia_add curso.id %}{% endif %}" id="{% if dia %}edit{% else %}add{% endif %}_dia_form">
+
+
+	<h2><a href="{% url edmin.views.curso %}" class="back"></a>{% if dia %}Editar{% else %}Agregar{% endif %} Día</h2>
+
+	<p><input type="text" placeholder="Tema" name="tema" value="{{ dia.tema }}" /> <input type="text" placeholder="Fecha" name="fecha" value="{{ dia.fecha|date:"Y-m-d H:i" }}" /></p>
+	<p><textarea placeholder="Temario" class="input-xlarge" name="temario">{{ dia.temario }}</textarea></p>
+
+
+	<button type="submit">Guardar</button>
+
+	<p class="notif"></p>
+
+</form>
+{% endblock %}

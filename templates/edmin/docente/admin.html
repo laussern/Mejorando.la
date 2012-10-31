@@ -1,0 +1,21 @@
+{% extends "edmin/base.html" %}
+
+{% block body %}
+
+<form method="post" action="{% if docente %}{% url edmin.views.docente_edit docente.id %}{% else %}{% url edmin.views.docente_add %}{% endif %}" id="{% if docente %}edit{% else %}add{% endif %}_docente_form">
+
+	<input type="hidden" name="imagen" />
+	<input type="hidden" name="imagen_filename" />
+
+	<h2><a href="{% url edmin.views.curso %}" class="back"></a>{% if docente %}Editar{% else %}Agregar{% endif %} Docente</h2>
+
+	<p><input type="text" placeholder="Nombre" name="nombre" value="{{ docente.nombre }}" /> @<input type="text" placeholder="usuario" class="input-small" name="twitter" value="{{ docente.twitter }}" /></p>
+	<p class="row"><textarea placeholder="Perfil del docente" class="input-large" name="perfil">{{ docente.perfil }}</textarea><span class="drop drop-docente"><img src="{{ docente.get_imagen }}" width="140" alt="{{ docente.nombre }}" /><strong>Arrastra la docente</strong></span></p>
+
+
+	<button type="submit">Guardar</button>
+
+	<p class="notif"></p>
+
+</form>
+{% endblock %}
