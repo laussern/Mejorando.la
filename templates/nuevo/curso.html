@@ -67,14 +67,17 @@
 			<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}" class="imagen_curso">
 
 			<div class="content">
-				<p>{{ curso.descripcion|safe }}</p>
+				<p class="descripcion">{{ curso.descripcion|safe }}</p>
 				<p class="buttons"><a class="button" href="#registrate" id="register-link">Registrate al curso por <strong></strong></a></p>
+					<div class="register-skype clearfix">
+						<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m<em>mejorandola</em>"</p>
+					</div>
+					<div class="contacto">
 
-				<div class="register-skype clearfix">
-					<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m<em>mejorandola</em>"</p>
-					<p class="skype-buttons"><a class="skype-button" href="skype:mejorandola?call">Llama a <em>mejorandola</em></a></p>
-					<p class="telefono"></p>
-				</div>
+						<p class="skype-buttons"><a class="skype-button" href="skype:mejorandola?call"><span class="tit">Skype</span>	mejorandola</a></p>
+						<p class="telefono"><span class="tit">Telefono</span> 	+511-7204134 </p>
+					
+					</div>		
 			</div>
 		</section>
 

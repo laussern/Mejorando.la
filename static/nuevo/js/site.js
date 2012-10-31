@@ -37,7 +37,7 @@ var Site = {
 
 			$(window)[0].scrollTo(0, 0);
 			$('body').addClass('overlay');
-			
+
 			$('.change-method').trigger('click');
 
 			// Remove "success" message when opening a finished form
@@ -331,7 +331,7 @@ var Site = {
 		var $link = $('#video a');
 		var href = $link.attr('href');
 		var youtube = href.split('youtu.be/')[1];
-		var html = '<iframe width="661" height="372" src="http://www.youtube.com/embed/' + youtube + '?autoplay=1&autohide=1" frameborder="0" allowfullscreen></iframe>';
+		var html = '<iframe width="661" height="372" src="http://www.youtube.com/embed/' + youtube + '?autoplay=1&autohide=1" frameborder="0" allowfullscreen></iframe><img class="video_fix" src="../static/nuevo/images/video.png">';
 
 		$link.on('click', function(e){
 			e.preventDefault();
