@@ -103,10 +103,12 @@
 			<hr>
 
 			<section id="location">
-				<a class="img" href="https://maps.google.com/maps?q=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&amp;hl=es&amp;ll=4.660555,-74.059321&amp;spn=0.008373,0.009109&amp;sll=4.660587,-74.05946&amp;sspn=0.008373,0.009109&amp;hq=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&amp;radius=15000&amp;t=m&amp;z=17&amp;iwloc=A" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?size=335x125&amp;maptype=roadmap&amp;markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C40.446068,-3.673639&amp;zoom=17&amp;sensor=false" /></a>
+				{% if not curso.is_online %}
+				<a class="img" href="{{ curso.get_map_link }}" target="_blank"><img src="{{ curso.get_map_image }}" /></a>
+				{% endif %}
 				<div class="datos">
 					<h2 class="hidden">Dirección</h2>
-					<p class="country espana"><strong>{{ curso.pais }}</strong></p>
+					<p class="country {{ curso.pais|slugify }}"><strong>{{ curso.pais }}</strong></p>
 					<p>{{ curso.direccion }}</p>
 				</div>
 			</section>

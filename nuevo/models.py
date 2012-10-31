@@ -17,15 +17,20 @@ class Curso(models.Model):
 	def __unicode__(self):
 		return self.nombre 
 
+	# media del curso
 	def get_imagen(self):
 		return '%s%s' % (settings.MEDIA_URL, self.imagen)
 
-	def get_pais_imagen(self):
-		return '%snuevo/images/pais/%s.jpg' % (settings.STATIC_URL, slugify(self.pais))
+	def get_map_link(self):
+		return 'https://maps.google.com/maps?q=%s, %s' % (self.direccion, self.pais)
 
-	def dias(self):
-		return CursoDia.objects.filter(curso=self)
+	def get_map_image(self):
+		return 'http://maps.googleapis.com/maps/api/staticmap?size=335x125&maptype=roadmap&markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C'+self.mapa+'&zoom=17&sensor=false'
 
+	# variables externas del curso
+	def dias(self):      return CursoDia.objects.filter(curso=self)
+	def docentes(self):  return CursoDocente.objects.filter(curso=self)
+	def registros(self): return CursoRegistro.objects.filter(curso=self)
 	def fecha(self):
 		dias = CursoDia.objects.filter(curso=self)
 		
@@ -33,11 +38,8 @@ class Curso(models.Model):
 
 		return None
 
-	def docentes(self):
-		return CursoDocente.objects.filter(curso=self)
-
-	def registros(self):
-		return CursoRegistro.objects.filter(curso=self)
+	# opciones del curso
+	def is_online(self): return self.pais.lower() == 'online'
 		
 	def save(self, *args, **kwargs):
 		super(Curso, self).save(*args, **kwargs)
