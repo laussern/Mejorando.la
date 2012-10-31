@@ -109,23 +109,23 @@ h1#title
 
 	a
 	li
-		float left
-
+		//float left
+		display inline-block
 	a
 		color #98a0a9
 		height 43px
 
 #header-logos
 	float left
-
-	li
-		background url("http://mejorando.la/static/images/logos/linea.jpg") repeat-x
+	background url("http://mejorando.la/static/images/logos/linea.jpg") repeat-x
+	
+		
 
 #header-mejorandola a
 	background url("../images/logo.png") no-repeat
 
 	span
-		ir 216px 43px
+		ir 215px 43px
 
 #header-mdw
 	padding-left 10px
@@ -1100,7 +1100,28 @@ h1#title
 			overflow auto
 
 
+@media screen and (max-width:800px)
+	#header-logos
+		float none 
+		width auto 
+		overflow hidden
+	#header 
+		line-height normal
+		.clearfix
+			text-align center
+		ul 
+			font-size 0
+		li 
+			display inline-block
+			float none
+			line-height 46px
 
+	#nav 
+		float none 
+		width auto
+		a 
+			font-size 12px
+			padding 0 10px
 		
 @media screen and (max-width:660px)
 
@@ -1140,7 +1161,11 @@ h1#title
 			position static
 			transition 0 !important
 			width auto
-
+	
+@media screen and (max-width:480px)
+	#nav 
+		a 
+			padding 0 5px
 // @css {
 // .error {
 //   height:15px;

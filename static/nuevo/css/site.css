@@ -89,12 +89,11 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #wrap{background:#fff url("../images/bg.png") repeat-x left bottom;color:#6f7376;padding:0 0 17px;-o-transition:-webkit-filter .15s linear;-ms-transition:-webkit-filter .15s linear;-moz-transition:-webkit-filter .15s linear;-webkit-transition:-webkit-filter .15s linear;transition:-webkit-filter .15s linear;z-index:1}
 #header{background:#323e4a;border-bottom:15px solid #008fd5;line-height:43px;}
 #header ul{list-style:none;margin:0;padding:0}
-#header a,#header li{float:left}
+#header a,#header li{display:inline-block;zoom:1;*display:inline}
 #header a{color:#98a0a9;height:43px}
-#header-logos{float:left;}
-#header-logos li{background:url("http://mejorando.la/static/images/logos/linea.jpg") repeat-x}
+#header-logos{float:left;background:url("http://mejorando.la/static/images/logos/linea.jpg") repeat-x}
 #header-mejorandola a{background:url("../images/logo.png") no-repeat;}
-#header-mejorandola a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:216px}
+#header-mejorandola a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:215px}
 #header-mdw{padding-left:10px;}
 #header-mdw a{background:url("http://mejorando.la/static/images/logos/maestros.png") no-repeat center center;-moz-background-size:35px;-webkit-background-size:35px;background-size:35px;}
 #header-mdw a span{direction:ltr;display:block;height:43px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:35px}
@@ -280,6 +279,13 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 .overlay #overflow{height:auto}
 .overlay #register{top:-238px;margin-top:50%;position:fixed}
 .overlay #wrap{height:auto;overflow:auto;-webkit-overflow-scrolling:touch}
+}@media screen and (max-width:800px){#header-logos{float:none;width:auto;overflow:hidden}
+#header{line-height:normal;}
+#header .clearfix{text-align:center}
+#header ul{font-size:0}
+#header li{display:inline-block;zoom:1;*display:inline;float:none;line-height:46px}
+#nav{float:none;width:auto;}
+#nav a{font-size:12px;padding:0 10px}
 }@media screen and (max-width:660px){#afterword{padding:0 10px;width:auto}
 #video h2{font-size:30px;width:auto}
 #video .video{height:auto;}
@@ -289,4 +295,5 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 }@media screen and (max-width:600px){#syllabus{height:auto;padding:0;}
 #syllabus .content{opacity:1 !important;-ms-filter:none;filter:none;position:static;width:auto}
 #syllabus .tab{background:#ffc43a !important;position:static;-o-transition:0 !important;-ms-transition:0 !important;-moz-transition:0 !important;-webkit-transition:0 !important;transition:0 !important;width:auto}
+}@media screen and (max-width:480px){#nav a{padding:0 5px}
 }
