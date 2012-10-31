@@ -82,8 +82,8 @@ class CursoRegistro(models.Model):
 	email  	 = models.EmailField()
 	telefono = models.CharField(max_length=500)
 	pais     = models.CharField(max_length=100)
-	pagado   = models.BooleanField(default=False)
-	curso    = models.ManyToManyField(Curso, blank=True)
+	pagado   = models.ManyToManyField(Curso, blank=True, related_name='pagado')
+	curso    = models.ManyToManyField(Curso, blank=True, related_name='curso')
 
 	def __unicode__(self):
 		return self.nombre
