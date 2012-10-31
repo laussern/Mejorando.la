@@ -269,6 +269,7 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #location .datos{float:left;padding:20px}
 #speakers section{float:none !important;width:auto !important}
 #syllabus{float:none}
+#video .video > .bg{left:0;right:0}
 .overlay #overlay{-o-transition:0;-ms-transition:0;-moz-transition:0;-webkit-transition:0;transition:0}
 .overlay #overflow{height:476px;overflow:hidden}
 .overlay #wrap{height:456px;overflow:hidden;-webkit-filter:none}
