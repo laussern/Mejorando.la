@@ -118,7 +118,7 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #course-info .skype-buttons:before{-webkit-font-smoothing:antialiased;background:#008fd5;-o-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;border-radius:50%;color:#fff;content:"\22";float:left;font-family:'icomoon';font-size:30px;font-style:normal;font-weight:normal;height:30px;line-height:30px;margin:5px;margin-left:20px;speak:none;text-align:center;width:30px}
 #course-info .skype-buttons:after{display:none}
 #course-info .skype-button{color:#c7cfd7;float:left;font-family:Arial;font-size:12px;font-weight:normal;line-height:15px;margin:0;text-align:left;text-decoration:none}
-#course-info .video_header{float:left;height:400px;position:relative;width:666px;}
+#course-info .video_header{float:left;height:400px;overflow:hidden;position:relative;width:666px;}
 #course-info .video_header .bg{background:url("../images/video_bg.png") no-repeat center center;direction:ltr;display:block;height:120px;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:120px;left:50%;margin-left:-60px;margin-top:-60px;opacity:.75;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=75);filter:alpha(opacity=75);position:absolute;top:50%;-o-transition:all .15s linear;-ms-transition:all .15s linear;-moz-transition:all .15s linear;-webkit-transition:all .15s linear;transition:all .15s linear}
 #course-info:hover .bg{opacity:1;-ms-filter:none;filter:none}
 #course-info .contacto{background:#495662;overflow:hidden;margin:0 -30px;}
@@ -270,7 +270,7 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #wrap,.container{width:auto}
 #course-info .imagen_curso{max-width:100%;width:auto}
 #course-info .content{position:static;width:auto}
-#course-info .video_header{width:auto;float:none;height:auto}
+#course-info .video_header{float:none;height:auto;text-align:center;width:auto}
 #location{float:none;height:auto;overflow:hidden;padding:0;width:auto;}
 #location .img{float:left;position:static}
 #location .datos{float:left;padding:20px}
