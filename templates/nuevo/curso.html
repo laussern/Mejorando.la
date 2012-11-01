@@ -64,13 +64,18 @@
 		<h1 id="title">{{ curso.nombre }}</h1>
 
 		<section id="course-info">
-			<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}" class="imagen_curso">
+			<div class="video_header">
+				<a href="http://www.youtu.be/x4ZwpiKR7ew" target="_blank">
+					<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}" class="imagen_curso">
+					<span class="bg"></span>
+				</a>
+			</div>
 
 			<div class="content">
 				<p class="descripcion">{{ curso.descripcion|safe }}</p>
 				<p class="buttons"><a class="button" href="#registrate" id="register-link">Registrate al curso por <strong></strong></a></p>
 					<div class="register-skype clearfix">
-						<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m<em>mejorandola</em>"</p>
+						<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m <em>mejorandola</em>"</p>
 					</div>
 					<div class="contacto">
 
@@ -89,8 +94,10 @@
 				{% for dia in curso.dias %}
 				<section id="day-{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}>
 					<div class="tab">
-						<h3><strong>Día {{ forloop.counter }}</strong> {{ dia.fecha|date:"l · d F" }}</h3>
-						<p>{{ dia.tema }}</p>
+						<h3>{{ dia.fecha|date:"d F" }}</h3>
+						<p class="tema">{{ dia.tema }}</p>
+						<p class="dia">{{ dia.fecha|date:"l / f a" }}</p>
+						<!-- <p>{{ dia.fecha|date:"f a" }}</p> -->
 					</div>
 					<div class="content">
 						{{ dia.temario|safe }}
@@ -316,7 +323,8 @@
 		</section>
 
 		<div class="register-skype">
-			<p class="skype-message">¿Necesitas ayuda? Contactanos a nuestro Skype: "<em>mejorandola</em>"</p>
+			<p class="skype-message">Has tus consultas de Lunes - Viernes 
+10:00 a.m. - 6:00 p.m "mejorandola"</p>
 			<p class="skype-buttons nomargin"><a class="skype-button" href="skype:mejorandola?call">Llama a <em>mejorandola</em></a></p>
 		</div>
 	</section>

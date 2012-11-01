@@ -328,16 +328,16 @@ var Site = {
 	},
 
 	video: function() {
-		var $link = $('#video a');
+		var $link = $('#video a, .video_header a');
 		var href = $link.attr('href');
 		var youtube = href.split('youtu.be/')[1];
-		var html = '<iframe width="661" height="372" src="http://www.youtube.com/embed/' + youtube + '?autoplay=1&autohide=1" frameborder="0" allowfullscreen></iframe><img class="video_fix" src="../static/nuevo/images/video.png">';
+		var html = '<iframe class="video_promo" width="661" height="372" src="http://www.youtube.com/embed/' + youtube + '?autoplay=1&autohide=1" frameborder="0" allowfullscreen></iframe><img class="video_fix" src="../static/nuevo/images/video.png">';
 
 		$link.on('click', function(e){
 			e.preventDefault();
-			$link.after(html);
-			$link.fadeOut('fast', function(){
-				$link.remove();
+			$(this).after(html);
+			$(this).fadeOut('fast', function(){
+				$(this).remove();
 			});
 		});
 	},
