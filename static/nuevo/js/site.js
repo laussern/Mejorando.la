@@ -5,7 +5,7 @@
 		'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
 		'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
 		'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-		'timeStamp', 'trace', 'warn'
+		'timeStamp', 'trace', 'warn','speakers'
 	];
 	var length = methods.length;
 	var console = window.console || {};
@@ -304,7 +304,7 @@ var Site = {
 		var $syllabus = $('#syllabus');
 		var $bg = $syllabus.find('span.bg');
 		var top = null;
-
+		$('#syllabus-location').css('height',$('#syllabus .content').outerHeight())
 		$syllabus.on('mouseenter', '.tab', function(e){
 			e.preventDefault();
 			var $tab = $(this);
@@ -327,6 +327,20 @@ var Site = {
 		});
 	},
 
+	speakers: function(){
+		if($(window).width() > 1000){
+			var $speakers = $('#speakers section');
+			var numero_profesores = $speakers.length;
+			if (numero_profesores < 4 ){
+				$speakers.css('width', $('#speakers .wrap').width() / numero_profesores -10 ) 	
+			}else{
+				$speakers.addClass('fix')
+			}
+		}
+		
+		
+	},
+
 	video: function() {
 		var $link = $('#video a, .video_header a');
 		var href = $link.attr('href');
@@ -346,6 +360,7 @@ var Site = {
 		Site.register();
 		Site.tabs();
 		Site.video();
+		Site.speakers();
 
 		$('#register-link strong').html( Site.format_price(payment_config.online.price, 'online') );
 

@@ -84,7 +84,7 @@ a.button,.cart{background:#ffc43a;border-bottom:3px solid #bf932b;color:#87620a;
 a.button:hover,.cart:hover{background-color:#ffc744;color:#805d09}
 a.button strong,.cart strong{display:block;font-size:2.6666666666666665em}
 hr{display:none}
-h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid #008fd5;color:#323e4a;font:32px "Open Sans","Helvetica",Arial,sans-serif;margin:0;font-weight:200;padding:15px;text-align:center;text-transform:uppercase}
+h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid #008fd5;color:#323e4a;font:32px "Open Sans","Helvetica",Arial,sans-serif;font-size:2vw;font-weight:200;margin:0;padding:15px;text-align:center;text-transform:uppercase}
 #overflow{position:relative;z-index:1}
 #wrap{background:#fff url("../images/bg.png") repeat-x left bottom;color:#6f7376;padding:0 0 17px;-o-transition:-webkit-filter .15s linear;-ms-transition:-webkit-filter .15s linear;-moz-transition:-webkit-filter .15s linear;-webkit-transition:-webkit-filter .15s linear;transition:-webkit-filter .15s linear;z-index:1}
 #header{background:#323e4a;border-bottom:15px solid #008fd5;line-height:43px;}
@@ -146,9 +146,9 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #location .espana{background-image:url("../images/flag_spain.png")}
 #location .img{position:absolute;top:0;left:0}
 #speakers{background:#eaedf1;padding:50px 10px;}
-#speakers .wrap{background:url("../images/speakers.png") repeat-y center top}
-#speakers #speaker-1,#speakers #speaker-2{background:#fff;float:left;width:485px}
-#speakers #speaker-2{float:right}
+#speakers .speaker{background:#fff;float:left;margin-right:10px;}
+#speakers .speaker:last-child{margin-right:0;float:right}
+#speakers .speaker.fix{float:none;margin-right:0}
 #speakers .header{background:#008fd5;color:#fff;height:67px;padding:0 0 0 87px;position:relative;}
 #speakers .header a{text-decoration:none}
 #speakers .content{font-size:.9em;padding:20px 20px 10px}
@@ -274,9 +274,10 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #location{float:none;height:auto;overflow:hidden;padding:0;width:auto;}
 #location .img{float:left;position:static}
 #location .datos{float:left;padding:20px}
-#speakers section{float:none !important;width:auto !important}
+#speakers .speaker{float:none !important;width:auto !important;margin-right:0}
 #syllabus{float:none;}
 #syllabus .content{float:left}
+#syllabus-location{height:auto !important}
 #video .video > .bg{left:0;right:0}
 .overlay #overlay{-o-transition:0;-ms-transition:0;-moz-transition:0;-webkit-transition:0;transition:0}
 .overlay #overflow{height:476px;overflow:hidden}

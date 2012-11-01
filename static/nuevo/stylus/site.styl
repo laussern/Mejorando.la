@@ -78,8 +78,9 @@ h1#title
 	border-right 10px solid #008FD5
 	color #323e4a
 	font 32px font_opensans
-	margin 0
+	font-size 2vw
 	font-weight 200
+	margin 0
 	padding 15px 
 	text-align center
 	text-transform uppercase
@@ -422,17 +423,26 @@ h1#title
 
 	.wrap
 		@extends .clearfix
-		background url("../images/speakers.png") repeat-y center top
+		//background url("../images/speakers.png") repeat-y center top
 
-	#speaker-1
-	#speaker-2
-		background #fff
-		float left
-		width 485px
+	// #speaker-1
+	// #speaker-2
+	// 	background #fff
+	// 	float left
+	// 	width 485px
 
-	#speaker-2
-		float right
-
+	// #speaker-2
+	// 	float right
+	.speaker
+		background white
+		float left 
+		margin-right 10px 
+		&:last-child
+			margin-right 0
+			float right
+		&.fix 
+			float none 
+			margin-right 0
 	.header
 		@extends .clearfix
 		background #008fd5
@@ -1100,15 +1110,19 @@ h1#title
 			padding 20px
 
 	#speakers
-		section
+		.speaker
 			float none !important
 			width auto !important
+			margin-right 0
+
 
 	#syllabus
 		float none
 		.content 
 			float left 
 			//position static
+	#syllabus-location
+		height auto !important
 	#video 
 		.video 
 			> .bg 
