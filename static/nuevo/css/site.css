@@ -268,7 +268,7 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 .error{background:#10151b;background:rgba(16,21,27,0.8);border:1px solid #0e1217;-o-box-shadow:0 0 5px rgba(0,0,0,0.25);-ms-box-shadow:0 0 5px rgba(0,0,0,0.25);-moz-box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.25);box-shadow:0 0 5px rgba(0,0,0,0.25);-webkit-background-clip:padding-box;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;color:#fff;font:.8em "Open Sans","Helvetica",Arial,sans-serif;height:1em;line-height:1;margin:0 0 0 .75em;padding:.8em 1em;text-transform:uppercase;z-index:2}
 @media screen and (max-width:1000px){h1#title{font-size:20px}
 #wrap,.container{width:auto}
-#course-info .imagen_curso{max-width:100%;width:auto}
+#course-info .imagen_curso{max-width:100%;width:auto;float:none}
 #course-info .content{position:static;width:auto}
 #course-info .video_header{float:none;height:auto;text-align:center;width:auto}
 #location{float:none;height:auto;overflow:hidden;padding:0;width:auto;}
