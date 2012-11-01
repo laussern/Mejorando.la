@@ -7,8 +7,8 @@
 
 	<h2><a href="{% url edmin.views.curso %}" class="back"></a>{% if dia %}Editar{% else %}Agregar{% endif %} Día</h2>
 
-	<p><input type="text" placeholder="Tema" name="tema" value="{{ dia.tema }}" /> <input type="text" placeholder="Fecha" name="fecha" value="{{ dia.fecha|date:"Y-m-d H:i" }}" /></p>
-	<p><textarea placeholder="Temario" class="input-xlarge" name="temario">{{ dia.temario }}</textarea></p>
+	<p><input type="text" placeholder="Tema" name="tema" value="{{ dia.tema }}" class="required" /> <input type="text" placeholder="Fecha" name="fecha" value="{{ dia.fecha|date:"Y-m-d H:i" }}" class="required" /></p>
+	<p><textarea placeholder="Temario" class="input-xlarge required" name="temario">{{ dia.temario }}</textarea></p>
 
 
 	<button type="submit">Guardar</button>

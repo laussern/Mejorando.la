@@ -1,6 +1,7 @@
 {% extends "edmin/base.html" %}
 
 {% block body %}
+<div id="content">
 <form method="post" action="{% if curso %}{% url edmin.views.curso_edit curso.id %}{% else %}{% url edmin.views.curso_add %}{% endif %}" id="{% if curso %}edit{% else %}add{% endif %}_curso_form">
 	<div class="capa"></div>
 
@@ -18,7 +19,7 @@
 	{% if curso %}
 	<fieldset>
 		<h3 class="docentes">Docentes</h3>
-		<a href="{% url edmin.views.docente_add %}" class="add-docente add-medium"></a>
+		<a href="{% url edmin.views.docente_add curso.id %}" class="add-docente add-medium"></a>
 
 		<div class="docentes">
 		{% for docente in curso.docentes %}
@@ -63,10 +64,16 @@
 	<fieldset>
 		<h3 class="email">Email</h3>
 		<p><textarea placeholder="Contenido del mail de deposito" class="input-large required" name="info_pago">{{ curso.info_pago|safe }}</textarea></p>
-	<fieldset>
+	</fieldset>
 
 	<button type="submit">Guardar</button>
 
 	<p class="notif"></p>
 </form>
+
+<div class="popup popup2">
+	<div class="overlay animated"></div>
+	<div class="panel animated"></div>
+</div>
+</div>
 {% endblock %}

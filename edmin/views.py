@@ -106,7 +106,9 @@ def curso_delete(req, curso_id):
 
 # agregar un docente
 @login_required(login_url='/edmin')
-def docente_add(req):
+def docente_add(req, curso_id):
+	curso = get_object_or_404(Curso, id=curso_id)
+
 	if req.method == 'POST':
 		nombre   = req.POST.get('nombre')
 		twitter  = req.POST.get('twitter')
@@ -119,14 +121,14 @@ def docente_add(req):
 			uploaded_file = ContentFile(base64.b64decode(imagen.split(',')[1]))
 			uploaded_file.name = imagen_n
 
-			docente = CursoDocente(nombre=nombre, twitter=twitter, perfil=perfil, imagen=uploaded_file)
+			docente = CursoDocente(nombre=nombre, twitter=twitter, perfil=perfil, imagen=uploaded_file, curso=curso)
 
 			docente.save()
  
 			return HttpResponse('OK')
 		else: return HttpResponse('ERR')
 
-	return render_to_response('edmin/docente/admin.html')
+	return render_to_response('edmin/docente/admin.html', { 'curso': curso  })
 
 # editar un docente
 @login_required(login_url='/edmin')

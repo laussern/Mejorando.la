@@ -64,7 +64,7 @@ class CursoDocente(models.Model):
 	twitter = models.CharField(max_length=300)
 	perfil  = models.TextField()
 	imagen  = models.ImageField(upload_to='nuevo_docentes')
-	curso   = models.ManyToManyField(Curso, blank=True)
+	curso   = models.ForeignKey(Curso, blank=True)
 
 	def __unicode__(self):
 		return self.nombre

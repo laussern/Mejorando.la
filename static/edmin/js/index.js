@@ -25,13 +25,70 @@ jQuery(function () {
 	});
 
 	$('.add-curso').click(function () {
-		cargar_overlay($(this).attr('href')+' #add_curso_form');
+		mainpopup.load($(this).attr('href')+' #content');
 
 		return false;
 	})
 
 	$('.edit-curso').click(function () {
-		cargar_overlay($(this).attr('href')+' #edit_curso_form');
+		mainpopup.load($(this).attr('href')+' #content', function () {
+			var popup2 = new Popup('.popup2');
+
+			$('.add-docente').click(function () {
+				popup2.load($(this).attr('href') + ' #add_docente_form');
+
+				return false;
+			});
+
+			$('.add-dia').click(function () {
+				popup2.load($(this).attr('href') + ' #add_dia_form');
+
+				return false;
+			});
+
+			/* AGREGAR Y EDITAR DOCENTES */
+			$('#add_docente_form').live('submit', function () {
+				var $self = $(this);
+
+				notif.hide();
+				validate_basic($self);
+
+				// validate imagen drop 
+				if($self.find('input[name="imagen"]').val().match(/^\s*$/)) $self.find('.drop-docente').addClass('error')
+				else $self.find('.drop-docente').removeClass('error')
+
+				send_form($self);
+
+				return false;
+			});
+
+			$('#edit_docente_form').live('submit', function () {
+				var $self = $(this);
+
+				notif.hide();
+				validate_basic($self);
+
+				send_form($self);
+
+				return false;
+			});
+
+			/* AGREGAR Y EDITAR DIAS */
+			function admin_docente() {
+				var $self = $(this);
+
+				notif.hide();
+				validate_basic($self);
+
+				send_form($self);
+
+				return false;
+			}
+
+			$('#add_dia_form').live('submit', admin_docente);
+			$('#edit_dia_form').live('submit', admin_docente);
+
+		});
 
 		return false;
 	})
@@ -49,21 +106,20 @@ jQuery(function () {
 
 	function send_form($form) {
 		if($form.find('input.required.error, .drop.error, textarea.required.error').size() > 0) {
-			console.log($form);
-			error_overlay('Errores en los campos.');
+			notif.err('Errores en los campos.');
 
 			return false;
 		}
 
-		send_overlay();
+		notif.show('Enviando...')
 		$.post($form.attr('action'), $form.serialize(),
 			function (r) {
-				unsend_overlay();
+				notif.hide();
 
 				if(r == 'OK') {
-					close_overlay();
+					mainpopup.hide();
 				} else {
-					error_overlay('Error, porfavor vuelve a intentarlo más tarde.');
+					notif.err('Error, porfavor vuelve a intentarlo más tarde.');
 				}
 		});
 
@@ -73,7 +129,7 @@ jQuery(function () {
 	$('#add_curso_form').live('submit', function () {
 		var $self = $(this);
 
-		notif_overlay('');
+		notif.hide();
 		validate_basic($self)
 
 		// validate imagen drop 
@@ -88,7 +144,7 @@ jQuery(function () {
 	$('#edit_curso_form').live('submit', function () {
 		var $self = $(this);
 		
-		notif_overlay('');
+		notif.hide();
 		validate_basic($self)
 
 		send_form($self);
@@ -129,48 +185,64 @@ jQuery(function () {
 	});
 
 	/* popup de edicion */
-	var $overlay = $('.overlay'), 
-		$panel 	 = $overlay.find('.panel');
+	var Popup = function (selector) {
+		var $self 	 = $(selector)
+			$overlay = $self.find('.overlay'), 
+			$panel 	 = $self.find('.panel');
 
-	$('a.back').live('click', close_overlay);
-	function close_overlay() {
-		$overlay.fadeOut(function () {
-			$('body').removeClass('overlayed');
-			$panel.removeClass('loaded').html('');
-		});
+		this.hide = function () {
+			$overlay.addClass('fadeOut');
+			$panel.addClass('fadeOut');
 
-		return false;
-	}
+			setTimeout(function () {
+				$self.removeClass('show');
 
-	function notif_overlay(str) {
-		$panel.find('.notif').html(str);
-	}
+				$overlay.removeClass('fadeOut').removeClass('fadeIn');
+				$panel.removeClass('fadeOut').removeClass('fadeIn');
+			}, 1010);
 
-	function error_overlay(str) {
-		notif_overlay('<span class="error">*</span>'+str);
-	}
+			return false;
+		};
 
-	function send_overlay() { 
-		notif_overlay('Enviando...'); 
-		$panel.addClass('sending'); 
-	}
+		this.show1 = function (two) {
+			$self.addClass('show');
+			$overlay.addClass('fadeIn');
 
-	function unsend_overlay() { 
-		notif_overlay('');
-		$panel.removeClass('sending'); 
-	}
+			if(two) this.show2();
+		};
 
-	function open_overlay() {
-		$overlay.fadeIn(function () {
-			$('body').addClass('overlayed');
-		});
-	}
+		this.show2 = function () {
+			$panel.addClass('fadeIn');
+		};
 
-	function cargar_overlay(url) {
-		open_overlay();	
+		this.load = function (url, loaded) {
+			this.show1();
 
-		setTimeout(function () {
-			$panel.load(url, function () { $(this).addClass('loaded'); });
-		}, 10);
-	}
+			var self = this;
+			setTimeout(function () { $panel.load(url, function () {
+				self.show2();
+				$panel.find('a.back').click(self.hide);
+
+				if(loaded) loaded();
+			}, 10); });
+		};
+
+		// botones para cerrar
+		$overlay.click(this.hide);
+	};
+
+	var mainpopup = new Popup('#mainpopup');
+
+
+	var notif = {
+		show: function (str) {
+			$('.notif').html(str);
+		}, 
+		err: function (str) {
+			$('.notif').html('<span class="error">*</span>'+str);
+		},
+		hide: function () {
+			$('.notif').html('')
+		}
+	};
 });

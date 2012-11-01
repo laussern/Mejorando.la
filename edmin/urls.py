@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 	url(r'^curso/delete/(?P<curso_id>\d+)/?$', 'edmin.views.curso_delete'),
 
 	# urls de edicion de docentes
-	url(r'^docente/add/?$', 'edmin.views.docente_add'),
+	url(r'^docente/add/(?P<curso_id>\d+)/?$', 'edmin.views.docente_add'),
 	url(r'^docente/edit/(?P<docente_id>\d+)/?$', 'edmin.views.docente_edit'),
 	url(r'^docente/delete/(?P<docente_id>\d+)/?$', 'edmin.views.docente_delete'),
 
