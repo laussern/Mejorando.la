@@ -15,6 +15,7 @@
 
 	<p class="row"><textarea placeholder="Descripción" class="input-large required" name="descripcion">{{ curso.descripcion|safe }}</textarea><span class="drop drop-curso"><img src="{{ curso.get_imagen }}" width="356" /><strong>Arrastra la imagen del curso</strong></span></p>
 
+	{% if curso %}
 	<fieldset>
 		<h3 class="docentes">Docentes</h3>
 		<a href="{% url edmin.views.docente_add %}" class="add-docente add-medium"></a>
@@ -57,6 +58,7 @@
 
 		
 	</fieldset>
+	{% endif %}
 
 	<fieldset>
 		<h3 class="email">Email</h3>
