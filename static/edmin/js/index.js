@@ -46,6 +46,12 @@ jQuery(function () {
 				return false;
 			});
 
+			$('.add-dia').click(function () {
+				popup2.load($(this).attr('href') + ' #add_dia_form');
+
+				return false;
+			});
+
 			$('.edit-dia').click(function () {
 				popup2.load($(this).attr('href') + ' #edit_dia_form');
 
