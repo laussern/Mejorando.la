@@ -198,17 +198,18 @@ jQuery(function () {
 
 	/* popup de edicion */
 	var Popup = function (selector) {
-		var $self 	 = $(selector)
-			$overlay = $self.find('.overlay'), 
-			$panel 	 = $self.find('.panel');
+		var $self 	 = $(selector),
+			$overlay = $self.find('.overlay');
 
 		this.hide = function () {
+			var $panel 	 = $self.find('.panel'),
+				$overlay = $self.find('.overlay');
+
 			$overlay.addClass('fadeOut');
 			$panel.addClass('fadeOut');
 
 			setTimeout(function () {
 				$self.removeClass('show');
-
 				$overlay.removeClass('fadeOut').removeClass('fadeIn');
 				$panel.removeClass('fadeOut').removeClass('fadeIn');
 				$panel.html('');
@@ -218,6 +219,8 @@ jQuery(function () {
 		};
 
 		this.show1 = function (two) {
+			var $panel 	 = $self.find('.panel');
+
 			$self.addClass('show');
 			$overlay.addClass('fadeIn');
 
@@ -225,19 +228,25 @@ jQuery(function () {
 		};
 
 		this.show2 = function () {
+			var $panel 	 = $self.find('.panel');
+
 			$panel.addClass('fadeIn');
 		};
 
 		this.load = function (url, loaded) {
+			var $panel 	 = $self.find('.panel');
+
 			this.show1();
 
 			var self = this;
-			setTimeout(function () { $panel.load(url, function () {
-				self.show2();
-				$panel.find('a.back').click(self.hide);
+			setTimeout(function () { 
+				$panel.load(url, function () {
+					self.show2();
+					$panel.find('a.back').click(self.hide);
 
-				if(loaded) loaded();
-			}, 10); });
+					if(loaded) loaded();
+				});
+			}, 10);
 		};
 
 		// botones para cerrar
