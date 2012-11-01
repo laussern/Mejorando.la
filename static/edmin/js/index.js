@@ -211,6 +211,7 @@ jQuery(function () {
 
 				$overlay.removeClass('fadeOut').removeClass('fadeIn');
 				$panel.removeClass('fadeOut').removeClass('fadeIn');
+				$panel.html('');
 			}, 1010);
 
 			return false;
