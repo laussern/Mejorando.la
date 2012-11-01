@@ -331,7 +331,7 @@ var Site = {
 		if($(window).width() > 1000){
 			var $speakers = $('#speakers section');
 			var numero_profesores = $speakers.length;
-			if (numero_profesores > 1 && < 4 ){
+			if (numero_profesores > 1 && numero_profesores < 4 ){
 				$speakers.css('width', $('#speakers .wrap').width() / numero_profesores -10 ) 	
 			}else{
 				$speakers.addClass('fix')
