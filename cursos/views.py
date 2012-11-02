@@ -32,8 +32,8 @@ def curso(req, curso_slug):
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist:
 		try:
-            return render_to_response('%s.html' % curso_slug)
-        except TemplateDoesNotExist: raise Http404
+			return render_to_response('%s.html' % curso_slug)
+		except TemplateDoesNotExist: raise Http404
 		
 	vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
 
