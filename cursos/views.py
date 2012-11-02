@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.conf import settings
 from django.http import Http404
+from django.template import TemplateDoesNotExist
 
 from models import Curso, CursoRegistro
 from website.utils import get_pais
