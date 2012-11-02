@@ -304,7 +304,14 @@ var Site = {
 		var $syllabus = $('#syllabus');
 		var $bg = $syllabus.find('span.bg');
 		var top = null;
-		$('#syllabus-location').css('height',$('#syllabus .content').outerHeight())
+		var max =0;
+		$('#syllabus .content').each(function(){
+			var alto = $(this).outerHeight();
+			if(alto > max)
+			max = alto;
+			console.log(max)
+		})
+		$('#syllabus').css('height',max)
 		$syllabus.on('mouseenter', '.tab', function(e){
 			e.preventDefault();
 			var $tab = $(this);
