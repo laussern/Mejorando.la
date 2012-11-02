@@ -151,7 +151,8 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #speakers .speaker.fix{float:none;margin-right:0}
 #speakers .header{background:#008fd5;color:#fff;height:67px;padding:0 0 0 87px;position:relative;}
 #speakers .header a{text-decoration:none}
-#speakers .content{font-size:.9em;padding:20px 20px 10px}
+#speakers .content{font-size:.9em;padding:20px 20px 10px;}
+#speakers .content a{color:#000}
 #speakers img{left:20px;position:absolute;top:0}
 #speakers h3{font:.9em "Open Sans","Helvetica",Arial,sans-serif;line-height:1;margin:0;padding:15px;text-transform:uppercase;}
 #speakers h3 strong{display:block;font-size:2em;font-weight:normal;text-transform:none}
@@ -275,7 +276,8 @@ h1#title{background:#fff;border-left:10px solid #008fd5;border-right:10px solid 
 #location .img{float:left;position:static}
 #location .datos{float:left;padding:20px}
 #speakers .speaker{float:none !important;width:auto !important;margin-right:0}
-#syllabus{float:none;}
+#syllabus{float:none;height:auto !important;}
+#syllabus .tab{height:autp !important}
 #syllabus .content{float:left}
 #syllabus-location{height:auto !important}
 #video .video > .bg{left:0;right:0}
