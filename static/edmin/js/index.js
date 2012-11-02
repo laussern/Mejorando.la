@@ -58,6 +58,23 @@ jQuery(function () {
 				return false;
 			});
 
+			function done2(r) {
+				if(r.vars && r.vars.id) {
+					var model = r.vars;
+
+					switch(model.tipo) {
+						case 'docente':
+							var $docente = $('.docente[data-id="'+model.id+'"]');
+
+							$docente.find('.docente-twitter').text('@'+model.twitter);
+							$docente.find('.docente-imagen').attr('src', model.imagen)
+							break;
+					}
+				}
+
+				popup2.hide();
+			}
+
 			/* AGREGAR Y EDITAR DOCENTES */
 			$('#add_docente_form').live('submit', function () {
 				var $self = $(this);
@@ -69,7 +86,7 @@ jQuery(function () {
 				if($self.find('input[name="imagen"]').val().match(/^\s*$/)) $self.find('.drop-docente').addClass('error')
 				else $self.find('.drop-docente').removeClass('error')
 
-				send_form($self);
+				send_form($self, done2);
 
 				return false;
 			});
@@ -80,7 +97,7 @@ jQuery(function () {
 				notif.hide();
 				validate_basic($self);
 
-				send_form($self);
+				send_form($self, done2);
 
 				return false;
 			});
@@ -92,7 +109,7 @@ jQuery(function () {
 				notif.hide();
 				validate_basic($self);
 
-				send_form($self);
+				send_form($self, done2);
 
 				return false;
 			}
@@ -116,7 +133,7 @@ jQuery(function () {
 		});
 	}
 
-	function send_form($form) {
+	function send_form($form, done) {
 		if($form.find('input.required.error, .drop.error, textarea.required.error').size() > 0) {
 			notif.err('Errores en los campos.');
 
@@ -126,10 +143,15 @@ jQuery(function () {
 		notif.show('Enviando...')
 		$.post($form.attr('action'), $form.serialize(),
 			function (r) {
+				try {
+					var d = JSON.parse(r);
+				} catch(err) { }
+
 				notif.hide();
 
-				if(r == 'OK') {
-					mainpopup.hide();
+				if(r == 'OK' || (typeof d != 'undefined' && d.status == 'ok')) {
+					if(done) done(d);
+					else mainpopup.hide();
 				} else {
 					notif.err('Error, porfavor vuelve a intentarlo más tarde.');
 				}

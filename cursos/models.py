@@ -10,7 +10,7 @@ class Curso(models.Model):
 	pais   	    = models.CharField(max_length=50)
 	direccion   = models.TextField()
 	mapa 	    = models.CharField(max_length=50, blank=True)
-	imagen      = models.ImageField(upload_to='nuevo_curso')
+	imagen      = models.ImageField(upload_to='cursos_curso')
 	descripcion = models.TextField()
 	info_pago   = models.TextField()
 
@@ -63,7 +63,7 @@ class CursoDocente(models.Model):
 	nombre  = models.CharField(max_length=500)
 	twitter = models.CharField(max_length=300)
 	perfil  = models.TextField()
-	imagen  = models.ImageField(upload_to='nuevo_docentes')
+	imagen  = models.ImageField(upload_to='cursos_docentes')
 	curso   = models.ForeignKey(Curso, blank=True)
 
 	def __unicode__(self):

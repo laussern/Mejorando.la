@@ -1,30 +1,37 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.template.loader import render_to_string
-from django.core.mail import EmailMultiAlternatives
-from django.utils.html import strip_tags
 from django.http import HttpResponse
 from django.conf import settings
 
 from models import Curso, CursoRegistro
 from website.utils import get_pais
+from utils import send_mail
 
 import stripe
 
 stripe.api_key = settings.STRIPE_API_KEY
 
-def send_mail(tipo, vs, subject, email):
-	html_content = render_to_string('nuevo/email/%s.html' % tipo, vs)
-	mail = EmailMultiAlternatives(subject,
-		strip_tags(html_content), 'Cursos Mejorando.la <ventas@mejorando.la>', [email])
+def home(req):
+	import website.models
 
-	mail.attach_alternative(html_content, 'text/html')
-	mail.send()
+	# el archivo de cursos 
+	# organizados por mes-año
+	return render_to_response('cursos/home.html', {
+		'meses': [{
+			'fecha' : fecha,
+			'cursos': website.models.Curso.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')
+		} for fecha in website.models.Curso.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
+	})
+
 
 # vista publica del curso
 def curso(req, curso_slug):
-	curso = get_object_or_404(Curso, slug=curso_slug)
+	try:
+		curso = Curso.objects.get(slug=curso_slug)
+	except Curso.DoesNotExist:
+		return HttpResponse()
+		
 	vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
 
 	if req.method == 'POST':
@@ -77,6 +84,6 @@ def curso(req, curso_slug):
 
 		else: return HttpResponse('ERR')
 	
-	return render_to_response('nuevo/curso.html', vs)
+	return render_to_response('cursos/curso.html', vs)
 
 

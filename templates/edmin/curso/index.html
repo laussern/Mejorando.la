@@ -21,7 +21,7 @@
 			<p><img src="{{ curso.get_imagen }}" width="310" height="200" alt="{{ curso.nombre }}" /></p>
 
 
-			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#" data-filter=".{{ docente.twitter }}">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url nuevo.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url edmin.views.curso_edit curso.id %}" class="edit-curso edit"></a><a href="{% url edmin.views.curso_delete curso.id %}" class="del-docente del"></a></span></p>
+			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#" data-filter=".{{ docente.twitter }}">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url cursos.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url edmin.views.curso_edit curso.id %}" class="edit-curso edit"></a><a href="{% url edmin.views.curso_delete curso.id %}" class="del-docente del"></a></span></p>
 		</div>
 		{% endfor %}
 		{% else %}

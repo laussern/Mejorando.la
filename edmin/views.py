@@ -6,9 +6,10 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.core.files.base import ContentFile
 from django.contrib.auth.decorators import login_required
+from django.utils import simplejson
 
 # modelos de nuevo
-from nuevo.models import Curso, CursoRegistro, CursoDocente, CursoDia
+from cursos.models import Curso, CursoRegistro, CursoDocente, CursoDia
 
 #### ADMINISTRACION ####
 # vista principal del administrador
@@ -104,6 +105,29 @@ def curso_delete(req, curso_id):
 
 #### ADMINISTRACION DE DOCENTES ####
 
+def jstatus_ok(vars):
+	return simplejson.dumps({ 'status': 'ok', 'vars': vars })
+
+def jstatus_err():
+	return simplejson.dumps({ 'status': 'err' })
+
+def serialize_docente(docente):
+	return {
+		'id': docente.id,
+		'nombre': docente.nombre,
+		'twitter': docente.twitter,
+		'imagen': docente.get_imagen(),
+		'tipo': 'docente'
+	}
+
+def serialize_dia(dia):
+	return {
+		'id': dia.id,
+		'tema': dia.tema,
+		'fecha': dia.fecha,
+		'tipo': 'dia'
+	}
+
 # agregar un docente
 @login_required(login_url='/edmin')
 def docente_add(req, curso_id):
@@ -125,8 +149,8 @@ def docente_add(req, curso_id):
 
 			docente.save()
  
-			return HttpResponse('OK')
-		else: return HttpResponse('ERR')
+			return HttpResponse(jstatus_ok(serialize_docente(docente)))
+		else: return HttpResponse(jstatus_err())
 
 	return render_to_response('edmin/docente/admin.html', { 'curso': curso  })
 
@@ -156,8 +180,8 @@ def docente_edit(req, docente_id):
 
 			docente.save()
  
-			return HttpResponse('OK')
-		else: return HttpResponse('ERR')
+			return HttpResponse(jstatus_ok(serialize_docente(docente)))
+		else: return HttpResponse(jstatus_err())
 
 	return render_to_response('edmin/docente/admin.html', { 'docente': docente})
 
@@ -183,8 +207,8 @@ def dia_add(req, curso_id):
 
 			dia.save()
 
-			return HttpResponse('OK')
-		else: return HttpResponse('ERR')
+			return HttpResponse(jstatus_ok(serialize_dia(dia)))
+		else: return HttpResponse(jstatus_err())
 
 	return render_to_response('edmin/dia/admin.html', { 'curso': curso  })
 
@@ -205,8 +229,8 @@ def dia_edit(req, dia_id):
 
 			dia.save()
  
-			return HttpResponse('OK')
-		else: return HttpResponse('ERR')
+			return HttpResponse(jstatus_ok(serialize_dia(dia)))
+		else: return HttpResponse(jstatus_err())
 
 	return render_to_response('edmin/dia/admin.html', { 'dia': dia})
 
