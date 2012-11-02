@@ -86,8 +86,12 @@ def curso(req, curso_slug):
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist: curso = None
 
+	vs = { 'curso ': curso }
 	try:
-		return render_to_response('%s.html' % curso_slug, { 'curso ': curso })
-	except TemplateDoesNotExist: raise Http404
+		return render_to_response('%s.html' % curso_slug, vs)
+	except TemplateDoesNotExist:
+		if not curso raise Http404
+
+		return render_to_response('cursos/curso.html', vs)
 
 
