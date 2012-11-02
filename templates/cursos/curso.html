@@ -1,351 +1,173 @@
 {% load static %} {% get_static_prefix as STATIC_PREFIX %}
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="es" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="es" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="es" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{{ curso.nombre }} en {{ curso.pais }} de mejorando.la</title>
-	<meta name="description" content="Curso de HTML5 y CSS3 los días 26 y 27 de Octubre en Madrid, España con @freddier y @cvander">
-	<meta property="og:title" content="Curso de HTML5 en Madrid">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://mejorando.la/cursos/html5-madrid/">
-	<meta property="og:image" content="http://mejorando.la/cursos/images/plantilla-cursos/html5-logo.png">
-	<meta property="og:site_name" content="http://mejorando.la/">
-	<meta property="fb:admins" content="1030603473">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,600,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="{{ STATIC_PREFIX }}cursos/css/site.css">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width = device-width , initial-scale=1 ,maximum-scale=1 " />
+	<title>{{ curso.nombre }} Online de Mejorando.la</title>
 
-	<script src="{{ STATIC_PREFIX }}cursos/js/modernizr.custom.53065.js"></script>
+	<meta name="description" content="{{ curso.nombre }} Online del 4 al 13 de diciembre con @freddier, @cvander, @ajamaica y @siedrix" />
+
+	<meta property="og:title" content="{{ curso.nombre }} Online de Mejorando.la" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{% url cursos.views.curso curso.slug %}" />
+	<meta property="og:image" content="http://mejorando.la/cursos_static/images/plantilla-cursos/html5-logo.png" />
+	<meta property="og:site_name" content="http://mejorando.la/" />
+	<meta property="fb:admins" content="1030603473" />
+	<link rel="shortcut icon" href="{{ STATIC_PREFIX }}images/favicon.ico" />
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}cursos/css/index.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="https://js.stripe.com/v1/"></script>
+
 	<script>
-		var payment_config = {
-			name: 'Curso de HTML5 en Madrid',
-			code: '20120901.Madrid.Html5',
-			cancel_url: 'http://mejorando.la/cursos/html5-madrid/',
-			redirect_url: 'http://mejorando.la/cursos/html5-madrid/?felicidades',
-			online: {
-				price: {{ curso.precio }},
-				currency: 'USD',
-				sign: '$'
-			},
-			bank: {
-				price: {{ curso.precio }},
-				currency: 'USD',
-				sign: '$'
-			}
-		};
+	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}'}
 	</script>
+	<script src="{{ STATIC_PREFIX }}cursos/js/index.js"></script>
 </head>
 <body>
-<div id="overflow">
-	<section id="wrap">
-		<header id="header">
-			<ul id="header-logos">
-				<li id="header-mejorandola"><a href="http://mejorando.la/" target="_blank" rel="nofollow"><span>Mejorando.la</span></a></li>
-				<li id="header-mdw"><a href="http://maestrosdelweb.com" target="_blank" rel="nofollow"><span>Maestros del Web</span></a></li>
-				<li id="header-clab"><a href="http://cristalab.com" target="_blank" rel="nofollow"><span>Cristalab</span></a></li>
-			</ul>
 
-			<nav id="nav">
-				<ul class="clearfix">
-					<li><a href="http://mejorando.la/cursos/">Cursos</a></li>
-					<li><a href="http://mejorando.la/cursos/exalumnos/">Ex alumnos</a></li>
-					<li><a href="http://mejorando.la/conferencias/">Conferencias</a></li>
-					<li><a href="http://mejorando.la/videos/">Videos</a></li>
-				</ul>
-			</nav>
-		</header>
+	<header><div class="wrapper">
+		<h1><a href="{% url website.views.home %}"><img src="{{ STATIC_PREFIX }}cursos/images/logo.gif" alt="Mejorando.la" /></a></h1>
 
-		<hr>
+		<ul>
+			<li><a href="http://maestrosdelweb.com" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/maestros.gif" alt="maestrosdelweb.com" /></a></li>
+			<li><a href="http://cristalab.com" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/cristalab.gif" alt="cristalab.com" /></a></li>
+		</ul>
+	</div></header>
 
-		<h1 id="title">{{ curso.nombre }}</h1>
 
-		<section id="course-info">
-			<div class="video_header">
-				<a href="http://www.youtu.be/x4ZwpiKR7ew" target="_blank">
-					<img src="{{ curso.get_imagen }}" alt="{{ curso.nombre }}" class="imagen_curso">
-					<span class="bg"></span>
-				</a>
-			</div>
+	<div class="main">
+		<h1>{{ curso.nombre }} <strong>Online</strong></h1>
 
-			<div class="content">
-				<p class="descripcion">{{ curso.descripcion|safe }}</p>
-				<p class="buttons"><a class="button" href="#registrate" id="register-link">Registrate al curso por <strong></strong></a></p>
-					<div class="register-skype clearfix">
-						<p class="skype-message">Has tus consultas de Lunes - Viernes <br>10:00 a.m. - 6:00 p.m <em>mejorandola</em>"</p>
-					</div>
-					<div class="contacto">
-
-						<p class="skype-buttons"><a class="skype-button" href="skype:mejorandola?call"><span class="tit">Skype</span>	mejorandola</a></p>
-						<p class="telefono"><span class="tit">Telefono</span> 	+511-7204134 </p>
-					
-					</div>		
-			</div>
-		</section>
-
-		<hr>
-
-		<div id="syllabus-location">
-			<section id="syllabus">
-				<h2 class="hidden">Temario</h2>
-				{% for dia in curso.dias %}
-				<section id="day-{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}>
-					<div class="tab">
-						<h3>{{ dia.fecha|date:"d F" }}</h3>
-						<p class="tema">{{ dia.tema }}</p>
-						<p class="dia">{{ dia.fecha|date:"l / f a" }}</p>
-						<!-- <p>{{ dia.fecha|date:"f a" }}</p> -->
-					</div>
-					<div class="content">
-						{{ dia.temario|safe }}
-					</div>
-				</section>
-				{% endfor %}
-				<span class="bg"></span>
-			</section>
-
-			<hr>
-
-			<section id="location">
-				{% if not curso.is_online %}
-				<a class="img" href="{{ curso.get_map_link }}" target="_blank"><img src="{{ curso.get_map_image }}" /></a>
-				{% endif %}
-				<div class="datos">
-					<h2 class="hidden">Dirección</h2>
-					<p class="country {{ curso.pais|slugify }}"><strong>{{ curso.pais }}</strong></p>
-					<p>{{ curso.direccion }}</p>
-				</div>
-			</section>
-		</div>
-
-		<hr>
-
-		<section id="speakers">
-			<h2 class="hidden">Profesores</h2>
-			<div class="wrap">
-				{% for docente in curso.docentes %}
-				<section id="speaker-{{ forloop.counter }}" class="speaker">
-					<div class="header">
-						<h3><a href="http://twitter.com/{{ docente.twitter}}" target="_blank" rel="nofollow">{{ docente.nombre }} <strong>@{{ docente.twitter}}</strong></a></h3>
-						<a href="http://twitter.com/{{ docente.twitter}}" target="_blank" rel="nofollow"><img src="{{ docente.get_imagen }}" alt="{{ docente.nombre }}"></a>
-					</div>
-					<div class="content">
-						<p>{{ docente.perfil|safe }}</p>
-					</div>
-				</section>
-				{% endfor %}
-			</div>
-		</section>
-
-		<hr>
-
-		<section id="video">
-			<h2>¿Quieres ver cómo son los cursos de Mejorando.la?</h2>
+		<div class="wrapper">
+		<div class="top">
 			<div class="video">
-				<span class="bg"></span>
-				<div class="container">
-					<a href="http://www.youtu.be/x4ZwpiKR7ew" target="_blank">
-						<img src="{{ STATIC_PREFIX }}cursos/images/video.jpg" alt="¿Quieres ver cómo son los cursos de Mejorando.la?" />
-						<span class="bg"></span>
-					</a>
+				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
+			    	<img src="{{ curso.get_imagen }}" width="666" alt="{{ curso.nombre }}" class="main-image" />
+			    	<button></button>
+			    </a>
+			</div>
+
+			
+
+			<div class="descripcion">				
+
+				<p>{{ curso.descripcion|safe }}</p>
+
+				<button class="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
+
+				<div class="contacto">
+					<p class="skype"><a href="skype:mejorandola?call">
+						<span>Skype</span>	mejorandola</a></p>
+
+					<p class="telefono"><span>Teléfono</span>3470124</p>					
+				</div>
+
+				<div class="horarios">
+					<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m.</p>
 				</div>
 			</div>
-		</section>
-
-		<hr>
-
-		<section id="afterword">
-			<h2>Nosotros te enseñamos a crear la web</h2>
-			<p>Organizamos y participamos en eventos, cursos y talleres de muchas ramas del diseño y desarrollo online. En nuestros sitios se han gestado profesionales certificados de Adobe, líderes locales, empresarios, emprendedores, diseñadores premiados y grandes programadores.</p>
-			<p>Como los fundadores de las comunidades más importantes de desarrolladores y diseñadores de habla hispana nos juntamos para enseñar y compartir nuestro conocimiento. Sabemos de Internet y es nuestra misión enseñar y compartir el conocimiento de la comunidad.</p>
-		</section>
-
-		<section id="footer-logos">
-			<ul>
-				<li id="footer-mdw"><a href="http://maestrosdelweb.com" target="_blank" rel="nofollow">Maestros del Web</a></li>
-				<li id="footer-clab"><a href="http://cristalab.com" target="_blank" rel="nofollow">Cristalab</a></li>
-			</ul>
-		</section>
-	</section>
-
-	<div id="overlay"></div>
-
-	<section id="register">
-		<a id="close" href="#" title="Cerrar">Cerrar</a>
-		<h2 class="hidden">Registrate</h2>
-		<p class="cart">
-			<a class="change-method back" href="#step-1" title="Cambiar modo de pago"><span class="hidden">Cambiar modo de pago</span></a>
-			<span class="hidden">Total</span>
-			<strong></strong>
-			<span class="discount"><br> Con un descuento de <em></em></span>
-		</p>
-
-		<section id="step-1" class="step-container step-active">
-			<p class="step"><strong>Paso 1 /</strong> 3</p>
-			<p class="caption">Modo de pago</p>
-			<ul>
-				<li id="option-card">
-					<div class="bg"></div>
-					<input type="radio" id="input-online" name="payment-method" value="online"><br>
-					<strong class="price"></strong>
-					<br>
-					<label for="input-credit">Tarjeta de Credito</label>
-				</li>
-				<li id="option-bank">
-					<div class="bg"></div>
-					<input type="radio" id="input-bank" name="payment-method" value="bank"><br>
-					<strong class="price"></strong>
-					<br>
-					<label for="input-bank">Deposito Bancario</label>
-				</li>
-			</ul>
-		</section>
-
-		<section id="step-2" class="step-container">
-			<p class="step"><strong>Paso 2 /</strong> 3</p>
-			<p class="caption">Número de reservas</p>
-			<p>
-				<!-- <input type="number" id="input-quantity" name="reservations-quantity" value="1"> -->
-				<span class="quantity">1</span>
-				<span class="input-step-container clearfix">
-					<a href="#" class="input-step dec"><span>-</span></a>
-					<a href="#" class="input-step inc"><span>+</span></a>
-				</span>
-			</p>
-			<p class="back-next">
-				<a href="#step-1" class="back" title="Modo de pago">&laquo; Volver<span class="bg"></span></a>
-				<a href="#step-3" class="next" title="Datos de pago">Siguiente &raquo;<span class="bg"></span></a>
-			</p>
-		</section>
-
-		<section id="step-3" class="step-container">
-			<p class="step"><strong>Paso 3 /</strong> 3</p>
-			<p class="caption">Datos de Pago</p>
-
-			<form id="payment-data" method="post">
-				<p>
-					<input type="text" name="nombre" class="name" required placeholder="Nombre" data-message="Ingrese su nombre">
-				</p>
-
-				<p>
-					<input type="email" name="email" class="email" required placeholder="Correo Electrónico" data-message="Ingrese su correo electrónico">
-				</p>
-
-				<p>
-					<input type="text" name="telefono" class="phone" required placeholder="Teléfono" data-message="Ingrese su teléfono">
-				</p>
-
-				<p class="back-next online-buttons">
-					<a href="#step-2" class="back" title="Modo de pago">&laquo; Volver<span class="bg"></span></a>
-					<button type="submit" class="next" title="Regístrate con PayPal">Regístrate con <span class="paypal"><span class="hidden">PayPal &raquo;</span></span><span class="bg"></span></button>
-				</p>
-
-				<p class="back-next bank-buttons">
-					<a href="#step-2" class="back" title="Modo de pago">&laquo; Volver<span class="bg"></span></a>
-					<button type="submit" class="next" title="Regístrate">Regístrate &raquo;<span class="bg"></span></button>
-				</p>
-			</form>
-
-
-			<!-- https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_html_Appx_websitestandard_htmlvariables -->
-			<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="charset" value="utf-8">
-				<input type="hidden" name="cmd" value="_xclick">
-				<input type="hidden" name="rm" value="2"> <!-- send data back via POST -->
-				<input type="hidden" name="cancel_return" value="http://mejorando.la/cursos/">
-				<input type="hidden" name="notify_url" value="http://mejorando.la/cursos/pago/success">
-				<input type="hidden" name="return" value="http://mejorando.la/cursos/pago/success">
-				<input type="hidden" name="business" value="cursos@mejorando.la">
-				<input type="hidden" name="lc" value="ES">
-				<input type="hidden" name="no_shipping" value="1">
-				<input type="hidden" name="no_note" value="1">
-				<input type="hidden" name="cpp_logo_image" value="https://mejorando.la/images/logo_for_paypal.png">
-
-				<input type="hidden" name="currency_code"> <!-- USD EUR MXN -->
-				<input type="hidden" name="quantity" value="1">
-				<input type="hidden" name="discount_amount">
-				<input type="hidden" name="amount" value="290">
-				
-				<!-- passthrough items -->
-				<input type="hidden" name="item_name">
-				<input type="hidden" name="item_number">
-				<input type="hidden" name="curso">
-				<input type="hidden" name="code">
-				<input type="hidden" name="personas" value="1">
-				<input type="hidden" name="total">
-				<input type="hidden" name="descuento">
-				<input type="hidden" name="currency">
-
-				<input type="hidden" name="nombre">
-				<input type="hidden" name="email">
-				<input type="hidden" name="telefono">
-				<input type="hidden" name="tipo">
-			</form>
-		</section>
-
-		<!-- <section id="step-3b" class="step-container">
-			<p class="step"><strong>Paso 3 /</strong> 3</p>
-			<p class="caption">Datos de Pago</p>
-			<form id="paypal-data" method="post">
-				<input type="hidden" name="tipo" value="deposito">
-				<p>
-					<input type="text" name="nombre" class="name" required placeholder="Nombre">
-				</p>
-
-				<p>
-					<input type="text" name="email" class="email" required placeholder="Correo Electrónico">
-				</p>
-
-				<p>
-					<input type="text" name="telefono" class="phone" required placeholder="Teléfono">
-				</p>
-
-				<p class="back-next">
-					<a href="#step-2" class="back" title="Modo de pago">&laquo; Volver<span class="bg"></span></a>
-					<button type="submit" class="next" title="Regístrate">Regístrate &raquo;<span class="bg"></span></button>
-				</p>
-			</form>
-		</section> -->
-
-		<section id="step-4" class="step-container">
-			<!-- <p class="step"><strong>Haz sido registrado</strong></p> -->
-			<p class="caption">Haz sido registrado en nuestro curso</p>
-			<div class="online-confirmation">
-				<p>Pronto estaremos enviándote un email confirmando tu registro.</p>
-			</div>
-			<div class="bank-confirmation">
-				<p>Pronto estaremos enviándote un email con los datos de nuestra cuenta bancaria.</p>
-				<!-- <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script> -->
-			</div>
-		</section>
-
-		<div class="register-skype">
-			<p class="skype-message">Has tus consultas de Lunes - Viernes 
-10:00 a.m. - 6:00 p.m "mejorandola"</p>
-			<p class="skype-buttons nomargin"><a class="skype-button" href="skype:mejorandola?call">Llama a <em>mejorandola</em></a></p>
 		</div>
-	</section>
 
-	<script src="{{ STATIC_PREFIX }}cursos/js/jquery-1.8.2.min.js"></script>
-	<script src="{{ STATIC_PREFIX }}cursos/js/jquery.tools.min.js"></script>
-	<script src="{{ STATIC_PREFIX }}cursos/js/site.js"></script>
+		<div class="middle">
+			<div class="tabs" id="tabs">
+				<a class="selector">
+					<h2><strong>4, 5 y 6 de diciembre</strong>HTML5, CSS3 y Javascript</h2>
+					<h3>Sesiones en vivo con profesores de 7pm a 9pm</h3>
+				</a>
 
-	<script type="text/javascript"> 
-		var analyticsFileTypes = [''];
-		var analyticsEventTracking = 'enabled';
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-76863-8']);
-		_gaq.push(['_trackPageview']);
-	 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
-</div>
+				<div class="tab">
+					<ol>
+						<li>Bases de maquetación y diseño web</li>
+						<li>Introducción a Responsive Design</li>
+						<li>Introducción a Retina Design</li>
+						<li>Base de la programación web frontend</li>
+						<li>Semántica y estructura HTML5</li>
+						<li>Diseño y maquetación con CSS3 </li>
+						<li>Fuentes y tipografías con font-face</li>
+						<li>Video y audio HTML5</li>
+						<li>Animaciones de transición y transformación</li>
+						<li>jQuery</li>
+					</ol>
+				</div>
+
+
+				<a class="selector">
+					<h2><strong>11, 12 y 13 de diciembre</strong>JS avanzado, Node.js y Python/Django</h2>
+					<h3>Sesiones en vivo con profesores de 7pm a 9pm</h3>
+				</a>
+
+				<div class="tab">
+					<ol>
+							<li>localStorage, almacenamiento en disco desde JS</li>
+							<li>Geolocalización Javascript</li>
+							<li>Introducción a Node.js</li>
+							<li>Eventos y aplicaciones web real time</li>
+							<li>Introducción a Backbone.js</li>
+							<li>Web apps con Express.js</li>
+							<li>Programación con Python</li>
+							<li>Web apps con Django</li>
+							<li>Bases de datos y sistemas de admin con Django</li>
+							<li>Phonegap</li>
+							<li>Control de versiones y Github</li>
+						</ol>
+				</div>
+
+			</div>
+			
+			<div class="direccion">
+				<a href="https://maps.google.com/maps?q=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&hl=es&ll=4.660555,-74.059321&spn=0.008373,0.009109&sll=4.660587,-74.05946&sspn=0.008373,0.009109&hq=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&radius=15000&t=m&z=17&iwloc=A" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?size=335x124&maptype=roadmap&markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C4.660523,-74.059473&zoom=17&sensor=false" /></a>
+
+				<address>
+				<h2>{{ curso.pais }}</h2>
+
+				<p>Desde Mejorando.la Plataforma. Sesiones en vivo con profesores de 7pm a 9pm.</p>
+				</address>
+			</div>
+		</div>
+
+		<div class="docentes">
+			{% for docente in curso.docentes %}
+			<div class="docente docente{{ forloop.counter}}">
+				<div class="pic">
+					<img src="{{ docente.get_imagen }}" alt="{{ docente.nombre }} @{{ docente.twitter }}" width="67" height="67" />
+					<h3>{{ docente.nombre }} <strong><a href="http://twitter.com/{{ docente.twitter }}" target="_blank">@{{ docente.twitter}}</a></strong></h3>
+				</div>
+
+				{{ docente.perfil|safe }}
+
+			</div>
+			{% endfor %}
+
+		</div>
+
+		<div class="quieres">
+			<h2>¿Quieres ver cómo son los cursos de Mejorando.la?</h2>
+
+			<div class="video">
+				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
+			    	<img src="{{ STATIC_PREFIX }}cursos/images/video.jpg" alt="¿Quieres ver cómo son los cursos de Mejorando.la?" />
+
+			    	<button></button>
+			    </a>
+			</div>
+
+			<h3>Nosotros te enseñamos a crear la web</h3>
+
+			<p>Organizamos y participamos en eventos, cursos y talleres de muchas ramas del diseño y desarrollo online.
+	En nuestros sitios se han gestado profesionales certificados de Adobe, líderes locales, empresarios, emprendedores, diseñadores premiados y grandes programadores.</p>
+	<p>Como los fundadores de las comunidades más importantes de desarrolladores y diseñadores de habla hispana nos juntamos para enseñar y compartir nuestro conocimiento.
+	Sabemos de Internet y es nuestra misión enseñar y compartir el conocimiento de la comunidad.</p>
+		</div>
+
+		<footer>
+			<ul>
+				<li><a href="http://maestrosdelweb.com" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/mdw.gif" alt="maestrosdelweb.com" /></a></li>
+				<li><a href="http://cristalab.com" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/clab.gif" alt="cristalab.com" /></a></li>
+			</ul>
+		</footer>
+	</div></div>
+
 </body>
 </html>

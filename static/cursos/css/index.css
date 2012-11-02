@@ -1,0 +1,672 @@
+@font-face {
+  font-family: 'open sans';
+  src: url(" ../fonts/opensans-light-webfont.eot");
+  src: url(" ../fonts/opensans-light-webfont.eot?#iefix") format('embedded-opentype'), url(" ../fonts/opensans-light-webfont.woff") format('woff'), url(" ../fonts/opensans-light-webfont.ttf") format('truetype'), url(" ../fonts/opensans-light-webfont.svg#OpenSansLight") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'open sans';
+  src: url(" ../fonts/opensans-bold-webfont.eot");
+  src: url(" ../fonts/opensans-bold-webfont.eot?#iefix") format('embedded-opentype'), url(" ../fonts/opensans-bold-webfont.woff") format('woff'), url(" ../fonts/opensans-bold-webfont.ttf") format('truetype'), url(" ../fonts/opensans-bold-webfont.svg#OpenSansBold") format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #008fd5;
+}
+body,
+input,
+textarea {
+  color: #707072;
+  font-size: 13px;
+  font-family: arial, sans-serif;
+}
+li {
+  list-style: none;
+}
+p {
+  margin: 10px 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'open sans', arial, sans-serif;
+  color: #2d2d2d;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+h2 {
+  font-size: 16px;
+}
+button {
+  background: #ffc33e;
+  border: 0;
+  color: #87620a;
+  padding: 6px 20px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s;
+}
+button:hover {
+  background: #ffd753;
+}
+input[type="text"] {
+  background: #4a5765;
+  border: 1px solid #707881;
+  padding: 5px;
+  padding-left: 37px;
+  margin: 5px 0;
+  border-radius: 2px;
+  width: 200px;
+}
+input[type="text"].error {
+  border-color: #f00;
+}
+input[type="text"]:focus {
+  background-color: #fff;
+  border-color: #008fd5;
+}
+input.nombre {
+  background-image: url("../images/nombre.gif");
+  background-position: 11px 3px;
+  background-repeat: no-repeat;
+}
+input.nombre:focus {
+  background-position: 11px -59px;
+}
+input.tel {
+  background-image: url("../images/tel.gif");
+  background-position: 10px 6px;
+  background-repeat: no-repeat;
+}
+input.tel:focus {
+  background-position: 10px -82px;
+}
+input.email {
+  background-image: url("../images/direccion.gif");
+  background-position: 14px 6px;
+  background-repeat: no-repeat;
+}
+input.email:focus {
+  background-position: 14px -80px;
+}
+input.numero {
+  background-image: url("../images/numero.gif");
+  background-position: 9px 6px;
+  background-repeat: no-repeat;
+}
+input.numero:focus {
+  background-position: 9px -81px;
+}
+input.input-small {
+  width: 36px;
+  padding-left: 5px;
+}
+input.input-medium {
+  width: 120px;
+  padding-left: 5px;
+}
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+a {
+  color: #000;
+}
+/* HEADER */
+header .wrapper {
+  background: #323e4a;
+  overflow: hidden;
+}
+header h1 {
+  float: left;
+  background: url("../images/logo-bg.gif") right top no-repeat;
+  padding-right: 22px;
+}
+header h1 a {
+  display: block;
+  background: #fff;
+  padding: 3px 10px;
+}
+header h1 img {
+  display: block;
+}
+header li {
+  float: left;
+  margin-left: 20px;
+}
+header ul {
+  overflow: hidden;
+  float: left;
+  background: url("../images/logos-bg.gif") left 22px repeat-x;
+  padding: 3px 0 1px;
+  margin-left: -12px;
+  padding-left: 12px;
+}
+/* MAIN */
+.main {
+  margin-top: 13px;
+}
+.main h1 {
+  background: #fff;
+  color: #323e4a;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+  padding: 15px;
+  width: 950px;
+}
+.main .wrapper {
+  background: #fff;
+}
+/* TOP */
+.main-image {
+  float: left;
+}
+.top {
+  overflow: hidden;
+}
+.top .video {
+  height: 430px;
+  float: left;
+}
+.descripcion {
+  background: #323e4a url("../images/pago-bg.gif") center bottom no-repeat;
+  color: #fffefd;
+  float: right;
+  width: 274px;
+  height: 400px;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 19px;
+  padding: 15px 30px;
+}
+.descripcion h1 {
+  margin: 18px 0;
+  color: #fffefd;
+  font-size: 37px;
+  line-height: 35px;
+  font-weight: normal;
+  text-align: left;
+}
+.descripcion button.registrate {
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 3px solid #bf932b;
+  margin: auto;
+  display: block;
+  padding: 5px 50px 15px;
+  line-height: 18px;
+  margin-top: 15px;
+}
+.descripcion button.registrate strong {
+  font-size: 28px;
+  display: block;
+}
+.descripcion .horarios {
+  color: #a0a5ab;
+  font-size: 12px;
+  text-align: center;
+  line-height: 13px;
+}
+.descripcion .contacto {
+  font-size: 12px;
+  background: #495662;
+  margin: 15px -30px 0;
+  padding: 5px 30px;
+  color: #c7cfd7;
+}
+.descripcion .contacto p {
+  display: inline-block;
+  padding: 0 15px;
+  padding-left: 45px;
+  margin: 0;
+  background: url("../images/skype.gif") left center no-repeat;
+}
+.descripcion .contacto p.telefono {
+  background: url("../images/telefono.gif") left center no-repeat;
+}
+.descripcion .contacto a {
+  color: #c7cfd7;
+  text-decoration: none;
+}
+.descripcion .contacto span {
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  margin-bottom: -7px;
+}
+.descripcion button.pago-main > span {
+  background: url("../images/icons.gif") 15px 2px no-repeat;
+  padding-left: 70px;
+  display: inline-block;
+}
+.descripcion .pago-content {
+  text-align: left;
+  position: relative;
+}
+.descripcion .pago-content .final {
+  text-align: center;
+}
+.descripcion .pago-content .final h1 {
+  text-align: center;
+}
+.descripcion .pago-content .screen {
+  left: 0;
+  right: 0;
+  position: absolute;
+  display: none;
+}
+.descripcion .pago-content .screen.active {
+  display: block;
+}
+.descripcion .pago-content .screen.step {
+  text-align: center;
+}
+.descripcion .pago-content .screen.step h1 {
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+}
+.descripcion .pago-content .screen.step h1 strong {
+  font-size: 40px;
+  display: block;
+  margin-bottom: -10px;
+}
+.descripcion .pago-content .screen.step h1 strong span {
+  color: #667183;
+}
+.descripcion .pago-content .screen.step form {
+  margin-top: -15px;
+}
+.descripcion .pago-content .screen.step form .pago-btns {
+  margin-top: 10px;
+}
+.descripcion .pago-content .screen.step form .notice.error {
+  color: #f00;
+}
+.descripcion .pago-content .screen.step form .notice a {
+  color: #ffc43a;
+}
+.descripcion .pago-content button {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fcfbf7;
+  background: #0190d6;
+  border-bottom: 5px solid #0d5b7f;
+  padding: 12px 20px;
+  margin: 0 5px;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.descripcion .pago-content button:hover {
+  background: #2fa0e8;
+}
+.descripcion .pago-content button.cancel {
+  background: #4b5765;
+  color: #313d4b;
+  border-color: #384653;
+}
+.descripcion .pago-content button.cancel:hover {
+  background: #5b6675;
+}
+.descripcion .pago-methods a {
+  text-transform: uppercase;
+  color: #535f6f;
+  margin: 10px;
+  width: 100px;
+  display: inline-block;
+  padding-top: 105px;
+  cursor: pointer;
+}
+.descripcion .pago-methods a.tarjeta {
+  background: url("../images/tarjeta.gif") right top no-repeat;
+}
+.descripcion .pago-methods a.deposito {
+  background: url("../images/deposito.gif") right top no-repeat;
+}
+.descripcion .pago-methods a.active {
+  background-position: left top;
+  color: #96a2b0;
+  cursor: default;
+}
+.descripcion .pago-count {
+  margin-bottom: 15px;
+}
+.descripcion .pago-count span {
+  font-size: 80px;
+  display: block;
+  background: url("../images/count.gif") center center no-repeat;
+}
+.descripcion .pago-count a {
+  font-size: 50px;
+  display: inline-block;
+  padding: 0 5px;
+  line-height: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.descripcion .pago-count a.pago-mas {
+  background: #4b5765;
+}
+.descripcion .pago-count a.pago-mas:hover {
+  color: #2e3f47;
+  background: #fff;
+}
+.descripcion .pago-count a.pago-menos {
+  color: #2e3f47;
+  padding: 0 9px;
+  background: #fff;
+}
+.descripcion .pago-count a.pago-menos:hover {
+  background: #4b5765;
+  color: #fff;
+}
+/* MIDDLE */
+.middle {
+  clear: left;
+  overflow: hidden;
+  padding-top: 10px;
+}
+.middle .tabs {
+  float: left;
+  width: 665px;
+}
+.middle .selector {
+  display: block;
+  background: #eaedf2;
+  padding: 22px 25px;
+  width: 283px;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.middle .selector h2 {
+  font-weight: normal;
+  margin: 0 0 7px;
+  font-size: 23px;
+  line-height: 24px;
+  word-spacing: -1px;
+}
+.middle .selector h2 strong {
+  font-size: 14px;
+  display: block;
+}
+.middle .selector h3 {
+  font-size: 13px;
+  word-spacing: 4;
+  text-transform: none;
+}
+.middle .selector:hover {
+  background: #ffc43a;
+  cursor: pointer;
+}
+.middle .selector.active {
+  background: #ffc43a url("../images/selector-bg.gif") right center no-repeat;
+}
+.middle ol {
+  margin: 20px 0;
+  margin-left: 45px;
+}
+.middle li {
+  margin: 7px 0;
+  list-style: decimal;
+}
+.middle .email {
+  background: #eaedf2;
+  width: 333px;
+  float: left;
+  font-size: 15px;
+}
+.middle .email address {
+  padding: 9px 25px;
+  font-style: normal;
+}
+.middle h2 {
+  font-size: 30px;
+}
+.middle .tabs.js {
+  position: relative;
+}
+.middle .tabs.js .tab {
+  position: absolute;
+  left: 333px;
+  top: 0;
+  background: #fff;
+}
+.middle .direccion {
+  background: #eaedf2;
+  width: 333px;
+  height: 232px;
+  float: right;
+  font-size: 12px;
+  text-align: center;
+}
+.middle .direccion address {
+  padding: 9px 25px;
+  font-style: normal;
+}
+.middle .direccion h2 {
+  font-size: 30px;
+  text-align: left;
+}
+/* DOCENTES */
+.docentes {
+  overflow: hidden;
+  background: #eaedf2 url("../images/docentes.png") center top repeat-y;
+  padding: 0 10px;
+  border-top: 10px solid #eaedf2;
+  border-bottom: 10px solid #eaedf2;
+  margin: 20px 0;
+}
+.docentes .docente {
+  float: left;
+  width: 445px;
+  height: 270px;
+  padding: 20px;
+}
+.docentes .docente.docente1,
+.docentes .docente.docente2 {
+  height: 250px;
+}
+.docentes .docente.docente2,
+.docentes .docente.docente4 {
+  float: right;
+}
+.docentes .docente p {
+  line-height: 16px;
+}
+.docentes .docente p:first-of-type {
+  margin-top: 20px;
+}
+.docentes .docente .pic {
+  background: #008fd5;
+  padding: 12px 20px 10px;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
+}
+.docentes .docente .pic img {
+  float: left;
+  margin-top: -12px;
+  margin-right: 15px;
+}
+.docentes .docente .pic h3 {
+  color: #fff;
+  font-size: 13px;
+}
+.docentes .docente .pic h3 a {
+  color: #fff;
+  text-decoration: none;
+}
+.docentes .docente .pic strong {
+  display: block;
+  text-transform: none;
+  font-size: 25px;
+  font-weight: normal;
+}
+/* QUIERES */
+.quieres {
+  text-align: center;
+}
+.quieres h2 {
+  font-size: 47px;
+  font-weight: normal;
+  line-height: 39px;
+  margin: 45px 165px 30px;
+}
+.quieres p {
+  text-align: left;
+  margin-left: 220px;
+  margin-right: 220px;
+}
+.quieres h3 {
+  margin: 17px 0;
+}
+.quieres .video {
+  background: #ffc43a;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: 70px;
+  margin-bottom: 57px;
+  height: 290px;
+}
+.quieres .video a {
+  background-size: 50px 50px;
+  display: block;
+  position: relative;
+  top: -40px;
+  background: #fff;
+  margin: auto;
+  width: 660px;
+}
+/* FOOTER */
+footer {
+  background: url("../images/footer-bg.gif") left bottom repeat-x;
+  overflow: hidden;
+  text-align: center;
+}
+footer li {
+  float: left;
+  margin: 0 50px;
+}
+footer ul {
+  display: inline-block;
+  margin: 40px 0 60px;
+}
+@media screen and (max-width:1000px) {
+  .wrapper {
+    width: auto;
+  }
+  .main h1 {
+    width: auto;
+  }
+  .top .descripcion {
+    width: auto;
+    height: auto;
+    float: none;
+  }
+  .top .video {
+    height: auto;
+    float: none;
+  }
+  .main-image {
+    width: 100%;
+    float: none;
+  }
+  .pago {
+    width: auto;
+    float: none;
+  }
+  .pago button.pago-main {
+    margin-right: -25px;
+  }
+  .middle {
+    overflow: visible;
+  }
+  .middle .selector {
+    width: auto;
+  }
+  .middle .tabs {
+    width: auto;
+    float: none;
+  }
+  .middle .email {
+    width: auto;
+    float: none;
+  }
+  .middle .direccion {
+    width: auto;
+    float: none;
+  }
+  .docentes {
+    background-image: none;
+  }
+  .docentes .docente {
+    width: auto;
+    background: #fff;
+    float: none;
+    height: auto;
+  }
+  .docentes .docente.docente2,
+  .docentes .docente.docente4 {
+    float: none;
+  }
+  .quieres h2 {
+    font-size: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .quieres iframe {
+    width: 100%;
+  }
+  .quieres .video {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .quieres .video iframe,
+  .quieres .video a,
+  .quieres .video img {
+    width: 100%;
+  }
+  .quieres p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  footer li {
+    float: none;
+  }
+}
+.video {
+  position: relative;
+}
+.video button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: url("../images/play.png") center center no-repeat;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+.video button:hover {
+  opacity: 1;
+}
