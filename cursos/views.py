@@ -86,7 +86,7 @@ def curso(req, curso_slug):
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist: curso = None
 
-	vs = { 'curso ': curso }
+	vs = { 'curso': curso }
 	try:
 		return render_to_response('%s.html' % curso_slug, vs)
 	except TemplateDoesNotExist:
