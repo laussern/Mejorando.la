@@ -29,16 +29,10 @@ def home(req):
 
 # vista publica del curso
 def curso(req, curso_slug):
-	try:
-		curso = Curso.objects.get(slug=curso_slug)
-	except Curso.DoesNotExist:
-		try:
-			return render_to_response('%s.html' % curso_slug)
-		except TemplateDoesNotExist: raise Http404
-		
-	vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
-
 	if req.method == 'POST':
+		curso = get_object_or_404(Curso, slug=curso_slug)
+		vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
+
 		nombre = req.POST.get('nombre')
 		email  = req.POST.get('email')
 		tel    = req.POST.get('telefono')
@@ -87,7 +81,13 @@ def curso(req, curso_slug):
 			return HttpResponse('OK')
 
 		else: return HttpResponse('ERR')
-	
-	return render_to_response('cursos/curso.html', vs)
+
+	try:
+		curso = Curso.objects.get(slug=curso_slug)
+	except Curso.DoesNotExist: curso = None
+
+	try:
+		return render_to_response('%s.html' % curso_slug, { 'curso ': curso })
+	except TemplateDoesNotExist: raise Http404
 
 
