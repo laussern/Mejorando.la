@@ -3,6 +3,7 @@
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.conf import settings
+from django.http import Http404
 
 from models import Curso, CursoRegistro
 from website.utils import get_pais
@@ -30,7 +31,9 @@ def curso(req, curso_slug):
 	try:
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist:
-		return HttpResponse()
+		try:
+            return render_to_response('%s.html' % curso_slug)
+        except TemplateDoesNotExist: raise Http404
 		
 	vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
 
