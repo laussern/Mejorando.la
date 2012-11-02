@@ -312,6 +312,7 @@ var Site = {
 			console.log(max)
 		})
 		$('#syllabus').css('height',max)
+		$('.tab').height(max/2)
 		$syllabus.on('mouseenter', '.tab', function(e){
 			e.preventDefault();
 			var $tab = $(this);
