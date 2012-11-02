@@ -90,7 +90,7 @@ def curso(req, curso_slug):
 	try:
 		return render_to_response('%s.html' % curso_slug, vs)
 	except TemplateDoesNotExist:
-		if not curso raise Http404
+		if not curso: raise Http404
 
 		return render_to_response('cursos/curso.html', vs)
 
