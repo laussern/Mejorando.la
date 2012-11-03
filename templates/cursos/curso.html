@@ -21,7 +21,7 @@
 	<script src="https://js.stripe.com/v1/"></script>
 
 	<script>
-	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}'}
+	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}', 'publishable_key': '{{ publishable_key }}'}
 	</script>
 	<script src="{{ STATIC_PREFIX }}cursos/js/index.js"></script>
 </head>
@@ -73,7 +73,7 @@
 		<div class="middle">
 			<div class="tabs" id="tabs">
 				<a class="selector">
-					<h2><strong>4, 5 y 6 de diciembre</strong>HTML5, CSS3 y Javascript</h2>
+					<h2>4, 5 y 6 de diciembre <span>HTML5, CSS3 y Javascript</span></h2>
 					<h3>Sesiones en vivo con profesores de 7pm a 9pm</h3>
 				</a>
 
@@ -94,7 +94,7 @@
 
 
 				<a class="selector">
-					<h2><strong>11, 12 y 13 de diciembre</strong>JS avanzado, Node.js y Python/Django</h2>
+					<h2>11, 12 y 13 de diciembre <span>JS avanzado, Node.js y Python/Django</span></h2>
 					<h3>Sesiones en vivo con profesores de 7pm a 9pm</h3>
 				</a>
 
@@ -117,7 +117,7 @@
 			</div>
 			
 			<div class="direccion">
-				<a href="https://maps.google.com/maps?q=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&hl=es&ll=4.660555,-74.059321&spn=0.008373,0.009109&sll=4.660587,-74.05946&sspn=0.008373,0.009109&hq=Hotel+RoyalPark+Metrotel+Calle+74+%2313-27.&radius=15000&t=m&z=17&iwloc=A" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?size=335x124&maptype=roadmap&markers=icon:http://mejorando.la/nuevaVenta/images/marker.png%7C4.660523,-74.059473&zoom=17&sensor=false" /></a>
+				<a href="http://cursos.mejorando.la" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/plataforma.jpg" /></a>
 
 				<address>
 				<h2>{{ curso.pais }}</h2>
@@ -175,8 +175,8 @@
 				<a class="pago-mas">+</a>
 			</div>
 			<div class="pago-btns">
-				<button class="close">Cancelar</button>
-				<button class="next">siguiente</button>
+				<button class="close">« Cancelar</button>
+				<button class="next">Siguiente »</button>
 			</div>
 		</div>
 
@@ -203,8 +203,8 @@
 				<p class="notice"></p>
 
 				<div class="pago-btns">
-					<button type="button" class="cancel">Volver</button>
-					<button type="submit">Comprar</button>
+					<button type="button" class="cancel">« Volver</button>
+					<button type="submit">Comprar »</button>
 				</div>
 			</form>
 		</div>
@@ -214,12 +214,8 @@
 			<form class="reg-form" method="post" id="reg-form">
 				<input type="hidden" name="action" value="register" />
 
-				<div class="alumno">
-					<h3>Alumno 1</h3>
-
-					<input type="text" placeholder="Nombre"   class="nombre" name="nombre" />
-					<input type="text" placeholder="Email"    class="email"   name="email" />
-					<input type="text" placeholder="Teléfono" class="tel"  name="telefono" />
+				<div class="alumnos">
+					<label class="alumno">Alumno 1: <input type="text" placeholder="Email" class="email"   name="email" /></label>
 				</div>
 
 				<p class="notice"></p>

@@ -6,7 +6,7 @@ import image
 class Curso(models.Model):
 	nombre 	    = models.TextField()
 	slug        = models.TextField()
-	precio 	    = models.CharField(max_length=30)
+	precio 	    = models.IntegerField()
 	pais   	    = models.CharField(max_length=50)
 	direccion   = models.TextField()
 	mapa 	    = models.CharField(max_length=50, blank=True)
@@ -79,15 +79,23 @@ class CursoDocente(models.Model):
 
 		image.resize((67, 67), self.imagen)
 
-class CursoRegistro(models.Model):
+class CursoPago(models.Model):
 	nombre 	 = models.CharField(max_length=500)
 	email  	 = models.EmailField()
 	telefono = models.CharField(max_length=500)
 	pais     = models.CharField(max_length=100)
-	pagado   = models.ManyToManyField(Curso, blank=True, related_name='pagado')
-	curso    = models.ManyToManyField(Curso, blank=True, related_name='curso')
+	quantity = models.IntegerField()
+	fecha    = models.DateTimeField(auto_now_add=True)
+	curso    = models.ForeignKey(Curso)
 
 	def __unicode__(self):
 		return self.nombre
+
+class CursoRegistro(models.Model):
+	email  	 = models.EmailField()
+	pago     = models.ForeignKey(CursoPago)
+
+	def __unicode__(self):
+		return self.email
 
 	

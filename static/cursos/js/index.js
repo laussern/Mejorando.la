@@ -1,4 +1,7 @@
 jQuery(function ($) {
+	// Stripe
+	Stripe.setPublishableKey(config.publishable_key);
+
 	// pestañas
 	+function () {
 		if($(window).width() < 1000) return;
@@ -34,9 +37,10 @@ jQuery(function ($) {
 		var $screens = $('.screens'), $screen = $screens.find('.screen'), $status = $('#pago-status');
 
 		// calculo de precios
-		var quantity=1;
+		var quantity=1, price = parseInt(config.precio);
 
 		var $buyform  = $('#buy-form'), 
+			$regform  = $('#reg-form'),
 			$quantity = $buyform.find('input[name="quantity"]');
 
 		// agregar o restar numero de asistentes
@@ -53,7 +57,9 @@ jQuery(function ($) {
 			$quantity.val(quantity);
 			$('.pago-num').html(quantity);
 
-			//calculate();
+
+			calculate();
+			update_regform();
 		});
 
 		// ir al siguiente paso
@@ -61,9 +67,7 @@ jQuery(function ($) {
 
 		$buyform.submit(function () {
 
-			if(!validates(true)) {
-				return notice('Errores en los campos.')			
-			}
+			if(!validates($buyform, true)) return err($buyform, 'Errores en los campos.')			
 
 			Stripe.createToken({
 				number   : $buyform.find('.card-number').val(),
@@ -72,7 +76,7 @@ jQuery(function ($) {
 				exp_year : $buyform.find('.card-expiry-year').val()
 			}, function (status, response) {	
 				if(response.error) {
-					notice(response.error.message);
+					err($buyform, response.error.message);
 				} else {
 					$buyform.find('input[name="stripeToken"]').val(response.id);
 
@@ -82,6 +86,14 @@ jQuery(function ($) {
 
 			return false;
 		})
+
+		$regform.submit(function () {
+			if(!validates($regform)) return err($regform, 'Errores en los campos.')
+
+			$.post($buyform.attr('action'), $regform.serialize(), ultimo);
+
+			return false;
+		});
 
 		$('.pago-btns .cancel').live('click', function () { 
 			$('.screen.active').removeClass('active');
@@ -97,26 +109,40 @@ jQuery(function ($) {
 
 		function registro(r) {
 			if(r == 'OK') {
-				$status.addClass('success').html(':) Felicidades');
-				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+				// si se elige la opcion de crear con el mismo registro
+				if($('#samedata').is(':checked')) $regform.find('input.email').first().val($buyform.find('input.email').val());
+				// ir al siguiente paso
+				pago_next();
 			} else {
-				notice_error();
+				err($buyform, 'Ocurrió un error en el proceso. Porfavor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
 			}
 		}
 
-		function notice_error(str) {
-			$buyform.find('.notice').html('Ocurrió un error en el proceso. Porfavor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.')
+		function ultimo (r) {
+			if(r == 'OK') {
+				$status.addClass('success').html(':) Felicidades');
+				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+			} else {
+				err($regform, 'Ocurrió un error en el proceso. Porfavor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
+			}
+
 		}
 
-		function notice(str) {
-			$buyform.find('.notice').html(str)
+		function notice($form, str) {
+			$form.find('.notice').html(str)
 
 			return false;
 		}
 
-		function validates(card) {
+		function err($form, str) {
+			$form.find('.notice').html('<span class="err">*</span> '+str)
 
-			$buyform.find('input[type="text"]').each(function () {
+			return false;
+		}
+
+		function validates($form, card) {
+
+			$form.find('input[type="text"]').each(function () {
 				var $self = $(this);
 
 				if(!card && $self.attr('name') == undefined) return;
@@ -127,8 +153,44 @@ jQuery(function ($) {
 				}
 			});
 
-			if($buyform.find('.error').size() > 0) return false;
+			if($form.find('.error').size() > 0) return false;
 			else return true;
+		}
+
+		function calculate() {
+			// get base numbers
+			var rate = Math.floor(quantity / 5),
+				total = price * quantity;
+
+			// descuento de plazas gratis
+			var discount = rate * price;
+
+			// aplicar el descuento solo cuando no sea cada 5 (que es cuando hay una plaza gratis mas)
+			if ((quantity % 5) !== 0)
+				discount += (price * 0.1) * (quantity < 5 ? quantity-1 : quantity - (5 * rate) );
+
+			// final total price
+			total -= discount;
+
+			// redondeando numeros
+			discount = Math.ceil(discount);
+			total = Math.ceil(total);
+
+			var extra = '';
+
+			if(discount > 0) extra = ' <span>con un descuento de <strong>$'+discount+' USD</strong></span>';
+
+			$status.html('$'+total+' USD'+extra)
+		}
+
+		function update_regform() {
+			var $als = $regform.find('.alumnos');
+
+			var html = '';
+			for(var i = 1; i <= quantity; i++) 
+				html += '<label class="alumno">Alumno '+i+': <input type="text" placeholder="Email" class="email"   name="email" /></label>';
+
+			$als.html(html);
 		}
 	}();
 
@@ -137,9 +199,6 @@ jQuery(function ($) {
 		$(this).html('<iframe width="660" height="370" src="http://www.youtube.com/embed/x4ZwpiKR7ew?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
 		return false;
 	});
-
-	// Stripe
-	Stripe.setPublishableKey('pk_test_4JlnsSvabjP6ynQdQM3WPZEy');
 
 	var popup = new function () {
 		var $self 	 = $('#pago'),

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import math
 
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -6,13 +7,13 @@ from django.conf import settings
 from django.http import Http404
 from django.template import TemplateDoesNotExist
 
-from models import Curso, CursoRegistro
+from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
 from utils import send_mail
 
 import stripe
 
-stripe.api_key = settings.STRIPE_API_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def home(req):
 	import website.models
@@ -33,60 +34,79 @@ def curso(req, curso_slug):
 		curso = get_object_or_404(Curso, slug=curso_slug)
 		vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
 
-		nombre = req.POST.get('nombre')
-		email  = req.POST.get('email')
-		tel    = req.POST.get('telefono')
-		method = req.POST.get('method')
+		action = req.POST.get('action')
 
-		if nombre and email and tel:
-			# buscar si el usuario ya existe en la bd
-			try: 
-				registro = CursoRegistro.objects.get(email=req.POST)
-			# si no existe crearlo
-			except CursoRegistro.DoesNotExist:
-				registro = CursoRegistro(nombre=nombre, email=email, telefono=telefono, pais=get_pais(req.META))
-				registro.save()
+		if action:
+			if action == 'buy':
+				nombre 	 = req.POST.get('nombre')
+				email  	 = req.POST.get('email')
+				tel    	 = req.POST.get('telefono')
+				quantity = req.POST.get('quantity')
+				token 	 = req.POST.get('stripeToken')
 
+				if nombre and email and tel and quantity and token:
+					quantity = int(quantity)
 
-			# agregar el curso a los registro de usuario
-			registro.curso.add(curso)
+					rate  = math.floor( quantity / 5 )
+					total = curso.precio * quantity
 
-			# pagar por el curso
-			if  method == 'tarjeta':
-				token = req.POST.get('stripeToken')
+					# descuento de plazas gratis
+					discount = rate * curso.precio
 
-				# checar que venga el token de stripe
-				if not token: return HttpResponse('ERR')
+					#aplicar el descuento solo cuando no sea cada 5 (que es cuando hay una plaza gratis mas)
+					if (quantity % 5) != 0:
+						discount += (curso.precio * 0.1) * (quantity-1 if quantity < 5 else quantity - (5 * rate) )
 
-				# realizar el cargo con la api de stripe
-				charge = stripe.Charge.create(
-					amount		= curso.precio,
-					currency	= 'usd',
-					card	    = token,
-					description = email
-				)
+					amount = total - discount
 
-				# si se realiza el cargo con exito enviar mail de confirmacion de pago
-				if charge.paid: 
-					# agregar como curso pagado
-					registro.pagado.add(curso)
+					# realizar el cargo con la api de stripe
+					try:
+						charge = stripe.Charge.create(
+							amount		= int(amount),
+							currency	= 'usd',
+							card	    = token,
+							description = email
+						)
+					except Exception: return HttpResponse('ERR')
+
+					# si se realiza el cargo con exito enviar mail de confirmacion de pago
+					if not charge.paid: return HttpResponse('ERR')
+
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso)
+					p.save()
+
+					req.session['p32'] = p.id
 
 					send_mail('curso_pago', vs, 'Confirmacion de pago | %s' % curso.nombre, email)
+
+					return HttpResponse('OK')
+
 				else: return HttpResponse('ERR')
 
-			# mandar los datos para registro con deposito
-			else:
-				send_mail('curso_info', vs, 'Informacion para pago | %s' % curso.nombre, email)
+			elif action == 'register':
+				email = req.POST.getlist('email')
+				pago  = req.session.get('p32')
 
-			return HttpResponse('OK')
+				if email and pago:
+					p = get_object_or_404(CursoPago, id=pago)
 
+
+					for e in email:
+						r = CursoRegistro(email=e, pago=p)
+						r.save()
+
+					return HttpResponse('OK')
+					
+				else: return HttpResponse('ERR')
+
+			else: return HttpResponse('ERR')
 		else: return HttpResponse('ERR')
 
 	try:
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist: curso = None
 
-	vs = { 'curso': curso }
+	vs = { 'curso': curso, 'publishable_key': settings.STRIPE_PUBLISHABLE_KEY }
 	try:
 		return render_to_response('%s.html' % curso_slug, vs)
 	except TemplateDoesNotExist:

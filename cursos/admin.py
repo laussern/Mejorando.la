@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Curso, CursoDia, CursoDocente, CursoRegistro
+from models import Curso, CursoDia, CursoDocente, CursoRegistro, CursoPago
 from django.conf import settings
 
 class CursoAdmin(admin.ModelAdmin):
@@ -36,3 +36,4 @@ admin.site.register(Curso, CursoAdmin)
 admin.site.register(CursoDia, CursoDiaAdmin)
 admin.site.register(CursoDocente, CursoDocenteAdmin)
 admin.site.register(CursoRegistro)
+admin.site.register(CursoPago)

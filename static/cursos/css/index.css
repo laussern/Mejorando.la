@@ -53,6 +53,11 @@ button {
   padding: 6px 20px;
   cursor: pointer;
   -webkit-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 button:hover {
   background: #ffd753;
@@ -67,6 +72,9 @@ input[type="text"] {
   width: 200px;
 }
 input[type="text"].error::-webkit-input-placeholder {
+  color: #f00;
+}
+input[type="text"].error:-moz-placeholder {
   color: #f00;
 }
 input[type="text"]:focus {
@@ -280,22 +288,19 @@ header ul {
   margin: 0 10px;
   cursor: pointer;
   color: #fff;
-}
-.pago-count a.pago-mas {
   background: #4b5765;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
-.pago-count a.pago-mas:hover {
+.pago-count a:hover {
   color: #2e3f47;
   background: #fff;
 }
 .pago-count a.pago-menos {
-  color: #2e3f47;
   padding: 0 9px;
-  background: #fff;
-}
-.pago-count a.pago-menos:hover {
-  background: #4b5765;
-  color: #fff;
 }
 /* MIDDLE */
 .middle {
@@ -319,14 +324,15 @@ header ul {
   transition: background-color 0.5s;
 }
 .middle .selector h2 {
-  font-weight: normal;
-  margin: 0 0 7px;
+  font-weight: bold;
+  margin: 0 0 20px;
   font-size: 23px;
-  line-height: 24px;
+  line-height: 25px;
   word-spacing: -1px;
 }
-.middle .selector h2 strong {
+.middle .selector h2 span {
   font-size: 14px;
+  line-height: 16px;
   display: block;
 }
 .middle .selector h3 {
@@ -378,7 +384,7 @@ header ul {
 .middle .direccion {
   background: #eaedf2;
   width: 333px;
-  height: 232px;
+  height: 256px;
   float: right;
   font-size: 12px;
   text-align: center;
@@ -390,6 +396,8 @@ header ul {
 .middle .direccion h2 {
   font-size: 30px;
   text-align: left;
+  background: url("../images/online.jpg") left center no-repeat;
+  padding-left: 40px;
 }
 /* DOCENTES */
 .docentes {
@@ -629,6 +637,9 @@ footer ul {
   padding: 20px;
   position: relative;
 }
+.pago .panel .alumno input[type="text"] {
+  width: 175px;
+}
 .pago .panel .final {
   color: #fff;
   text-align: center;
@@ -637,15 +648,21 @@ footer ul {
   text-align: center;
 }
 .pago .panel h2 {
-  background: #ffc33e url("../images/icons.gif") 35px -143px no-repeat;
+  background: #ffc33e url("../images/icons.gif") 30px -143px no-repeat;
   border: 0;
   color: #87620a;
   padding: 10px 20px;
+  padding-left: 100px;
   font-size: 30px;
-  text-align: center;
   font-weight: bold;
   margin: 0 -35px;
   border-bottom: 3px solid #bf932b;
+}
+.pago .panel h2 span {
+  font-size: 13px;
+  font-weight: normal;
+  display: block;
+  margin-top: -5px;
 }
 .pago .panel h2.success {
   background-image: none;
@@ -690,38 +707,94 @@ footer ul {
 .pago .panel .screen.step form .pago-btns {
   margin-top: 10px;
 }
-.pago .panel .screen.step form .notice.error {
+.pago .panel .screen.step form .notice {
+  color: #fff;
+}
+.pago .panel .screen.step form .notice .err {
   color: #f00;
 }
 .pago .panel .screen.step form .notice a {
   color: #ffc43a;
 }
 .pago .panel button {
+  background: #4a5765;
+  color: #fff;
   text-transform: uppercase;
-  font-weight: bold;
-  color: #fcfbf7;
-  background: #0190d6;
-  border-bottom: 5px solid #0d5b7f;
-  padding: 12px 20px;
-  margin: 0 5px;
-  -webkit-transition: background-color 0.5s;
-  -moz-transition: background-color 0.5s;
-  -ms-transition: background-color 0.5s;
-  -o-transition: background-color 0.5s;
-  transition: background-color 0.5s;
+  padding: 9px;
+  -webkit-transition: background-color 0.15s;
+  -moz-transition: background-color 0.15s;
+  -ms-transition: background-color 0.15s;
+  -o-transition: background-color 0.15s;
+  transition: background-color 0.15s;
+  position: relative;
+}
+.pago .panel button.close,
+.pago .panel button.cancel {
+  margin-right: 5px;
+}
+.pago .panel button.close:before,
+.pago .panel button.cancel:before {
+  content: " ";
+  position: absolute;
+  left: -10px;
+  border-right: 10px solid #4a5765;
+  border-bottom: 16px solid transparent;
+  border-top: 15px solid transparent;
+  -webkit-transition: border-color 0.15s;
+  -moz-transition: border-color 0.15s;
+  -ms-transition: border-color 0.15s;
+  -o-transition: border-color 0.15s;
+  transition: border-color 0.15s;
+  display: block;
+  top: 0;
+}
+.pago .panel button.close:hover:before,
+.pago .panel button.cancel:hover:before {
+  border-right-color: #566472;
+}
+.pago .panel button.next,
+.pago .panel button[type="submit"] {
+  margin-left: 5px;
+}
+.pago .panel button.next:before,
+.pago .panel button[type="submit"]:before {
+  content: " ";
+  position: absolute;
+  right: -10px;
+  border-left: 10px solid #4a5765;
+  border-bottom: 16px solid transparent;
+  border-top: 15px solid transparent;
+  -webkit-transition: border-color 0.15s;
+  -moz-transition: border-color 0.15s;
+  -ms-transition: border-color 0.15s;
+  -o-transition: border-color 0.15s;
+  transition: border-color 0.15s;
+  display: block;
+  top: 0;
+}
+.pago .panel button.next:hover:before,
+.pago .panel button[type="submit"]:hover:before {
+  border-left-color: #566472;
+}
+.pago .panel button.next[type="submit"],
+.pago .panel button[type="submit"][type="submit"] {
+  background: #ffc33e;
+  color: #87620a;
+}
+.pago .panel button.next[type="submit"]:before,
+.pago .panel button[type="submit"][type="submit"]:before {
+  border-left-color: #ffc33e;
+}
+.pago .panel button.next[type="submit"]:hover,
+.pago .panel button[type="submit"][type="submit"]:hover {
+  background-color: #ffd753;
+}
+.pago .panel button.next[type="submit"]:hover:before,
+.pago .panel button[type="submit"][type="submit"]:hover:before {
+  border-left-color: #ffd753;
 }
 .pago .panel button:hover {
-  background: #2fa0e8;
-}
-.pago .panel button.cancel,
-.pago .panel button.close {
-  background: #4b5765;
-  color: #313d4b;
-  border-color: #384653;
-}
-.pago .panel button.cancel:hover,
-.pago .panel button.close:hover {
-  background: #5b6675;
+  background: #566472;
 }
 /*
 Animate.css - http://daneden.me/animate

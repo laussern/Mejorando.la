@@ -54,6 +54,11 @@ button
 	padding 6px 20px
 	cursor pointer
 	-webkit-transition background-color .5s
+	-webkit-transition background-color .5s
+	-moz-transition background-color .5s
+	-ms-transition background-color .5s
+	-o-transition background-color .5s
+	transition background-color .5s
 
 	&:hover 
 		background #ffd753
@@ -69,6 +74,9 @@ input[type="text"]
 	width 200px
 
 	&.error::-webkit-input-placeholder
+		color red
+
+	&.error:-moz-placeholder
 		color red
 
 	&:focus 	
@@ -302,23 +310,19 @@ header
 		margin 0 10px
 		cursor pointer
 		color white
+		background #4b5765
+		-webkit-transition background-color .5s
+		-moz-transition background-color .5s
+		-ms-transition background-color .5s
+		-o-transition background-color .5s
+		transition background-color .5s
 
-		&.pago-mas 
-			background #4b5765
-
-
-			&:hover 
-				color #2e3f47
-				background white
-
-		&.pago-menos 
+		&:hover 
 			color #2e3f47
-			padding 0 9px
 			background white
 
-			&:hover 
-				background #4b5765
-				color white
+		&.pago-menos 
+			padding 0 9px
 
 
 
@@ -346,14 +350,15 @@ header
 		transition background-color .5s
 
 		h2 
-			font-weight normal
-			margin 0 0 7px
+			font-weight bold
+			margin 0 0 20px
 			font-size 23px
-			line-height 24px
+			line-height 25px
 			word-spacing -1px
 
-			strong 
+			span
 				font-size 14px
+				line-height 16px
 				display block
 
 		h3 
@@ -411,7 +416,7 @@ header
 	.direccion
 		background #eaedf2
 		width 333px
-		height 232px
+		height 256px
 		float right
 		font-size 12px
 		text-align center
@@ -423,6 +428,8 @@ header
 		h2 
 			font-size 30px
 			text-align left
+			background url(../images/online.jpg) left center no-repeat
+			padding-left 40px 
 
 /* DOCENTES */
 .docentes 
@@ -677,6 +684,11 @@ footer
 		padding 20px
 		position relative
 
+		.alumno 
+			input[type="text"]
+				width 175px
+
+
 		.final 
 			color white
 			text-align center
@@ -686,15 +698,21 @@ footer
 
 
 		h2
-			background #ffc33e url(../images/icons.gif) 35px -143px no-repeat
+			background #ffc33e url(../images/icons.gif) 30px -143px no-repeat
 			border 0
 			color #87620a
 			padding 10px 20px
+			padding-left 100px
 			font-size 30px
-			text-align center
 			font-weight bold
 			margin 0 -35px
 			border-bottom 3px solid #bf932b 
+
+			span 
+				font-size 13px
+				font-weight normal
+				display block
+				margin-top -5px
 
 			&.success
 				background-image none
@@ -740,36 +758,83 @@ footer
 						margin-top 10px
 
 					.notice 
-						&.error
+						color white
+
+						.err
 							color red
 
 						a
 							color #ffc43a
 
 		button 
+			background #4a5765
+			color white
 			text-transform uppercase
-			font-weight bold
-			color #fcfbf7
-			background #0190d6
-			border-bottom 5px solid #0d5b7f
-			padding 12px 20px
-			margin 0 5px
-			-webkit-transition background-color .5s
-			-moz-transition background-color .5s
-			-ms-transition background-color .5s
-			-o-transition background-color .5s
-			transition background-color .5s
+			padding 9px
+			-webkit-transition background-color .15s
+			-moz-transition background-color .15s
+			-ms-transition background-color .15s
+			-o-transition background-color .15s
+			transition background-color .15s
+			position relative
 
-			&:hover 
-				background #2fa0e8
+			&.close, &.cancel
+				margin-right 5px
 
-		button.cancel, button.close 
-			background #4b5765
-			color #313d4b
-			border-color #384653
+				&:before
+					content " "
+					position absolute
+					left -10px
+					border-right 10px solid #4a5765
+					border-bottom 16px solid transparent
+					border-top 15px solid transparent
+					-webkit-transition border-color .15s
+					-moz-transition border-color .15s
+					-ms-transition border-color .15s
+					-o-transition border-color .15s
+					transition border-color .15s
+					display block
+					top 0
 
-			&:hover 
-				background #5b6675
+				&:hover:before
+						border-right-color #566472
+
+			&.next, &[type="submit"]
+				margin-left 5px
+				
+				&:before
+					content " "
+					position absolute
+					right -10px
+					border-left 10px solid #4a5765
+					border-bottom 16px solid transparent
+					border-top 15px solid transparent
+					-webkit-transition border-color .15s
+					-moz-transition border-color .15s
+					-ms-transition border-color .15s
+					-o-transition border-color .15s
+					transition border-color .15s
+					display block
+					top 0
+
+				&:hover:before
+						border-left-color #566472
+
+				&[type="submit"]
+					background #ffc33e
+					color #87620a
+
+					&:before
+						border-left-color #ffc33e
+
+					&:hover
+						background-color #ffd753
+
+						&:before
+							border-left-color #ffd753
+
+			&:hover
+				background #566472
 
 /*
 Animate.css - http://daneden.me/animate
