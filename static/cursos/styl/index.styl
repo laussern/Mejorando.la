@@ -68,8 +68,8 @@ input[type="text"]
 	border-radius 2px
 	width 200px
 
-	&.error
-		border-color red
+	&.error::-webkit-input-placeholder
+		color red
 
 	&:focus 	
 		background-color white
@@ -207,14 +207,6 @@ header
 	line-height 19px
 	padding 15px 30px
 
-	h1 
-		margin 18px 0
-		color #fffefd
-		font-size 37px
-		line-height 35px
-		font-weight normal
-		text-align left
-
 
 	button.registrate
 		text-transform uppercase
@@ -229,122 +221,6 @@ header
 		strong 
 			font-size 28px
 			display block
-
-
-	.horarios 
-		color #a0a5ab 
-		font-size 12px
-		text-align center
-		line-height 13px
-
-	.contacto 
-		font-size 12px
-		background #495662
-		margin 15px -30px 0
-		padding 5px 30px
-		color #c7cfd7
-
-		p 
-			display inline-block
-			padding 0 15px
-			padding-left 45px
-			margin 0
-			background url(../images/skype.gif) left center no-repeat
-
-			&.telefono
-				background url(../images/telefono.gif) left center no-repeat
-
-		a
-			color #c7cfd7
-			text-decoration none
-
-		span 	
-			text-transform uppercase
-			color white
-			display block
-			margin-bottom -7px
-
-
-
-	button.pago-main > span 
-		background url( ../images/icons.gif) 15px 2px no-repeat
-		padding-left 70px
-		display inline-block
-
-
-	.pago-content 
-		text-align left
-		position relative
-
-		.final
-			text-align center
-
-			h1 
-				text-align center
-
-		.screen 
-			left 0
-			right 0
-			position absolute
-			display none
-
-			&.active 
-				display block
-
-			&.step
-				text-align center
-
-				h1
-					font-weight normal
-					font-size 16px
-					text-align center
-
-					strong
-						font-size 40px
-						display block
-						margin-bottom -10px
-
-						span
-							color #667183
-
-				form
-					margin-top -15px
-
-					.pago-btns 
-						margin-top 10px
-
-					.notice 
-						&.error
-							color red
-
-						a
-							color #ffc43a
-
-		button 
-			text-transform uppercase
-			font-weight bold
-			color #fcfbf7
-			background #0190d6
-			border-bottom 5px solid #0d5b7f
-			padding 12px 20px
-			margin 0 5px
-			-webkit-transition background-color .5s
-			-moz-transition background-color .5s
-			-ms-transition background-color .5s
-			-o-transition background-color .5s
-			transition background-color .5s
-
-			&:hover 
-				background #2fa0e8
-
-		button.cancel 
-			background #4b5765
-			color #313d4b
-			border-color #384653
-
-			&:hover 
-				background #5b6675
-
 
 	.pago-methods 
 		a 
@@ -368,39 +244,81 @@ header
 				color #96a2b0
 				cursor default
 
+.horarios 
+	color #a0a5ab 
+	font-size 12px
+	text-align center
+	line-height 13px
 
-	.pago-count 
-		margin-bottom 15px
+.contacto 
+	font-size 12px
+	background #495662
+	margin 15px -30px 0
+	padding 5px 30px
+	color #c7cfd7
 
-		span 
-			font-size 80px
-			display block
-			background url( ../images/count.gif) center center no-repeat
+	p 
+		display inline-block
+		padding 0 15px
+		padding-left 45px
+		margin 0
+		background url(../images/skype.gif) left center no-repeat
 
-		a 
-			font-size 50px
-			display inline-block
-			padding 0 5px
-			line-height 40px
-			margin 0 10px
-			cursor pointer
+		&.telefono
+			background url(../images/telefono.gif) left center no-repeat
 
-			&.pago-mas 
-				background #4b5765
+	a
+		color #c7cfd7
+		text-decoration none
+
+	span 	
+		text-transform uppercase
+		color white
+		display block
+		margin-bottom -7px
+
+.bottom
+
+	.contacto
+		margin 20px -20px 0
+		padding 5px 30px
+
+		.skype, .telefono
+			line-height 19px
+
+.pago-count 
+	margin-bottom 15px
+	color white
+	span 
+		font-size 80px
+		display block
+		background url( ../images/count.gif) center center no-repeat
+
+	a 
+		font-size 50px
+		display inline-block
+		padding 0 5px
+		line-height 40px
+		margin 0 10px
+		cursor pointer
+		color white
+
+		&.pago-mas 
+			background #4b5765
 
 
-				&:hover 
-					color #2e3f47
-					background white
-
-			&.pago-menos 
+			&:hover 
 				color #2e3f47
-				padding 0 9px
 				background white
 
-				&:hover 
-					background #4b5765
-					color white
+		&.pago-menos 
+			color #2e3f47
+			padding 0 9px
+			background white
+
+			&:hover 
+				background #4b5765
+				color white
 
 
 
@@ -448,6 +366,9 @@ header
 			cursor pointer
 
 		&.active 
+			h2, h3
+				color #87620a
+
 			background #ffc43a url( ../images/selector-bg.gif) right center no-repeat
 
 
@@ -575,6 +496,7 @@ header
 
 	h3 
 		margin 17px 0
+		font-weight bold
 
 
 	.video
@@ -723,3 +645,371 @@ footer
 
 		&:hover
 			opacity 1
+
+
+.pago
+	position fixed
+	left 0
+	top 0
+	right 0
+	bottom 0
+	z-index 9
+	display none
+
+	&.show
+		display block 
+
+	.overlay
+		background rgba(0, 0, 0, 0.5)
+		position absolute
+		top 0
+		bottom 0
+		left 0 
+		right 0
+		cursor pointer 
+
+
+	.panel
+		background #323e4a
+		width 294px
+		margin 100px auto
+		-webkit-box-shadow 0 0 10px rgba(0, 0, 0, 0.4)
+		padding 20px
+		position relative
+
+		.final 
+			color white
+			text-align center
+
+			h1 
+				text-align center
+
+
+		h2
+			background #ffc33e url(../images/icons.gif) 35px -143px no-repeat
+			border 0
+			color #87620a
+			padding 10px 20px
+			font-size 30px
+			text-align center
+			font-weight bold
+			margin 0 -35px
+			border-bottom 3px solid #bf932b 
+
+			&.success
+				background-image none
+
+		h1 
+			margin 18px 0
+			color #fffefd
+			font-size 37px
+			line-height 35px
+			font-weight normal
+			text-align left
+
+		.screen 
+			margin-top 10px
+			display none
+
+			&.active 
+				display block
+
+			&.step
+				text-align center
+
+				h1
+					font-weight normal
+					font-size 16px
+					text-align center
+
+					strong
+						font-size 40px
+						display block
+						margin-bottom -10px
+
+						span
+							color #667183
+
+				h3 
+					color lightgray
+
+				form
+					margin-top -15px
+
+					.pago-btns 
+						margin-top 10px
+
+					.notice 
+						&.error
+							color red
+
+						a
+							color #ffc43a
+
+		button 
+			text-transform uppercase
+			font-weight bold
+			color #fcfbf7
+			background #0190d6
+			border-bottom 5px solid #0d5b7f
+			padding 12px 20px
+			margin 0 5px
+			-webkit-transition background-color .5s
+			-moz-transition background-color .5s
+			-ms-transition background-color .5s
+			-o-transition background-color .5s
+			transition background-color .5s
+
+			&:hover 
+				background #2fa0e8
+
+		button.cancel, button.close 
+			background #4b5765
+			color #313d4b
+			border-color #384653
+
+			&:hover 
+				background #5b6675
+
+/*
+Animate.css - http://daneden.me/animate
+LICENSED UNDER THE  MIT LICENSE (MIT)
+
+Copyright (c) 2012 Dan Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-o-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+  }
+  
+  80% {
+    -webkit-transform: translateY(-10px);
+  }
+  
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -moz-transform: translateY(30px);
+  }
+  
+  80% {
+    -moz-transform: translateY(-10px);
+  }
+  
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -o-transform: translateY(30px);
+  }
+  
+  80% {
+    -o-transform: translateY(-10px);
+  }
+  
+  100% {
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  
+  80% {
+    transform: translateY(-10px);
+  }
+  
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  -moz-animation-name: bounceInDown;
+  -o-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+@-webkit-keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+}
+
+@-moz-keyframes bounceOutUp {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -moz-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+  }
+}
+
+@-o-keyframes bounceOutUp {
+  0% {
+    -o-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -o-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+  }
+}
+
+@keyframes bounceOutUp {
+  0% {
+    transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+}
+
+.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  -moz-animation-name: bounceOutUp;
+  -o-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+}

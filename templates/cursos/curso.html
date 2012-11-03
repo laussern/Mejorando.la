@@ -55,7 +55,7 @@
 
 				<p>{{ curso.descripcion|safe }}</p>
 
-				<button class="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
+				<button class="registrate" id="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
 
 				<div class="contacto">
 					<p class="skype"><a href="skype:mejorandola?call">
@@ -143,22 +143,12 @@
 		</div>
 
 		<div class="quieres">
-			<h2>¿Quieres ver cómo son los cursos de Mejorando.la?</h2>
-
-			<div class="video">
-				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
-			    	<img src="{{ STATIC_PREFIX }}cursos/images/video.jpg" alt="¿Quieres ver cómo son los cursos de Mejorando.la?" />
-
-			    	<button></button>
-			    </a>
-			</div>
 
 			<h3>Nosotros te enseñamos a crear la web</h3>
 
-			<p>Organizamos y participamos en eventos, cursos y talleres de muchas ramas del diseño y desarrollo online.
-	En nuestros sitios se han gestado profesionales certificados de Adobe, líderes locales, empresarios, emprendedores, diseñadores premiados y grandes programadores.</p>
-	<p>Como los fundadores de las comunidades más importantes de desarrolladores y diseñadores de habla hispana nos juntamos para enseñar y compartir nuestro conocimiento.
-	Sabemos de Internet y es nuestra misión enseñar y compartir el conocimiento de la comunidad.</p>
+			<p>¿Videos? Claro, pero también sesiones en vivo, en tiempo real, con los profesores. ¿Foros? Tenemos mucho más: Un nuevo sistema de discusión online donde obtendrás respuesta rápida a todas tus preguntas. Y mucho más: Código y ejemplos copiables desde el navegador. Archivos compartidos al tiempo que recibes clase. Lecturas de apoyo. Conexión directa con otros estudiantes. 
+
+			<p>Ah. Y un examen de certificación con un diploma impreso y lindo en tu casa. Vivas, donde, vivas. Yep. El mejor curso jamás. </p>
 		</div>
 
 		<footer>
@@ -168,6 +158,93 @@
 			</ul>
 		</footer>
 	</div></div>
+
+<div class="pago" id="pago">
+	<div class="overlay animated"></div>
+
+
+	<div class="panel animated">
+		<h2 id="pago-status">${{ curso.precio }} USD</h2>
+
+		<div class="screens">
+		<div class="screen step active">
+			<h1><strong>Paso 1 / <span>3</span></strong>Numero de Reservas</h1>
+			<div class="pago-count">
+				<span class="pago-num">1</span>
+				<a class="pago-menos">-</a>
+				<a class="pago-mas">+</a>
+			</div>
+			<div class="pago-btns">
+				<button class="close">Cancelar</button>
+				<button class="next">siguiente</button>
+			</div>
+		</div>
+
+		<div class="screen step">
+			<h1><strong>Paso 2 / <span>3</span></strong>Datos de Pago</h1>
+			<form class="buy-form" method="post" id="buy-form">
+				<input type="hidden" name="action" value="buy" />
+				<input type="hidden" name="quantity" value="1" />
+				<input type="hidden" name="method" value="tarjeta" />
+				<input type="hidden" name="stripeToken" />
+				
+				<input type="text" placeholder="Nombre" class="nombre" name="nombre" />
+				<input type="text" placeholder="Email" class="email"   name="email" />
+				<input type="text" placeholder="Teléfono" class="tel"  name="telefono" />
+				<div class="method-card">
+				<input type="text" placeholder="Número de tarjeta" class="card-number numero" />
+				<input type="text" size="4" placeholder="CVC" class="card-cvc input-medium" />
+				<input type="text" placeholder="MM" class="card-expiry-month input-small" /> / 
+				<input type="text" placeholder="YYYY" class="card-expiry-year input-small" />
+				</div>
+
+				<label>Usar estos datos para el registro <input type="checkbox" checked  id="samedata" /></label>
+
+				<p class="notice"></p>
+
+				<div class="pago-btns">
+					<button type="button" class="cancel">Volver</button>
+					<button type="submit">Comprar</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="screen step">
+			<h1><strong>Paso 3 / <span>3</span></strong>Datos de Registro</h1>
+			<form class="reg-form" method="post" id="reg-form">
+				<input type="hidden" name="action" value="register" />
+
+				<div class="alumno">
+					<h3>Alumno 1</h3>
+
+					<input type="text" placeholder="Nombre"   class="nombre" name="nombre" />
+					<input type="text" placeholder="Email"    class="email"   name="email" />
+					<input type="text" placeholder="Teléfono" class="tel"  name="telefono" />
+				</div>
+
+				<p class="notice"></p>
+
+				<div class="pago-btns">
+					<button type="submit">Registrar</button>
+				</div>
+			</form>
+		</div>
+		</div>
+
+		<div class="bottom">
+			<div class="contacto">
+				<p class="skype"><a href="skype:mejorandola?call">
+					<span>Skype</span>	mejorandola</a></p>
+
+				<p class="telefono"><span>Teléfono</span>3470124</p>					
+			</div>
+
+			<div class="horarios">
+				<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m.</p>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>
