@@ -10,13 +10,13 @@
     <meta property="fb:page_id" content="198868566791554" />
     <meta property="og:title" content="Mejorando.la" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://mejorando.la/"/>
-    <meta property="og:image" content="http://mejorando.la/images/isotipo.png" />
+    <meta property="og:url" content="{% url website.views.home %}"/>
+    <meta property="og:image" content="https://mejorando.la/images/isotipo.png" />
     <meta property="og:site_name" content="mejorando.la" />
     <meta property="fb:admins" content="1030603473" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script src="{{ STATIC_PREFIX }}js/jquery.cookie.js"></script>
@@ -28,7 +28,7 @@
     {% block head %}{% endblock %}
 
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
     <script src="{{ STATIC_PREFIX }}js/selectivizr-min.js"></script>
     <script src="{{ STATIC_PREFIX }}js/respond.min.js"></script>
     <noscript>

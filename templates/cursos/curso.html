@@ -11,8 +11,8 @@
 	<meta property="og:title" content="{{ curso.nombre }} Online de Mejorando.la" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{% url cursos.views.curso curso.slug %}" />
-	<meta property="og:image" content="http://mejorando.la/cursos_static/images/plantilla-cursos/html5-logo.png" />
-	<meta property="og:site_name" content="http://mejorando.la/" />
+	<meta property="og:image" content="https://mejorando.la/cursos_static/images/plantilla-cursos/html5-logo.png" />
+	<meta property="og:site_name" content="{% url website.views.home %}" />
 	<meta property="fb:admins" content="1030603473" />
 	<link rel="shortcut icon" href="{{ STATIC_PREFIX }}images/favicon.ico" />
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}cursos/css/index.css" />
@@ -117,7 +117,7 @@
 			</div>
 			
 			<div class="direccion">
-				<a href="http://cursos.mejorando.la" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/plataforma.jpg" /></a>
+				<a href="https://cursos.mejorando.la" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/plataforma.jpg" /></a>
 
 				<address>
 				<h2>{{ curso.pais }}</h2>
@@ -132,7 +132,7 @@
 			<div class="docente docente{{ forloop.counter}}">
 				<div class="pic">
 					<img src="{{ docente.get_imagen }}" alt="{{ docente.nombre }} @{{ docente.twitter }}" width="67" height="67" />
-					<h3>{{ docente.nombre }} <strong><a href="http://twitter.com/{{ docente.twitter }}" target="_blank">@{{ docente.twitter}}</a></strong></h3>
+					<h3>{{ docente.nombre }} <strong><a href="https://twitter.com/{{ docente.twitter }}" target="_blank">@{{ docente.twitter}}</a></strong></h3>
 				</div>
 
 				{{ docente.perfil|safe }}
