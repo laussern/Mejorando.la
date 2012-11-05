@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.conf import settings
 from django.http import Http404
-from django.template import TemplateDoesNotExist
+from django.template import TemplateDoesNotExist, RequestContext
 
 from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
@@ -106,7 +106,7 @@ def curso(req, curso_slug):
 		curso = Curso.objects.get(slug=curso_slug)
 	except Curso.DoesNotExist: curso = None
 
-	vs = { 'curso': curso, 'publishable_key': settings.STRIPE_PUBLISHABLE_KEY }
+	vs = RequestContext(req, { 'curso': curso, 'publishable_key': settings.STRIPE_PUBLISHABLE_KEY })
 	try:
 		return render_to_response('%s.html' % curso_slug, vs)
 	except TemplateDoesNotExist:
