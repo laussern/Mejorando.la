@@ -389,7 +389,7 @@ header ul {
   font-size: 12px;
   text-align: center;
 }
-.middle .direccion address {
+.middle .direccion .content {
   padding: 9px 25px;
   font-style: normal;
 }
@@ -591,8 +591,9 @@ footer ul {
 .video {
   position: relative;
 }
-.video button {
+.video span {
   position: absolute;
+  display: block;
   top: 0;
   bottom: 0;
   right: 0;
@@ -605,7 +606,7 @@ footer ul {
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
-.video button:hover {
+.video span:hover {
   opacity: 1;
 }
 .pago {

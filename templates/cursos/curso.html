@@ -45,7 +45,7 @@
 			<div class="video">
 				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
 			    	<img src="{{ curso.get_imagen }}" width="666" alt="{{ curso.nombre }}" class="main-image" />
-			    	<button></button>
+			    	<span></span>
 			    </a>
 			</div>
 
@@ -53,7 +53,7 @@
 
 			<div class="descripcion">				
 
-				<p>{{ curso.descripcion|safe }}</p>
+				{{ curso.descripcion|safe }}
 
 				<button class="registrate" id="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
 
@@ -119,11 +119,11 @@
 			<div class="direccion">
 				<a href="https://cursos.mejorando.la" target="_blank"><img src="{{ STATIC_PREFIX }}cursos/images/plataforma.jpg" /></a>
 
-				<address>
+				<div class="content">
 				<h2>{{ curso.pais }}</h2>
 
 				<p>Desde Mejorando.la Plataforma. Sesiones en vivo con profesores de 7pm a 9pm.</p>
-				</address>
+				</div>
 			</div>
 		</div>
 
