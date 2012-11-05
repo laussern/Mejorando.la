@@ -67,19 +67,23 @@ jQuery(function ($) {
 
 		$buyform.submit(function () {
 
-			if(!validates($buyform, true)) return err($buyform, 'Errores en los campos.')			
+			if(!validates($buyform, true)) return err($buyform, 'Debe completar todos los campos.')			
 
+			send_form($buyform);
 			Stripe.createToken({
 				number   : $buyform.find('.card-number').val(),
 				cvc      : $buyform.find('.card-cvc').val(),
 				exp_month: $buyform.find('.card-expiry-month').val(),
 				exp_year : $buyform.find('.card-expiry-year').val()
 			}, function (status, response) {	
+				unsend_form($buyform);
+
 				if(response.error) {
 					err($buyform, response.error.message);
 				} else {
 					$buyform.find('input[name="stripeToken"]').val(response.id);
 
+					send_form($buyform);
 					$.post($buyform.attr('action'), $buyform.serialize(), registro);
 				}
 			});
@@ -88,9 +92,11 @@ jQuery(function ($) {
 		})
 
 		$regform.submit(function () {
-			if(!validates($regform)) return err($regform, 'Errores en los campos.')
+			if(!validates($regform)) return err($regform, 'Debe completar todos los campos.')
 
-			$.post($buyform.attr('action'), $regform.serialize(), ultimo);
+			send_form($regform);
+
+			$.post($regform.attr('action'), $regform.serialize(), ultimo);
 
 			return false;
 		});
@@ -108,6 +114,8 @@ jQuery(function ($) {
 		}
 
 		function registro(r) {
+			unsend_form($buyform);
+
 			if(r == 'OK') {
 				// si se elige la opcion de crear con el mismo registro
 				if($('#samedata').is(':checked')) $regform.find('input.email').first().val($buyform.find('input.email').val());
@@ -119,6 +127,8 @@ jQuery(function ($) {
 		}
 
 		function ultimo (r) {
+			unsend_form($regform);
+
 			if(r == 'OK') {
 				$status.addClass('success').html(':) Felicidades');
 				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
@@ -128,6 +138,16 @@ jQuery(function ($) {
 
 		}
 
+		function send_form($form) {
+			$form.addClass('sending');
+			notice($form, 'Enviando...');
+		}
+
+		function unsend_form($form) {
+			$form.removeClass('sending');
+			notice($form, '');
+		}
+		
 		function notice($form, str) {
 			$form.find('.notice').html(str)
 

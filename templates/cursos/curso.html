@@ -206,7 +206,7 @@
 				<input type="text" placeholder="YYYY" class="card-expiry-year input-small" />
 				</div>
 
-				<label>Usar estos datos para el registro <input type="checkbox" checked  id="samedata" /></label>
+				<label>Usaré los mismos datos para matricular y pagar. <input type="checkbox" checked  id="samedata" /></label>
 
 				<p class="notice"></p>
 
@@ -240,7 +240,15 @@
 				<p class="skype"><a href="skype:mejorandola?call">
 					<span>Skype</span>	mejorandola</a></p>
 
-				<p class="telefono"><span>Teléfono</span>3470124</p>					
+				{% if geo_pais 	   == 'mexico' %}
+				<p class="telefono"><span>Teléfono</span>01 (55) 84219885</p>
+				{% elif geo_pais == 'peru' %}				
+				<p class="telefono"><span>Teléfono</span>+511-7204134</p>
+				{% elif geo_pais == 'colombia' %}
+				<p class="telefono"><span>Teléfono</span>031-5406280</p>
+				{% elif geo_pais == 'colombia' %}
+				<p class="telefono"><span>Teléfono</span>+1347 3295509</p>
+				{% endif %}
 			</div>
 
 			<div class="horarios">
