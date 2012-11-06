@@ -12,6 +12,7 @@ from website.utils import get_pais
 from utils import send_mail
 
 import stripe
+import requests
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -99,6 +100,11 @@ def curso(req, curso_slug):
 					for e in email:
 						r = CursoRegistro(email=e, pago=p)
 						r.save()
+
+						# integracion con la plataforma
+						try:
+							r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': e, 'passwd': settings.PLATAFORMA_API_KEY })
+						except: return HttpResponse('ERR')
 
 					return HttpResponse('OK')
 					
