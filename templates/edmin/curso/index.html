@@ -1,0 +1,40 @@
+{% extends "edmin/base.html" %}
+
+{% block body %}
+<div id="main">
+	<h2><a href="{% url edmin.views.curso_add %}" class="add-curso add"></a>Cursos</h2>
+
+	<p class="subtitle"><em>{{cursos|length}} curso{{cursos|pluralize}}, {{ alumnos|length }} alumno{{ alumnos|pluralize }}, {{ docentes|length }} docente{{ docentes|pluralize }}.</em></p>
+
+	<div class="cursos">
+		{% if cursos|length > 0 %}
+		{% for curso in cursos %}
+		<div class="curso {{ curso.fecha|date:"F" }} {{ curso.pais|slugify}}{% for docente in curso.docentes%} {{ docente.twitter}}{% endfor %}">
+			{% if curso.fecha %}
+			<time>{{ curso.fecha|date:"d" }} <a href="#" data-filter=".{{ curso.fecha|date:"F" }}">{{ curso.fecha|date:"F" }}</a></time>
+			{% else %}
+			<time>Este curso aún no tiene asignada fecha</time>
+			{% endif %}
+
+			<h3>{{ curso.nombre }} en <a href="#" data-filter=".{{ curso.pais|slugify }}">{{ curso.pais}}</a></h3>
+
+			<p><img src="{{ curso.get_imagen }}" width="310" height="200" alt="{{ curso.nombre }}" /></p>
+
+
+			<p class="bottom"> <span class="asis">{{ curso.registros|length }}</span> {% for docente in curso.docentes %}<a href="#" data-filter=".{{ docente.twitter }}">@{{ docente.twitter }}</a>{% endfor %} <span class="actions"><a href="{% url cursos.views.curso curso.slug %}" target="_blank" class="preview"></a><a href="{% url edmin.views.curso_edit curso.id %}" class="edit-curso edit"></a><a href="{% url edmin.views.curso_delete curso.id %}" class="del-docente del"></a></span></p>
+		</div>
+		{% endfor %}
+		{% else %}
+		<p>Aún no hay ningún curso</p>
+		{% endif%}
+
+	</div>
+</div>
+
+<div class="popup" id="mainpopup">
+	<div class="overlay animated"></div>
+	<div class="panel animated"></div>
+</div>
+
+
+{% endblock %}

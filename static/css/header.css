@@ -18,8 +18,10 @@ h1{margin:0;}
 h1 a{position:relative;z-index:10}
 header{background:#323e4a;margin:0 auto;max-width:1000px;position:relative;z-index:3;}
 header h1 a img{position:relative;z-index:20}
-header #maestros{left:220px;position:absolute;top:3px}
-header #cristalab{left:285px;position:absolute;top:3px}
+header #maestros{left:220px;position:absolute;top:3px;}
+header #maestros img{height:35px;width:auto}
+header #cristalab{left:285px;position:absolute;top:3px;}
+header #cristalab img{height:35px;width:auto}
 header .logo-grande{display:none}
 header .mejor{background:url("../images/logos/linea.jpg") repeat-x left top;height:42px;position:relative;text-align:left;width:320px;z-index:7}
 .menu{background:#323e4a;font-family:Arial;margin:0 auto;position:absolute;top:0;width:100%;z-index:6;}

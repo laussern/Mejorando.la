@@ -8,7 +8,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^$', 		   'website.views.home'), # home
-    url(r'^cursos/?$', 'website.views.cursos'), # archivo de cursos
 	url(r'^videos/?$', 'website.views.videos'), # archivo de videos
     url(r'^conferencias/?$', 'website.views.conferencias'), # archivo de conferencias
 	url(r'^videos/(?P<video_slug>.+?)/?$', 'website.views.video'), # video individual
@@ -20,11 +19,6 @@ urlpatterns = patterns('',
 
     # actualizar el codigo
     url(r'^update/?$', 'github.views.update'),
-
-    # registro y pago de cursos
-    url(r'^cursos/registro$', 'website.views.cursos_registro'),
-    url(r'^cursos/pago/success$', 'website.views.cursos_pago_success'),
-    url(r'^cursos/registros$', 'website.views.cursos_registros'),
 
     url(r'^admin/', include(admin.site.urls)),
 
@@ -41,7 +35,9 @@ urlpatterns = patterns('',
 
     url(r'^track/(?P<registro_id>\d+?)$', 'website.views.track'),
 
-    url(r'^nuevo/', include('nuevo.urls')),
+    url(r'^cursos/', include('cursos.urls')),
+    url(r'^edmin/', include('edmin.urls')),
+    url(r'^api/', include('api.urls')),
 
     url(r'^podcast/?$', 'website.views.podcast'),
 )

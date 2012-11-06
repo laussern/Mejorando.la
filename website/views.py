@@ -68,15 +68,6 @@ def get_timestamp():
     sig_jueves = siguiente_jueves_4pm(now)
     return int(time.mktime(sig_jueves.timetuple()) * 1000)
 
-# el archivo de cursos 
-# organizados por mes-año
-def cursos(solicitud):
-	return render_to_response('website/cursos.html', {
-		'meses': [{
-			'fecha' : fecha,
-			'cursos': Curso.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')
-		} for fecha in Curso.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
-	})
 
 # el archivo muestra todos los videos
 # organizados por mes-año
@@ -171,59 +162,8 @@ def handler404(solicitud):
 
 from django.http import HttpResponse
 
-@require_POST
-def cursos_registro(solicitud):
-    if solicitud.POST.get('nombre') and solicitud.POST.get('telefono') and solicitud.POST.get('email') and solicitud.POST.get('curso') and solicitud.POST.get('code') and solicitud.POST.get('total'):
-        if RegistroCurso.objects.filter(email=solicitud.POST.get('email'), code=solicitud.POST.get('code')).exists():
-            return HttpResponse('ERROR: Ya te has registrado a este curso.')
-
-        registro = RegistroCurso(nombre=solicitud.POST.get('nombre'), telefono=solicitud.POST.get('telefono'), email=solicitud.POST.get('email'), curso=solicitud.POST.get('curso'), pais=get_pais(solicitud.META), code=solicitud.POST.get('code'), total=solicitud.POST.get('total'), currency=solicitud.POST.get('currency'))
-
-        if solicitud.POST.get('personas'):
-            registro.personas = int(solicitud.POST.get('personas'))
-
-        if solicitud.POST.get('descuento'):
-            registro.descuento = float(solicitud.POST.get('descuento'))
-
-        if solicitud.POST.get('tipo'):
-            registro.tipo = solicitud.POST.get('tipo')
-
-        registro.save()
-
-        solicitud.session['registro_id'] = registro.id
-
-        return HttpResponse('OK')
-
-    return HttpResponse('ERROR')
-
-def cursos_pago_success(solicitud):
-
-    if solicitud.POST.get('payer_email') and solicitud.POST.get('transaction_subject'):
-        registro = RegistroCurso.objects.get(email=solicitud.POST.get('payer_email'), curso=solicitud.POST.get('transaction_subject'))
-
-        if not registro and solicitud.session.get('registro_id'):
-            registro = RegistroCurso.get(id=solicitud.session.get('registro_id'))
-
-        if registro:
-            registro.pago = True
-            registro.save()
-    elif solicitud.session.get('registro_id'):
-        registro = RegistroCurso.get(id=solicitud.session.get('registro_id'))        
-
-        if registro:
-            registro.pago = True
-            registro.save()
-
-    return redirect('/cursos')
-
-@login_required(login_url='/admin')
-def cursos_registros(solicitud):
-    return render_to_response('website/cursos_registros.html', { 'registros': serializers.serialize('json', RegistroCurso.objects.all()) })
-
-
 def locateme(solicitud):
     return HttpResponse(get_pais(solicitud.META))
-
 
 def hola(solicitud):
 

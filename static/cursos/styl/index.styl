@@ -1,0 +1,1125 @@
+@font-face
+	font-family 'open sans'
+	src url(" ../fonts/opensans-light-webfont.eot")
+	src url(" ../fonts/opensans-light-webfont.eot?#iefix") format('embedded-opentype'), url(" ../fonts/opensans-light-webfont.woff") format('woff'), url(" ../fonts/opensans-light-webfont.ttf") format('truetype'), url(" ../fonts/opensans-light-webfont.svg#OpenSansLight") format('svg')
+	font-weight normal
+	font-style normal
+
+@font-face
+	font-family 'open sans'
+	src url(" ../fonts/opensans-bold-webfont.eot")
+	src url(" ../fonts/opensans-bold-webfont.eot?#iefix") format('embedded-opentype'), url(" ../fonts/opensans-bold-webfont.woff") format('woff'), url(" ../fonts/opensans-bold-webfont.ttf") format('truetype'), url(" ../fonts/opensans-bold-webfont.svg#OpenSansBold") format('svg')
+	font-weight bold
+	font-style normal
+ 
+
+* 
+	margin 0
+	padding 0
+
+
+body 
+	background #008fd5
+
+
+body, input, textarea 
+	color #707072
+	font-size 13px
+	font-family arial, sans-serif
+
+
+li 
+	list-style none
+
+
+p 
+	margin 10px 0
+
+
+h1, h2, h3, h4, h5, h6 
+	font-family 'open sans', arial, sans-serif
+	color #2d2d2d
+	text-transform uppercase
+	font-weight normal
+
+
+h2 
+	font-size 16px
+
+
+button 
+	background #ffc33e
+	border 0
+	color #87620a
+	padding 6px 20px
+	cursor pointer
+	-webkit-transition background-color .5s
+	-webkit-transition background-color .5s
+	-moz-transition background-color .5s
+	-ms-transition background-color .5s
+	-o-transition background-color .5s
+	transition background-color .5s
+
+	&:hover 
+		background #ffd753
+
+
+input[type="text"] 
+	background #4a5765
+	border 1px solid #707881
+	padding 5px
+	padding-left 37px
+	margin 5px 0
+	border-radius 2px
+	width 200px
+
+	&.error::-webkit-input-placeholder
+		color red
+
+	&.error:-moz-placeholder
+		color red
+
+	&:focus 	
+		background-color white
+		border-color #008fd5
+
+
+form.buy-form label
+	padding 0 30px
+	padding-left 40px
+	text-align right
+	display inline-block
+
+input.nombre 
+	 background-image url( ../images/nombre.gif)
+	 background-position 11px 3px
+	 background-repeat no-repeat
+
+	&:focus 
+		background-position 11px -59px
+
+
+input.tel 
+	 background-image url( ../images/tel.gif)
+	 background-position 10px 6px
+	 background-repeat no-repeat
+
+
+	&:focus 
+		background-position 10px -82px
+
+
+input.email 
+	 background-image url( ../images/email.gif)
+	 background-position 9px 6px
+	 background-repeat no-repeat
+
+
+	&:focus 
+		background-position 9px -81px
+
+
+input.numero 
+	 background-image url( ../images/numero.gif)
+	 background-position 9px 6px
+	 background-repeat no-repeat
+
+
+	&:focus 
+		background-position 9px -81px
+
+input.input-small 
+	width 36px
+	padding-left 5px
+
+
+input.input-medium
+	width 120px
+	padding-left 5px
+
+.wrapper 
+	width 1000px
+	margin 0 auto
+
+
+a
+	color black
+
+/* HEADER */
+header 
+	.wrapper 
+		background #323e4a
+		overflow hidden
+
+
+	h1 
+		float left
+		background url( ../images/logo-bg.gif) right top no-repeat
+		padding-right 22px
+
+		a 
+			display block
+			background white
+			padding 3px 10px
+
+		img 
+			display block
+
+
+	li 
+		float left
+		margin-left 20px
+
+
+	ul 
+		overflow hidden
+		float left
+		background url( ../images/logos-bg.gif) left 22px repeat-x
+		padding 3px 0 1px
+		margin-left -12px
+		padding-left 12px
+
+
+/* MAIN */
+.main
+	margin-top 13px
+
+	h1 
+		background white
+		color #323e4a
+		margin auto
+		text-align center
+		font-size 30px
+		padding 15px
+		width 950px
+
+	.wrapper
+		background white
+
+
+
+/* TOP */
+
+.main-image 
+	float left
+
+.top
+	overflow hidden
+
+	.col1
+		height 437px
+		float left
+		
+
+.col2 
+	background #323e4a url( ../images/pago-bg.gif) center bottom no-repeat
+	color #fffefd
+	float right
+	width 274px
+	height 407px
+	text-align justify
+	font-size 14px
+	line-height 19px
+	padding 15px 30px
+
+
+	button.registrate
+		text-transform uppercase
+		text-align center
+		border-bottom 3px solid #bf932b
+		margin auto
+		display block
+		padding 5px 50px 15px
+		line-height 18px
+		margin-top 15px
+
+		strong 
+			font-size 28px
+			display block
+
+	.pago-methods 
+		a 
+			text-transform uppercase
+			color #535f6f
+			margin 10px
+			width 100px
+			display inline-block
+			padding-top 105px
+			cursor pointer
+
+			&.tarjeta 
+				background url( ../images/tarjeta.gif) right top no-repeat
+
+			&.deposito 
+				background url( ../images/deposito.gif) right top no-repeat
+
+
+			&.active 
+				background-position left top
+				color #96a2b0
+				cursor default
+
+.horarios 
+	color #a0a5ab 
+	font-size 12px
+	text-align center
+	line-height 13px
+
+.contacto 
+	text-align center
+	font-size 12px
+	background #495662
+	margin 15px -30px 0
+	padding 5px 5px
+	color #c7cfd7
+
+	p 
+		display inline-block
+		padding 0 15px
+		padding-left 45px
+		margin 0
+		background url(../images/skype.gif) left center no-repeat
+
+		&.telefono
+			background url(../images/telefono.gif) left center no-repeat
+			padding-right 0
+
+	a
+		color #c7cfd7
+		text-decoration none
+
+	span 	
+		text-transform uppercase
+		color white
+		display block
+		margin-bottom -7px
+
+.bottom
+
+	.contacto
+		margin 20px -20px 0
+
+		.skype, .telefono
+			line-height 19px
+
+.pago-count 
+	margin-bottom 15px
+	color white
+	span 
+		font-size 80px
+		display block
+		background url( ../images/count.gif) center center no-repeat
+
+	a 
+		font-size 50px
+		display inline-block
+		padding 0 5px
+		line-height 40px
+		margin 0 10px
+		cursor pointer
+		color white
+		background #4b5765
+		-webkit-transition background-color .5s
+		-moz-transition background-color .5s
+		-ms-transition background-color .5s
+		-o-transition background-color .5s
+		transition background-color .5s
+
+		&:hover 
+			color #2e3f47
+			background white
+
+		&.pago-menos 
+			padding 0 9px
+
+
+
+
+/* MIDDLE */
+.middle 
+	clear left
+	overflow hidden
+	padding-top 10px
+	
+	.tabs 
+		float left
+		width 665px
+
+
+	.selector 
+		display block
+		background #eaedf2
+		padding 22px 25px
+		width 283px
+		-webkit-transition background-color .5s
+		-moz-transition background-color .5s
+		-ms-transition background-color .5s
+		-o-transition background-color .5s
+		transition background-color .5s
+
+		h2 
+			font-weight bold
+			margin 0 0 20px
+			font-size 23px
+			line-height 25px
+			word-spacing -1px
+
+			span
+				font-size 14px
+				line-height 16px
+				display block
+
+		h3 
+			font-size 13px
+			word-spacing 4
+			text-transform none
+
+		&:hover 
+			background #ffc43a
+			cursor pointer
+
+		&.active 
+			h2, h3
+				color #87620a
+
+			background #ffc43a url( ../images/selector-bg.gif) right center no-repeat
+
+
+
+	ol 
+		margin 20px 0
+		margin-left 45px
+
+
+	li 
+		margin 7px 0
+		list-style decimal
+
+
+	.email 
+		background #eaedf2
+		width 333px
+		float left
+		font-size 15px
+
+		address 
+			padding 9px 25px
+			font-style normal
+	
+
+
+	h2 
+		font-size 30px
+
+
+	.tabs.js 
+		position relative
+
+		.tab 
+			position absolute
+			left 333px
+			top 0
+			background white
+
+	.direccion
+		background #eaedf2
+		width 333px
+		height 256px
+		float right
+		font-size 12px
+		text-align center
+
+		.content
+			padding 9px 25px
+			font-style normal
+
+		h2 
+			font-size 30px
+			text-align left
+			background url(../images/online.jpg) left center no-repeat
+			padding-left 40px 
+
+/* DOCENTES */
+.docentes 
+	overflow hidden
+	background #eaedf2 url(../images/docentes.png) center top repeat-y
+	padding 0 10px
+	border-top 10px solid #eaedf2
+	border-bottom 10px solid #eaedf2
+	margin 20px 0
+
+	.docente 
+		float left
+		width 445px
+		height 270px
+		padding 20px
+
+		&.docente1, &.docente2 
+			height 250px
+
+		&.docente2, &.docente4
+			float right
+
+		p 
+			line-height 16px
+
+			&:first-of-type
+				margin-top 20px
+
+		.pic
+			background #008fd5
+			padding 12px 20px 10px
+			margin-left -20px
+			margin-right -20px
+			margin-top -20px
+
+			img 
+				float left
+				margin-top -12px
+				margin-right 15px
+
+			h3
+				color white
+				font-size 13px
+
+				a 
+					color white
+					text-decoration none
+
+			strong 
+				display block
+				text-transform none
+				font-size 25px
+				font-weight normal
+
+/* QUIERES */
+.quieres 
+	text-align center
+
+
+	h2 
+		font-size 47px
+		font-weight normal
+		line-height 39px
+		margin 45px 165px 30px
+
+	p 
+		text-align left
+		margin-left 220px
+		margin-right 220px
+
+
+	h3 
+		margin 17px 0
+		font-weight bold
+
+
+	.video
+		background #ffc43a
+		margin-left -10px
+		margin-right -10px
+		margin-top 70px
+		margin-bottom 57px
+		height 290px
+
+		a 
+			background-size 50px 50px
+			display block 
+			position relative
+			top -40px
+			background white
+			margin auto
+			width 660px
+
+
+
+/* FOOTER */
+footer 
+	background url( ../images/footer-bg.gif) left bottom repeat-x
+	overflow hidden
+	text-align center
+
+	li 
+		float left
+		margin 0 50px
+
+
+	ul 
+		display inline-block
+		margin 40px 0 60px
+
+@media screen and (max-width:1000px) 
+	.wrapper 
+		width auto
+	
+	.main 
+		h1
+			width auto
+
+	.top
+		.col2 
+			width auto
+			height auto
+			float none
+
+		.col1
+			height auto
+			float none
+
+			iframe, a, img
+				width 100%
+
+	.main-image 
+		width 100%
+		float none
+
+	.pago 
+		width auto
+		float none
+
+		button.pago-main
+			margin-right -25px	
+
+	.middle 
+		overflow visible
+	
+
+		.selector 
+			width auto
+	
+
+		.tabs 
+			width auto
+			float none
+	
+
+		.email 
+			width auto
+			float none
+
+		.direccion
+			width auto
+			float none
+
+	
+
+	.docentes 
+		background-image none
+
+		.docente 
+			width auto
+			background white
+			float none
+			height auto
+
+			&.docente2, &.docente4
+				float none
+	
+
+	.quieres 
+		h2 
+			font-size 30px
+			line-height 30px
+			margin-left 5px
+			margin-right 5px
+	
+		iframe 
+			width 100%
+	
+
+		.video 
+			margin-left 0
+			margin-right 0
+
+			iframe, a, img
+				width 100%
+
+		p 
+			margin-left 10px
+			margin-right 10px
+	
+
+	footer li 
+		float none
+	
+
+
+.video 
+	position relative
+
+	span
+		position absolute
+		display block
+		top 0
+		bottom 0
+		right 0
+		left 0 
+		background url(../images/play.png) center center no-repeat
+		opacity 0.6
+		-webkit-transition opacity .5s
+		-moz-transition opacity .5s
+		-ms-transition opacity .5s
+		-o-transition opacity .5s
+		transition opacity .5s
+
+		&:hover
+			opacity 1
+
+
+.pago
+	position absolute 
+	left 0
+	top 0
+	right 0
+	bottom 0
+	z-index 9
+	display none
+
+	&.show
+		display block 
+
+	.overlay
+		background rgba(0, 0, 0, 0.5)
+		position fixed
+		top 0
+		bottom 0
+		left 0 
+		right 0
+		cursor pointer 
+
+
+	.panel
+		background #323e4a
+		width 294px
+		margin 100px auto
+		-webkit-box-shadow 0 0 10px rgba(0, 0, 0, 0.4)
+		padding 20px
+		position relative
+
+		.alumno 
+			input[type="text"]
+				width 175px
+
+
+		.final 
+			color white
+			text-align center
+
+			h1 
+				text-align center
+
+
+		h2
+			background #ffc33e url(../images/icons.gif) 30px -143px no-repeat
+			border 0
+			color #87620a
+			padding 10px 20px
+			padding-left 100px
+			font-size 30px
+			font-weight bold
+			margin 0 -35px
+			border-bottom 3px solid #bf932b 
+
+			span 
+				font-size 13px
+				font-weight normal
+				display block
+				margin-top -5px
+
+			&.success
+				background-image none
+
+		h1 
+			margin 18px 0
+			color #fffefd
+			font-size 37px
+			line-height 35px
+			font-weight normal
+			text-align left
+
+		.screen 
+			margin-top 10px
+			display none
+
+			&.active 
+				display block
+
+			&.step
+				text-align center
+
+				h1
+					font-weight normal
+					font-size 16px
+					text-align center
+
+					strong
+						font-size 40px
+						display block
+						margin-bottom -10px
+
+						span
+							color #667183
+
+				h3 
+					color lightgray
+
+				form
+					margin-top -15px
+
+					.pago-btns 
+						margin-top 10px
+
+					.notice 
+						color white
+
+						.err
+							color red
+
+						a
+							color #ffc43a
+
+		button 
+			background #4a5765
+			color white
+			text-transform uppercase
+			padding 9px
+			-webkit-transition background-color .15s
+			-moz-transition background-color .15s
+			-ms-transition background-color .15s
+			-o-transition background-color .15s
+			transition background-color .15s
+			position relative
+
+			&.close, &.cancel
+				margin-right 5px
+
+				&:before
+					content " "
+					position absolute
+					left -10px
+					border-right 10px solid #4a5765
+					border-bottom 16px solid transparent
+					border-top 15px solid transparent
+					-webkit-transition border-color .15s
+					-moz-transition border-color .15s
+					-ms-transition border-color .15s
+					-o-transition border-color .15s
+					transition border-color .15s
+					display block
+					top 0
+
+				&:hover:before
+						border-right-color #566472
+
+			&.next, &[type="submit"]
+				margin-left 5px
+				
+				&:before
+					content " "
+					position absolute
+					right -10px
+					border-left 10px solid #4a5765
+					border-bottom 16px solid transparent
+					border-top 15px solid transparent
+					-webkit-transition border-color .15s
+					-moz-transition border-color .15s
+					-ms-transition border-color .15s
+					-o-transition border-color .15s
+					transition border-color .15s
+					display block
+					top 0
+
+				&:hover:before
+						border-left-color #566472
+
+				&[type="submit"]
+					background #ffc33e
+					color #87620a
+
+					&:before
+						border-left-color #ffc33e
+
+					&:hover
+						background-color #ffd753
+
+						&:before
+							border-left-color #ffd753
+
+			&:hover
+				background #566472
+
+/*
+Animate.css - http://daneden.me/animate
+LICENSED UNDER THE  MIT LICENSE (MIT)
+
+Copyright (c) 2012 Dan Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}  
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+@-webkit-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-moz-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@-o-keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+@-webkit-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(30px);
+  }
+  
+  80% {
+    -webkit-transform: translateY(-10px);
+  }
+  
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-moz-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -moz-transform: translateY(30px);
+  }
+  
+  80% {
+    -moz-transform: translateY(-10px);
+  }
+  
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    -o-transform: translateY(30px);
+  }
+  
+  80% {
+    -o-transform: translateY(-10px);
+  }
+  
+  100% {
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes bounceInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+  
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  
+  80% {
+    transform: translateY(-10px);
+  }
+  
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  -moz-animation-name: bounceInDown;
+  -o-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+@-webkit-keyframes bounceOutUp {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+}
+
+@-moz-keyframes bounceOutUp {
+  0% {
+    -moz-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -moz-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px);
+  }
+}
+
+@-o-keyframes bounceOutUp {
+  0% {
+    -o-transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    -o-transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    -o-transform: translateY(-2000px);
+  }
+}
+
+@keyframes bounceOutUp {
+  0% {
+    transform: translateY(0);
+  }
+  
+  20% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+}
+
+.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  -moz-animation-name: bounceOutUp;
+  -o-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+}
+
+
+
+form.sending
+	position relative
+
+	&::after
+		content ""
+		text-align center
+		background #323e4a
+		opacity 0.7
+		color white
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom 0
+
+
+.social 
+	text-align center
+	background #eaedf2
+
+	.social-btn 
+		display inline-block
+		margin 3px 10px 6px
+		position relative
+
+		&.google
+			top 6px
+
+		&.twitter 
+			top 2px

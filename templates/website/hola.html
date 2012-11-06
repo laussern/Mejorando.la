@@ -11,7 +11,7 @@
 	<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
 	<script src="{{ STATIC_PREFIX }}js/form-hola.js"></script>
 	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="{{ STATIC_PREFIX }}js/selectivizr-min.js"></script>
     <noscript>
       <link rel="stylesheet" href="[fallback css]">
@@ -52,7 +52,7 @@
      
             <nav class="menu">
                 <ul>
-                  <li><a href="{% url website.views.cursos %}" title="cursos">Cursos</a></li>
+                  <li><a href="{% url cursos.views.home %}" title="cursos">Cursos</a></li>
                   <li><a href="http://mejorando.la/cursos/exalumnos/" title="ex alumnos">Ex alumnos</a></li>
                   <li><a href="http://mejorando.la/conferencias" title="conferencias">conferencias</a></li>
                   <li><a href="{% url website.views.videos %}" title="videos">Videos</a></li>
