@@ -311,7 +311,8 @@ header ul {
 .middle .selector {
   display: block;
   background: #eaedf2;
-  padding: 22px 25px;
+  border-left: 10px solid #eaedf2;
+  padding: 22px 20px;
   width: 283px;
   -webkit-transition: background-color 0.5s;
   -moz-transition: background-color 0.5s;
@@ -342,11 +343,12 @@ header ul {
   cursor: pointer;
 }
 .middle .selector.active {
-  background: #ffc43a url("../images/selector-bg.gif") right center no-repeat;
+  background: #008fd5 url("../images/selector-bg.gif") right center no-repeat;
+  border-left: 10px solid #323e4a;
 }
 .middle .selector.active h2,
 .middle .selector.active h3 {
-  color: #87620a;
+  color: #fff;
 }
 .middle ol {
   margin: 20px 0;
@@ -399,25 +401,42 @@ header ul {
 /* DOCENTES */
 .docentes {
   overflow: hidden;
-  background: #eaedf2 url("../images/docentes.png") center top repeat-y;
-  padding: 0 10px;
-  border-top: 10px solid #eaedf2;
-  border-bottom: 10px solid #eaedf2;
   margin: 20px 0;
 }
 .docentes .docente {
   float: left;
   width: 445px;
-  height: 270px;
+  height: 340px;
   padding: 20px;
+  border: 10px solid #eaedf2;
 }
 .docentes .docente.docente1,
 .docentes .docente.docente2 {
   height: 250px;
 }
-.docentes .docente.docente2,
+.docentes .docente.docente1 {
+  border-right-width: 5px;
+}
+.docentes .docente.docente2 {
+  border-left-width: 5px;
+}
+.docentes .docente.docente3,
 .docentes .docente.docente4 {
+  border-right-width: 5px;
+}
+.docentes .docente.docente4,
+.docentes .docente.docente5 {
+  border-left-width: 5px;
+}
+.docentes .docente.docente2,
+.docentes .docente.docente5 {
   float: right;
+}
+.docentes .docente.docente3,
+.docentes .docente.docente4,
+.docentes .docente.docente5 {
+  width: 280px;
+  border-top: 3px;
 }
 .docentes .docente p {
   line-height: 16px;
@@ -427,14 +446,14 @@ header ul {
 }
 .docentes .docente .pic {
   background: #008fd5;
-  padding: 12px 20px 10px;
+  padding: 7px 20px 8px;
   margin-left: -20px;
   margin-right: -20px;
   margin-top: -20px;
 }
 .docentes .docente .pic img {
   float: left;
-  margin-top: -12px;
+  margin-top: -7px;
   margin-right: 15px;
 }
 .docentes .docente .pic h3 {
@@ -1010,16 +1029,14 @@ form.sending::after {
   }
   .docentes {
     background-image: none;
+    border: 10px solid #eaedf2;
   }
   .docentes .docente {
-    width: auto;
+    width: auto !important;
     background: #fff;
-    float: none;
+    float: none !important;
     height: auto;
-  }
-  .docentes .docente.docente2,
-  .docentes .docente.docente4 {
-    float: none;
+    border: 0 !important;
   }
   .quieres h2 {
     font-size: 30px;
