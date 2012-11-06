@@ -46,6 +46,9 @@ h6 {
 h2 {
   font-size: 16px;
 }
+img {
+  border: 0;
+}
 button {
   background: #ffc33e;
   border: 0;
@@ -188,6 +191,8 @@ header ul {
   overflow: hidden;
 }
 .top .col1 {
+  width: 666px;
+  background: #eaedf2;
   height: 437px;
   float: left;
 }
@@ -511,97 +516,10 @@ footer ul {
   display: inline-block;
   margin: 40px 0 60px;
 }
-@media screen and (max-width:1000px) {
-  .wrapper {
-    width: auto;
-  }
-  .main h1 {
-    width: auto;
-  }
-  .top .col2 {
-    width: auto;
-    height: auto;
-    float: none;
-  }
-  .top .col1 {
-    height: auto;
-    float: none;
-  }
-  .top .col1 iframe,
-  .top .col1 a,
-  .top .col1 img {
-    width: 100%;
-  }
-  .main-image {
-    width: 100%;
-    float: none;
-  }
-  .pago {
-    width: auto;
-    float: none;
-  }
-  .pago button.pago-main {
-    margin-right: -25px;
-  }
-  .middle {
-    overflow: visible;
-  }
-  .middle .selector {
-    width: auto;
-  }
-  .middle .tabs {
-    width: auto;
-    float: none;
-  }
-  .middle .email {
-    width: auto;
-    float: none;
-  }
-  .middle .direccion {
-    width: auto;
-    float: none;
-  }
-  .docentes {
-    background-image: none;
-  }
-  .docentes .docente {
-    width: auto;
-    background: #fff;
-    float: none;
-    height: auto;
-  }
-  .docentes .docente.docente2,
-  .docentes .docente.docente4 {
-    float: none;
-  }
-  .quieres h2 {
-    font-size: 30px;
-    line-height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
-  .quieres iframe {
-    width: 100%;
-  }
-  .quieres .video {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .quieres .video iframe,
-  .quieres .video a,
-  .quieres .video img {
-    width: 100%;
-  }
-  .quieres p {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  footer li {
-    float: none;
-  }
-}
 .video {
   position: relative;
+  width: 100%;
+  height: 401px;
 }
 .video span {
   position: absolute;
@@ -634,7 +552,9 @@ footer ul {
   display: block;
 }
 .pago .overlay {
+  background: #000;
   background: rgba(0,0,0,0.5);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -1037,7 +957,6 @@ form.sending::after {
 }
 .social {
   text-align: center;
-  background: #eaedf2;
 }
 .social .social-btn {
   display: inline-block;
@@ -1049,6 +968,99 @@ form.sending::after {
 }
 .social .social-btn.twitter {
   top: 2px;
+}
+@media screen and (max-width:1000px) {
+  .wrapper {
+    width: auto;
+  }
+  .main h1 {
+    width: auto;
+  }
+  .top .col2 {
+    width: auto;
+    height: auto;
+    float: none;
+  }
+  .top .col1 {
+    height: auto;
+    float: none;
+    width: auto;
+  }
+  .top .col1 .video {
+    height: auto;
+  }
+  .top .col1 iframe,
+  .top .col1 a,
+  .top .col1 img {
+    width: 100%;
+  }
+  .main-image {
+    width: 100%;
+    float: none;
+  }
+  .pago {
+    width: auto;
+    float: none;
+  }
+  .pago button.pago-main {
+    margin-right: -25px;
+  }
+  .middle {
+    overflow: visible;
+  }
+  .middle .selector {
+    width: auto;
+  }
+  .middle .tabs {
+    width: auto;
+    float: none;
+  }
+  .middle .email {
+    width: auto;
+    float: none;
+  }
+  .middle .direccion {
+    width: auto;
+    float: none;
+  }
+  .docentes {
+    background-image: none;
+  }
+  .docentes .docente {
+    width: auto;
+    background: #fff;
+    float: none;
+    height: auto;
+  }
+  .docentes .docente.docente2,
+  .docentes .docente.docente4 {
+    float: none;
+  }
+  .quieres h2 {
+    font-size: 30px;
+    line-height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .quieres iframe {
+    width: 100%;
+  }
+  .quieres .video {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .quieres .video iframe,
+  .quieres .video a,
+  .quieres .video img {
+    width: 100%;
+  }
+  .quieres p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  footer li {
+    float: none;
+  }
 }
 @-moz-keyframes fadeIn {
   0% {

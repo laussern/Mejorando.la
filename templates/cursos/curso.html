@@ -15,7 +15,7 @@
 	<meta property="og:site_name" content="{% url website.views.home %}" />
 	<meta property="fb:admins" content="1030603473" />
 	<link rel="shortcut icon" href="{{ STATIC_PREFIX }}images/favicon.ico" />
-	<link rel="stylesheet" href="{{ STATIC_PREFIX }}cursos/css/index.css" />
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}cursos/css/index.css?f=5nov" />
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 	<script src="https://js.stripe.com/v1/"></script>
@@ -23,9 +23,19 @@
 	<script>
 	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}', 'publishable_key': '{{ publishable_key }}'}
 	</script>
-	<script src="{{ STATIC_PREFIX }}cursos/js/index.js"></script>
+	<script src="{{ STATIC_PREFIX }}cursos/js/index.js?f=5nov"></script>
 
 	<script src="https://apis.google.com/js/plusone.js"></script>
+
+	
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
+    <script src="{{ STATIC_PREFIX }}js/selectivizr-min.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/respond.min.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="[fallback css]">
+    </noscript><![endif]-->
+
 </head>
 <body>
 
@@ -84,8 +94,8 @@
 						{% elif geo_pais == 'peru' %}				
 						<p class="telefono"><span>Teléfono</span>+511-7204134</p>
 						{% elif geo_pais == 'colombia' %}
-						<p class="telefono"><span>Teléfono</span>031-5406280</p>
-						{% elif geo_pais == 'colombia' %}
+						<p class="telefono"><span>Teléfono</span>5406280 - 3162469721</p>
+						{% elif geo_pais == 'estados unidos' %}
 						<p class="telefono"><span>Teléfono</span>+1347 3295509</p>
 						{% endif %}
 					</div>
@@ -171,7 +181,7 @@
 
 		<div class="quieres">
 
-			<h3>Nosotros te enseñamos a crear la web</h3>
+			<h3>¿Cómo funcionan los cursos online de Mejorando.la?</h3>
 
 			<p>¿Videos? Claro, pero también sesiones en vivo, en tiempo real, con los profesores. ¿Foros? Tenemos mucho más: Un nuevo sistema de discusión online donde obtendrás respuesta rápida a todas tus preguntas. Y mucho más: Código y ejemplos copiables desde el navegador. Archivos compartidos al tiempo que recibes clase. Lecturas de apoyo. Conexión directa con otros estudiantes. 
 
@@ -264,8 +274,8 @@
 				{% elif geo_pais == 'peru' %}				
 				<p class="telefono"><span>Teléfono</span>+511-7204134</p>
 				{% elif geo_pais == 'colombia' %}
-				<p class="telefono"><span>Teléfono</span>031-5406280</p>
-				{% elif geo_pais == 'colombia' %}
+				<p class="telefono"><span>Teléfono</span>5406280 - 3162469721</p>
+				{% elif geo_pais == 'estados unidos' %}
 				<p class="telefono"><span>Teléfono</span>+1347 3295509</p>
 				{% endif %}
 			</div>
