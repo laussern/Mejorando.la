@@ -63,7 +63,7 @@ def curso(req, curso_slug):
 					# realizar el cargo con la api de stripe
 					try:
 						charge = stripe.Charge.create(
-							amount		= int(amount),
+							amount		= int(amount)*100,
 							currency	= 'usd',
 							card	    = token,
 							description = email
