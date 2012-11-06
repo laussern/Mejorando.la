@@ -77,7 +77,12 @@ def curso(req, curso_slug):
 
 					req.session['p32'] = p.id
 
-					send_mail('curso_pago', vs, 'Confirmacion de pago | %s' % curso.nombre, email)
+					vs['amount']   = amount
+					vs['discount'] = discount
+					vs['total']    = total
+					vs['pago']     = p
+
+					send_mail('curso_pago', vs, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, email)
 
 					return HttpResponse('OK')
 
