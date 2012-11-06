@@ -259,6 +259,7 @@ header ul {
 }
 .contacto p.telefono {
   background: url("../images/telefono.gif") left center no-repeat;
+  padding-right: 0;
 }
 .contacto a {
   color: #c7cfd7;
@@ -616,7 +617,7 @@ footer ul {
   opacity: 1;
 }
 .pago {
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
@@ -629,7 +630,7 @@ footer ul {
 }
 .pago .overlay {
   background: rgba(0,0,0,0.5);
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
