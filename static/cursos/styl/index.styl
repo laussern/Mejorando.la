@@ -371,7 +371,7 @@ header
 			h2, h3
 				color white
 
-			background #008fd5 url( ../images/selector-bg.gif) right center no-repeat
+			background #008fd5
 			border-left 10px solid #323e4a
 
 
@@ -410,6 +410,12 @@ header
 			left 333px
 			top 0
 			background white
+
+			&:nth-of-type(1)
+				background white url( ../images/selector-bg.gif) left 60px no-repeat
+
+			&:nth-of-type(2)
+				background white url( ../images/selector-bg.gif) left 210px no-repeat
 
 	.direccion
 		background #eaedf2
