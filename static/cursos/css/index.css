@@ -187,22 +187,22 @@ header ul {
 .top {
   overflow: hidden;
 }
-.top .video {
-  height: 430px;
+.top .col1 {
+  height: 437px;
   float: left;
 }
-.descripcion {
+.col2 {
   background: #323e4a url("../images/pago-bg.gif") center bottom no-repeat;
   color: #fffefd;
   float: right;
   width: 274px;
-  height: 400px;
+  height: 407px;
   text-align: justify;
   font-size: 14px;
   line-height: 19px;
   padding: 15px 30px;
 }
-.descripcion button.registrate {
+.col2 button.registrate {
   text-transform: uppercase;
   text-align: center;
   border-bottom: 3px solid #bf932b;
@@ -212,11 +212,11 @@ header ul {
   line-height: 18px;
   margin-top: 15px;
 }
-.descripcion button.registrate strong {
+.col2 button.registrate strong {
   font-size: 28px;
   display: block;
 }
-.descripcion .pago-methods a {
+.col2 .pago-methods a {
   text-transform: uppercase;
   color: #535f6f;
   margin: 10px;
@@ -225,13 +225,13 @@ header ul {
   padding-top: 105px;
   cursor: pointer;
 }
-.descripcion .pago-methods a.tarjeta {
+.col2 .pago-methods a.tarjeta {
   background: url("../images/tarjeta.gif") right top no-repeat;
 }
-.descripcion .pago-methods a.deposito {
+.col2 .pago-methods a.deposito {
   background: url("../images/deposito.gif") right top no-repeat;
 }
-.descripcion .pago-methods a.active {
+.col2 .pago-methods a.active {
   background-position: left top;
   color: #96a2b0;
   cursor: default;
@@ -518,14 +518,19 @@ footer ul {
   .main h1 {
     width: auto;
   }
-  .top .descripcion {
+  .top .col2 {
     width: auto;
     height: auto;
     float: none;
   }
-  .top .video {
+  .top .col1 {
     height: auto;
     float: none;
+  }
+  .top .col1 iframe,
+  .top .col1 a,
+  .top .col1 img {
+    width: 100%;
   }
   .main-image {
     width: 100%;
@@ -1029,6 +1034,21 @@ form.sending::after {
   left: 0;
   right: 0;
   bottom: 0;
+}
+.social {
+  text-align: center;
+  background: #eaedf2;
+}
+.social .social-btn {
+  display: inline-block;
+  margin: 3px 10px 6px;
+  position: relative;
+}
+.social .social-btn.google {
+  top: 6px;
+}
+.social .social-btn.twitter {
+  top: 2px;
 }
 @-moz-keyframes fadeIn {
   0% {

@@ -65,6 +65,17 @@ jQuery(function ($) {
 		// ir al siguiente paso
 		$('.pago-btns .next').live('click', pago_next);
 
+		var error_translations = { 
+			'incorrect_number': 'El número de tarjeta es incorrecto',
+			'invalid_number': 'El número de tarjeta no es un número real o está mal escrito',
+			'invalid_expiry_month': 'La fecha de expiración de la tarjeta es invalida',
+			'invalid_expiry_year': 'El año de expiración de la tarjeta es invalido',
+			'invalid_cvc': 'El código de seguridad de la tarjeta no es el correcto',
+			'expired_card': 'Tu tarjeta expiró',
+			'incorrect_cvc': 'El código de seguridad de la tarjeta no es el correcto',
+			'card_declined': 'Tu tarjeta fue rechazada (intenta con otra)',
+			'processing_error': 'Un error ocurrió mientras procesabamos tu tarjeta, intenta de nuevo'
+		};
 		$buyform.submit(function () {
 
 			if(!validates($buyform, true)) return err($buyform, 'Debe completar todos los campos.')			
@@ -76,10 +87,14 @@ jQuery(function ($) {
 				exp_month: $buyform.find('.card-expiry-month').val(),
 				exp_year : $buyform.find('.card-expiry-year').val()
 			}, function (status, response) {	
+
 				unsend_form($buyform);
 
 				if(response.error) {
-					err($buyform, response.error.message);
+					var msg = response.error.message;
+
+					if(error_translations[response.error.code]) msg = error_translations[response.error.code];
+					err($buyform, msg);
 				} else {
 					$buyform.find('input[name="stripeToken"]').val(response.id);
 
@@ -122,7 +137,7 @@ jQuery(function ($) {
 				// ir al siguiente paso
 				pago_next();
 			} else {
-				err($buyform, 'Ocurrió un error en el proceso. Porfavor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
+				err($buyform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
 			}
 		}
 
@@ -133,7 +148,7 @@ jQuery(function ($) {
 				$status.addClass('success').html(':) Felicidades');
 				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
 			} else {
-				err($regform, 'Ocurrió un error en el proceso. Porfavor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
+				err($regform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
 			}
 
 		}
@@ -216,7 +231,7 @@ jQuery(function ($) {
 
 	// ver video bottom
 	$('#video-link').click(function () {
-		$(this).html('<iframe width="660" height="370" src="http://www.youtube.com/embed/x4ZwpiKR7ew?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
+		$(this).html('<iframe width="666" height="376" src="http://www.youtube.com/embed/x4ZwpiKR7ew?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
 		return false;
 	});
 

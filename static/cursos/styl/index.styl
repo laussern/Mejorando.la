@@ -206,16 +206,17 @@ header
 .top
 	overflow hidden
 
-	.video 
-		height 430px
+	.col1
+		height 437px
 		float left
+		
 
-.descripcion 
+.col2 
 	background #323e4a url( ../images/pago-bg.gif) center bottom no-repeat
 	color #fffefd
 	float right
 	width 274px
-	height 400px
+	height 407px
 	text-align justify
 	font-size 14px
 	line-height 19px
@@ -556,14 +557,17 @@ footer
 			width auto
 
 	.top
-		.descripcion 
+		.col2 
 			width auto
 			height auto
 			float none
 
-		.video
+		.col1
 			height auto
 			float none
+
+			iframe, a, img
+				width 100%
 
 	.main-image 
 		width 100%
@@ -1103,3 +1107,19 @@ form.sending
 		left 0
 		right 0
 		bottom 0
+
+
+.social 
+	text-align center
+	background #eaedf2
+
+	.social-btn 
+		display inline-block
+		margin 3px 10px 6px
+		position relative
+
+		&.google
+			top 6px
+
+		&.twitter 
+			top 2px

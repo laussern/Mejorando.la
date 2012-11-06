@@ -24,6 +24,8 @@
 	var config = { 'moneda': '{{ curso.moneda }}', 'precio': '{{ curso.precio }}', 'nombre': '{{ curso.nombre }}', 'publishable_key': '{{ publishable_key }}'}
 	</script>
 	<script src="{{ STATIC_PREFIX }}cursos/js/index.js"></script>
+
+	<script src="https://apis.google.com/js/plusone.js"></script>
 </head>
 <body>
 
@@ -42,38 +44,55 @@
 
 		<div class="wrapper">
 		<div class="top">
-			<div class="video">
-				<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
-			    	<img src="{{ curso.get_imagen }}" width="666" alt="{{ curso.nombre }}" class="main-image" />
-			    	<span></span>
-			    </a>
-			</div>
-
+			<div class="col1">
+				<div class="video">
+					<a href="http://www.youtube.com/embed/x4ZwpiKR7ew" target="_blank" id="video-link">
+				    	<img src="{{ curso.get_imagen }}" width="666" alt="{{ curso.nombre }}" class="main-image" />
+				    	<span></span>
+				    </a>
+				</div>
 			
 
-			<div class="descripcion">				
+				<aside class="social">
+					<div class="social-btn facebook"> 
+						<div id="fb-root" class="btn_facebook"><script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like  send="false" layout="button_count" width="80" show_faces="false" ></fb:like>
+						</div>
+					</div>
+					<div class="social-btn google">
+						<g:plusone size="tall" annotation="none" href="https://mejorando.la/cursos/diseno-desarrollo-web-online"></g:plusone>
+					</div>
+					<div class="social-btn twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-via="mejorandola" data-lang="es" data-url="https://mejorando.la/cursos/diseno-desarrollo-web-online">Twittear</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+				</aside>
+			</div>
 
-				{{ curso.descripcion|safe }}
+			<div class="col2">
+				<div class="descripcion">				
 
-				<button class="registrate" id="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
+					{{ curso.descripcion|safe }}
 
-				<div class="contacto">
-					<p class="skype"><a href="skype:mejorandola?call">
-						<span>Skype</span>	mejorandola</a></p>
+					<button class="registrate" id="registrate">Registrate al curso por <strong>${{ curso.precio }} USD</strong></button>
 
-					{% if geo_pais 	   == 'mexico' %}
-					<p class="telefono"><span>Teléfono</span>01 (55) 84219885</p>
-					{% elif geo_pais == 'peru' %}				
-					<p class="telefono"><span>Teléfono</span>+511-7204134</p>
-					{% elif geo_pais == 'colombia' %}
-					<p class="telefono"><span>Teléfono</span>031-5406280</p>
-					{% elif geo_pais == 'colombia' %}
-					<p class="telefono"><span>Teléfono</span>+1347 3295509</p>
-					{% endif %}
-				</div>
+					<div class="contacto">
+						<p class="skype"><a href="skype:mejorandola?call">
+							<span>Skype</span>	mejorandola</a></p>
 
-				<div class="horarios">
-					<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m.</p>
+						{% if geo_pais 	   == 'mexico' %}
+						<p class="telefono"><span>Teléfono</span>01 (55) 84219885</p>
+						{% elif geo_pais == 'peru' %}				
+						<p class="telefono"><span>Teléfono</span>+511-7204134</p>
+						{% elif geo_pais == 'colombia' %}
+						<p class="telefono"><span>Teléfono</span>031-5406280</p>
+						{% elif geo_pais == 'colombia' %}
+						<p class="telefono"><span>Teléfono</span>+1347 3295509</p>
+						{% endif %}
+					</div>
+
+					<div class="horarios">
+						<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m.</p>
+					</div>
 				</div>
 			</div>
 		</div>
