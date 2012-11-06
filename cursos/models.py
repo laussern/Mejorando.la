@@ -87,6 +87,7 @@ class CursoPago(models.Model):
 	quantity = models.IntegerField()
 	fecha    = models.DateTimeField(auto_now_add=True)
 	curso    = models.ForeignKey(Curso)
+	charged  = models.BooleanField(default=False)
 
 	def __unicode__(self):
 		return self.nombre

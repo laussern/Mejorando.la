@@ -61,6 +61,9 @@ def curso(req, curso_slug):
 					amount = total - discount
 
 					# realizar el cargo con la api de stripe
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso)
+					p.save()
+
 					try:
 						charge = stripe.Charge.create(
 							amount		= int(amount)*100,
@@ -73,7 +76,7 @@ def curso(req, curso_slug):
 					# si se realiza el cargo con exito enviar mail de confirmacion de pago
 					if not charge.paid: return HttpResponse('ERR')
 
-					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso)
+					p.charged = True
 					p.save()
 
 					req.session['p32'] = p.id
@@ -96,6 +99,7 @@ def curso(req, curso_slug):
 				if email and pago:
 					p = get_object_or_404(CursoPago, id=pago)
 
+					if not p.charged: return HttpResponse('ERR')
 
 					for e in email:
 						r = CursoRegistro(email=e, pago=p)
