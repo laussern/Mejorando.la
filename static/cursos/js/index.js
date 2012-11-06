@@ -231,7 +231,8 @@ jQuery(function ($) {
 
 	// ver video bottom
 	$('#video-link').click(function () {
-		$(this).html('<iframe width="666" height="376" src="http://www.youtube.com/embed/x4ZwpiKR7ew?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
+		var $self = $(this)
+		$self.html('<iframe width="666" height="376" src="'+$self.attr('href')+'?autoplay=1&modestbranding=1&showinfo=0&autohide=1&controls=0" frameborder="0" allowfullscreen></iframe>')
 		return false;
 	});
 
