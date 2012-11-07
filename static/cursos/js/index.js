@@ -270,6 +270,7 @@ jQuery(function ($) {
 
 	// localizacion de horarios
 	+function () {
+		return;
 		// elementos
 		var $session_hour = $('.session-hour'),
 			$call_hour  = $('.call-hour');
@@ -283,10 +284,14 @@ jQuery(function ($) {
 
 		// cambiar la hora
 		if($session_hour.size() > 0) {
+			if($session_hour.hasClass('eur')) return;
+
 			$session_hour.html(session_start.toString('htt') + ' a ' + session_end.toString('htt'));
 		}
 
 		if($call_hour.size() > 0) {
+			if($call_hour.hasClass('eur')) return;
+
 			$call_hour.html(call_start.toString('htt') + ' a ' + call_end.toString('htt'));	
 		}
 	}()
