@@ -32,7 +32,7 @@ def mytimezone(req):
 		try:
 			dt = datetime(2012, 12, 01, 0, 0, 0, tzinfo=pytz.utc)
 			result = dt.astimezone(pytz.timezone(pytz.country_timezones[code][0])).strftime('%Z')
-		except pass
+		except: pass
 
 
 	return result
