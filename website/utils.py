@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import GeoIP
 
 # devuelve el horario del programa
@@ -15,6 +17,8 @@ def get_pais(meta):
     country = geo.country_name_by_addr(ip)
     if country is None:
         country = ''
+
+    if country == 'Spain': country = u'España'
 
     return country
 
