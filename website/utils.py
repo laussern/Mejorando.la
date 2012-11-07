@@ -28,7 +28,6 @@ def get_code(meta):
     else:
         ip = meta['REMOTE_ADDR']
 
-    ip = '189.129.150.239'
     code = geo.country_code_by_addr(ip)
     if code is None:
         code = ''
