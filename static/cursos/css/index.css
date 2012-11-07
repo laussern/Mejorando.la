@@ -1036,7 +1036,7 @@ form.sending::after {
     width: auto !important;
     background: #fff;
     float: none !important;
-    height: auto;
+    height: auto !important;
     border: 0 !important;
   }
   .quieres h2 {
