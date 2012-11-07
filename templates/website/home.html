@@ -63,7 +63,7 @@
     {% for curso in cursos %}
 
     <div>
-      <a class="curso" href="{{ curso.slug }}" title="{{ curso.titulo }}">
+      <a class="curso" href="/cursos/{{ curso.slug }}" title="{{ curso.titulo }}">
         <div class="left">
           <img data-original="{{ STATIC_PREFIX }}images/home/{{ curso.pais|slugify }}.jpg" src="{{ STATIC_PREFIX }}images/transparent.gif" alt="{{ curso.pais }}" class="bandera">
         </div>
