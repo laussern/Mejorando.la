@@ -1,4 +1,5 @@
 {% load static %} {% get_static_prefix as STATIC_PREFIX %}
+{% load cursos_extras %}
 <!doctype html>
 <html lang="es">
 <head>
@@ -104,7 +105,7 @@
 					</div>
 
 					<div class="horarios">
-						<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m{% if geo_pais %} en <strong>{{ geo_pais|capfirst }}</strong>{% endif %}.</p>
+						<p>Puedes llamarnos de Lunes a Viernes<br />de {% mylocaltime request 15 %} a {% mylocaltime request 0 %}{% if geo_pais %} en <strong>{{ geo_pais|capfirst }}</strong>{% endif %}.</p>
 					</div>
 				</div>
 			</div>
@@ -114,7 +115,7 @@
 			<div class="tabs" id="tabs">
 				<a class="selector">
 					<h2>4, 5 y 6 de diciembre <span>HTML5, CSS3 y Javascript</span></h2>
-					<h3>Sesiones en vivo con profesores <br />De 7pm a 9pm{% if geo_pais %}, hora de <strong>{{ geo_pais|capfirst }}</strong>{% endif %}</h3>
+					<h3>Sesiones en vivo con profesores <br />De {% mylocaltime request 0 %} a {% mylocaltime request 3 %}{% if geo_pais %}, hora de <strong>{{ geo_pais|capfirst }}</strong>{% endif %}</h3>
 				</a>
 
 				<div class="tab">
@@ -135,7 +136,7 @@
 
 				<a class="selector">
 					<h2>11, 12 y 13 de diciembre <span>JS avanzado, Node.js y Python/Django</span></h2>
-					<h3>Sesiones en vivo con profesores <br />De 7pm a 9pm{% if geo_pais %}, hora de <strong>{{ geo_pais|capfirst }}</strong>{% endif %}</h3>
+					<h3>Sesiones en vivo con profesores <br />De {% mylocaltime request 0 %} a {% mylocaltime request 3 %}{% if geo_pais %}, hora de <strong>{{ geo_pais|capfirst }}</strong>{% endif %}</h3>
 				</a>
 
 				<div class="tab">
@@ -162,7 +163,7 @@
 				<div class="content">
 				<h2>{{ curso.pais }}</h2>
 
-				<p>Desde Mejorando.la Plataforma. Sesiones en vivo con profesores de 7pm a 9pm.</p>
+				<p>Desde Mejorando.la Plataforma. Sesiones en vivo con profesores de {% mylocaltime request 0 %} a {% mylocaltime request 3 %}.</p>
 				</div>
 			</div>
 		</div>
@@ -284,7 +285,7 @@
 			</div>
 
 			<div class="horarios">
-				<p>Puedes llamarnos de Lunes a Viernes<br />de 9:00a.m. a 6:00p.m.</p>
+				<p>Puedes llamarnos de Lunes a Viernes<br />de {% mylocaltime request 15 %} a {% mylocaltime request 0 %}</p>
 			</div>
 		</div>
 	</div>

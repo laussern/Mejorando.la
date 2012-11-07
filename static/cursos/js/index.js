@@ -266,33 +266,4 @@ jQuery(function ($) {
 
 	$('.close').click(popup.hide);
 	$('#registrate').click(popup.show);
-
-
-	// localizacion de horarios
-	+function () {
-		return;
-		// elementos
-		var $session_hour = $('.session-hour'),
-			$call_hour  = $('.call-hour');
-
-		// horarios
-		var session_start = new Date('Dec 4, 2012 19:00:00 GMT-5'),
-			session_end   = new Date('Dec 4, 2012 21:00:00 GMT-5'),
-			call_start    = new Date('Dec 4, 2012 9:00:00 GMT-5'),
-			call_end      = new Date('Dec 4, 2012 18:00:00 GMT-5');
-
-
-		// cambiar la hora
-		if($session_hour.size() > 0) {
-			if($session_hour.hasClass('eur')) return;
-
-			$session_hour.html(session_start.toString('htt') + ' a ' + session_end.toString('htt'));
-		}
-
-		if($call_hour.size() > 0) {
-			if($call_hour.hasClass('eur')) return;
-
-			$call_hour.html(call_start.toString('htt') + ' a ' + call_end.toString('htt'));	
-		}
-	}()
 });

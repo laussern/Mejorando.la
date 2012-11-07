@@ -17,3 +17,20 @@ def get_pais(meta):
         country = ''
 
     return country
+
+
+def get_code(meta):
+    geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
+
+    # por si el usuario esta detras de un proxy
+    if 'HTTP_X_FORWARDED_FOR' in meta and meta['HTTP_X_FORWARDED_FOR']:
+        ip = meta['HTTP_X_FORWARDED_FOR'].split(',')[0]
+    else:
+        ip = meta['REMOTE_ADDR']
+
+    ip = '189.129.150.239'
+    code = geo.country_code_by_addr(ip)
+    if code is None:
+        code = ''
+
+    return code
