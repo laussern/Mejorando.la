@@ -170,7 +170,7 @@ def paypal_ipn(req):
 	if req.POST.get('payment_status') == 'Completed':
 		vs['cmd'] = '_notify-validate'
 
-		r = requests.post('https://www.sandbox.paypal.com/cgi-bin/webscr', vs)
+		r = requests.post('https://www.paypal.com/cgi-bin/webscr', vs)
 
 		# validar los datos de pago con paypal
 		if r.text == 'VERIFIED':
@@ -183,7 +183,7 @@ def paypal_ipn(req):
 
 				p.charged = True
 				p.save()
-				
+
 				rate  = math.floor( p.quantity / 5 )
 				total = curso.precio * p.quantity
 

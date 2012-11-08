@@ -259,7 +259,7 @@ jQuery(function ($) {
 
 			if(r == 'OK') {
 				var p = get_price(), r = calculate( p );
-				var f = '<form id="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">'+
+				var f = '<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">'+
 					'<input type="hidden" name="charset" value="utf-8" />'+
 					'<input type="hidden" name="cmd" value="_xclick" />'+
 					'<input type="hidden" name="rm" value="1" /> <!-- send data back via POST -->'+
