@@ -247,7 +247,7 @@ jQuery(function ($) {
 
 			if(r == 'OK') {
 				$status.addClass('success').html(':) Gracias');
-				$screens.html('<div class="final"><p>En breve recibirás la información para realizar tu pago al siguiente curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+				$screens.html('<div class="final"><p>En breve recibirás la información para realizar tu pago al siguiente curso:</p><h1>'+config.nombre+'</h1><p>Para cualquier duda puedes comunicarte a:</p></div>');
 			} else {
 				err($depform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
 			}
@@ -259,10 +259,10 @@ jQuery(function ($) {
 
 			if(r == 'OK') {
 				var p = get_price(), r = calculate( p );
-				var f = '<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">'+
+				var f = '<form id="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">'+
 					'<input type="hidden" name="charset" value="utf-8" />'+
 					'<input type="hidden" name="cmd" value="_xclick" />'+
-					'<input type="hidden" name="rm" value="2" /> <!-- send data back via POST -->'+
+					'<input type="hidden" name="rm" value="1" /> <!-- send data back via POST -->'+
 					'<input type="hidden" name="cancel_return" value="'+window.location.href+'" />'+
 					'<input type="hidden" name="notify_url" value="'+window.location.href+'" />'+
 					'<input type="hidden" name="return" value="'+window.location.href+'?felicidades" />'+
@@ -278,6 +278,7 @@ jQuery(function ($) {
 					'<input type="hidden" name="amount" value="'+p+'" />'+
 				
 					'<input type="hidden" name="item_name" value="'+config.nombre+'" />'+
+					'<input type="hidden" name="item_number" value="'+config.id+'" />'+
 				'</form>';
 
 				$(f).submit();
@@ -304,7 +305,7 @@ jQuery(function ($) {
 
 			if(r == 'OK') {
 				$status.addClass('success').html(':) Felicidades');
-				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+				$screens.html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><p>Para cualquier duda puedes comunicarte a:</p></div>');
 			} else {
 				err($regform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
 			}
@@ -427,7 +428,7 @@ jQuery(function ($) {
 
 	if (document.location.href.indexOf('?felicidades') !== -1) {
 		$('#pago-status').addClass('success').html(':) Felicidades');
-		$('.screens').html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+		$('.screens').html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><p>Para cualquier duda puedes comunicarte a:</p></div>');
 
 		$('#registrate').trigger('click');
 

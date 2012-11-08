@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.http import Http404
 from django.template import TemplateDoesNotExist, RequestContext
+from django.views.decorators.http import require_POST
 
 from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
@@ -161,3 +162,46 @@ def curso(req, curso_slug):
 		return render_to_response('cursos/curso.html', vs)
 
 
+@require_POST
+def paypal_ipn(req):
+	vs = req.POST.copy()
+
+	# si estamos hablando de un pago
+	if req.POST.get('payment_status') == 'Completed':
+		vs['cmd'] = '_notify-validate'
+
+		r = requests.post('https://www.sandbox.paypal.com/cgi-bin/webscr', vs)
+
+		# validar los datos de pago con paypal
+		if r.text == 'VERIFIED':
+			curso = get_object_or_404(Curso, id=req.POST.get('item_number1'))
+
+			p = CursoPago.objects.filter(email=req.POST.get('payer_email'), curso=curso)
+
+			if p.exists():
+				p = p[0]
+
+				p.charged = True
+				p.save()
+				
+				rate  = math.floor( p.quantity / 5 )
+				total = curso.precio * p.quantity
+
+				# descuento de plazas gratis
+				discount = rate * curso.precio
+
+				#aplicar el descuento solo cuando no sea cada 5 (que es cuando hay una plaza gratis mas)
+				if (p.quantity % 5) != 0:
+					discount += (curso.precio * 0.1) * (p.quantity-1 if p.quantity < 5 else p.quantity - (5 * rate) )
+
+				amount = total - discount
+
+				send_mail('curso_pago', { 
+					'curso': curso,
+					'amount': amount,
+					'total': total,
+					'pago': p
+				}, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, p.email)
+
+
+	return HttpResponse()
