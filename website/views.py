@@ -53,7 +53,7 @@ def home(solicitud):
 
 
 def siguiente_jueves_4pm(now):
-    _4PM = datetime.time(hour=13)
+    _4PM = datetime.time(hour=15)
     _JUE = 3  # Monday=0 for weekday()
     old_now = now
     now += datetime.timedelta((_JUE - now.weekday()) % 7)
