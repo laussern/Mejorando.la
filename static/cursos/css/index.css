@@ -398,6 +398,9 @@ header ul {
   background: url("../images/online.jpg") left center no-repeat;
   padding-left: 40px;
 }
+.middle .direccion h2.colombia {
+  background: url("../images/pais/colombia.jpg") left center no-repeat;
+}
 /* DOCENTES */
 .docentes {
   overflow: hidden;
@@ -475,7 +478,7 @@ header ul {
   text-align: center;
 }
 .quieres h2 {
-  font-size: 47px;
+  font-size: 45px;
   font-weight: normal;
   line-height: 39px;
   margin: 45px 165px 30px;
