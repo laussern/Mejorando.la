@@ -205,26 +205,6 @@ header ul {
   font-size: 28px;
   display: block;
 }
-.col2 .pago-methods a {
-  text-transform: uppercase;
-  color: #535f6f;
-  margin: 10px;
-  width: 100px;
-  display: inline-block;
-  padding-top: 105px;
-  cursor: pointer;
-}
-.col2 .pago-methods a.tarjeta {
-  background: url("../images/tarjeta.gif") right top no-repeat;
-}
-.col2 .pago-methods a.deposito {
-  background: url("../images/deposito.gif") right top no-repeat;
-}
-.col2 .pago-methods a.active {
-  background-position: left top;
-  color: #96a2b0;
-  cursor: default;
-}
 .horarios {
   color: #a0a5ab;
   font-size: 12px;
@@ -586,6 +566,7 @@ footer ul {
 }
 .pago .panel .final h1 {
   text-align: center;
+  font-size: 34px;
 }
 .pago .panel h2 {
   background: #ffc33e url("../images/icons.gif") 30px -143px no-repeat;
@@ -606,6 +587,14 @@ footer ul {
 }
 .pago .panel h2.success {
   background-image: none;
+  padding-left: 20px;
+  text-align: center;
+}
+.pago .panel h2.deposit {
+  background: #ffc33e url("../images/deposit.png") 30px center no-repeat;
+}
+.pago .panel h2.paypal {
+  background: #ffc33e url("../images/paypal.png") 30px center no-repeat;
 }
 .pago .panel h1 {
   margin: 18px 0;
@@ -1074,6 +1063,48 @@ form.sending::after {
   line-height: 15px;
   color: #a0a5ab;
   margin: 5px 0;
+}
+.pago .methods button {
+  text-transform: uppercase;
+  color: #535f6f;
+  margin: 0 10px;
+  width: 100px;
+  display: inline-block;
+  padding-top: 105px;
+  cursor: pointer;
+}
+.pago .methods button strong {
+  display: block;
+  font-size: 15px;
+  color: #c1cbd6;
+}
+.pago .methods button.method-c {
+  background: url("../images/tarjeta.gif") right top no-repeat;
+}
+.pago .methods button.method-d {
+  background: url("../images/deposito.gif") right top no-repeat;
+}
+.pago .methods button.method-p {
+  background: url("../images/paypal.gif") right top no-repeat;
+}
+.pago .methods button:hover {
+  background-position: left top;
+  color: #96a2b0;
+}
+.pago .methods button:hover strong {
+  color: #fff;
+}
+.pago-forms form {
+  display: none;
+}
+.pago-forms.deposit form.dep-form {
+  display: block;
+}
+.pago-forms.card form.buy-form {
+  display: block;
+}
+.pago-forms.paypal form.pay-form {
+  display: block;
 }
 @-moz-keyframes fadeIn {
   0% {

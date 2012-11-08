@@ -34,36 +34,110 @@ jQuery(function ($) {
 
 	// funcionalidad de pago
 	+function () {
+		// constantes
+		var METHOD_CARD = 0, METHOD_DEPOSIT = 1, METHOD_PAYPAL = 2;
+
+		// variables globales
+		var quantity=1, method = 0;
+
+		// ui (pantallas y barra de estado)
 		var $screens = $('.screens'), $screen = $screens.find('.screen'), $status = $('#pago-status');
 
-		// calculo de precios
-		var quantity=1, price = parseInt(config.precio);
-
-		var $buyform  = $('#buy-form'), 
+		// formularios y campos para estos
+		var $forms    = $('#pago-forms'),
+			$buyform  = $('#buy-form'), 
 			$regform  = $('#reg-form'),
-			$quantity = $buyform.find('input[name="quantity"]');
+			$depform  = $('#dep-form'),
+			$payform  = $('#pay-form'),
+			$quantity = $('input[name="quantity"]');
 
 		// agregar o restar numero de asistentes
-		$('.pago-count a').live('click', function () {
+		$('.pago-count a').click(function () {
 			var $self = $(this);
 
+			var q = quantity;
 			if($self.is('.pago-mas')) {
-				quantity++;
+				q++;
 			} else {
 				if(quantity == 1) return;
-				quantity--;
+				q--;
 			}
 
-			$quantity.val(quantity);
-			$('.pago-num').html(quantity);
+			update_quantity(q);
 
-
-			calculate();
-			update_regform();
+			afterQuantity(); // actualizar barra de estado
 		});
 
-		// ir al siguiente paso
-		$('.pago-btns .next').live('click', pago_next);
+		function afterQuantity() {
+			var r = calculate( get_price() ), c = get_currency();
+
+			var extra = '';
+			if(r.discount > 0) extra = ' <span>con un descuento de <strong>$'+r.discount+' '+c+'</strong></span>';
+
+			set_status('$'+r.total+' '+c+extra);
+
+			// agregar campos de registro al formulario
+			if(method != METHOD_CARD) update_regform();
+		}
+
+		function update_quantity(num) {
+			quantity  = num;
+
+			// actualizar elementos html
+			$quantity.val(num);
+			$('.pago-num').html(num);
+		}
+
+		function update_method(num) {
+			method = num;
+
+			// actualizar barra de estado
+			var n = get_method_name();
+			set_status('$'+get_price()+' '+get_currency()).addClass(n);
+			$forms.addClass(n);
+		}
+
+		function get_currency() {
+			if(method == METHOD_DEPOSIT) 	 return config.currencyd;
+			else if(method == METHOD_PAYPAL) return config.currencyp;
+
+			return 'USD';
+		}
+
+		function get_price() {
+			if(method == METHOD_DEPOSIT) 	 return parseInt(config.preciod);
+			else if(method == METHOD_PAYPAL) return parseInt(config.preciop);
+
+			return parseInt(config.precio);
+		}
+
+		function get_method_name() {
+			if(method == METHOD_DEPOSIT) 	 return 'deposit';
+			else if(method == METHOD_PAYPAL) return 'paypal';
+
+			return 'card';	
+		}
+
+		function set_status(str) { return $status.html(str); }
+
+
+		$depform.submit(function () {
+			if(!validates($depform)) return err($depform, 'Debe completar todos los campos.')			
+
+			send_form($depform);
+			$.post($depform.attr('action'), $depform.serialize(), deposito);
+
+			return false;
+		});
+
+		$payform.submit(function () {
+			if(!validates($payform)) return err($payform, 'Debe completar todos los campos.')			
+
+			send_form($payform);
+			$.post($payform.attr('action'), $payform.serialize(), paypal);
+
+			return false;
+		});
 
 		var error_translations = { 
 			'incorrect_number': 'El número de tarjeta es incorrecto',
@@ -116,10 +190,43 @@ jQuery(function ($) {
 			return false;
 		});
 
-		$('.pago-btns .cancel').live('click', function () { 
-			$('.screen.active').removeClass('active');
-			$screen.first().addClass('active');
-		});
+		// ir al siguiente paso
+		$('.pago-btns .next').live('click', pago_next);
+		// volver a la pantalla anterior
+		$('.pago-btns .cancel').click(pago_back);
+
+		// cambiar de metodo de pago a tarjeta de credito
+		$('.method-c').click(function () {
+    		update_method(METHOD_CARD);
+
+    		pago_next();
+    	});
+
+		// cambiar de metodo de pago a deposito
+		$('.method-d').click(function () {
+			if(typeof config.preciod != 'undefined' && typeof config.currencyd != 'undefined') {
+				update_method(METHOD_DEPOSIT);
+
+				pago_next();
+			}
+    	});
+
+		// cambiar de metodo de pago a paypal
+    	$('.method-p').click(function () {
+			if(typeof config.preciop != 'undefined' && typeof config.currencyp != 'undefined') {
+				update_method(METHOD_PAYPAL);
+
+				pago_next();
+			}
+    	});
+
+    	// volver a la pantalla principal
+    	$('.pago-btns .clearstatus').click(function () {
+    		update_quantity(1);
+
+    		$status.text('$0 USD').removeClass('deposit paypal card');
+    		$forms.removeClass('deposit paypal card');
+    	})
 
 		function pago_next() {
 			var $cur = $('.screen.active');
@@ -127,6 +234,57 @@ jQuery(function ($) {
 			$cur.removeClass('active')
 			$cur.next('.screen').addClass('active');
 		}
+
+		function pago_back() {
+			var $cur = $('.screen.active');
+
+			$cur.prev('.screen').addClass('active');
+			$cur.removeClass('active');
+		}
+
+		function deposito(r) {
+			unsend_form($depform);
+
+			if(r == 'OK') {
+				$status.addClass('success').html(':) Gracias');
+				$screens.html('<div class="final"><p>En breve recibirás la información para realizar tu pago al siguiente curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+			} else {
+				err($depform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
+			}
+
+		}
+
+		function paypal(r) {
+			unsend_form($payform);
+
+			if(r == 'OK') {
+				var p = get_price(), r = calculate( p );
+				var f = '<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">'+
+					'<input type="hidden" name="charset" value="utf-8" />'+
+					'<input type="hidden" name="cmd" value="_xclick" />'+
+					'<input type="hidden" name="rm" value="2" /> <!-- send data back via POST -->'+
+					'<input type="hidden" name="cancel_return" value="'+window.location.href+'" />'+
+					'<input type="hidden" name="notify_url" value="'+window.location.href+'" />'+
+					'<input type="hidden" name="return" value="'+window.location.href+'?felicidades" />'+
+					'<input type="hidden" name="business" value="cursos@mejorando.la" />'+
+					'<input type="hidden" name="lc" value="ES" />'+
+					'<input type="hidden" name="no_shipping" value="1" />'+
+					'<input type="hidden" name="no_note" value="1" />'+
+					'<input type="hidden" name="cpp_logo_image" value="https://mejorando.la/images/logo_for_paypal.png" />'+
+
+					'<input type="hidden" name="currency_code" value="'+get_currency()+'" /> <!-- USD EUR MXN -->'+
+					'<input type="hidden" name="quantity" value="'+quantity+'" />'+
+					'<input type="hidden" name="discount_amount" value="'+r.discount+'" />'+
+					'<input type="hidden" name="amount" value="'+p+'" />'+
+				
+					'<input type="hidden" name="item_name" value="'+config.nombre+'" />'+
+				'</form>';
+
+				$(f).submit();
+			} else {
+				err($payform, 'Ocurrió un error en el proceso. Por favor intentalo más tarde o escribenos a <a href="mailto:ventas@mejorando.la">ventas@mejorando.la</a>.');
+			}
+		} 
 
 		function registro(r) {
 			unsend_form($buyform);
@@ -192,7 +350,7 @@ jQuery(function ($) {
 			else return true;
 		}
 
-		function calculate() {
+		function calculate(price) {
 			// get base numbers
 			var rate = Math.floor(quantity / 5),
 				total = price * quantity;
@@ -211,11 +369,10 @@ jQuery(function ($) {
 			discount = Math.ceil(discount);
 			total = Math.ceil(total);
 
-			var extra = '';
-
-			if(discount > 0) extra = ' <span>con un descuento de <strong>$'+discount+' USD</strong></span>';
-
-			$status.html('$'+total+' USD'+extra)
+			return {
+				'total': total,
+				'discount': discount
+			};
 		}
 
 		function update_regform() {
@@ -227,6 +384,7 @@ jQuery(function ($) {
 
 			$als.html(html);
 		}
+
 	}();
 
 	// ver video bottom
@@ -266,4 +424,13 @@ jQuery(function ($) {
 
 	$('.close').click(popup.hide);
 	$('#registrate').click(popup.show);
+
+	if (document.location.href.indexOf('?felicidades') !== -1) {
+		$('#pago-status').addClass('success').html(':) Felicidades');
+		$('.screens').html('<div class="final"><p>Ya estás listo para asistir a este curso:</p><h1>'+config.nombre+'</h1><div class="pago-links"><p>Te invitamos a saber más de nuestros</p><a href="http://mejorando.la/cursos" target="_blank"><button>Cursos</button></a><a href="http://mejorando.la/videos" target="_blank"><button>Videos</button></a></div></div>');
+
+		$('#registrate').trigger('click');
+
+	}
+
 });

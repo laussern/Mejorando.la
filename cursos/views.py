@@ -61,7 +61,7 @@ def curso(req, curso_slug):
 					amount = total - discount
 
 					# realizar el cargo con la api de stripe
-					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso)
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='card')
 					p.save()
 
 					try:
@@ -92,7 +92,38 @@ def curso(req, curso_slug):
 
 				else: return HttpResponse('ERR')
 
-			elif action == 'register':
+			elif action == 'deposit':
+				nombre 	 = req.POST.get('nombre')
+				email  	 = req.POST.get('email')
+				tel    	 = req.POST.get('telefono')
+				quantity = req.POST.get('quantity')
+
+				if nombre and email and tel and quantity:
+
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='deposit')
+					p.save()
+
+					send_mail('curso_info', vs, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, email)
+
+					return HttpResponse('OK')
+
+				else: return HttpResponse('ERR')
+			elif action == 'paypal':
+				nombre 	 = req.POST.get('nombre')
+				email  	 = req.POST.get('email')
+				tel    	 = req.POST.get('telefono')
+				quantity = req.POST.get('quantity')
+
+				if nombre and email and tel and quantity:
+
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='paypal')
+					p.save()
+
+					return HttpResponse('OK')
+
+				else: return HttpResponse('ERR')
+
+			elif action == 'register': 
 				email = req.POST.getlist('email')
 				pago  = req.session.get('p32')
 

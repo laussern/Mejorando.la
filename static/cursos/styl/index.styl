@@ -224,28 +224,6 @@ header
 			font-size 28px
 			display block
 
-	.pago-methods 
-		a 
-			text-transform uppercase
-			color #535f6f
-			margin 10px
-			width 100px
-			display inline-block
-			padding-top 105px
-			cursor pointer
-
-			&.tarjeta 
-				background url( ../images/tarjeta.gif) right top no-repeat
-
-			&.deposito 
-				background url( ../images/deposito.gif) right top no-repeat
-
-
-			&.active 
-				background-position left top
-				color #96a2b0
-				cursor default
-
 .horarios 
 	color #a0a5ab 
 	font-size 12px
@@ -621,6 +599,7 @@ footer
 
 			h1 
 				text-align center
+				font-size 34px
 
 
 		h2
@@ -642,6 +621,15 @@ footer
 
 			&.success
 				background-image none
+				padding-left 20px
+				text-align center
+
+
+			&.deposit 
+				background #ffc33e url(../images/deposit.png) 30px center no-repeat
+
+			&.paypal
+				background #ffc33e url(../images/paypal.png) 30px center no-repeat
 
 		h1 
 			margin 18px 0
@@ -1143,3 +1131,51 @@ form.sending
 	line-height 15px
 	color #a0a5ab
 	margin 5px 0
+
+
+.pago .methods 
+	button
+		text-transform uppercase
+		color #535f6f
+		margin 0 10px
+		width 100px
+		display inline-block
+		padding-top 105px
+		cursor pointer
+
+		strong
+			display block
+			font-size 15px
+			color #c1cbd6
+			
+		&.method-c 
+			background url( ../images/tarjeta.gif) right top no-repeat
+
+		&.method-d
+			background url( ../images/deposito.gif) right top no-repeat
+
+		&.method-p
+			background url( ../images/paypal.gif) right top no-repeat
+
+
+		&:hover
+			background-position left top
+			color #96a2b0
+
+			strong
+				color white
+
+
+.pago-forms 
+	form
+		display none
+
+	&.deposit
+		form.dep-form
+			display block
+	&.card
+		form.buy-form
+			display block
+	&.paypal
+		form.pay-form
+			display block
