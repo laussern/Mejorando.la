@@ -4,18 +4,20 @@
 		$("#formulario .tit").text("Inscribiendote...").fadeOut().fadeIn();
 	}
 
+	
+
 	function recepcion(datos)
 	{
-		datos = $.trim(datos);
-		if(datos=="OK")
+		datos = JSON.parse(datos);
+
+		if(datos.error)
 		{
+			//$("#formulario #inscripcion").text("Seguro ya estabas inscrito").fadeOut().fadeIn();
+			$("#formulario  .tit").text("Ya estabas registrado").fadeOut().fadeIn();
+			$("#formulario  #email").focus();
+		} else {
 			$("#formulario .tit").text("¡Ya estás inscrito!").fadeOut().fadeIn();
-		}
-		else
-		{
-			$("#formulario .tit").text("Seguro ya estabas inscrito").fadeOut().fadeIn();
-			$("#formulario  #confirmacion").text("Verifica que todos los datos estén bien escritos").slideDown();
-			$("#formulario  #nombre").focus();
+
 		}
 	}
 
@@ -26,7 +28,6 @@
 	};
 	
 	$('#formulario').ajaxForm(opciones); 
-
 
 	$(window).on('load', function(){
 		$('#col2').html('<div class="chat"><iframe src="https://chat.mejorando.la:3000" width="100%" height="75%" frameborder="0"></iframe></div>');
