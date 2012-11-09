@@ -13,6 +13,7 @@ button {
 header {
   background: #303030;
   height: 45px;
+  position: relative;
 }
 header a {
   padding: 0;
@@ -21,6 +22,14 @@ header a {
 }
 header a:hover {
   background: none;
+}
+header h2 {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  margin: 0;
+  font-size: 25px;
+  color: #fff;
 }
 h1,
 h2,
@@ -34,7 +43,6 @@ h6 {
 h2 {
   font-size: 50px;
   margin: 10px 0;
-  margin-left: 30px;
 }
 h3 {
   font-size: 25px;
@@ -665,6 +673,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -moz-animation-name: bounceOutUp;
   -o-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
+}
+.cols {
+  overflow: hidden;
+}
+.col1 {
+  float: left;
+}
+.col2 {
+  float: left;
+}
+h4 {
+  background: #303030;
+  display: inline-block;
+  color: #fff;
+  padding: 1px 5px;
+  margin: 3px 0;
+}
+hr {
+  margin: 10px 0;
+  border: 0;
+  border-bottom: 1px solid #303030;
 }
 @-moz-keyframes fadeIn {
   0% {

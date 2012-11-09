@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
 
 # modelos de nuevo
-from cursos.models import Curso, CursoRegistro, CursoDocente, CursoDia
+from cursos.models import Curso, CursoRegistro, CursoDocente, CursoDia, CursoPago
 
 #### ADMINISTRACION ####
 # vista principal del administrador
@@ -238,3 +238,12 @@ def dia_edit(req, dia_id):
 @login_required(login_url='/edmin')
 def dia_delete(req, dia_id):
 	return HttpResponse()
+
+
+@login_required(login_url='/edmin')
+def pago(req):
+	return render_to_response('edmin/pago/index.html', {
+		'cursos': Curso.objects.all()
+	})
+
+

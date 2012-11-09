@@ -1,0 +1,60 @@
+{% extends "edmin/base.html" %}
+
+{% block titulo %}<h2>Venta de cursos</h2>{% endblock %}
+{% block body %}
+<div id="main">
+
+{% for curso in cursos %}
+<h3>{{ curso.nombre }}</h3>
+
+
+<div class="cols">
+	<div class="col1">
+		<h4>Stripe</h4>
+		<p>Transacciones: <strong>{{ curso.stripe_pagados|length }}</strong> Incompletas: <strong>{{ curso.stripe_no_pagados|length }}</strong></p>
+
+		<h4>Paypal</h4>
+		<p>Transacciones: <strong>{{ curso.paypal_pagados|length }}</strong> Incompletas: <strong>{{ curso.paypal_no_pagados|length }}</strong></p>
+
+		<h4>Total</h4>
+		<p>Transacciones: <strong>{{ curso.pagados|length }}</strong> Incompletas: <strong>{{ curso.no_pagados|length }}</strong></p>
+
+		<hr />
+
+		<h4>Registros</h4>
+		<p>Total: <strong>{{ curso.registros|length }}</strong></p>
+		
+	</div>
+
+	<div class="col2">
+		<div style="width: 700px; height: 500px;" class="chart" data-regions="{{ curso.regions }}"></div>
+	</div>
+</div>
+{% endfor %}
+
+</div>
+
+
+<script src='https://www.google.com/jsapi'></script>
+<script>
+	google.load('visualization', '1', {'packages': ['geochart']});
+    google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+        $('.chart').each(function () {
+        	var $self = $(this);
+
+        	var data = google.visualization.arrayToDataTable([['País', 'Registros']].concat(JSON.parse($self.attr('data-regions'))));
+
+	        var options = { 
+	        	colorAxis: {
+	        		colors: ['#e6e6e6', '#303030']
+	        	}
+	        };
+
+	        var chart = new google.visualization.GeoChart(this);
+	        chart.draw(data, options);
+        });
+    }
+</script>
+{% endblock %}

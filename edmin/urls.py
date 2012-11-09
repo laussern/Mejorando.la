@@ -4,6 +4,9 @@ urlpatterns = patterns('',
 	# home de administrador
 	url(r'^$', 'edmin.views.admin'),
 
+	### URLS DE ADMINISTRACION DE PAGOS
+	url(r'^pago/?$', 'edmin.views.pago'),
+
 	### URLS DE ADMINISTRACION DE CURSOS
 	url(r'^curso/?$', 'edmin.views.curso'),
 

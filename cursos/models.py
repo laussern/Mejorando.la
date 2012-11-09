@@ -3,6 +3,8 @@ from django.conf import settings
 from django.template.defaultfilters import slugify
 import image
 
+from django.utils import simplejson
+
 class Curso(models.Model):
 	nombre 	    = models.TextField()
 	slug        = models.TextField()
@@ -40,7 +42,34 @@ class Curso(models.Model):
 
 	# opciones del curso
 	def is_online(self): return self.pais.lower() == 'online'
+
+	def pagados(self):
+		return CursoPago.objects.filter(charged=True, curso=self)
+	def no_pagados(self):
+		return CursoPago.objects.filter(charged=False, curso=self)
+
+	def stripe_pagados(self):
+		return CursoPago.objects.filter(charged=True, method='card', curso=self)
+	def stripe_no_pagados(self):
+		return CursoPago.objects.filter(charged=False, method='card', curso=self)
+
+	def paypal_pagados(self):
+		return CursoPago.objects.filter(charged=True, method='paypal', curso=self)
+	def paypal_no_pagados(self):
+		return CursoPago.objects.filter(charged=False, method='paypal', curso=self)
+
+	def registros(self):
+		return CursoRegistro.objects.filter(pago__curso=self)
+
+	
+	def regions(self):
+		r = []
+
+		for p in CursoRegistro.objects.filter(pago__curso=self, pago__charged=True).values('pago__pais').annotate(models.Count('id')):
+			r.append([p['pago__pais'], p['id__count']])
 		
+		return simplejson.dumps(r)
+
 	def save(self, *args, **kwargs):
 		super(Curso, self).save(*args, **kwargs)
 

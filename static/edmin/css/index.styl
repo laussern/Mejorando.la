@@ -10,6 +10,7 @@ body, input, textarea, button
 header
 	background #303030
 	height 45px
+	position relative
 
 	a
 		padding 0
@@ -19,6 +20,14 @@ header
 		&:hover
 			background none
 
+	h2
+		position absolute
+		right 10px
+		top 3px
+		margin 0
+		font-size 25px
+		color white
+
 
 h1, h2, h3, h4, h5, h6 
 	font-weight normal
@@ -27,7 +36,7 @@ h1, h2, h3, h4, h5, h6
 h2
 	font-size 50px
 	margin 10px 0
-	margin-left 30px
+	//margin-left 30px
 
 h3
 	font-size 25px
@@ -702,3 +711,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   -o-animation-name: bounceOutUp;
   animation-name: bounceOutUp;
 }
+
+
+.cols 
+	overflow hidden
+
+.col1 
+	float left
+
+.col2
+	float left	
+
+
+h4
+	background #303030
+	display inline-block
+	color white
+	padding 1px 5px
+	margin 3px 0
+
+hr
+	margin 10px 0
+	border 0
+	border-bottom 1px solid #303030
