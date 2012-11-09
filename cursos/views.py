@@ -204,4 +204,15 @@ def paypal_ipn(req):
 				}, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, p.email)
 
 
+				if p.quantity == 1:
+					# llevar a cabo el registro al curso
+					reg = CursoRegistro(email=p.email, pago=p)
+					reg.save()
+
+					# integracion con la plataforma
+					try:
+						r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': e, 'passwd': settings.PLATAFORMA_API_KEY })
+					except: pass
+
+
 	return HttpResponse()
