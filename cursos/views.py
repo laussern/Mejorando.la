@@ -14,6 +14,7 @@ from utils import send_mail
 
 import stripe
 import requests
+import logging
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -162,9 +163,13 @@ def curso(req, curso_slug):
 		return render_to_response('cursos/curso.html', vs)
 
 
-@require_POST
+#@require_POST
 def paypal_ipn(req):
 	vs = req.POST.copy()
+
+	if req.method != 'POST': 
+		logging.error('PAYPAL IPN: No se recibio POST')
+		return HttpResponse()
 
 	# si estamos hablando de un pago
 	if req.POST.get('payment_status') == 'Completed':
