@@ -1015,7 +1015,7 @@ form.sending::after {
   .top .col1 {
     height: auto !important;
     float: none;
-    width: auto;
+    width: 100%;
   }
   .top .col1 .video {
     height: auto;
