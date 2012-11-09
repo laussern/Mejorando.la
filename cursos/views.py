@@ -163,13 +163,11 @@ def curso(req, curso_slug):
 		return render_to_response('cursos/curso.html', vs)
 
 
-#@require_POST
+@require_POST
 def paypal_ipn(req):
 	vs = req.POST.copy()
 
-	if req.method != 'POST': 
-		logging.error('PAYPAL IPN: No se recibio POST')
-		return HttpResponse()
+	logging.error('PAYPAL IPN: %s' % vars(vs))
 
 	# si estamos hablando de un pago
 	if req.POST.get('payment_status') == 'Completed':
