@@ -1,3 +1,10 @@
+/*
+Theme Name: Mejorando.la
+Theme URI: http://mejorando.la
+Description: El mejor tema que mejorando.la ha tenido
+Version: 1.0
+Author: Mejorando.la Team: @freddier, @dual3nigma, @LeonidasEsteban, @sp3ncer
+*/
 @font-face {
 font-family: 'open sans';
 src: url("../fonts/opensans-light-webfont.eot");
@@ -13,211 +20,1140 @@ font-weight: bold;
 font-style: normal;
 }
 /*  CSS3 ✰ Classes  */
-.ir{direction:ltr;display:block;height:100%;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:100%}
-.hidden{display:none}
-.visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
-.invisible{visibility:hidden}
-.noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
-.clearfix,footer,#cursos .curso{zoom:1;}
-.clearfix:after,footer:after,#cursos .curso:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
-.clear{display:block;clear:both;zoom:1}
-.nomargin{margin:0 !important}
-*{margin:0}
-::selection{text-shadow:0 0 20px #017ecd,1px 1px 1px #808080}
-a{color:#fff;text-decoration:none}
-a:hover{text-decoration:underline}
-p{margin:0}
-h1{position:absolute;z-index:10}
-h2,h5{font-weight:normal}
-body{background:#3c4043;color:#fff;font-family:'open sans',Arial,Sans-serif;font-size:16px}
-footer{background:#fff;color:#3d4043;padding-top:75px;text-transform:uppercase;}
-footer a{color:#3d4043;text-transform:lowercase;text-decoration:underline}
-footer > div{min-height:70px;vertical-align:top;zoom:1}
-footer .derecha{font-size:25px;font-weight:bold;height:50px;line-height:70px;float:left;background:#fff;width:70%;position:relative;z-index:1;}
-footer .derecha .left{float:left;margin-left:50px}
-footer .derecha .center{position:absolute;right:0;top:0;left:160px;text-align:center;}
-footer .derecha .center .freddier{float:left;display:block;margin-left}
-footer .derecha .center .cvander{float:right;margin-right:5%}
-footer .izquierda{background:#3d4043;color:#fff;text-align:right;float:left;position:relative;text-align:right;width:30%;z-index:2;}
-footer .izquierda:after{border-bottom:70px solid transparent;border-left:40px solid #3d4043;content:"";height:0;position:absolute;right:-40px;top:0;width:0}
-footer .izquierda .text{overflow:hidden;float:right}
-footer .izquierda span{display:block;margin-right:20px;text-align:left}
-footer .izquierda span:nth-child(1){font-size:20px;letter-spacing:-1px;margin-top:20px}
-footer .izquierda span:nth-child(2){font-size:12px;font-weight:bold}
-header{background:#323e4a;margin:0 auto;max-width:1000px;position:relative;z-index:3;}
-header h1 a img{position:relative;z-index:20;width:356px;height:auto}
-header #maestros{left:360px;position:absolute;top:3px;}
-header #maestros img{width:35px;height:35px}
-header #cristalab{left:420px;position:absolute;top:3px;}
-header #cristalab img{width:35px;height:35px}
-header .logo-chico{display:none}
-header .mejor{background:url("../images/logos/linea.jpg") repeat-x left top;height:42px;position:relative;text-align:left;width:450px;z-index:7}
-h3{color:#3d4043;font-size:45px;font-weight:bold;letter-spacing:-1px;text-transform:uppercase}
-img{border:none}
-strong{font-weight:bold}
-#anteriores{background:#fff;font-size:0;margin-top:35px;min-width:100%;overflow:hidden;position:relative;text-align:center;text-align:center;text-transform:uppercase;}
-#anteriores .todos{background:url("../images/home/playall_largo.png") no-repeat left top;color:#3f4044;height:33px;line-height:33px;padding:0 20px 0 30px;position:absolute;right:0;}
-#anteriores .todos a{color:#3f4044;font-size:14px;font-weight:bold}
-#anteriores h3.tit{font-size:33px;font-weight:normal;letter-spacing:15px;margin:20px 0 15px 0;text-transform:uppercase}
-#anteriores .capitulo{float:left;padding-bottom:5px;position:relative;vertical-align:top;width:25%;}
-#anteriores .capitulo a{display:block}
-#anteriores .capitulo p{background:rgba(0,0,0,0.5);display:inline}
-#anteriores .capitulo h2{background:rgba(0,0,0,0.5);display:inline}
-#anteriores .capitulo .block{display:block;margin-top:5px}
-#anteriores .capitulo .cap{font-size:14px;font-weight:bold;margin-bottom:12px}
-#anteriores .capitulo .imagen{height:167px;}
-#anteriores .capitulo .imagen img{width:230px;height:auto;-o-box-shadow:-5px 5px 0 #c8cacd;-ms-box-shadow:-5px 5px 0 #c8cacd;-moz-box-shadow:-5px 5px 0 #c8cacd;-webkit-box-shadow:-5px 5px 0 #c8cacd;box-shadow:-5px 5px 0 #c8cacd;-webkit-background-clip:padding-box}
-#anteriores .capitulo:hover .imagen img{-o-box-shadow:-5px 5px 0 #3d4043;-ms-box-shadow:-5px 5px 0 #3d4043;-moz-box-shadow:-5px 5px 0 #3d4043;-webkit-box-shadow:-5px 5px 0 #3d4043;box-shadow:-5px 5px 0 #3d4043;-webkit-background-clip:padding-box;-o-transition:.2s box-shadow;-ms-transition:.2s box-shadow;-moz-transition:.2s box-shadow;-webkit-transition:.2s box-shadow;transition:.2s box-shadow}
-#anteriores .capitulo .texto{line-height:20px;padding:15px 15px 0 15px;position:absolute;text-align:left;text-transform:none;top:0;word-break:break-word;z-index:2;}
-#anteriores .capitulo .texto:first-letter{text-transform:uppercase}
-#anteriores .tit{font-size:23px}
-#empresas{margin-top:65px;text-align:center;}
-#empresas h3.tit{font-size:33px;font-weight:normal;letter-spacing:2px;margin-bottom:23px;text-align:center}
-#empresas .cont{max-width:800px;margin:0 auto}
-#empresas .sponsor{display:inline-block;zoom:1;*display:inline;margin:5px 10px;padding:5px;background:#fff;}
-#empresas .sponsor img{-webkit-filter:grayscale(1);-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;opacity:.8;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=80);filter:alpha(opacity=80);}
-#empresas .sponsor img:hover{-webkit-filter:grayscale(0);opacity:1;-ms-filter:none;filter:none}
-#wrapper{background:#fff;margin:0 auto;max-width:1000px}
-#cursos{background:#fff;text-transform:uppercase;}
-#cursos h3.tit{font-size:33px;margin:35px 0 20px;text-align:center;}
-#cursos h3.tit a{color:#3d4043;font-weight:normal;letter-spacing:2px}
-#cursos a{color:#808285}
-#cursos .curso{position:relative;display:block;margin-bottom:5px;overflow:hidden;}
-#cursos .curso:hover .left img{-o-box-shadow:-5px 5px 0 #3d4043;-ms-box-shadow:-5px 5px 0 #3d4043;-moz-box-shadow:-5px 5px 0 #3d4043;-webkit-box-shadow:-5px 5px 0 #3d4043;box-shadow:-5px 5px 0 #3d4043;-webkit-background-clip:padding-box;-o-transition:.2s box-shadow;-ms-transition:.2s box-shadow;-moz-transition:.2s box-shadow;-webkit-transition:.2s box-shadow;transition:.2s box-shadow}
-#cursos .curso:hover .center h3{color:#3d4043;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
-#cursos .curso:hover .right{border-color:#3d4043;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}
-#cursos .curso:hover .right .mes{color:#3d4043;-o-transition:.2s;-ms-transition:.2s;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s}
-#cursos .curso .left{padding-left:25px;position:absolute;left:0;top:0;}
-#cursos .curso .left img{width:68px;height:auto;-o-box-shadow:-5px 5px 0 #d2d3d5;-ms-box-shadow:-5px 5px 0 #d2d3d5;-moz-box-shadow:-5px 5px 0 #d2d3d5;-webkit-box-shadow:-5px 5px 0 #d2d3d5;box-shadow:-5px 5px 0 #d2d3d5;-webkit-background-clip:padding-box}
-#cursos .curso .center{border:1px solid #919599;border-right:none;padding-left:10px;margin-left:103px;margin-right:60px;width:100%;height:50px;}
-#cursos .curso .center h3{color:#808285;font-size:25px;letter-spacing:.5px}
-#cursos .curso .center .pais{color:#808285;font-size:10.5px}
-#cursos .curso .right{background:#fff;border:2px solid #919599;height:48px;padding:0 8px;position:absolute;right:0;text-align:center;top:0;z-index:2;}
-#cursos .curso .right .mes{font-size:23px}
-#cursos .curso .right .dia{font-size:13.5px}
-#proximo{background:#fff;background:url("../images/post/pattern_participantes_post.png");color:#3d4043;margin-bottom:45px;margin-top:50px;text-align:center;}
-#proximo h3{font-size:33px;font-weight:normal;letter-spacing:15px;margin:0 0 10px;text-transform:uppercase}
-#proximo .content{background:#fff;display:inline-block;zoom:1;*display:inline;padding:0 15px}
-#proximo .cuenta{display:inline-block;zoom:1;*display:inline;*display:inline;margin-right:50px;vertical-align:top;zoom:1;}
-#proximo .cuenta:last-child{margin-right:0}
-#proximo .cuenta .leyenda{font-size:10px;margin-top:10px;text-transform:uppercase}
-#proximo .cuenta .digito{background:#fff;border:2px solid #b7bbbf;-o-border-radius:3px;-ms-border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;color:#3d4043;font-size:54px;font-weight:bold;font-size:57px;padding:8px 5px}
-#social{margin:-50px auto 0 auto;margin-left:310px;position:absolute;width:400px;z-index:5;}
-#social div{display:inline-block;zoom:1;*display:inline;*display:inline;margin-left:40px;vertical-align:top;zoom:1}
-#social div:nth-child(1){margin-left:0}
-#social .btn_youtube:after,#social .btn_twitter:after,#social .btn_facebook:after,#social .btn_googlemas:after{background:#fff;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;content:"";height:30px;margin-left:-5px;margin-top:-28px;display:block;width:60px}
-#social .btn_youtube:after{width:70px}
-#social .btn_twitter:after{width:80px}
-#social .btn_facebook,#social .btn_googlemas{width:55px}
-#social .btn_facebook:after{margin-top:-25px;width:55px}
-#ultimo{height:500px;width:100%;}
-#ultimo .absolute{height:500px;position:absolute;width:1000px;z-index:1}
-#ultimo .datos{position:relative;z-index:4;}
-#ultimo .datos .titulo{font-size:60px;font-weight:normal;line-height:50px;margin-right:20px;margin-top:5px;max-width:90%;-o-transition:.3s text-shadow;-ms-transition:.3s text-shadow;-moz-transition:.3s text-shadow;-webkit-transition:.3s text-shadow;transition:.3s text-shadow}
-#ultimo .datos .titulo:hover{text-shadow:0 0 20px rgba(255,255,255,0.5);text-decoration:none}
-#ultimo .tela{background:rgba(0,0,0,0.5);position:absolute;z-index:2;width:1000px;height:500px}
-#ultimo .boton,#ultimo .fecha,#ultimo .horario,#ultimo .titulo{clear:both;display:block;float:right;margin-right:40px;text-align:right}
-#ultimo .boton{font-weight:bold;margin-top:10px;text-transform:uppercase;-o-transition:.3s text-shadow;-ms-transition:.3s text-shadow;-moz-transition:.3s text-shadow;-webkit-transition:.3s text-shadow;transition:.3s text-shadow;}
-#ultimo .boton:hover{text-shadow:0 0 10px #fff}
-#ultimo .fecha{font-size:15px;letter-spacing:10px;text-transform:uppercase}
-#ultimo .horario{display:block;font-size:11px;letter-spacing:3px;margin:115px 40px 0 0;text-transform:uppercase;}
-#ultimo .horario .block{display:block}
-#ultimo .horario .big{font-size:40px;letter-spacing:1px}
-.cinta{background:url("../images/home/countdown_separador.jpg") repeat-y;-webkit-background-size:100%;background-size:100%;border-bottom:1px solid #fff;height:32px;width:100%}
-.menu{background:#323e4a;font-family:Arial;margin:0 auto;position:absolute;top:0;width:100%;z-index:6;}
-.menu ul{font-size:0;padding:0;text-align:right}
-.menu li{display:inline-block;zoom:1;*display:inline;font-size:14px;font-weight:bold;position:relative;text-align:center;text-transform:uppercase;-o-transition:.2s background;-ms-transition:.2s background;-moz-transition:.2s background;-webkit-transition:.2s background;transition:.2s background;vertical-align:top;z-index:5;}
-.menu li:hover{background:#1c2127}
-.menu a{display:block;height:42px;line-height:42px;color:#898c93;float:right;text-align:center;padding:0 10px}
-.ie8 #ultimo .datos .titulo{max-width:none !important;padding-left:30px !important}
-.ie8 .tela{background:url("../images/home/tela.png")}
-.ie8 .block .tit{background:url("../images/home/tela.png")}
-#envivo{background:#000;height:60px;margin:0 auto;width:1000px;position:relative;overflow:hidden;display:block}
-a.banner-link{background:url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;height:64px;padding:0;position:absolute;right:0;top:42px;width:736px;color:#fff;font-size:20px;line-height:20px;text-transform:uppercase;text-align:left;font-family:Arial;}
-a.banner-link > div{display:inline-block;zoom:1;*display:inline;vertical-align:top}
-a.banner-link .titulo{width:290px;margin-top:13px;margin-left:60px;text-align:left}
-a.banner-link .fecha{position:relative;left:70px;font-size:30px;width:229px;color:#313f4a;}
-a.banner-link .fecha .dia{float:left;font-size:37px;letter-spacing:-2px;margin-right:3px;margin-top:24px}
-a.banner-link .fecha .col2{float:left;vertical-align:top;margin-top:18px;margin-left:3px}
-a.banner-link .fecha .mess{display:block;font-size:12px}
-a.banner-link .fecha .lugar{display:block;font-size:14px;text-align:left;font-weight:bold;position:relative;top:-7px}
-a.banner-link .img-tec{margin:9px 0 0 31px}
-a.banner-link:hover{text-decoration:none}
-@-webkit-keyframes envivo{100%{-webkit-transform:translateX(0)}
-0%{-webkit-transform:translateX(-1000px)}
-}@-moz-keyframes envivo{100%{-moz-transform:translateX(0)}
-0%{-moz-transform:translateX(-1000px)}
-}#envivo .patron{-webkit-animation:25s envivo infinite linear;-moz-animation:25s envivo infinite linear;background:url("../images/patron.jpg") repeat-x;width:2000px;height:60px;position:relative;z-index:1}
-#envivo .vivo{position:absolute;right:0;top:0;display:block;z-index:2}
-@media screen and (max-width:1000px){body{overflow-x:hidden}
-footer{padding-top:10px;}
-footer a{color:#fff}
-footer div{min-height:0;padding-bottom:5px}
-footer .derecha{background:#3d4043;color:#fff;text-align:center;width:100%;}
-footer .derecha .center{left:0}
-footer .derecha span:nth-child(1){display:none}
-footer .derecha a{display:inline-block;zoom:1;*display:inline;margin:0;width:40%}
-footer .izquierda{background:#fff;padding-right:0;text-align:center;width:100%;}
-footer .izquierda:after{display:none}
-footer .izquierda .text{color:#3d4043;width:100%}
-footer .izquierda span{display:inline-block;zoom:1;*display:inline;margin-right:4px}
-footer .izquierda span:nth-child(1){font-size:15px;letter-spacing:0}
-footer .izquierda span:nth-child(2){font-size:15px;font-weight:normal}
-#anteriores .capitulo{border-left:1px solid #fff;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;width:25%;padding-bottom:0;}
-#anteriores .capitulo .imagen img{-o-box-shadow:none !important;-ms-box-shadow:none !important;-moz-box-shadow:none !important;-webkit-box-shadow:none !important;box-shadow:none !important;-webkit-background-clip:padding-box}
-#anteriores .capitulo:nth-of-type(1){border:none}
-#empresas .content{background:none}
-#social{position:relative;margin-left:auto}
-#ultimo{overflow:hidden;position:relative;}
-#ultimo .datos{position:relative;z-index:4;width:100%;height:500px}
-#ultimo .tela{width:100%}
-#ultimo .boton{bottom:80px;position:absolute;right:20px;width:100%}
-#ultimo .fecha{bottom:60px;position:absolute;right:20px;width:100%}
-#wrapper{width:auto}
-#cursos .curso .left{padding:0}
-#cursos .curso .center{margin-left:67px;}
-#cursos .curso .center h3{font-size:16px;font-weight:normal}
-}@media screen and (max-width:800px){h3.tit{letter-spacing:3px !important;font-size:20px !important}
-header{height:87px;}
-header h1 a img{height:42px;width:auto}
-header #maestros{left:220px}
-header #cristalab{left:285px}
-header .logo-chico{display:block}
-header .logo-grande{display:none}
-header .mejor{width:auto}
-h3{font-size:30px;font-weight:normal;letter-spacing:2px}
-#cuerpo{min-width:320px}
-#anteriores .tit{font-size:18px}
-#proximo h3{font-size:22px;letter-spacing:2px}
-#social{display:none}
-#ultimo{overflow:hidden;position:relative;height:370px;}
-#ultimo .datos{height:280px;position:relative;z-index:4}
-#ultimo .datos .titulo{font-size:30px;line-height:35px;margin-right:auto;position:absolute;top:35px;max-width:100%;width:100%}
-#ultimo .tela{width:100%}
-#ultimo .boton,#ultimo .fecha,#ultimo .horario,#ultimo .titulo{float:none;margin-right:auto;text-align:center}
-#ultimo .boton{bottom:0;font-size:20px;position:absolute;width:100%}
-#ultimo .fecha{bottom:-20px;font-size:18px;position:absolute;width:100%}
-#ultimo .horario{margin:60px auto 0 auto}
-#ultimo .horario strong:nth-child(1){font-weight:normal}
-#ultimo .horario .big{font-size:30px}
-.menu{top:42px;}
-.menu ul{min-width:320px;padding-top:0;text-align:center;li-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:auto;}
-.menu ul:nth-child(even){background:none;border-left:1px solid #fff;border-right:1px solid #fff}
-.menu ul a{height:44px;line-height:44px}
-a.banner-link{display:none}
-}@media screen and (max-width:600px){#empresas .sponsor{float:left;width:40%;margin:0;}
-#empresas .sponsor:nth-of-type(odd){text-align:right;padding-right:5%}
-#empresas .sponsor:nth-of-type(even){text-align:left;padding-left:5%}
-#anteriores{height:auto;}
-#anteriores .capitulo{border:none;width:50%;height:auto;}
-#anteriores .capitulo .imagen{height:auto;}
-#anteriores .capitulo .imagen img{width:100%}
-#cursos .curso:hover .right  .mes{color:#fff}
-#cursos .curso .center{max-width:none;width:auto;height:auto;margin-right:0}
-#cursos .curso .right{height:auto;border:none;background:#808285;}
-#cursos .curso .right h4{float:left;color:#fff;line-height:17px}
-#cursos .curso .right .mes{font-size:13px;margin-right:10px}
-#proximo .cuenta{margin:0 !important;}
-#proximo .cuenta .digito{font-size:40px}
-}@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:12px}
+.ir {
+  direction: ltr;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+.visuallyhidden {
+  left: -9999px;
+  position: absolute !important;
+  top: -9999px;
+}
+.invisible {
+  visibility: hidden;
+}
+.noselect {
+  -o-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+}
+.clearfix,
+footer,
+#cursos .curso {
+  zoom: 1;
+}
+.clearfix:after,
+footer:after,
+#cursos .curso:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clear {
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+.nomargin {
+  margin: 0 !important;
+}
+* {
+  margin: 0;
+}
+::selection {
+  text-shadow: 0 0 20px #017ecd, 1px 1px 1px #808080;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+p {
+  margin: 0;
+}
+h1 {
+  position: absolute;
+  z-index: 10;
+}
+h2,
+h5 {
+  font-weight: normal;
+}
+body {
+  background: #3c4043;
+  color: #fff;
+  font-family: 'open sans', Arial, Sans-serif;
+  font-size: 16px;
+}
+footer {
+  background: #fff;
+  color: #3d4043;
+  padding-top: 75px;
+  text-transform: uppercase;
+}
+footer a {
+  color: #3d4043;
+  text-transform: lowercase;
+  text-decoration: underline;
+}
+footer > div {
+  min-height: 70px;
+  vertical-align: top;
+  zoom: 1;
+}
+footer .derecha {
+  font-size: 25px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 70px;
+  float: left;
+  background: #fff;
+  width: 70%;
+  position: relative;
+  z-index: 1;
+}
+footer .derecha .left {
+  float: left;
+  margin-left: 50px;
+}
+footer .derecha .center {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 160px;
+  text-align: center;
+}
+footer .derecha .center .freddier {
+  float: left;
+  display: block;
+margin-left
+}
+footer .derecha .center .cvander {
+  float: right;
+  margin-right: 5%;
+}
+footer .izquierda {
+  background: #3d4043;
+  color: #fff;
+  text-align: right;
+  float: left;
+  position: relative;
+  text-align: right;
+  width: 30%;
+  z-index: 2;
+}
+footer .izquierda:after {
+  border-bottom: 70px solid transparent;
+  border-left: 40px solid #3d4043;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 0;
+}
+footer .izquierda .text {
+  overflow: hidden;
+  float: right;
+}
+footer .izquierda span {
+  display: block;
+  margin-right: 20px;
+  text-align: left;
+}
+footer .izquierda span:nth-child(1) {
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin-top: 20px;
+}
+footer .izquierda span:nth-child(2) {
+  font-size: 12px;
+  font-weight: bold;
+}
+header {
+  background: #323e4a;
+  margin: 0 auto;
+  max-width: 1000px;
+  position: relative;
+  z-index: 3;
+}
+header h1 a img {
+  position: relative;
+  z-index: 20;
+  height: auto;
+}
+header #maestros {
+  left: 226px;
+  position: absolute;
+  top: 3px;
+}
+header #maestros img {
+  width: 35px;
+  height: 35px;
+}
+header #cristalab {
+  left: 283px;
+  position: absolute;
+  top: 3px;
+}
+header #cristalab img {
+  width: 35px;
+  height: 35px;
+}
+header .mejor {
+  background: url("../images/logos/linea.jpg") repeat-x left top;
+  height: 42px;
+  position: relative;
+  text-align: left;
+  width: 300px;
+  z-index: 7;
+}
+h3 {
+  color: #3d4043;
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+img {
+  border: none;
+}
+strong {
+  font-weight: bold;
+}
+#anteriores {
+  background: #fff;
+  font-size: 0;
+  margin-top: 35px;
+  min-width: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+#anteriores .todos {
+  background: url("../images/home/playall_largo.png") no-repeat left top;
+  color: #3f4044;
+  height: 33px;
+  line-height: 33px;
+  padding: 0 20px 0 30px;
+  position: absolute;
+  right: 0;
+}
+#anteriores .todos a {
+  color: #3f4044;
+  font-size: 14px;
+  font-weight: bold;
+}
+#anteriores h3.tit {
+  font-size: 33px;
+  font-weight: normal;
+  letter-spacing: 15px;
+  margin: 20px 0 15px 0;
+  text-transform: uppercase;
+}
+#anteriores .capitulo {
+  float: left;
+  padding-bottom: 5px;
+  position: relative;
+  vertical-align: top;
+  width: 25%;
+}
+#anteriores .capitulo a {
+  display: block;
+}
+#anteriores .capitulo p {
+  background: rgba(0,0,0,0.5);
+  display: inline;
+}
+#anteriores .capitulo h2 {
+  background: rgba(0,0,0,0.5);
+  display: inline;
+}
+#anteriores .capitulo .block {
+  display: block;
+  margin-top: 5px;
+}
+#anteriores .capitulo .cap {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+#anteriores .capitulo .imagen {
+  height: 167px;
+}
+#anteriores .capitulo .imagen img {
+  width: 230px;
+  height: auto;
+  -o-box-shadow: -5px 5px 0 #c8cacd;
+  -ms-box-shadow: -5px 5px 0 #c8cacd;
+  -moz-box-shadow: -5px 5px 0 #c8cacd;
+  -webkit-box-shadow: -5px 5px 0 #c8cacd;
+  box-shadow: -5px 5px 0 #c8cacd;
+  -webkit-background-clip: padding-box;
+}
+#anteriores .capitulo:hover .imagen img {
+  -o-box-shadow: -5px 5px 0 #3d4043;
+  -ms-box-shadow: -5px 5px 0 #3d4043;
+  -moz-box-shadow: -5px 5px 0 #3d4043;
+  -webkit-box-shadow: -5px 5px 0 #3d4043;
+  box-shadow: -5px 5px 0 #3d4043;
+  -webkit-background-clip: padding-box;
+  -o-transition: 0.2s box-shadow;
+  -ms-transition: 0.2s box-shadow;
+  -moz-transition: 0.2s box-shadow;
+  -webkit-transition: 0.2s box-shadow;
+  transition: 0.2s box-shadow;
+}
+#anteriores .capitulo .texto {
+  line-height: 20px;
+  padding: 15px 15px 0 15px;
+  position: absolute;
+  text-align: left;
+  text-transform: none;
+  top: 0;
+  word-break: break-word;
+  z-index: 2;
+}
+#anteriores .capitulo .texto:first-letter {
+  text-transform: uppercase;
+}
+#anteriores .tit {
+  font-size: 23px;
+}
+#empresas {
+  margin-top: 65px;
+  text-align: center;
+}
+#empresas h3.tit {
+  font-size: 33px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin-bottom: 23px;
+  text-align: center;
+}
+#empresas .cont {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#empresas .sponsor {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin: 5px 10px;
+  padding: 5px;
+  background: #fff;
+}
+#empresas .sponsor img {
+  -webkit-filter: grayscale(1);
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: alpha(opacity=80);
+}
+#empresas .sponsor img:hover {
+  -webkit-filter: grayscale(0);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#wrapper {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+#cursos {
+  background: #fff;
+  text-transform: uppercase;
+}
+#cursos h3.tit {
+  font-size: 33px;
+  margin: 35px 0 20px;
+  text-align: center;
+}
+#cursos h3.tit a {
+  color: #3d4043;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+#cursos a {
+  color: #808285;
+}
+#cursos .curso {
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+#cursos .curso:hover .left img {
+  -o-box-shadow: -5px 5px 0 #3d4043;
+  -ms-box-shadow: -5px 5px 0 #3d4043;
+  -moz-box-shadow: -5px 5px 0 #3d4043;
+  -webkit-box-shadow: -5px 5px 0 #3d4043;
+  box-shadow: -5px 5px 0 #3d4043;
+  -webkit-background-clip: padding-box;
+  -o-transition: 0.2s box-shadow;
+  -ms-transition: 0.2s box-shadow;
+  -moz-transition: 0.2s box-shadow;
+  -webkit-transition: 0.2s box-shadow;
+  transition: 0.2s box-shadow;
+}
+#cursos .curso:hover .center h3 {
+  color: #3d4043;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#cursos .curso:hover .right {
+  border-color: #3d4043;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#cursos .curso:hover .right .mes {
+  color: #3d4043;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#cursos .curso .left {
+  padding-left: 25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#cursos .curso .left img {
+  width: 68px;
+  height: auto;
+  -o-box-shadow: -5px 5px 0 #d2d3d5;
+  -ms-box-shadow: -5px 5px 0 #d2d3d5;
+  -moz-box-shadow: -5px 5px 0 #d2d3d5;
+  -webkit-box-shadow: -5px 5px 0 #d2d3d5;
+  box-shadow: -5px 5px 0 #d2d3d5;
+  -webkit-background-clip: padding-box;
+}
+#cursos .curso .center {
+  border: 1px solid #919599;
+  border-right: none;
+  padding-left: 10px;
+  margin-left: 103px;
+  margin-right: 60px;
+  width: 100%;
+  height: 50px;
+}
+#cursos .curso .center h3 {
+  color: #808285;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+}
+#cursos .curso .center .pais {
+  color: #808285;
+  font-size: 10.5px;
+}
+#cursos .curso .right {
+  background: #fff;
+  border: 2px solid #919599;
+  height: 48px;
+  padding: 0 8px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 2;
+}
+#cursos .curso .right .mes {
+  font-size: 23px;
+}
+#cursos .curso .right .dia {
+  font-size: 13.5px;
+}
+#proximo {
+  background: #fff;
+  background: url("../images/post/pattern_participantes_post.png");
+  color: #3d4043;
+  margin-bottom: 45px;
+  margin-top: 50px;
+  text-align: center;
+}
+#proximo h3 {
+  font-size: 33px;
+  font-weight: normal;
+  letter-spacing: 15px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+#proximo .content {
+  background: #fff;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  padding: 0 15px;
+}
+#proximo .cuenta {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  *display: inline;
+  margin-right: 50px;
+  vertical-align: top;
+  zoom: 1;
+}
+#proximo .cuenta:last-child {
+  margin-right: 0;
+}
+#proximo .cuenta .leyenda {
+  font-size: 10px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+#proximo .cuenta .digito {
+  background: #fff;
+  border: 2px solid #b7bbbf;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  color: #3d4043;
+  font-size: 54px;
+  font-weight: bold;
+  font-size: 57px;
+  padding: 8px 5px;
+}
+#social {
+  margin: -50px auto 0 auto;
+  margin-left: 310px;
+  position: absolute;
+  width: 400px;
+  z-index: 5;
+}
+#social div {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  *display: inline;
+  margin-left: 40px;
+  vertical-align: top;
+  zoom: 1;
+}
+#social div:nth-child(1) {
+  margin-left: 0;
+}
+#social .btn_youtube:after,
+#social .btn_twitter:after,
+#social .btn_facebook:after,
+#social .btn_googlemas:after {
+  background: #fff;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  content: "";
+  height: 30px;
+  margin-left: -5px;
+  margin-top: -28px;
+  display: block;
+  width: 60px;
+}
+#social .btn_youtube:after {
+  width: 70px;
+}
+#social .btn_twitter:after {
+  width: 80px;
+}
+#social .btn_facebook,
+#social .btn_googlemas {
+  width: 55px;
+}
+#social .btn_facebook:after {
+  margin-top: -25px;
+  width: 55px;
+}
+#ultimo {
+  height: 500px;
+  width: 100%;
+}
+#ultimo .absolute {
+  height: 500px;
+  position: absolute;
+  width: 1000px;
+  z-index: 1;
+}
+#ultimo .datos {
+  position: relative;
+  z-index: 4;
+}
+#ultimo .datos .titulo {
+  font-size: 60px;
+  font-weight: normal;
+  line-height: 50px;
+  margin-right: 20px;
+  margin-top: 5px;
+  max-width: 90%;
+  -o-transition: 0.3s text-shadow;
+  -ms-transition: 0.3s text-shadow;
+  -moz-transition: 0.3s text-shadow;
+  -webkit-transition: 0.3s text-shadow;
+  transition: 0.3s text-shadow;
+}
+#ultimo .datos .titulo:hover {
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+#ultimo .tela {
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  z-index: 2;
+  width: 1000px;
+  height: 500px;
+}
+#ultimo .boton,
+#ultimo .fecha,
+#ultimo .horario,
+#ultimo .titulo {
+  clear: both;
+  display: block;
+  float: right;
+  margin-right: 40px;
+  text-align: right;
+}
+#ultimo .boton {
+  font-weight: bold;
+  margin-top: 10px;
+  text-transform: uppercase;
+  -o-transition: 0.3s text-shadow;
+  -ms-transition: 0.3s text-shadow;
+  -moz-transition: 0.3s text-shadow;
+  -webkit-transition: 0.3s text-shadow;
+  transition: 0.3s text-shadow;
+}
+#ultimo .boton:hover {
+  text-shadow: 0 0 10px #fff;
+}
+#ultimo .fecha {
+  font-size: 15px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+#ultimo .horario {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin: 115px 40px 0 0;
+  text-transform: uppercase;
+}
+#ultimo .horario .block {
+  display: block;
+}
+#ultimo .horario .big {
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+.cinta {
+  background: url("../images/home/countdown_separador.jpg") repeat-y;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  border-bottom: 1px solid #fff;
+  height: 32px;
+  width: 100%;
+}
+.menu {
+  background: #323e4a;
+  font-family: Arial;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 6;
+}
+.menu ul {
+  font-size: 0;
+  padding: 0;
+  text-align: right;
+}
+.menu li {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  -o-transition: 0.2s background;
+  -ms-transition: 0.2s background;
+  -moz-transition: 0.2s background;
+  -webkit-transition: 0.2s background;
+  transition: 0.2s background;
+  vertical-align: top;
+  z-index: 5;
+}
+.menu li:hover {
+  background: #1c2127;
+}
+.menu a {
+  display: block;
+  height: 42px;
+  line-height: 42px;
+  color: #898c93;
+  float: right;
+  text-align: center;
+  padding: 0 10px;
+}
+/***********crossbrowser************/
+.ie8 #ultimo .datos .titulo {
+  max-width: none !important;
+  padding-left: 30px !important;
+}
+.ie8 .tela {
+  background: url("../images/home/tela.png");
+}
+.ie8 .block .tit {
+  background: url("../images/home/tela.png");
+}
+#envivo {
+  background: #000;
+  height: 60px;
+  margin: 0 auto;
+  width: 1000px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+a.banner-link {
+  background: url("../images/home/banners/banner_home_lima.jpg") no-repeat left top;
+  height: 64px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 42px;
+  width: 736px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: left;
+  font-family: Arial;
+}
+a.banner-link > div {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+}
+a.banner-link .titulo {
+  width: 290px;
+  margin-top: 13px;
+  margin-left: 60px;
+  text-align: left;
+}
+a.banner-link .fecha {
+  position: relative;
+  left: 70px;
+  font-size: 30px;
+  width: 229px;
+  color: #313f4a;
+}
+a.banner-link .fecha .dia {
+  float: left;
+  font-size: 37px;
+  letter-spacing: -2px;
+  margin-right: 3px;
+  margin-top: 24px;
+}
+a.banner-link .fecha .col2 {
+  float: left;
+  vertical-align: top;
+  margin-top: 18px;
+  margin-left: 3px;
+}
+a.banner-link .fecha .mess {
+  display: block;
+  font-size: 12px;
+}
+a.banner-link .fecha .lugar {
+  display: block;
+  font-size: 14px;
+  text-align: left;
+  font-weight: bold;
+  position: relative;
+  top: -7px;
+}
+a.banner-link .img-tec {
+  margin: 9px 0 0 31px;
+}
+a.banner-link:hover {
+  text-decoration: none;
+}
+@-webkit-keyframes envivo {
+  100% {
+    -webkit-transform: translateX(0);
+  }
+
+  0% {
+    -webkit-transform: translateX(-1000px);
+  }
+}
+@-moz-keyframes envivo {
+  100% {
+    -moz-transform: translateX(0);
+  }
+
+  0% {
+    -moz-transform: translateX(-1000px);
+  }
+}
+#envivo .patron {
+  -webkit-animation: 25s envivo infinite linear;
+  -moz-animation: 25s envivo infinite linear;
+  background: url("../images/patron.jpg") repeat-x;
+  width: 2000px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+}
+#envivo .vivo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  z-index: 2;
+}
+@media screen and (max-width:1000px) {
+  body {
+    overflow-x: hidden;
+  }
+  footer {
+    padding-top: 10px;
+  }
+  footer a {
+    color: #fff;
+  }
+  footer div {
+    min-height: 0;
+    padding-bottom: 5px;
+  }
+  footer .derecha {
+    background: #3d4043;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }
+  footer .derecha .center {
+    left: 0;
+  }
+  footer .derecha span:nth-child(1) {
+    display: none;
+  }
+  footer .derecha a {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin: 0;
+    width: 40%;
+  }
+  footer .izquierda {
+    background: #fff;
+    padding-right: 0;
+    text-align: center;
+    width: 100%;
+  }
+  footer .izquierda:after {
+    display: none;
+  }
+  footer .izquierda .text {
+    color: #3d4043;
+    width: 100%;
+  }
+  footer .izquierda span {
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    margin-right: 4px;
+  }
+  footer .izquierda span:nth-child(1) {
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  footer .izquierda span:nth-child(2) {
+    font-size: 15px;
+    font-weight: normal;
+  }
+  #anteriores .capitulo {
+    border-left: 1px solid #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 25%;
+    padding-bottom: 0;
+  }
+  #anteriores .capitulo .imagen img {
+    -o-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-background-clip: padding-box;
+  }
+  #anteriores .capitulo:nth-of-type(1) {
+    border: none;
+  }
+  #empresas .content {
+    background: none;
+  }
+  #social {
+    position: relative;
+    margin-left: auto;
+  }
+  #ultimo {
+    overflow: hidden;
+    position: relative;
+  }
+  #ultimo .datos {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    height: 500px;
+  }
+  #ultimo .tela {
+    width: 100%;
+  }
+  #ultimo .boton {
+    bottom: 80px;
+    position: absolute;
+    right: 20px;
+    width: 100%;
+  }
+  #ultimo .fecha {
+    bottom: 60px;
+    position: absolute;
+    right: 20px;
+    width: 100%;
+  }
+  #wrapper {
+    width: auto;
+  }
+  #cursos .curso .left {
+    padding: 0;
+  }
+  #cursos .curso .center {
+    margin-left: 67px;
+  }
+  #cursos .curso .center h3 {
+    font-size: 16px;
+    font-weight: normal;
+  }
+}
+@media screen and (max-width:800px) {
+  h3.tit {
+    letter-spacing: 3px !important;
+    font-size: 20px !important;
+  }
+  header {
+    height: 87px;
+  }
+  header h1 a img {
+    height: 42px;
+    width: auto;
+  }
+  header #maestros {
+    left: 220px;
+  }
+  header #cristalab {
+    left: 285px;
+  }
+  header .mejor {
+    width: auto;
+  }
+  h3 {
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 2px;
+  }
+  #cuerpo {
+    min-width: 320px;
+  }
+  #anteriores .tit {
+    font-size: 18px;
+  }
+  #proximo h3 {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  #social {
+    display: none;
+  }
+  #ultimo {
+    overflow: hidden;
+    position: relative;
+    height: 370px;
+  }
+  #ultimo .datos {
+    height: 280px;
+    position: relative;
+    z-index: 4;
+  }
+  #ultimo .datos .titulo {
+    font-size: 30px;
+    line-height: 35px;
+    margin-right: auto;
+    position: absolute;
+    top: 35px;
+    max-width: 100%;
+    width: 100%;
+  }
+  #ultimo .tela {
+    width: 100%;
+  }
+  #ultimo .boton,
+  #ultimo .fecha,
+  #ultimo .horario,
+  #ultimo .titulo {
+    float: none;
+    margin-right: auto;
+    text-align: center;
+  }
+  #ultimo .boton {
+    bottom: 0;
+    font-size: 20px;
+    position: absolute;
+    width: 100%;
+  }
+  #ultimo .fecha {
+    bottom: -20px;
+    font-size: 18px;
+    position: absolute;
+    width: 100%;
+  }
+  #ultimo .horario {
+    margin: 60px auto 0 auto;
+  }
+  #ultimo .horario strong:nth-child(1) {
+    font-weight: normal;
+  }
+  #ultimo .horario .big {
+    font-size: 30px;
+  }
+  .menu {
+    top: 42px;
+  }
+  .menu ul {
+    min-width: 320px;
+    padding-top: 0;
+    text-align: center;
+li
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: auto;
+  }
+  .menu ul:nth-child(even) {
+    background: none;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+  .menu ul a {
+    height: 44px;
+    line-height: 44px;
+  }
+  a.banner-link {
+    display: none;
+  }
+}
+@media screen and (max-width:600px) {
+  #empresas .sponsor {
+    float: left;
+    width: 40%;
+    margin: 0;
+  }
+  #empresas .sponsor:nth-of-type(odd) {
+    text-align: right;
+    padding-right: 5%;
+  }
+  #empresas .sponsor:nth-of-type(even) {
+    text-align: left;
+    padding-left: 5%;
+  }
+  #anteriores {
+    height: auto;
+  }
+  #anteriores .capitulo {
+    border: none;
+    width: 50%;
+    height: auto;
+  }
+  #anteriores .capitulo .imagen {
+    height: auto;
+  }
+  #anteriores .capitulo .imagen img {
+    width: 100%;
+  }
+  #cursos .curso:hover .right  .mes {
+    color: #fff;
+  }
+  #cursos .curso .center {
+    max-width: none;
+    width: auto;
+    height: auto;
+    margin-right: 0;
+  }
+  #cursos .curso .right {
+    height: auto;
+    border: none;
+    background: #808285;
+  }
+  #cursos .curso .right h4 {
+    float: left;
+    color: #fff;
+    line-height: 17px;
+  }
+  #cursos .curso .right .mes {
+    font-size: 13px;
+    margin-right: 10px;
+  }
+  #proximo .cuenta {
+    margin: 0 !important;
+  }
+  #proximo .cuenta .digito {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width:480px) {
+  .menu ul li a {
+    padding: 0 5px;
+    font-size: 12px;
+  }
 }
