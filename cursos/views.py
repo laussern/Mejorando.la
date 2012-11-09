@@ -174,7 +174,7 @@ def paypal_ipn(req):
 
 		# validar los datos de pago con paypal
 		if r.text == 'VERIFIED':
-			curso = get_object_or_404(Curso, id=req.POST.get('item_number1'))
+			curso = get_object_or_404(Curso, id=req.POST.get('item_number'))
 
 			p = CursoPago.objects.filter(email=req.POST.get('payer_email'), curso=curso)
 
