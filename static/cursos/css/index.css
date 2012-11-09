@@ -1009,11 +1009,11 @@ form.sending::after {
   }
   .top .col2 {
     width: auto;
-    height: auto;
+    height: auto !important;
     float: none;
   }
   .top .col1 {
-    height: auto;
+    height: auto !important;
     float: none;
     width: auto;
   }
