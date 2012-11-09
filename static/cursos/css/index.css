@@ -58,6 +58,7 @@ input[type="text"] {
   margin: 5px 0;
   border-radius: 2px;
   width: 200px;
+  color: #fff;
 }
 input[type="text"].error::-webkit-input-placeholder {
   color: #f00;
@@ -68,8 +69,9 @@ input[type="text"].error:-moz-placeholder {
 input[type="text"]:focus {
   background-color: #fff;
   border-color: #008fd5;
+  color: #4a5765;
 }
-form.buy-form label {
+form.buy-form label.small-text {
   padding: 0 30px;
   padding-left: 40px;
   text-align: right;
@@ -112,12 +114,43 @@ input.input-small {
   padding-left: 5px;
 }
 input.input-medium {
-  width: 120px;
+  width: 77px;
   padding-left: 5px;
 }
 .wrapper {
   width: 1000px;
   margin: 0 auto;
+}
+label.wrap-tip {
+  padding-right: 20px;
+  background: url("../images/ayuda.png") right center no-repeat;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+label.wrap-tip:hover:after {
+  background: rgba(16,21,27,0.9);
+  position: absolute;
+  top: 5px;
+  left: 75px;
+  content: attr(data-tip);
+  color: #fff;
+  padding: 5px;
+  min-width: 150px;
+  z-index: 9;
+  border: 1px solid #0e1217;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 12px;
+}
+label.wrap-tip.tip-cvc:hover:after {
+  width: 200px;
+  line-height: 14px;
+  left: 115px;
+  top: 0;
+}
+input.card-expiry-month {
+  margin-left: 5px;
 }
 a {
   color: #000;
@@ -556,6 +589,7 @@ footer ul {
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
   padding: 20px;
   position: relative;
+  color: #808082;
 }
 .pago .panel .alumno input[type="text"] {
   width: 175px;
