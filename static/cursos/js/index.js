@@ -264,7 +264,7 @@ jQuery(function ($) {
 					'<input type="hidden" name="cmd" value="_xclick" />'+
 					'<input type="hidden" name="rm" value="1" /> <!-- send data back via POST -->'+
 					'<input type="hidden" name="cancel_return" value="'+window.location.href+'" />'+
-					'<input type="hidden" name="notify_url" value="'+window.location.href+'" />'+
+					'<input type="hidden" name="notify_url" value="https://mejorando.la/cursos/paypal_ipn" />'+
 					'<input type="hidden" name="return" value="'+window.location.href+'?felicidades" />'+
 					'<input type="hidden" name="business" value="cursos@mejorando.la" />'+
 					'<input type="hidden" name="lc" value="ES" />'+
