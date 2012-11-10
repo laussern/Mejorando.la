@@ -125,7 +125,7 @@ def curso(req, curso_slug):
 def paypal_ipn(req):
 	vs = req.POST.copy()
 
-	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_mail %s' % (vs.get('payment_status', vs.get('item_number'), vs.get('payer_mail') )))
+	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_mail %s' % (vs.get('payment_status'), vs.get('item_number'), vs.get('payer_mail')) )
 
 	# si estamos hablando de un pago
 	if vsPOST.get('payment_status') == 'Completed':
