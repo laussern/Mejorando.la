@@ -1,9 +1,13 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
-import image
-
 from django.utils import simplejson
+from django.db.models.signals import post_save
+
+import requests
+
+import image
+from utils import send_mail, calculate
 
 class Curso(models.Model):
 	nombre 	    = models.TextField()
@@ -50,19 +54,22 @@ class Curso(models.Model):
 		return CursoPago.objects.filter(charged=True, curso=self)
 	def no_pagados(self):
 		return CursoPago.objects.filter(charged=False, curso=self)
+	def registros(self):
+		return CursoRegistro.objects.filter(pago__curso=self)
 
 	def stripe_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='card', curso=self)
 	def stripe_no_pagados(self):
 		return CursoPago.objects.filter(charged=False, method='card', curso=self)
+	def stripe_registros(self):
+		return CursoRegistro.objects.filter(pago__curso=self, pago__method='card')
 
 	def paypal_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='paypal', curso=self)
 	def paypal_no_pagados(self):
 		return CursoPago.objects.filter(charged=False, method='paypal', curso=self)
-
-	def registros(self):
-		return CursoRegistro.objects.filter(pago__curso=self)
+	def paypal_registros(self):
+		return CursoRegistro.objects.filter(pago__curso=self, pago__method='paypal')
 
 	
 	def regions(self):
@@ -137,4 +144,29 @@ class CursoRegistro(models.Model):
 	def __unicode__(self):
 		return self.email
 
-	
+# HOOKS
+def create_pago(sender, instance, created, *args, **kwargs):
+	curso = instance.curso
+
+	if created and instance.method == 'deposit':
+		send_mail('curso_info', { 'curso': curso }, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
+
+	if instance.charged:
+		vs = calculate(int(instance.quantity), curso.precio)
+
+		vs['curso'] = curso
+		vs['pago']  = instance
+
+		send_mail('curso_pago', vs, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
+
+def create_registro(sender, instance, created, *args, **kwargs):
+	if created:
+		# integracion con la plataforma
+		curso = instance.pago.curso
+
+		try:
+			r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
+		except: return HttpResponse('ERR')
+
+post_save.connect(create_pago, sender=CursoPago)
+post_save.connect(create_registro, sender=CursoRegistro)

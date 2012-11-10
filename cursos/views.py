@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import math
 
 from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -10,7 +9,7 @@ from django.views.decorators.http import require_POST
 
 from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
-from utils import send_mail
+from utils import calculate
 
 import stripe
 import requests
@@ -34,9 +33,8 @@ def home(req):
 # vista publica del curso
 def curso(req, curso_slug):
 	if req.method == 'POST':
-		curso = get_object_or_404(Curso, slug=curso_slug)
-		vs 	  = { 'curso': curso } # variables para el rendereo de la plantilla
-
+		curso  = get_object_or_404(Curso, slug=curso_slug)
+		vs 	   = { 'curso': curso } # variables para el rendereo de la plantilla
 		action = req.POST.get('action')
 
 		if action:
@@ -48,34 +46,22 @@ def curso(req, curso_slug):
 				token 	 = req.POST.get('stripeToken')
 
 				if nombre and email and tel and quantity and token:
-					quantity = int(quantity)
-
-					rate  = math.floor( quantity / 5 )
-					total = curso.precio * quantity
-
-					# descuento de plazas gratis
-					discount = rate * curso.precio
-
-					#aplicar el descuento solo cuando no sea cada 5 (que es cuando hay una plaza gratis mas)
-					if (quantity % 5) != 0:
-						discount += (curso.precio * 0.1) * (quantity-1 if quantity < 5 else quantity - (5 * rate) )
-
-					amount = total - discount
-
 					# realizar el cargo con la api de stripe
 					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='card')
 					p.save()
 
+					concept = calculate(int(quantity), curso.precio)
+
 					try:
 						charge = stripe.Charge.create(
-							amount		= int(amount)*100,
+							amount		= concept['amount']*100,
 							currency	= 'usd',
 							card	    = token,
 							description = email
 						)
-					except Exception: return HttpResponse('ERR')
+					except:  return HttpResponse('ERR')
 
-					# si se realiza el cargo con exito enviar mail de confirmacion de pago
+					# si no se realiza el cargo regresar error
 					if not charge.paid: return HttpResponse('ERR')
 
 					p.charged = True
@@ -83,42 +69,18 @@ def curso(req, curso_slug):
 
 					req.session['p32'] = p.id
 
-					vs['amount']   = amount
-					vs['discount'] = discount
-					vs['total']    = total
-					vs['pago']     = p
-
-					send_mail('curso_pago', vs, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, email)
-
 					return HttpResponse('OK')
 
 				else: return HttpResponse('ERR')
 
-			elif action == 'deposit':
+			elif action == 'deposit' or action == 'paypal':
 				nombre 	 = req.POST.get('nombre')
 				email  	 = req.POST.get('email')
 				tel    	 = req.POST.get('telefono')
 				quantity = req.POST.get('quantity')
 
 				if nombre and email and tel and quantity:
-
-					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='deposit')
-					p.save()
-
-					send_mail('curso_info', vs, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, email)
-
-					return HttpResponse('OK')
-
-				else: return HttpResponse('ERR')
-			elif action == 'paypal':
-				nombre 	 = req.POST.get('nombre')
-				email  	 = req.POST.get('email')
-				tel    	 = req.POST.get('telefono')
-				quantity = req.POST.get('quantity')
-
-				if nombre and email and tel and quantity:
-
-					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='paypal')
+					p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method=action)	
 					p.save()
 
 					return HttpResponse('OK')
@@ -132,16 +94,12 @@ def curso(req, curso_slug):
 				if email and pago:
 					p = get_object_or_404(CursoPago, id=pago)
 
+					# no permitir registro sin haber pagado
 					if not p.charged: return HttpResponse('ERR')
 
 					for e in email:
 						r = CursoRegistro(email=e, pago=p)
 						r.save()
-
-						# integracion con la plataforma
-						try:
-							r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': e, 'passwd': settings.PLATAFORMA_API_KEY })
-						except: return HttpResponse('ERR')
 
 					return HttpResponse('OK')
 					
@@ -173,9 +131,10 @@ def paypal_ipn(req):
 	if req.POST.get('payment_status') == 'Completed':
 		vs['cmd'] = '_notify-validate'
 
+		# validar los datos que se reciben con paypal
 		r = requests.post('https://www.paypal.com/cgi-bin/webscr', vs)
 
-		# validar los datos de pago con paypal
+		# respuesta de paypal
 		if r.text == 'VERIFIED':
 			curso = get_object_or_404(Curso, id=req.POST.get('item_number'))
 
@@ -187,35 +146,7 @@ def paypal_ipn(req):
 				p.charged = True
 				p.save()
 
-				rate  = math.floor( p.quantity / 5 )
-				total = curso.precio * p.quantity
-
-				# descuento de plazas gratis
-				discount = rate * curso.precio
-
-				#aplicar el descuento solo cuando no sea cada 5 (que es cuando hay una plaza gratis mas)
-				if (p.quantity % 5) != 0:
-					discount += (curso.precio * 0.1) * (p.quantity-1 if p.quantity < 5 else p.quantity - (5 * rate) )
-
-				amount = total - discount
-
-				send_mail('curso_pago', { 
-					'curso': curso,
-					'amount': amount,
-					'total': total,
-					'pago': p
-				}, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, p.email)
-
-
-				if p.quantity == 1:
-					# llevar a cabo el registro al curso
-					reg = CursoRegistro(email=p.email, pago=p)
-					reg.save()
-
-					# integracion con la plataforma
-					try:
-						r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': e, 'passwd': settings.PLATAFORMA_API_KEY })
-					except: pass
-
+				r = CursoRegistro(email=p.email, pago=p)
+				r.save()
 
 	return HttpResponse()
