@@ -1173,6 +1173,9 @@ li
   right: -10px;
   overflow: hidden;
 }
+.curso-ad:hover {
+  text-decoration: none;
+}
 .curso-ad span {
   display: block;
   color: #36434b;
@@ -1208,16 +1211,31 @@ li
 }
 @media screen and (max-width:960px) {
   .curso-ad {
-    background: #fff;
-  }
-}
-@media screen and (max-width:585px) {
-  .curso-ad {
+    background-position: center center;
+    text-align: center;
     height: auto;
   }
-  .curso-ad span.ad-title,
+  .curso-ad span.ad-title {
+    float: none;
+    width: auto;
+    margin: 5px 0 70px;
+  }
   .curso-ad span.ad-teachers {
     float: none;
-    margin-left: 21px;
+    margin: 70px 5px 0 5px;
+  }
+}
+@media screen and (max-width:465px) {
+  .curso-ad {
+    -webkit-background-size: 100%;
+    background-size: 100%;
+  }
+  .curso-ad span.ad-title {
+    font-size: 15px;
+    line-height: 16px;
+  }
+  .curso-ad span.ad-teachers {
+    font-size: 12px;
+    line-height: 13px;
   }
 }

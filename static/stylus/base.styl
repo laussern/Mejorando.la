@@ -949,6 +949,9 @@ a.banner-link
 	right -10px
 	overflow hidden
 
+	&:hover
+		text-decoration none
+
 	span 
 		display block
 		color #36434b
@@ -987,11 +990,28 @@ a.banner-link
 
 @media screen and (max-width:960px)
 	.curso-ad
-		background white
-
-@media screen and (max-width:585px)
-	.curso-ad
+		background-position center center
+		text-align center
 		height auto
-		span.ad-title, span.ad-teachers
+
+		span.ad-title 
 			float none
-			margin-left 21px
+			width auto
+			margin 5px 0 70px
+
+		span.ad-teachers
+			float none
+			margin 70px 5px 0 5px
+
+
+@media screen and (max-width:465px)
+	.curso-ad
+		background-size 100%
+		
+		span.ad-title
+			font-size 15px
+			line-height 16px
+
+		span.ad-teachers
+			font-size 12px
+			line-height 13px
