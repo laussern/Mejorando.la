@@ -262,7 +262,7 @@ jQuery(function ($) {
 				var f = '<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">'+
 					'<input type="hidden" name="charset" value="utf-8" />'+
 					'<input type="hidden" name="cmd" value="_xclick" />'+
-					'<input type="hidden" name="rm" value="2" /> <!-- send data back via POST -->'+
+					'<input type="hidden" name="rm" value="1" /> <!-- send data back via POST -->'+
 					'<input type="hidden" name="cancel_return" value="'+window.location.href+'" />'+
 					'<input type="hidden" name="notify_url" value="https://mejorando.la/cursos/paypal_ipn" />'+
 					'<input type="hidden" name="return" value="'+window.location.href+'?felicidades" />'+
