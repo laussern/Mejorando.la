@@ -125,20 +125,22 @@ def curso(req, curso_slug):
 def paypal_ipn(req):
 	vs = req.POST.copy()
 
-	logging.error('PAYPAL IPN: %s' % vars(vs))
+	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_mail %s' % (vs.get('payment_status', vs.get('item_number'), vs.get('payer_mail') )))
 
 	# si estamos hablando de un pago
-	if req.POST.get('payment_status') == 'Completed':
+	if vsPOST.get('payment_status') == 'Completed':
 		vs['cmd'] = '_notify-validate'
 
 		# validar los datos que se reciben con paypal
 		r = requests.post('https://www.paypal.com/cgi-bin/webscr', vs)
 
+		logging.error('PAYPAL IPN VALIDATION: %s' % r.text)
+
 		# respuesta de paypal
 		if r.text == 'VERIFIED':
-			curso = get_object_or_404(Curso, id=req.POST.get('item_number'))
+			curso = get_object_or_404(Curso, id=vs.get('item_number'))
 
-			p = CursoPago.objects.filter(email=req.POST.get('payer_email'), curso=curso)
+			p = CursoPago.objects.filter(email=vs.get('payer_email'), curso=curso)
 
 			if p.exists():
 				p = p[0]
@@ -148,5 +150,7 @@ def paypal_ipn(req):
 
 				r = CursoRegistro(email=p.email, pago=p)
 				r.save()
+			else:
+				logging.error('PAYPAL IPN: El pago no esta registrado en la bd')
 
 	return HttpResponse()
