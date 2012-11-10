@@ -289,6 +289,7 @@ strong
 	background white
 	margin 0 auto
 	max-width 1000px
+	position relative
 
 #cursos
 	background white
@@ -935,3 +936,62 @@ a.banner-link
 			font-size 12px
 
 
+.curso-ad
+	background url(../images/ad-left.gif) left bottom no-repeat, url(../images/ad-right.gif) right bottom no-repeat, white url(../images/online-ad.jpg) center 5px no-repeat
+	height 68px
+	background-clip border-box, border-box, content-box
+	padding-bottom 10px
+	display block
+	position absolute
+	z-index 9
+	top 60px
+	left -10px
+	right -10px
+	overflow hidden
+
+	span 
+		display block
+		color #36434b
+		margin-top 5px
+
+
+		&.ad-title
+			text-transform uppercase
+			float left	
+			font-size 20px
+			width 300px
+			margin-left 21px
+			line-height 20px
+
+
+			small
+				font-size 12px
+				display block
+				font-weight bold
+
+		&.ad-teachers
+			float right
+			font-size 14px
+			line-height 15px
+			font-weight bold
+			margin-top 19px
+			margin-right 40px
+
+
+@media screen and (max-width:1000px)
+	.curso-ad
+		position static
+		background white url(../images/online-ad.jpg) center 5px no-repeat
+		height 58px
+
+
+@media screen and (max-width:960px)
+	.curso-ad
+		background white
+
+@media screen and (max-width:585px)
+	.curso-ad
+		height auto
+		span.ad-title, span.ad-teachers
+			float none
+			margin-left 21px

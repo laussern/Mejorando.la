@@ -386,6 +386,7 @@ strong {
   background: #fff;
   margin: 0 auto;
   max-width: 1000px;
+  position: relative;
 }
 #cursos {
   background: #fff;
@@ -1155,5 +1156,68 @@ li
   .menu ul li a {
     padding: 0 5px;
     font-size: 12px;
+  }
+}
+.curso-ad {
+  background: url("../images/ad-left.gif") left bottom no-repeat, url("../images/ad-right.gif") right bottom no-repeat, #fff url("../images/online-ad.jpg") center 5px no-repeat;
+  height: 68px;
+  -moz-background-clip: border, border, content;
+  -webkit-background-clip: border, border, content;
+  background-clip: border-box, border-box, content-box;
+  padding-bottom: 10px;
+  display: block;
+  position: absolute;
+  z-index: 9;
+  top: 60px;
+  left: -10px;
+  right: -10px;
+  overflow: hidden;
+}
+.curso-ad span {
+  display: block;
+  color: #36434b;
+  margin-top: 5px;
+}
+.curso-ad span.ad-title {
+  text-transform: uppercase;
+  float: left;
+  font-size: 20px;
+  width: 300px;
+  margin-left: 21px;
+  line-height: 20px;
+}
+.curso-ad span.ad-title small {
+  font-size: 12px;
+  display: block;
+  font-weight: bold;
+}
+.curso-ad span.ad-teachers {
+  float: right;
+  font-size: 14px;
+  line-height: 15px;
+  font-weight: bold;
+  margin-top: 19px;
+  margin-right: 40px;
+}
+@media screen and (max-width:1000px) {
+  .curso-ad {
+    position: static;
+    background: #fff url("../images/online-ad.jpg") center 5px no-repeat;
+    height: 58px;
+  }
+}
+@media screen and (max-width:960px) {
+  .curso-ad {
+    background: #fff;
+  }
+}
+@media screen and (max-width:585px) {
+  .curso-ad {
+    height: auto;
+  }
+  .curso-ad span.ad-title,
+  .curso-ad span.ad-teachers {
+    float: none;
+    margin-left: 21px;
   }
 }
