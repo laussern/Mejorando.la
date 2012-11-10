@@ -5,6 +5,8 @@
 <div id="main">
 
 {% for curso in cursos %}
+
+<div class="curso-bloque">
 <h3>{{ curso.nombre }}</h3>
 
 
@@ -23,13 +25,45 @@
 
 		<h4>Registros</h4>
 		<p>Total: <strong>{{ curso.registros|length }}</strong></p>
+
+
+		<hr />
+
+		<div class="chart-timeline" style="width: 500px; height: 300px;" data-timeline="{{ curso.timeline }}"></div>
 		
 	</div>
 
 	<div class="col2">
-		<div style="width: 700px; height: 500px;" class="chart" data-regions="{{ curso.regions }}"></div>
+		<div style="width: 700px; height: 500px;" class="chart-geo" data-regions="{{ curso.regions }}"></div>
 	</div>
 </div>
+
+<h4><a href="#" class="detail-link">Detalle de transacciones <small>(Click para ampliar)</small></a></h4>
+<div class="detail">
+<table>
+<thead><tr>
+		<th>Nombre</th>
+		<th>Email</th>
+		<th>País</th>
+		<th>Fecha</th>
+		<th>Plazas</th>
+</tr></thead>
+
+<tbody>
+{% for p in curso.transacciones %}
+<tr class="{{ p.charged|yesno:"pagado,nopagado" }} method-{{ p.method }}">
+	<td>{{ p.nombre }}</td>
+	<td>{{ p.email }}</td>
+	<td>{{ p.pais }}</td>
+	<td>{{ p.fecha|date:"b/d" }}</td>
+	<td>{{ p.quantity }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
 {% endfor %}
 
 </div>
@@ -37,11 +71,11 @@
 
 <script src='https://www.google.com/jsapi'></script>
 <script>
-	google.load('visualization', '1', {'packages': ['geochart']});
+	google.load('visualization', '1', {'packages': ['geochart', 'corechart']});
     google.setOnLoadCallback(drawRegionsMap);
 
     function drawRegionsMap() {
-        $('.chart').each(function () {
+        $('.chart-geo').each(function () {
         	var $self = $(this);
 
         	var data = google.visualization.arrayToDataTable([['País', 'Registros']].concat(JSON.parse($self.attr('data-regions'))));
@@ -55,6 +89,30 @@
 	        var chart = new google.visualization.GeoChart(this);
 	        chart.draw(data, options);
         });
+
+        $('.chart-timeline').each(function () {
+        	var $self = $(this);
+
+			var data = google.visualization.arrayToDataTable([['Fecha', 'Transacciones']].concat(JSON.parse($self.attr('data-timeline'))));
+
+			var options = {
+				colors: ['#303030'],
+				title: 'Transacciones por día',
+				hAxis: {title: 'Fecha' },
+				vAxis: { title: 'Cantidad' },
+				legend: 'none',
+				pointSize: 7,
+			};
+
+			var chart = new google.visualization.AreaChart(this);
+			chart.draw(data, options);
+        });
     }
+
+    jQuery(function ($) {
+    	$('.detail').hide();
+
+    	$('.detail-link').toggle(function () { $(this).closest('h4').next('.detail').show()}, function () { $(this).closest('h4').next('.detail').hide()} )
+    })
 </script>
 {% endblock %}

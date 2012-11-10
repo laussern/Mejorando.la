@@ -43,6 +43,9 @@ class Curso(models.Model):
 	# opciones del curso
 	def is_online(self): return self.pais.lower() == 'online'
 
+	def transacciones(self):
+		return CursoPago.objects.filter(curso=self)
+		
 	def pagados(self):
 		return CursoPago.objects.filter(charged=True, curso=self)
 	def no_pagados(self):
@@ -69,6 +72,11 @@ class Curso(models.Model):
 			r.append([p['pago__pais'], p['id__count']])
 		
 		return simplejson.dumps(r)
+
+	def timeline(self):
+		pagos = CursoPago.objects.filter(charged=True, curso=self)
+
+		return simplejson.dumps([ [ f.strftime('%b/%d'), pagos.filter(fecha__year=f.year, fecha__month=f.month, fecha__day=f.day).count() ] for f in pagos.dates('fecha', 'day')])
 
 	def save(self, *args, **kwargs):
 		super(Curso, self).save(*args, **kwargs)
