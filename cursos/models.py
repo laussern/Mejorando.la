@@ -56,6 +56,13 @@ class Curso(models.Model):
 		return CursoPago.objects.filter(charged=False, curso=self)
 	def registros(self):
 		return CursoRegistro.objects.filter(pago__curso=self)
+	def vendidos(self):
+		result = CursoPago.objects.filter(charged=True, curso=self).aggregate(models.Sum('quantity'))['quantity__sum']
+
+		if result is None: result = 0
+		return result
+	def noregistros(self):
+		return self.vendidos() - self.registros().count()
 
 	def stripe_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='card', curso=self)
@@ -70,6 +77,13 @@ class Curso(models.Model):
 		return CursoPago.objects.filter(charged=False, method='paypal', curso=self)
 	def paypal_registros(self):
 		return CursoRegistro.objects.filter(pago__curso=self, pago__method='paypal')
+
+	def deposit_pagados(self):
+		return CursoPago.objects.filter(charged=True, method='deposit', curso=self)
+	def deposit_no_pagados(self):
+		return CursoPago.objects.filter(charged=False, method='deposit', curso=self)
+	def deposit_registros(self):
+		return CursoRegistro.objects.filter(pago__curso=self, pago__method='deposit')
 
 	
 	def regions(self):
@@ -124,6 +138,12 @@ class CursoDocente(models.Model):
 		image.resize((67, 67), self.imagen)
 
 class CursoPago(models.Model):
+	TIPOS = (
+		('card', 'Stripe'),
+		('paypal', 'PayPal'),
+		('deposit', 'Deposito')
+	)
+
 	nombre 	 = models.CharField(max_length=500)
 	email  	 = models.EmailField()
 	telefono = models.CharField(max_length=500)
@@ -132,7 +152,7 @@ class CursoPago(models.Model):
 	fecha    = models.DateTimeField(auto_now_add=True)
 	curso    = models.ForeignKey(Curso)
 	charged  = models.BooleanField(default=False)
-	method   = models.CharField(max_length=10)
+	method   = models.CharField(max_length=10, choices=TIPOS)
 
 	def __unicode__(self):
 		return self.nombre

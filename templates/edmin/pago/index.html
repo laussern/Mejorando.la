@@ -12,15 +12,19 @@
 
 <div class="cols">
 	<div class="col1">
+		<h4>Total</h4>
+		<p>Transacciones: completas <strong>{{ curso.pagados|length }}</strong>, incompletas <strong>{{ curso.no_pagados|length }}</strong></p>
+
+		<p>Plazas vendidas <strong>{{ curso.vendidos }}</strong>: registradas <strong>{{ curso.registros|length }}, </strong> sin registrar <strong>{{ curso.noregistros }}</strong></p>
+
 		<h4>Stripe</h4>
 		<p>Transacciones: <strong>{{ curso.stripe_pagados|length }}</strong> Incompletas: <strong>{{ curso.stripe_no_pagados|length }}</strong> Registros: <strong>{{ curso.stripe_registros|length }}</strong></p>
 
 		<h4>Paypal</h4>
 		<p>Transacciones: <strong>{{ curso.paypal_pagados|length }}</strong> Incompletas: <strong>{{ curso.paypal_no_pagados|length }}</strong> Registros: <strong>{{ curso.paypal_registros|length }}</strong></p>
 
-		<h4>Total</h4>
-		<p>Transacciones: <strong>{{ curso.pagados|length }}</strong> Incompletas: <strong>{{ curso.no_pagados|length }}</strong> Registros: <strong>{{ curso.registros|length }}</strong></p>
-
+		<h4>Depósito</h4>
+		<p>Transacciones: <strong>{{ curso.deposit_pagados|length }}</strong> Incompletas: <strong>{{ curso.deposit_no_pagados|length }}</strong> Registros: <strong>{{ curso.deposit_registros|length }}</strong></p>
 
 		<hr />
 
