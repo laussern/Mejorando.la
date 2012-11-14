@@ -64,6 +64,8 @@ class Curso(models.Model):
 	def noregistros(self):
 		return self.vendidos() - self.registros().count()
 
+	def stripe_total(self):
+		return self.stripe_pagados().count() + self.stripe_no_pagados().count()
 	def stripe_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='card', curso=self)
 	def stripe_no_pagados(self):
@@ -71,6 +73,8 @@ class Curso(models.Model):
 	def stripe_registros(self):
 		return CursoRegistro.objects.filter(pago__curso=self, pago__method='card')
 
+	def paypal_total(self):
+		return self.paypal_pagados().count() + self.paypal_no_pagados().count()
 	def paypal_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='paypal', curso=self)
 	def paypal_no_pagados(self):
@@ -78,6 +82,8 @@ class Curso(models.Model):
 	def paypal_registros(self):
 		return CursoRegistro.objects.filter(pago__curso=self, pago__method='paypal')
 
+	def deposit_total(self):
+		return self.deposit_pagados().count() + self.deposit_no_pagados().count()
 	def deposit_pagados(self):
 		return CursoPago.objects.filter(charged=True, method='deposit', curso=self)
 	def deposit_no_pagados(self):
@@ -153,6 +159,9 @@ class CursoPago(models.Model):
 	curso    = models.ForeignKey(Curso)
 	charged  = models.BooleanField(default=False)
 	method   = models.CharField(max_length=10, choices=TIPOS)
+
+	def intentos(self):
+		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()
 
 	def __unicode__(self):
 		return self.nombre
