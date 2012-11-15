@@ -164,7 +164,7 @@ class CursoPago(models.Model):
 		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()
 
 	def __unicode__(self):
-		return self.nombre
+		return '%s - %s ' % (self.nombre, self.email)
 
 class CursoRegistro(models.Model):
 	email  	 = models.EmailField()

@@ -36,6 +36,14 @@ class CursoRegistroAdmin(admin.ModelAdmin):
 	list_filter = ('pago__curso', 'pago__method', 'pago__charged', 'pago__pais')
 	search_fields = ('pago__nombre', 'pago__email')
 
+	def formfield_for_foreignkey(self, db_field, request, **kwargs):
+		if db_field.name == 'pago':
+			for i in kwargs:
+				print i
+			kwargs['queryset'] = CursoPago.objects.filter(charged=True).order_by('nombre')
+
+		return super(CursoRegistroAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
 class CursoPagoAdmin(admin.ModelAdmin):
 	list_filter = ('curso', 'method', 'charged', 'pais')
 	search_fields = ('nombre', 'email')
