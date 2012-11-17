@@ -74,4 +74,41 @@
   {% endif %}
 </section>
 
+<script src="//www.youtube.com/iframe_api"></script>
+<script>
++function () {
+    var ready = false;
+
+    window.onYouTubeIframeAPIReady =  function()  {
+        jQuery(function ($) {
+          var $video  = $('.contvideo')
+              $iframe = $video.find('iframe'),
+              src     = $iframe.attr('src'),
+              width   = $iframe.attr('width'),
+              height  = $iframe.attr('height');
+
+          if($iframe.size() <= 0) return;
+          
+          $video.html('<div id="player"></div>');
+
+          src = src.split('/');
+          var videoId = src[src.length-1];
+
+          new YT.Player('player', {
+            height:  height,
+            width:   width,
+            videoId: videoId,
+            events: {
+              'onStateChange': function (e) {
+                  if (e.data == YT.PlayerState.PLAYING && !ready) {
+                      ready = true;
+                      mixpanel.track("Video play");
+                  }
+              }
+            }
+          });  
+        });
+    };
+}();
+</script>
 {% endblock %}
