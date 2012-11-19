@@ -152,6 +152,20 @@ label.wrap-tip.tip-cvc:hover:after {
 input.card-expiry-month {
   margin-left: 5px;
 }
+.tip-paypal {
+  margin: 3px 0 0;
+  text-align: right;
+  margin-right: 26px;
+}
+.tip-paypal label.wrap-tip:hover:after {
+  text-align: center;
+  left: 115px;
+  top: -8px;
+  line-height: 14px;
+}
+.tip-paypal a {
+  color: #fff;
+}
 a {
   color: #000;
 }

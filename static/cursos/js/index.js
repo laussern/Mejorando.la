@@ -94,6 +94,8 @@ jQuery(function ($) {
 			// actualizar barra de estado
 			var n = get_method_name();
 			set_status('$'+get_price()+' '+get_currency()).addClass(n);
+			afterQuantity();
+			$forms.removeClass('paypal deposit card');
 			$forms.addClass(n);
 		}
 
@@ -226,7 +228,14 @@ jQuery(function ($) {
 
     		$status.text('$0 USD').removeClass('deposit paypal card');
     		$forms.removeClass('deposit paypal card');
+    		update_method(METHOD_CARD); // metodo default
     	})
+
+    	update_method(METHOD_CARD); // metodo default
+
+    	$('#paybypal').click(function () {
+    		update_method(METHOD_PAYPAL); // metodo default
+    	});
 
 		function pago_next() {
 			var $cur = $('.screen.active');
