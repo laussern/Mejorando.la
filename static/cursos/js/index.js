@@ -235,6 +235,7 @@ jQuery(function ($) {
 
     	$('#paybypal').click(function () {
     		update_method(METHOD_PAYPAL); // metodo default
+    		return false;
     	});
 
 		function pago_next() {
