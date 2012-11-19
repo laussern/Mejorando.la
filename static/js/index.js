@@ -38,7 +38,7 @@ jQuery(function ($) {
 			$youtube.find('.count').text(count);
 		}
 		else {
-			$.getJSON('http://gdata.youtube.com/feeds/api/users/' + $youtube.data('id') + '?alt=json&callback=?', function (data) {
+			$.getJSON('https://gdata.youtube.com/feeds/api/users/' + $youtube.data('id') + '?alt=json&callback=?', function (data) {
 				var count = formatNumber(data.entry['yt$statistics'].subscriberCount);
 				$.cookie('youtube_views', count);
 				$youtube.find('.count').text(count);
