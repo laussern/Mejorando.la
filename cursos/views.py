@@ -59,7 +59,11 @@ def curso(req, curso_slug):
 							card	    = token,
 							description = email
 						)
-					except:  return HttpResponse('ERR')
+					except Exception, e:  
+						p.error = str(e)
+						p.save()
+
+						return HttpResponse('ERR')
 
 					# si no se realiza el cargo regresar error
 					if not charge.paid: return HttpResponse('ERR')

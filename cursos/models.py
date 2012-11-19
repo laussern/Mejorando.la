@@ -159,6 +159,7 @@ class CursoPago(models.Model):
 	curso    = models.ForeignKey(Curso)
 	charged  = models.BooleanField(default=False)
 	method   = models.CharField(max_length=10, choices=TIPOS)
+	error 	 = models.CharField(max_length=200, blank=True)
 
 	def intentos(self):
 		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()
