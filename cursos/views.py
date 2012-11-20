@@ -6,6 +6,7 @@ from django.conf import settings
 from django.http import Http404
 from django.template import TemplateDoesNotExist, RequestContext
 from django.views.decorators.http import require_POST
+from django.core.mail import send_mail
 
 from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
@@ -62,6 +63,8 @@ def curso(req, curso_slug):
 					except Exception, e:  
 						p.error = str(e)
 						p.save()
+
+						send_mail(u'¿Podemos ayudarte de alguna forma?', u'Vimos que tuviste problemas pagando el %s de Mejorando.la\n¿Podemos ayudarte de alguna forma?\nNo olvides que puedes contactarnos vía skype en mejorandola' % curso.nombre, 'Ventas Mejorando.la <ventas@mejorando.la>', [p.email], fail_silently=True)
 
 						return HttpResponse('ERR')
 
@@ -155,6 +158,9 @@ def paypal_ipn(req):
 				r = CursoRegistro(email=p.email, pago=p)
 				r.save()
 			else:
+				p = CursoPago(nombre='%s %s' % (vs.get('first_name'), vs.get('last_name')), email=vs.get('payer_email'), telefono=vs.get('contact_phone'), pais=vs.get('address_country'), quantity=1, curso=curso, method='paypal')	
+				p.save()
+
 				logging.error('PAYPAL IPN: El pago no esta registrado en la bd')
 
-	return HttpResponse()
+	return HttpResponse('OK')

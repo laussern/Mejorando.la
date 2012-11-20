@@ -77,7 +77,7 @@ jQuery(function ($) {
 			set_status('$'+r.total+' '+c+extra);
 
 			// agregar campos de registro al formulario
-			if(method != METHOD_CARD) update_regform();
+			if(method == METHOD_CARD) update_regform();
 		}
 
 		function update_quantity(num) {

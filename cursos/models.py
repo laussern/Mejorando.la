@@ -196,7 +196,7 @@ def create_registro(sender, instance, created, *args, **kwargs):
 
 		try:
 			r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
-		except: return HttpResponse('ERR')
+		except: pass
 
 post_save.connect(create_pago, sender=CursoPago)
 post_save.connect(create_registro, sender=CursoRegistro)
