@@ -15,6 +15,7 @@ from utils import calculate
 import stripe
 import requests
 import logging
+import urllib
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -128,26 +129,29 @@ def curso(req, curso_slug):
 		return render_to_response('cursos/curso.html', vs)
 
 
-@require_POST
-def paypal_ipn(req):
-	vs = req.POST.copy()
 
-	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_email %s' % (vs.get('payment_status'), vs.get('item_number'), vs.get('payer_email')) )
+def paypal_ipn(req):
+	vs = {
+		'cmd': '_notify-validate',
+	}
+
+	vs.update(dict(req.POST.items()))
+
+	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_email %s' % (vs['payment_status'], vs['item_number'], vs['payer_email']) )
 
 	# si estamos hablando de un pago
-	if vs.get('payment_status') == 'Completed':
-		vs['cmd'] = '_notify-validate'
+	if vs['payment_status'] == 'Completed':
 
 		# validar los datos que se reciben con paypal
-		r = requests.post('https://www.paypal.com/cgi-bin/webscr', vs)
+		r = urllib.urlopen('https://www.paypal.com/cgi-bin/webscr', urllib.urlencode(vs)).read()
 
-		logging.error('PAYPAL IPN VALIDATION: %s' % r.text)
+		logging.error('PAYPAL IPN VALIDATION: %s' % r)
 
 		# respuesta de paypal
-		if r.text == 'VERIFIED':
-			curso = get_object_or_404(Curso, id=vs.get('item_number'))
+		if r == 'VERIFIED':
+			curso = get_object_or_404(Curso, id=vs['item_number'])
 
-			p = CursoPago.objects.filter(email=vs.get('payer_email'), curso=curso)
+			p = CursoPago.objects.filter(email=vs['payer_email'], curso=curso)
 
 			if p.exists():
 				p = p[0]
@@ -158,7 +162,7 @@ def paypal_ipn(req):
 				r = CursoRegistro(email=p.email, pago=p)
 				r.save()
 			else:
-				p = CursoPago(nombre='%s %s' % (vs.get('first_name'), vs.get('last_name')), email=vs.get('payer_email'), telefono=vs.get('contact_phone'), pais=vs.get('address_country'), quantity=1, curso=curso, method='paypal')	
+				p = CursoPago(nombre='%s %s' % (vs['first_name'], vs['last_name']), email=vs['payer_email'], telefono=vs['contact_phone'], pais=vs['address_country'], quantity=1, curso=curso, method='paypal')	
 				p.save()
 
 				logging.error('PAYPAL IPN: El pago no esta registrado en la bd')
