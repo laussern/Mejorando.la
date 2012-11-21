@@ -152,8 +152,8 @@ class CursoPago(models.Model):
 
 	nombre 	 = models.CharField(max_length=500)
 	email  	 = models.EmailField()
-	telefono = models.CharField(max_length=500)
-	pais     = models.CharField(max_length=100)
+	telefono = models.CharField(max_length=500, null=True, blank=True)
+	pais     = models.CharField(max_length=100, null=True, blank=True)
 	quantity = models.IntegerField()
 	fecha    = models.DateTimeField(auto_now_add=True)
 	curso    = models.ForeignKey(Curso)
