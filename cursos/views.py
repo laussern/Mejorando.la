@@ -135,7 +135,7 @@ def paypal_ipn(req):
 		'cmd': '_notify-validate',
 	}
 
-	vs.update(dict(req.POST.items()))
+	vs.update(dict([ (key, val.encode('utf-8')) for key, val in req.POST.items() ]))
 
 	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_email %s' % (vs['payment_status'], vs['item_number'], vs['payer_email']) )
 
