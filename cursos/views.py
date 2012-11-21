@@ -129,29 +129,24 @@ def curso(req, curso_slug):
 		return render_to_response('cursos/curso.html', vs)
 
 
-
+@require_POST
 def paypal_ipn(req):
-	vs = {
-		'cmd': '_notify-validate',
-	}
 
-	vs.update(dict([ (key, val.encode('utf-8')) for key, val in req.POST.items() ]))
-
-	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_email %s' % (vs['payment_status'], vs['item_number'], vs['payer_email']) )
+	logging.error('PAYPAL IPN STARTED: payment_status %s, item_number %s, payer_email %s' % (req.POST.get('payment_status'), req.POST.get('item_number'), req.POST.get('payer_email')) )
 
 	# si estamos hablando de un pago
-	if vs['payment_status'] == 'Completed':
+	if req.POST.get('payment_status') == 'Completed':
 
 		# validar los datos que se reciben con paypal
-		r = urllib.urlopen('https://www.paypal.com/cgi-bin/webscr', urllib.urlencode(vs)).read()
+		r = urllib.urlopen('https://www.paypal.com/cgi-bin/webscr', req.body+'&cmd=_notify-validate').read()
 
 		logging.error('PAYPAL IPN VALIDATION: %s' % r)
 
 		# respuesta de paypal
 		if r == 'VERIFIED':
-			curso = get_object_or_404(Curso, id=vs['item_number'])
+			curso = get_object_or_404(Curso, id=req.POST.get('item_number'))
 
-			p = CursoPago.objects.filter(email=vs['payer_email'], curso=curso)
+			p = CursoPago.objects.filter(email=req.POST.get('payer_email'), curso=curso)
 
 			if p.exists():
 				p = p[0]
@@ -159,7 +154,7 @@ def paypal_ipn(req):
 				p.charged = True
 				p.save()
 			else:
-				p = CursoPago(nombre='%s %s' % (vs['first_name'], vs['last_name']), email=vs['payer_email'], telefono=vs['contact_phone'], pais=vs['address_country'], quantity=1, curso=curso, method='paypal')	
+				p = CursoPago(nombre='%s %s' % (req.POST.get('first_name'), req.POST.get('last_name')), email=req.POST.get('payer_email'), telefono=req.POST.get('contact_phone'), pais=req.POST.get('address_country'), quantity=1, curso=curso, method='paypal')	
 				p.save()
 
 				logging.error('PAYPAL IPN: El pago no esta registrado en la bd')
