@@ -154,7 +154,7 @@ def paypal_ipn(req):
 				p.charged = True
 				p.save()
 			else:
-				p = CursoPago(nombre='%s %s' % (req.POST.get('first_name'), req.POST.get('last_name')), email=req.POST.get('payer_email'), telefono=req.POST.get('contact_phone'), pais=req.POST.get('address_country'), quantity=1, curso=curso, method='paypal')	
+				p = CursoPago(nombre='%s %s' % (req.POST.get('first_name'), req.POST.get('last_name')), email=req.POST.get('payer_email'), telefono=req.POST.get('contact_phone'), pais=req.POST.get('address_country'), quantity=1, curso=curso, method='paypal', charged=True)	
 				p.save()
 
 				logging.error('PAYPAL IPN: El pago no esta registrado en la bd')
