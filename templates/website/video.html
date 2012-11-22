@@ -88,7 +88,8 @@
               height  = $iframe.attr('height');
 
           if($iframe.size() <= 0) return;
-          
+          if(!src.match(/youtube/i)) return console.log('hi');
+
           $video.html('<div id="player"></div>');
 
           src = src.split('/');
