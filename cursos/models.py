@@ -160,6 +160,7 @@ class CursoPago(models.Model):
 	charged  = models.BooleanField(default=False)
 	method   = models.CharField(max_length=10, choices=TIPOS)
 	error 	 = models.CharField(max_length=200, blank=True)
+	sent	 = models.BooleanField(default=False)
 
 	def intentos(self):
 		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()
@@ -181,13 +182,16 @@ def create_pago(sender, instance, created, *args, **kwargs):
 	if created and instance.method == 'deposit':
 		send_mail('curso_info', { 'curso': curso }, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
 
-	if instance.charged:
+	if instance.charged and not instance.sent:
 		vs = calculate(int(instance.quantity), curso.precio)
 
 		vs['curso'] = curso
 		vs['pago']  = instance
 
 		send_mail('curso_pago', vs, 'Gracias por tu pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
+
+		instance.sent = True
+		instance.save()
 
 def create_registro(sender, instance, created, *args, **kwargs):
 	if created:
