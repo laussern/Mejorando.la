@@ -203,13 +203,12 @@ def create_registro(sender, instance, created, *args, **kwargs):
 		except: pass
 
 def delete_registro(sender, instance, **kwargs):
-	if created:
-		# integracion con la plataforma
-		curso = instance.pago.curso
+	# integracion con la plataforma
+	curso = instance.pago.curso
 
-		try:
-			r = requests.post(u'%sdelete_preregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
-		except: pass
+	try:
+		r = requests.post(u'%sdelete_preregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
+	except: pass
 
 post_save.connect(create_pago, sender=CursoPago)
 post_save.connect(create_registro, sender=CursoRegistro)
