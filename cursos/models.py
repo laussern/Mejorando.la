@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
 from django.utils import simplejson
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 
 import requests
 
@@ -193,14 +193,15 @@ def create_pago(sender, instance, created, *args, **kwargs):
 		instance.sent = True
 		instance.save()
 
-def create_registro(sender, instance, created, *args, **kwargs):
+def delete_registro(sender, instance, created, *args, **kwargs):
 	if created:
 		# integracion con la plataforma
 		curso = instance.pago.curso
 
 		try:
-			r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
+			r = requests.post(u'%sdelete_preregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
 		except: pass
 
 post_save.connect(create_pago, sender=CursoPago)
 post_save.connect(create_registro, sender=CursoRegistro)
+post_delete.connect(delete_registro, sender=CursoRegistro)
