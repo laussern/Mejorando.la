@@ -202,7 +202,7 @@ def create_registro(sender, instance, created, *args, **kwargs):
 			r = requests.post(u'%spreregistro' % settings.PLATAFORMA_API_URL, { 'slug': curso.slug, 'email': instance.email, 'passwd': settings.PLATAFORMA_API_KEY })
 		except: pass
 
-def delete_registro(sender, instance, created, *args, **kwargs):
+def delete_registro(sender, instance, **kwargs):
 	if created:
 		# integracion con la plataforma
 		curso = instance.pago.curso
