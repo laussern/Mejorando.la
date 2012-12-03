@@ -17,7 +17,7 @@ import datetime
 import time
 import requests
 import urllib
-from utils import get_pais
+from utils import get_pais, get_ip
 
 
 # La vista del home muestra el ultimo video destacado
@@ -112,13 +112,9 @@ def video(solicitud, video_slug):
                         agent=settings.AKISMET_AGENT)
             if api.verify_key():
                 # por si el usuario esta detras de un proxy
-                if 'HTTP_X_FORWARDED_FOR' in solicitud.META and solicitud.META['HTTP_X_FORWARDED_FOR']:
-                    ip = solicitud.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
-                else:
-                    ip = solicitud.META['REMOTE_ADDR']
 
                 if not api.comment_check(comment=comentario.content, data={
-                        'user_ip': ip,
+                        'user_ip': get_ip(solicitud.META),
                         'user_agent': solicitud.META['HTTP_USER_AGENT']
                     }):
 
@@ -172,18 +168,12 @@ def hola(solicitud):
         email  = solicitud.POST['email']
         nombre = solicitud.POST['nombre']
 
-        # por si el usuario esta detras de un proxy
-        if solicitud.META.get('HTTP_X_FORWARDED_FOR'):
-            ip = solicitud.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
-        else:
-            ip = solicitud.META['REMOTE_ADDR']
-
         payload = {
             'email_address': email,
             'apikey': settings.MAILCHIMP_APIKEY,
             'merge_vars': {
                 'FNAME': nombre,
-                'OPTINIP': ip,
+                'OPTINIP': get_ip(solicitud.META),
                 'OPTIN_TIME': time.time(),
                 'PAIS': pais
             },
@@ -273,12 +263,6 @@ def conferencia_registro2(solicitud):
     else:    
         send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
 
-    # por si el usuario esta detras de un proxy
-    if solicitud.META.get('HTTP_X_FORWARDED_FOR'):
-        ip = solicitud.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
-    else:
-        ip = solicitud.META['REMOTE_ADDR']
-
     pais   = get_pais(solicitud.META)
     
     payload = {
@@ -286,7 +270,7 @@ def conferencia_registro2(solicitud):
         'apikey': settings.MAILCHIMP_APIKEY,
         'merge_vars': {
             'FNAME': solicitud.POST.get('nombre'),
-            'OPTINIP': ip,
+            'OPTINIP': get_ip(solicitud.META),
             'OPTIN_TIME': time.time(),
             'PAIS': pais
         },
