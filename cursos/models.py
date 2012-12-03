@@ -19,6 +19,7 @@ class Curso(models.Model):
 	imagen      = models.ImageField(upload_to='cursos_curso')
 	descripcion = models.TextField()
 	info_pago   = models.TextField()
+	activado    = models.BooleanField(default=False)
 
 	def __unicode__(self):
 		return self.nombre 

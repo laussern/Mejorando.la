@@ -39,7 +39,7 @@ def curso(req, curso_slug):
 		vs 	   = { 'curso': curso } # variables para el rendereo de la plantilla
 		action = req.POST.get('action')
 
-		if action:
+		if action and curso.activado:
 			if action == 'buy':
 				nombre 	 = req.POST.get('nombre')
 				email  	 = req.POST.get('email')
