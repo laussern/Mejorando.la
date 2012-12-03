@@ -9,8 +9,8 @@ def get_pais(meta):
     geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
 
     # por si el usuario esta detras de un proxy
-    if 'HTTP_X_FORWARDED_FOR' in meta and meta['HTTP_X_FORWARDED_FOR']:
-        ip = meta['HTTP_X_FORWARDED_FOR'].split(',')[0]
+    if meta.get('HTTP_X_REAL_IP'):
+        ip = meta.get('HTTP_X_REAL_IP')    
     else:
         ip = meta['REMOTE_ADDR']
 
