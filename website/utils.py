@@ -2,23 +2,27 @@
 
 import GeoIP
 
+
+def get_ip(meta):
+    # por si el usuario esta detras de un proxy
+    if meta.get('HTTP_X_REAL_IP'):
+        return meta.get('HTTP_X_REAL_IP')
+
+    return meta['REMOTE_ADDR']
+
+
 # devuelve el horario del programa
 # localizado por pais gracias a la
 # libreria GeoIP
 def get_pais(meta):
     geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
 
-    # por si el usuario esta detras de un proxy
-    if meta.get('HTTP_X_REAL_IP'):
-        ip = meta.get('HTTP_X_REAL_IP')    
-    else:
-        ip = meta['REMOTE_ADDR']
-
-    country = geo.country_name_by_addr(ip)
+    country = geo.country_name_by_addr(get_ip(meta))
     if country is None:
         country = ''
 
-    if country == 'Spain': country = u'España'
+    if country == 'Spain':
+        country = u'España'
 
     return country
 
@@ -26,13 +30,7 @@ def get_pais(meta):
 def get_code(meta):
     geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
 
-    # por si el usuario esta detras de un proxy
-    if 'HTTP_X_FORWARDED_FOR' in meta and meta['HTTP_X_FORWARDED_FOR']:
-        ip = meta['HTTP_X_FORWARDED_FOR'].split(',')[0]
-    else:
-        ip = meta['REMOTE_ADDR']
-
-    code = geo.country_code_by_addr(ip)
+    code = geo.country_code_by_addr(get_ip(meta))
     if code is None:
         code = ''
 
