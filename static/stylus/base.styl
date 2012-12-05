@@ -935,6 +935,28 @@ a.banner-link
 			padding 0 5px	
 			font-size 12px
 
+.plat-ad
+	background url(../images/ad-left.gif) left bottom no-repeat, url(../images/ad-right.gif) right bottom no-repeat, white url(../images/plat-ad.jpg) 439px 3px no-repeat
+	height 68px
+	background-clip border-box, border-box, content-box
+	padding-bottom 10px
+	display block
+	position absolute
+	z-index 9
+	top 60px
+	left -10px
+	right -10px
+	overflow hidden
+	color #36434b
+
+	.plat-ad-title
+		text-transform uppercase
+		float left	
+		font-size 22px
+		width 500px
+		margin-top 14px
+		margin-left 21px
+		line-height 20px
 
 .curso-ad
 	background url(../images/ad-left.gif) left bottom no-repeat, url(../images/ad-right.gif) right bottom no-repeat, white url(../images/online-ad.jpg) center 5px no-repeat
@@ -987,6 +1009,13 @@ a.banner-link
 		background white url(../images/online-ad.jpg) center 5px no-repeat
 		height 58px
 
+	.plat-ad
+		position static
+		background white 
+		text-align center
+
+		.plat-ad-title
+			width auto
 
 @media screen and (max-width:960px)
 	.curso-ad

@@ -1158,6 +1158,31 @@ li
     font-size: 12px;
   }
 }
+.plat-ad {
+  background: url("../images/ad-left.gif") left bottom no-repeat, url("../images/ad-right.gif") right bottom no-repeat, #fff url("../images/plat-ad.jpg") 439px 3px no-repeat;
+  height: 68px;
+  -moz-background-clip: border, border, content;
+  -webkit-background-clip: border, border, content;
+  background-clip: border-box, border-box, content-box;
+  padding-bottom: 10px;
+  display: block;
+  position: absolute;
+  z-index: 9;
+  top: 60px;
+  left: -10px;
+  right: -10px;
+  overflow: hidden;
+  color: #36434b;
+}
+.plat-ad .plat-ad-title {
+  text-transform: uppercase;
+  float: left;
+  font-size: 22px;
+  width: 500px;
+  margin-top: 14px;
+  margin-left: 21px;
+  line-height: 20px;
+}
 .curso-ad {
   background: url("../images/ad-left.gif") left bottom no-repeat, url("../images/ad-right.gif") right bottom no-repeat, #fff url("../images/online-ad.jpg") center 5px no-repeat;
   height: 68px;
@@ -1207,6 +1232,14 @@ li
     position: static;
     background: #fff url("../images/online-ad.jpg") center 5px no-repeat;
     height: 58px;
+  }
+  .plat-ad {
+    position: static;
+    background: #fff;
+    text-align: center;
+  }
+  .plat-ad .plat-ad-title {
+    width: auto;
   }
 }
 @media screen and (max-width:960px) {
