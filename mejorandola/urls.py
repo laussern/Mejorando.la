@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 	url(r'^videos/?$', 'website.views.videos'), # archivo de videos
     url(r'^conferencias/?$', 'website.views.conferencias'), # archivo de conferencias
 	url(r'^videos/(?P<video_slug>.+?)/?$', 'website.views.video'), # video individual
-    #url(r'^live/?$',   'website.views.live'),  # transmision en vivo
+    url(r'^live/?$',   'website.views.live'),  # transmision en vivo
 
     url(r'^feed/?$', VideoFeed(), name='feed'), # feed de videos
 
