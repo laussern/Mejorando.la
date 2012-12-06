@@ -14,79 +14,472 @@
 	font-style: normal;
 }
 /*  CSS3 ✰ Classes  */
-.ir{direction:ltr;display:block;height:100%;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:100%}
-.hidden,.videolive script{display:none}
-.visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
-.invisible{visibility:hidden}
-.noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
-.clearfix,footer .izquierda,#contenido .wrap,#email-container,#name-container,#formulario{zoom:1;}
-.clearfix:after,footer .izquierda:after,#contenido .wrap:after,#email-container:after,#name-container:after,#formulario:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
-.clear{display:block;clear:both;zoom:1}
-.nomargin{margin:0 !important}
-body{background:#fff url("../images/live/cinta_1920.jpg") repeat-y fixed;-webkit-background-size:100%;background-size:100%;font-family:'open sans',sans-serif;height:100%;margin:0;padding:0}
-footer{color:#3d4043;margin-top:-68px;position:relative;width:100%;}
-footer .izquierda{background:url("../images/live/footer.png") no-repeat right top;height:68px;left:0;position:absolute;text-transform:uppercase;top:0;width:280px;}
-footer .izquierda span{display:block;}
-footer .izquierda span:first-child{font-size:20px;letter-spacing:-1px;}
-footer .izquierda span:first-child + span{font-size:12px;font-weight:bold}
-footer .izquierda .text{padding:15px 0 0 35px}
-footer .derecha{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font-size:25px;font-weight:bold;padding-left:280px;line-height:68px;text-align:center;width:100%;max-width:1280px;}
-footer .derecha,footer .derecha a{color:#fff}
-footer .derecha a,footer .derecha span{margin:0 3%}
-header{background:#323e4a;margin:0 auto;position:relative;z-index:3;margin-bottom:10px;}
-header h1{margin:0;}
-header h1 a img{position:relative;z-index:20}
-header #maestros{left:50%;position:absolute;top:5px}
-header #cristalab{left:70%;position:absolute;top:5px}
-header .logo-grande{display:none;height:auto;width:auto}
-header .mejor{background:url("../images/logos/linea.jpg") repeat-x left top;height:42px;position:relative;text-align:left;z-index:7}
-html{margin:0;height:100%}
-img{border:0}
-input.text-field{background:#003e73;border:1px solid #409fd6;border-left:0;-o-border-radius:0;-ms-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;color:#fff;float:left;font:13px/30px 'open sans',sans-serif;height:30px;left:0;margin:0;padding:0;position:absolute;top:0;width:100%;}
-input.text-field:focus{outline:0}
-.btn_facebook iframe{width:44px !important}
-#col1{float:left;width:60%}
-#col2{float:right;width:35%;}
-#col2 iframe{background:#3d4043;height:100%;position:absolute;width:35%}
-#cristalab,#maestros{position:absolute;top:10px;}
-#cristalab img,#maestros img{height:28px;width:auto}
-#contenido{margin:0 auto;padding-bottom:68px;width:85%;}
-#contenido .wrap{position:relative}
-#cristalab{left:70%;margin-left:103px}
-#email-container,#name-container{margin:0 0 15px;position:relative;}
-#email-container span,#name-container span{position:absolute;right:0}
-#email-container span{left:100px}
-#email-container .txt{width:50px}
-#fila2{height:175px;margin:25px 0 0;position:relative}
-#formulario{font-size:13px;font-weight:bold;text-transform:uppercase;position:absolute;top:0;left:0;right:368px;}
-#formulario .tit{color:#fff;clear:both;display:block;margin-bottom:15px}
-#formulario .txt{background:url("../images/live/label_input.png") no-repeat right;color:#535456;float:left;clear:left;height:32px;line-height:32px;padding:0 35px 0 15px}
-#inscribete-btn{background:url("../images/live/button.png") no-repeat !important;border:0;-o-border-radius:0;-ms-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;clear:both;color:#fff;cursor:pointer;display:block;float:right;font:bold 13px 'open sans',sans-serif;height:31px;line-height:31px;padding:0 0 0 18px;text-transform:uppercase;width:158px}
-#maestros{left:50%}
-#name-container span{left:120px}
-#name-container .txt{width:70px}
-#social{float:right;}
-#social > div{background:rgba(0,0,0,0.3);-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;float:left;height:62px;margin:0 0 0 10px;padding:10px;}
-#social > div:first-child{margin:0}
-.menu{display:none}
-.videolive{background:#000;border:6px solid #338ed3;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;left:-6px;overflow:hidden;position:relative;top:0;width:100%;}
-.videolive a{padding:0 !important;}
-.videolive a img{left:50%;margin-left:-80px;margin-top:-80px;position:absolute;top:50%}
-.videolive a,.videolive embed,.videolive object,.videolive video{background:#000;height:100% !important;left:0;position:absolute;top:0;width:100% !important}
-.videolive img.video{height:auto;width:100%}
-#wrapper{min-height:100%;position:relative;}
-#wrapper:before{bottom:0;-o-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-ms-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-moz-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-webkit-box-shadow:0 0 250px rgba(0,0,0,0.9) inset;box-shadow:0 0 250px rgba(0,0,0,0.9) inset;-webkit-background-clip:padding-box;content:" ";left:0;position:absolute;right:0;top:0}
-@media screen and (max-width:1280px){#formulario{right:213px}
-#social .btn_facebook{clear:left;margin:10px 0 0;padding:10px 17px}
-#social .btn_googlemas{margin:10px 0 0 10px;padding:10px 20px}
-}@media screen and (max-height:700px){footer{display:none}
-#contenido{padding-bottom:25px}
-}@media screen and (max-width:768px){footer,header,#formulario,#social{display:none}
-#col1,#col2,#contenido{float:none;width:auto}
-#col2 iframe{width:100%}
-#fila2{height:auto;margin:0}
-.videolive{border:0;-o-border-radius:0;-ms-border-radius:0;-moz-border-radius:0;-webkit-border-radius:0;border-radius:0;left:0}
-}@media screen and (max-width:768px) and (orientation:landscape){#col2,.videolive img.video{display:none}
-#contenido{padding-bottom:0 !important}
-#contenido .wrap,.videolive,#wrapper{position:static}
+.ir {
+  direction: ltr;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 100%;
+}
+.hidden,
+.videolive script {
+  display: none;
+}
+.visuallyhidden {
+  left: -9999px;
+  position: absolute !important;
+  top: -9999px;
+}
+.invisible {
+  visibility: hidden;
+}
+.noselect {
+  -o-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -khtml-user-select: none;
+}
+.clearfix,
+footer .izquierda,
+#contenido .wrap,
+#email-container,
+#name-container,
+#formulario {
+  zoom: 1;
+}
+.clearfix:after,
+footer .izquierda:after,
+#contenido .wrap:after,
+#email-container:after,
+#name-container:after,
+#formulario:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clear {
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+.nomargin {
+  margin: 0 !important;
+}
+body {
+  background: #fff url("../images/live/cinta_1920.jpg") repeat-y fixed;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  font-family: 'open sans', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+footer {
+  color: #3d4043;
+  margin-top: -68px;
+  position: relative;
+  width: 100%;
+}
+footer .izquierda {
+  background: url("../images/live/footer.png") no-repeat right top;
+  height: 68px;
+  left: 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  width: 280px;
+}
+footer .izquierda span {
+  display: block;
+}
+footer .izquierda span:first-child {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+footer .izquierda span:first-child + span {
+  font-size: 12px;
+  font-weight: bold;
+}
+footer .izquierda .text {
+  padding: 15px 0 0 35px;
+}
+footer .derecha {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 280px;
+  line-height: 68px;
+  text-align: center;
+  width: 100%;
+  max-width: 1280px;
+}
+footer .derecha,
+footer .derecha a {
+  color: #fff;
+}
+footer .derecha a,
+footer .derecha span {
+  margin: 0 3%;
+}
+/*header
+	border-top 7px solid #fff
+	margin-bottom 10px
+	position relative
+	width auto
+
+	&:before
+		background url("../images/logos/adorno-logo.png") no-repeat 65% 0
+		content " "
+		height 35px
+		left 50% + 10
+		margin-left 103px
+		position absolute
+		width 31px
+
+	h1
+		margin 0
+
+		img
+			height 75px
+
+	img
+		vertical-align bottom*/
+header {
+  background: #323e4a;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 10px;
+}
+header h1 {
+  margin: 0;
+}
+header h1 a img {
+  position: relative;
+  z-index: 20;
+}
+header #maestros {
+  left: 50%;
+  position: absolute;
+  top: 5px;
+}
+header #cristalab {
+  left: 70%;
+  position: absolute;
+  top: 5px;
+}
+header .logo-grande {
+  display: none;
+  height: auto;
+  width: auto;
+}
+header .mejor {
+  background: url("../images/logos/linea.jpg") repeat-x left top;
+  height: 42px;
+  position: relative;
+  text-align: left;
+  z-index: 7;
+}
+html {
+  margin: 0;
+  height: 100%;
+}
+img {
+  border: 0;
+}
+input.text-field {
+  background: #003e73;
+  border: 1px solid #409fd6;
+  border-left: 0;
+  -o-border-radius: 0;
+  -ms-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: #fff;
+  float: left;
+  font: 13px/30px 'open sans', sans-serif;
+  height: 30px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+input.text-field:focus {
+  outline: 0;
+}
+.btn_facebook iframe {
+  width: 44px !important;
+}
+#col1 {
+  float: left;
+  width: 60%;
+}
+#col2 {
+  float: right;
+  width: 35%;
+}
+#col2 iframe {
+  background: #3d4043;
+  height: 100%;
+  position: absolute;
+  width: 35%;
+}
+#cristalab,
+#maestros {
+  position: absolute;
+  top: 10px;
+}
+#cristalab img,
+#maestros img {
+  height: 28px;
+  width: auto;
+}
+#contenido {
+  margin: 0 auto;
+  padding-bottom: 68px;
+  width: 85%;
+}
+#contenido .wrap {
+  position: relative;
+}
+#cristalab {
+  left: 70%;
+  margin-left: 103px;
+}
+#email-container,
+#name-container {
+  margin: 0 0 15px;
+  position: relative;
+}
+#email-container span,
+#name-container span {
+  position: absolute;
+  right: 0;
+}
+#email-container span {
+  left: 100px;
+}
+#email-container .txt {
+  width: 50px;
+}
+#fila2 {
+  height: 175px;
+  margin: 25px 0 0;
+  position: relative;
+}
+#formulario {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 368px;
+}
+#formulario .tit {
+  color: #fff;
+  clear: both;
+  display: block;
+  margin-bottom: 15px;
+}
+#formulario .txt {
+  background: url("../images/live/label_input.png") no-repeat right;
+  color: #535456;
+  float: left;
+  clear: left;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 35px 0 15px;
+}
+#inscribete-btn {
+  background: url("../images/live/button.png") no-repeat !important;
+  border: 0;
+  -o-border-radius: 0;
+  -ms-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  clear: both;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  float: right;
+  font: bold 13px 'open sans', sans-serif;
+  height: 31px;
+  line-height: 31px;
+  padding: 0 0 0 18px;
+  text-transform: uppercase;
+  width: 158px;
+}
+#maestros {
+  left: 50%;
+}
+#name-container span {
+  left: 120px;
+}
+#name-container .txt {
+  width: 70px;
+}
+#social {
+  float: right;
+}
+#social > div {
+  background: rgba(0,0,0,0.3);
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float: left;
+  height: 62px;
+  margin: 0 0 0 10px;
+  padding: 10px;
+}
+#social > div:first-child {
+  margin: 0;
+}
+.menu {
+  display: none;
+}
+.videolive {
+  background: #000;
+  border: 6px solid #338ed3;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  left: -6px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+.videolive a {
+  padding: 0 !important;
+}
+.videolive a img {
+  left: 50%;
+  margin-left: -80px;
+  margin-top: -80px;
+  position: absolute;
+  top: 50%;
+}
+.videolive a,
+.videolive embed,
+.videolive object,
+.videolive video {
+  background: #000;
+  height: 100% !important;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100% !important;
+}
+.videolive img.video {
+  height: auto;
+  width: 100%;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+#wrapper:before {
+  bottom: 0;
+  -o-box-shadow: 0 0 250px rgba(0,0,0,0.9) inset;
+  -ms-box-shadow: 0 0 250px rgba(0,0,0,0.9) inset;
+  -moz-box-shadow: 0 0 250px rgba(0,0,0,0.9) inset;
+  -webkit-box-shadow: 0 0 250px rgba(0,0,0,0.9) inset;
+  box-shadow: 0 0 250px rgba(0,0,0,0.9) inset;
+  -webkit-background-clip: padding-box;
+  content: " ";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media screen and (max-width:1280px) {
+  #formulario {
+    right: 213px;
+  }
+  #social .btn_facebook {
+    clear: left;
+    margin: 10px 0 0;
+    padding: 10px 17px;
+  }
+  #social .btn_googlemas {
+    margin: 10px 0 0 10px;
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-height:700px) {
+  footer {
+    display: none;
+  }
+  #contenido {
+    padding-bottom: 25px;
+  }
+}
+@media screen and (max-width:768px) {
+  footer,
+  header,
+  #formulario,
+  #social {
+    display: none;
+  }
+  #col1,
+  #col2,
+  #contenido {
+    float: none;
+    width: auto;
+  }
+  #col2 iframe {
+    width: 100%;
+  }
+  #fila2 {
+    height: auto;
+    margin: 0;
+  }
+  .videolive {
+    border: 0;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    left: 0;
+  }
+}
+@media screen and (max-width:768px) and (orientation:landscape) {
+  #col2,
+  .videolive img.video {
+    display: none;
+  }
+  #contenido {
+    padding-bottom: 0 !important;
+  }
+  #contenido .wrap,
+  .videolive,
+  #wrapper {
+    position: static;
+  }
+}
+.plat-ad {
+  display: none;
 }
