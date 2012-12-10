@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.forms.models import model_to_dict
+from django.http import HttpResponse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
-from django.core import serializers
-from django.core.mail import send_mail
 from django.utils import simplejson
 from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
 from akismet import Akismet
 import image
-from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, RegistroConferencia, Conferencia
+from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, Conferencia
 import datetime
 import time
 import requests
-import urllib
 from utils import get_pais, get_ip
 
 
@@ -84,10 +81,11 @@ def videos(solicitud):
 def conferencias(solicitud):
     return render_to_response('website/conferencias.html', {
         'meses': [{
-            'fecha' : fecha,
+            'fecha': fecha,
             'confes': Conferencia.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')
         } for fecha in Conferencia.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
     })
+
 
 # la entrada de video muestra el video
 # del capitulo + comentarios + formulario de comentarios
@@ -152,20 +150,15 @@ def regenerate(solicitud):
     return redirect('/')
 
 
-def handler404(solicitud):
-    return redirect('website.views.home')
-
-
-from django.http import HttpResponse
-
 def locateme(solicitud):
     return HttpResponse(get_pais(solicitud.META))
+
 
 def hola(solicitud):
 
     if solicitud.method == 'POST' and solicitud.POST.get('email') and solicitud.POST.get('nombre'):
-        pais   = get_pais(solicitud.META)
-        email  = solicitud.POST['email']
+        pais = get_pais(solicitud.META)
+        email = solicitud.POST['email']
         nombre = solicitud.POST['nombre']
 
         payload = {
@@ -187,105 +180,24 @@ def hola(solicitud):
 
     return render_to_response('website/hola.html', {})
 
-@login_required(login_url='/admin')
-def usuarios_chat(solicitud):
-    from pymongo import Connection
-
-    conn = Connection()
-
-    db = conn[settings.CHAT_DB]
-    users = []
-    for u in db.users.find():
-        if u['name'] is None: continue
-
-        users.append({
-            'name': u['name'],
-            'red': u['red'],
-            'messages': db.messages.find({ 'user.name' : u['name'] }).count(),
-        })
-
-    return render_to_response('website/usuarios_chat.html', { 'usuarios': simplejson.dumps(users) })
-
 
 def conferencia(solicitud, template):
     if template:
         try:
             return render_to_response('%s.html' % template)
         except TemplateDoesNotExist:
-            return render_to_response('default.html')        
+            return render_to_response('default.html')
 
     try:
         return render_to_response('%s.html' % slugify(get_pais(solicitud.META)))
     except TemplateDoesNotExist:
         return render_to_response('default.html')
 
-@require_POST
-def conferencia_registro(solicitud):
-    if settings.DEBUG: return HttpResponse()
-
-    asunto = 'Inscripción a la conferencia'
-
-    if solicitud.POST.get('asunto'): asunto = solicitud.POST.get('asunto')
-
-    if not solicitud.POST.get('nombre') or not solicitud.POST.get('email'): return HttpResponse()
-
-    try:
-        registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
-        registro.save()
-    except:
-        return HttpResponse('FAIL')
-
-    if solicitud.POST.get('extended') == 'viaje':
-        send_mail(asunto, u'Nombre: %s\nApellidos: %s\nEmail: %s\nSexo: %s\nTipo de habitación: %s\nTeléfono: %s\nUsuario de Twitter: %s\nComentario: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('apellidos'), solicitud.POST.get('email'), solicitud.POST.get('sexo'), solicitud.POST.get('tipo'), solicitud.POST.get('telefono'), solicitud.POST.get('twitter'), solicitud.POST.get('comentario')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
-    else:    
-        send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
-
-    return HttpResponse('OK')
-
-@require_POST
-def conferencia_registro2(solicitud):
-    if settings.DEBUG: return HttpResponse()
-
-    asunto = 'Inscripción a la conferencia'
-
-    if solicitud.POST.get('asunto'): asunto = solicitud.POST.get('asunto')
-
-    if not solicitud.POST.get('nombre') or not solicitud.POST.get('email'): return HttpResponse()
-
-    try:
-        registro = RegistroConferencia(nombre=solicitud.POST.get('nombre'), email=solicitud.POST.get('email'), pais=get_pais(solicitud.META))
-        registro.save()
-    except:
-        return HttpResponse('FAIL')
-
-    if solicitud.POST.get('extended') == 'viaje':
-        send_mail(asunto, u'Nombre: %s\nApellidos: %s\nEmail: %s\nSexo: %s\nTipo de habitación: %s\nTeléfono: %s\nUsuario de Twitter: %s\nComentario: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('apellidos'), solicitud.POST.get('email'), solicitud.POST.get('sexo'), solicitud.POST.get('tipo'), solicitud.POST.get('telefono'), solicitud.POST.get('twitter'), solicitud.POST.get('comentario')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
-    else:    
-        send_mail(asunto, 'Nombre: %s\nEmail: %s\n' % (solicitud.POST.get('nombre'), solicitud.POST.get('email')), settings.FROM_CONFERENCIA_EMAIL, settings.TO_CONFERENCIA_EMAIL)
-
-    pais   = get_pais(solicitud.META)
-    
-    payload = {
-        'email_address': solicitud.POST.get('email'),
-        'apikey': settings.MAILCHIMP_APIKEY,
-        'merge_vars': {
-            'FNAME': solicitud.POST.get('nombre'),
-            'OPTINIP': get_ip(solicitud.META),
-            'OPTIN_TIME': time.time(),
-            'PAIS': pais
-        },
-        'id': settings.MAILCHIMP_LISTID2,
-        'email_type': 'html'
-    }
-
-    r = requests.post('http://us2.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
-    
-    return HttpResponse('OK')
 
 def track(solicitud, registro_id):
     registro = get_object_or_404(RegistroCurso, id=registro_id)
 
-    return render_to_response('website/track.html', {'registro': registro })
+    return render_to_response('website/track.html', {'registro': registro})
 
 
 def podcast(solicitud):
