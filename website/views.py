@@ -174,7 +174,7 @@ def hola(solicitud):
             'email_type': 'html'
         }
 
-        r = requests.post('http://us2.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
+        r = requests.post('http://us4.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
 
         return HttpResponse(r.text)
 
