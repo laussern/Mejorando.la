@@ -9,3 +9,7 @@ pytz==2012h
 requests==0.14.2
 stripe==1.7.6
 wsgiref==0.1.2
+
+#git://github.com/maxmind/geoip-api-python.git
+
+#sudo pip install --index-url https://code.stripe.com --upgrade stripe
