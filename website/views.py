@@ -4,7 +4,6 @@ from django.shortcuts import render_to_response, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_POST
 from django.utils import simplejson
 from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
@@ -14,7 +13,7 @@ from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, 
 import datetime
 import time
 import requests
-from utils import get_pais, get_ip
+from utils import get_pais, get_ip, get_pais_by_ip
 
 
 # La vista del home muestra el ultimo video destacado
@@ -151,6 +150,11 @@ def regenerate(solicitud):
 
 
 def locateme(solicitud):
+    ip = solicitud.GET.get('ip')
+
+    if ip:
+        return HttpResponse(get_pais_by_ip(ip))
+
     return HttpResponse(get_pais(solicitud.META))
 
 

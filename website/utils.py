@@ -27,6 +27,19 @@ def get_pais(meta):
     return country
 
 
+def get_pais_by_ip(ip):
+    geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
+
+    country = geo.country_name_by_addr(ip)
+    if country is None:
+        country = ''
+
+    if country == 'Spain':
+        country = u'España'
+
+    return country
+
+
 def get_code(meta):
     geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
 
