@@ -109,7 +109,8 @@ footer .links img {
   width: 100%;
 }
 .wvideo .video .wplayer object,
-.wvideo .video .wplayer embed {
+.wvideo .video .wplayer embed,
+.wvideo .video .wplayer video {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -217,7 +218,7 @@ footer .links img {
     position: static;
   }
 }
-@media screen and (max-height:700px) {
+@media screen and (max-height:550px) {
   body {
     overflow: visible;
   }
