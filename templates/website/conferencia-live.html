@@ -1,0 +1,130 @@
+{% load static %} {% get_static_prefix as STATIC_PREFIX %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mejorando.la Conferencia Colombia en Vivo</title>
+
+    <link rel="shortcut icon" href="{{ STATIC_PREFIX }}conferencia/images/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed" />
+
+    <meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1" />
+
+    <!-- facebook -->
+    <meta property="fb:page_id" content="198868566791554" />
+    <meta property="og:title" content="Mejorando.la" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mejorando.la/"/>
+    <meta property="og:image" content="https://mejorando.la/images/isotipo.png" />
+    <meta property="og:site_name" content="mejorando.la" />
+    <meta property="fb:admins" content="1030603473" />
+    <!-- endfacebook -->
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link href="{{ STATIC_PREFIX }}conferencia/css/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <h1><a href="{% url website.views.home %}" title="Mejorando.la">
+            <img src="{{ STATIC_PREFIX }}conferencia/images/mejorandola.png" alt="Mejorando.la"></a></h1>
+
+        <div class="links">
+            <a href="http://www.mintic.gov.co" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/mintic.jpg" alt="" /></a>
+            <a href="http://www.mintic.gov.co" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/prosperidad.jpg" alt</a>
+            <a href="http://www.vivedigital.gov.co" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/digital.jpg" alt="" /></a>
+            <a href="http://www.trustfortheamericas.org/portal_19/index.php?lang=en" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/trus.jpg" alt="" /></a>
+            <a href="https://sites.google.com/site/brigadadigital/home" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/brigada.jpg" alt="" /></a>
+        </div>
+    </header>
+
+    <div class="wmain"><section class="main">
+        
+        <div class="wvideo"><div class="video">
+            <div class="wplayer">
+                <img src="{{ STATIC_PREFIX }}conferencia/images/video.png" />
+
+                <div id="playerMediastream">
+                    <script src="http://embed.mediastre.am/e.js"></script><script>config={"mlw":[{stream:"livestream",size:"640x?",aspect:"16:9",autoplay:true,zones:["us"]},{stream:"livestream2",size:"640x?",aspect:"16:9",autoplay:true,zones:["us"]}]};e = new MEmbed(config);</script>
+                </div>
+            </div>
+
+            <div class="video-bottom">
+                <div class="col">
+                    <h2 class="hash-label">Hashtag oficial</h2>
+
+                    <h2 class="hash"><a href="http://twitter.com/search/?q=%23mejorandoco" target="_blank">#mejorandoco</a></h2>
+
+                    <h3 class="suscribir"><a href="https://mejorando.la/hola" target="_blank">Suscribeme</a></h3>
+                </div>
+
+                <div class="col">
+                  <div class="wsocial">
+                  <div class="btn_youtube" data-id="mejorandolaweb" style="position:relative;">
+                    <a target="_blank" href="http://www.youtube.com/subscription_center?add_user=mejorandolaweb&amp;feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png"><span class="count" style="font-weight:bold; position:absolute; left:10px; top:8px; color:#333;"></span><img src="{{ STATIC_PREFIX }}conferencia/images/boton-youtube.png" alt="Subscribe to me on YouTube"/></a>
+
+                    <img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png" style="display:none"/>
+                  </div>
+                  </div>
+
+                  <div class="wsocial">
+                  <div class="btn_twitter">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Yo también sintonizo #mejorandola" data-url="http://mejorando.la/" data-count="vertical" data-related="mejorandolaweb">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+                  </div>
+                  </div>
+
+                  <div class="wsocial">
+                  <div id="fb-root" class="btn_facebook">
+                    <script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                    <fb:like href="https://www.facebook.com/mejorandola" send="false" layout="box_count" width="80" show_faces="false" font=""></fb:like>
+                  </div>
+                  </div>
+
+                  <div class="wsocial">
+                  <div class="btn_googlemas">
+                    <g:plusone size="tall" href="https://mejorando.la/"></g:plusone>
+                  </div>
+                  </div>
+                </div>
+            </div>
+        </div></div>
+
+        <div class="wchat"><div class="chat">
+            <iframe src="https://chat.mejorando.la:3000" width="100%" height="100%" frameborder="0"></iframe>
+        </div></div>
+    </section></div>
+
+    <footer>
+        <h4>Transmisión en vivo <strong>cada jueves</strong></h4>
+
+        <div class="links">
+            <a href="http://www.infranetworking.com" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/infranetworking.jpg" alt="infranetworking" /></a>
+            <a href="http://mediastre.am/cl/" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/mediastream.jpg" alt="mediastream" /></a>
+            <a href="http://monomi.co" target="_blank"><img src="{{ STATIC_PREFIX }}conferencia/images/monomi.jpg" alt="monomi" /></a>
+        </div>
+    </footer>
+
+    <script src="//apis.google.com/js/plusone.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="{{ STATIC_PREFIX }}conferencia/js/jquery.cookie.js"></script>
+    <script src="{{ STATIC_PREFIX }}conferencia/js/live.js"></script>
+
+    <script>
+     var analyticsFileTypes = [''];
+     var analyticsEventTracking = 'enabled';
+
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-76863-8']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+</body>
+</html>
