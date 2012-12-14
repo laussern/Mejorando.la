@@ -1,9 +1,3 @@
-
-Modernizr.load({
-    test: Modernizr.flexbox,
-    nope: '/static/conferencia/css/fallback.css'
-});
-
 function formatNumber(rep) {
     rep = rep + ''; // coerce to string
     if (rep < 1000) {
