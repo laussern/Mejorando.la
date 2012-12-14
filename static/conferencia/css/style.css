@@ -167,6 +167,7 @@ footer .links img {
 }
 .wchat {
   width: 45%;
+  height: 100%;
   position: relative;
   float: left;
 }
