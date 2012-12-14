@@ -1,5 +1,4 @@
 Django==1.4.3
-GeoIP-Python==1.2.6
 MySQL-python==1.2.4c1
 PIL==1.1.7
 akismet==0.2.0
@@ -10,7 +9,4 @@ stripe==1.7.6
 wsgiref==0.1.2
 johnny-cache==1.4
 python-memcached==1.48
-
-#git://github.com/maxmind/geoip-api-python.git
-
-#sudo pip install --index-url https://code.stripe.com --upgrade stripe
+git+git://github.com/maxmind/geoip-api-python.git
