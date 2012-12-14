@@ -218,6 +218,12 @@ footer .links img {
     position: static;
   }
 }
+@media screen and (max-width:1099px) {
+  header .links img {
+    height: 37px;
+    margin-top: 9px;
+  }
+}
 @media screen and (max-height:550px) {
   body {
     overflow: visible;
