@@ -1,0 +1,11 @@
+.wchat {
+    float:left;
+}
+.wvideo {
+    width:55%;
+    float: left;
+}
+
+.wvideo .video .video-bottom {
+    position: relative;
+}

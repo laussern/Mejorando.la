@@ -1,3 +1,22 @@
+
+Modernizr.load({
+    test: Modernizr.flexbox,
+    nope: '/static/conferencia/css/fallback.css'
+});
+
+function formatNumber(rep) {
+    rep = rep + ''; // coerce to string
+    if (rep < 1000) {
+        return rep; // return the same number
+    }
+    else if (rep < 5000) { // place a comma between
+        return rep.charAt(0) + ',' + rep.substring(1);
+    }
+    else { // divide and format
+        return (rep / 1000).toFixed(rep % 1000 !== 0) + 'k';
+    }
+}
+
 jQuery(function ($) {
     (function youtubeCounter() {
         // youtube video views
