@@ -8,6 +8,8 @@ pytz==2012h
 requests==0.14.2
 stripe==1.7.6
 wsgiref==0.1.2
+johnny-cache==1.4
+python-memcached==1.48
 
 #git://github.com/maxmind/geoip-api-python.git
 

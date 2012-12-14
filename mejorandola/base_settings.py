@@ -21,6 +21,15 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': dict(
+        BACKEND='johnny.backends.memcached.MemcachedCache',
+        LOCATION=['127.0.0.1:11211'],
+        JOHNNY_CACHE=True,
+        KEY_PREFIX='mejorandola',
+    )
+}
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -95,6 +104,8 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'johnny.middleware.LocalStoreClearMiddleware',
+    'johnny.middleware.QueryCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
 #    'django.middleware.csrf.CsrfViewMiddleware',
@@ -162,6 +173,9 @@ LOGGING = {
         },
     }
 }
+
+JOHNNY_MIDDLEWARE_KEY_PREFIX = 'jc_mejorandola'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 GRAPPELLI_ADMIN_TITLE = 'Mejorando.la'
 
