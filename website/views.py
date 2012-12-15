@@ -19,8 +19,6 @@ from utils import get_pais, get_ip, get_pais_by_ip
 # La vista del home muestra el ultimo video destacado
 # y 4 videos mas, + el horario localizado
 def home(solicitud):
-    return render_to_response('website/conferencia-live.html')
-
     # si no existe el valor aun en la base de datos
     try:
         es_vivo = Setting.objects.get(key='en_vivo').value
