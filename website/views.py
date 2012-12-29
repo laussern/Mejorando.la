@@ -52,10 +52,10 @@ def siguiente_jueves_4pm(now):
     _4PM = datetime.time(hour=15)
     _JUE = 3  # Monday=0 for weekday()
     old_now = now
-    now += datetime.timedelta((_JUE - now.weekday()) % 7)
+    now += datetime.timedelta((_JUE - now.weekday()) % 14)
     now = now.combine(now.date(), _4PM)
     if old_now >= now:
-        now += datetime.timedelta(days=7)
+        now += datetime.timedelta(days=14)
     return now
 
 
