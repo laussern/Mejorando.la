@@ -20,6 +20,7 @@ class Curso(models.Model):
 	descripcion = models.TextField()
 	info_pago   = models.TextField()
 	activado    = models.BooleanField(default=False)
+	version     = models.IntegerField(default=1)
 
 	def __unicode__(self):
 		return self.nombre 
@@ -162,6 +163,7 @@ class CursoPago(models.Model):
 	method   = models.CharField(max_length=10, choices=TIPOS)
 	error 	 = models.CharField(max_length=200, blank=True)
 	sent	 = models.BooleanField(default=False)
+	version  = models.IntegerField(default=1)
 
 	def intentos(self):
 		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()
@@ -180,8 +182,12 @@ class CursoRegistro(models.Model):
 def create_pago(sender, instance, created, *args, **kwargs):
 	curso = instance.curso
 
-	if created and instance.method == 'deposit':
-		send_mail('curso_info', { 'curso': curso }, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
+	if created:
+		instance.version = curso.version
+		instance.save()
+
+		if instance.method == 'deposit':
+			send_mail('curso_info', { 'curso': curso }, 'Informacion para realizar pago al %s de Mejorando.la INC' % curso.nombre, instance.email)
 
 	if instance.charged and not instance.sent:
 		vs = calculate(int(instance.quantity), curso.precio)

@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'cursos',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'south',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
