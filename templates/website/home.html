@@ -1,6 +1,7 @@
 {% extends "website/base.html" %}
+
 {% block head %}
-<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/base.css?v=1" />
+  <link href="{{ STATIC_PREFIX }}css/home.css" rel="stylesheet"  />
 {% endblock %}
 
 {% block body %}
@@ -34,7 +35,7 @@
 
   <div id="proximo" data-timestamp="{{ timestamp }}">
     <div class="content">
-      <h3 class="centro">próximo <strong>capítulo</strong> en</h3> 
+      <h3 class="subtitulo centro">próximo <strong>capítulo</strong> en</h3> 
       <div class="cuenta">
         <div class="dias digito"></div>
         <div class="leyenda">días</div>
@@ -58,7 +59,7 @@
   <section id="cursos">
     <div class="cinta"></div>
 
-    <h3 class="tit"><a title="Próximos cursos" href="{% url cursos.views.home %}">Nuevos <strong>cursos</strong></a></h3>
+    <h3 class="subtitulo tit"><a title="Próximos cursos" href="{% url cursos.views.home %}">Nuevos <strong>cursos</strong></a></h3>
 
     {% for curso in cursos %}
 
@@ -71,7 +72,7 @@
           <span class="pais">
             {{ curso.pais }}
           </span>
-          <h3 class="nombre">
+          <h3 class="subtitulo nombre">
             {{ curso.titulo }}
           </h3>
         </div>
@@ -93,7 +94,7 @@
       <div class="todos"><a href="{% url website.views.videos %}" title="Videos de Mejorando.la">ver mas videos</a>
       </div>
     </div>
-    <h3 class="tit">últimos <strong>Programas</strong></h3>
+    <h3 class="subtitulo tit">últimos <strong>Programas</strong></h3>
     {% for video in videos %}
     <article class="capitulo"><a href="{{ video.get_absolute_url }}" title="{{ video.titulo }}">
         <div class="imagen">
@@ -109,7 +110,7 @@
   </section>
   <section id="empresas">
     
-    <h3 class="tit">Empresas que confían en nosotros</h3>
+    <h3 class="subtitulo tit">Empresas que confían en nosotros</h3>
     <div class="content">
       <div class="cont">
         <a href="http://mediastre.am/cl/" target="_blank" rel="nofollow" title="Mediastream" class="sponsor"><img src="{{ STATIC_PREFIX }}images/sponsors/mediastream.jpg" alt="Mediastream" height="28"></a>

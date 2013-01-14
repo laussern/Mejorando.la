@@ -12,6 +12,7 @@
   font-weight: bold;
   font-style: normal;
 }
+/*  CSS3 ✰ Classes  */
 .ir{direction:ltr;display:block;height:100%;overflow:hidden;position:relative;text-align:left;text-indent:100%;white-space:nowrap;width:100%}
 .hidden{display:none}
 .visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}

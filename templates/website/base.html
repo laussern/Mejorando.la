@@ -15,41 +15,12 @@
     <meta property="og:site_name" content="mejorando.la" />
     <meta property="fb:admins" content="1030603473" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
-
-    <script src="https://apis.google.com/js/plusone.js"></script>
-    <script src="{{ STATIC_PREFIX }}js/jquery.cookie.js"></script>
-    <script src="{{ STATIC_PREFIX }}js/jquery.scountdown.min.js"></script>
-    <script src="{{ STATIC_PREFIX }}js/index.js?v=1.0"></script>
-    <script src="{{ STATIC_PREFIX }}js/css_browser_selector.js"></script>
-    <script src="{{ STATIC_PREFIX }}js/jquery.lazyload.min.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/base.css?v=1" />
+    
 
     {% block head %}{% endblock %}
 
-    <!--[if lt IE 9]>
-    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
-    <script src="{{ STATIC_PREFIX }}js/selectivizr-min.js"></script>
-    <script src="{{ STATIC_PREFIX }}js/respond.min.js"></script>
-    <noscript>
-      <link rel="stylesheet" href="[fallback css]">
-    </noscript><![endif]-->
 
-    <script>
-     var analyticsFileTypes = [''];
-     var analyticsEventTracking = 'enabled';
-    </script>
-    <script>
-     var _gaq = _gaq || [];
-     _gaq.push(['_setAccount', 'UA-76863-8']);
-     _gaq.push(['_trackPageview']);
-
-     (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-     })();
-    </script>
   </head>
   <body>
     <div id="wrapper">
@@ -75,21 +46,46 @@
 
       
       {% block body %}{% endblock %}
-      <footer>
-        <div class="izquierda">
-          <div class="text"><span>Transmisión en vivo</span><span>cada jueves</span>
-          </div>
-        </div>
-        <div class="derecha">
-          <span class="left">con</span>
-          <div class="center">
-            <a href="http://twitter.com/freddier" class="freddier" title="@freddier" target="_blank">@freddier</a>
-            <span>+</span>
-            <a href="http://twitter.com/cvander" class="cvander" title="@cvander" target="_blank">@cvander</a> 
-          </div>
+      <footer id="footer">
+        <div class="centro">
+          <a href="http://twitter.com/freddier" target="blank">@freddier</a><span>+</span><a href="http://twitter.com/cvander" target="blank">@cvander</a>
+          <h4>Transmisión en vivo cada jueves</h4>
         </div>
       </footer>
     </div>
+
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/jquery.cookie.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/jquery.scountdown.min.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/index.js?v=1.0"></script>
+    <script src="{{ STATIC_PREFIX }}js/css_browser_selector.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/jquery.lazyload.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
+    <script src="{{ STATIC_PREFIX }}js/selectivizr-min.js"></script>
+    <![endif]-->
+
+    <script>
+     var analyticsFileTypes = [''];
+     var analyticsEventTracking = 'enabled';
+    </script>
+    <script>
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-76863-8']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+    {% block footer %}
+    {% endblock %}
   </body>
 </html>

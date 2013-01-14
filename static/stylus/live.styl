@@ -34,57 +34,12 @@ body
 	height 100%
 	margin 0
 	padding 0
+	max-width none
 
-footer
-	color #3D4043
-	// left 0
-	margin-top -68px
+#footer
+	background transparent
+	margin 0 auto
 	position relative
-	// top 100%
-	width 100%
-
-	.izquierda
-		@extends .clearfix
-		background url("../images/live/footer.png") no-repeat right top
-		height 68px
-		left 0
-		position absolute
-		text-transform uppercase
-		top 0
-		width 280px
-
-		span
-			display block
-
-			&:first-child
-				font-size 20px
-				letter-spacing -1px
-
-				+ span
-					font-size 12px
-					font-weight bold
-
-		.text
-			padding 15px 0 0 35px
-
-	.derecha
-		box-sizing border-box
-		font-size 25px
-		font-weight bold
-		padding-left 280px
-		line-height 68px
-		text-align center
-		width 100%
-		max-width 1280px
-
-		&
-		a
-			color #fff
-
-		a
-		span
-			margin 0 3%
-
 /*header
 	border-top 7px solid #fff
 	margin-bottom 10px
@@ -111,7 +66,7 @@ footer
 header
 	background #323e4a
 	margin 0 auto
-	//max-width 1000px 
+	max-width none 
 	position relative
 	z-index 3
 	margin-bottom 10px
@@ -137,7 +92,7 @@ header
 		height 42px
 		position relative
 		text-align left
-		//width 450px
+		width auto
 		z-index 7
 html
 	margin 0
@@ -163,7 +118,9 @@ input.text-field
 	width 100%
 	&:focus
 		outline 0
-
+#wrapper
+	max-width none
+	background transparent
 // classnames
 .btn_facebook iframe
 	width 44px !important

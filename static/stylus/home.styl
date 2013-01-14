@@ -1,0 +1,498 @@
+@import "classes.styl"
+
+
+
+#empresas
+	margin-top 65px
+	text-align center
+	h3.tit
+		font-size 33px
+		font-weight normal
+		letter-spacing 2px
+		margin-bottom 23px
+		text-align center
+	.content
+		//background url('../images/sponsors/left.png') no-repeat left -2px , url('../images/sponsors/right.png') no-repeat right 0px ;
+	.cont 
+		max-width 800px
+		margin 0 auto
+		//background white
+	.sponsor
+		//border 1px solid #ababab
+		display inline-block
+		margin  5px 10px
+		padding 5px
+		background white
+		img 
+			-webkit-filter grayscale(1)
+			transition .2s
+			opacity .8
+
+			&:hover
+				-webkit-filter grayscale(0)
+				opacity 1
+
+#footer 
+	background #3C4043
+	border-bottom 30px solid white
+	text-align center
+	color #555A5E
+	a 
+		color #555A5E
+	.centro 
+		background white
+		max-width 470px 
+		margin 0 auto
+		padding 10px 0
+		span
+			margin 0 50px
+		a,span
+			font-size 25px
+			font-weight bold
+		h4 
+			text-transform uppercase
+			font-weight normal
+			letter-spacing 5px
+			font-size 12px
+
+
+#cursos
+	background white
+	text-transform uppercase
+
+	h3.tit
+		font-size 33px
+		margin 35px 0 20px
+		text-align center
+
+		a 
+			color #3D4043
+			font-weight normal
+			letter-spacing 2px
+	a 
+		color #808285
+	.curso
+		@extends .clearfix
+		position relative
+		display block
+		margin-bottom 5px
+		overflow hidden
+		&:hover 
+			.left 
+				img 
+					box-shadow -5px 5px 0 #3d4043
+					transition .2s box-shadow
+			.center 
+				h3
+					color #3d4043
+					transition .2s
+			.right 
+				border-color #3d4043
+				transition .2s
+				.mes
+					color #3d4043
+					transition .2s
+		.left 
+			padding-left 25px
+			position absolute
+			left 0 
+			top 0 
+			img 
+				width 68px
+				height auto
+				box-shadow -5px 5px 0 #d2d3d5
+		.center
+			border 1px solid #919599
+			border-right none
+			padding-left 10px
+			margin-left 103px
+			margin-right 60px
+			//max-width 822px
+			width 100%
+			height 50px
+			h3 
+				color #808285
+				font-size 25px
+				letter-spacing .5px
+
+			.pais 
+				color #808285
+				font-size 10.5px
+		.right
+			background white
+			border 2px solid #919599
+			height 48px
+			padding 0 8px
+			position absolute
+			right 0 
+			text-align center
+			top 0
+			z-index 2
+			.mes 
+				font-size 23px
+			.dia 
+				font-size 13.5px
+
+	
+
+#proximo
+	background white
+	background url('../images/post/pattern_participantes_post.png')
+	color #3d4043
+	margin-bottom 45px
+	margin-top 50px
+	text-align center
+
+	h3
+		font-size 33px
+		font-weight normal
+		letter-spacing 15px
+		margin 0 0 10px
+		text-transform uppercase
+	.content 
+		background white
+		display inline-block
+		padding 0 15px
+	.cuenta
+		display inline-block
+		*display inline
+		margin-right 50px
+		vertical-align top
+		zoom 1
+
+		&:last-child
+			margin-right 0
+
+		.leyenda
+			font-size 10px
+			margin-top 10px
+			text-transform uppercase
+
+		.digito
+			background white
+			border 2px solid #b7bbbf
+			border-radius 3px
+			color #3d4043
+			font-size 54px
+			font-weight bold
+			font-size 57px
+			padding 8px 5px
+
+#social
+	margin -50px auto 0 auto
+	margin-left 310px
+	position absolute
+	width 400px
+	z-index 5
+	div
+		display inline-block
+		*display inline
+		margin-left 40px
+		vertical-align top
+		zoom 1
+	div:nth-child(1)
+		margin-left 0
+	.btn_youtube:after,.btn_twitter:after,.btn_facebook:after,.btn_googlemas:after
+		background white
+		border-radius 5px
+		content ""
+		height 30px
+		margin-left -5px
+		margin-top -28px
+		display block
+		width 60px
+	.btn_youtube:after
+		width 70px
+	.btn_twitter:after
+		width 80px
+	.btn_facebook,.btn_googlemas
+		width 55px
+	.btn_facebook:after
+		margin-top -25px
+		width 55px
+
+
+#ultimo
+	height 500px
+	width 100%
+	.absolute
+		height 500px
+		position absolute
+		width 1000px
+		z-index 1
+		
+	.datos
+		position relative
+		z-index 4
+		.titulo
+			font-size 60px
+			font-weight normal
+			line-height 50px
+			margin-right 20px
+			margin-top 5px
+			max-width 90%
+			transition.3s text-shadow
+		.titulo:hover
+			text-shadow 0 0 20px rgba(255,255,255,.5)
+			text-decoration none
+	.tela
+		background rgba(0,0,0,.5)
+		position absolute
+		z-index 2
+		width 1000px
+		height 500px
+	.boton,.fecha,.horario,.titulo
+		clear both
+		display block
+		float right
+		margin-right 40px
+		text-align right
+	.boton
+		font-weight bold
+		margin-top 10px
+		text-transform uppercase
+		transition .3s text-shadow
+		&:hover
+			text-shadow 0 0 10px white
+	.fecha
+		font-size 15px
+		letter-spacing 10px
+		text-transform uppercase
+	.horario
+		display block
+		font-size 11px
+		letter-spacing 3px
+		margin 115px 40px 0 0
+		text-transform uppercase
+		.block
+			display block
+		.big
+			font-size 40px
+			letter-spacing 1px
+	
+.cinta
+	background url("../images/home/countdown_separador.jpg") repeat-y
+	background-size 100%
+	border-bottom 1px solid white
+	height 32px
+	width 100%
+
+
+
+/***********crossbrowser************/
+.ie8 #ultimo .datos .titulo 
+	max-width none !important
+	padding-left 30px !important
+.ie8 .tela 
+	background url("../images/home/tela.png")
+.ie8 .block .tit 
+	background url("../images/home/tela.png")
+
+
+
+
+
+@media screen and (max-width:1000px)
+
+	
+
+	#anteriores
+		.capitulo 
+			border-left 1px solid white
+			box-sizing border-box
+			float left
+			width 25%
+			padding-bottom 0
+			.imagen
+				img 
+					box-shadow none !important
+			&:nth-of-type(1)
+				border none
+	
+	#empresas
+		.content 
+			background none
+	#social
+		position relative
+		margin-left auto
+	
+	#ultimo 
+		overflow hidden
+		position relative
+	
+		.datos 
+			position relative
+			z-index 4
+			width 100%
+			height 500px
+		
+		.tela 
+			width 100%
+		
+		.boton 
+			bottom 80px
+			position absolute
+			right 20px
+			width 100%
+		
+		.fecha 
+			bottom 60px
+			position  absolute
+			right 20px
+			width 100%
+
+	#cursos 
+		.curso 
+			.left 
+				padding 0
+			.center 
+				margin-left 67px
+				h3
+					font-size 16px
+					font-weight normal
+@media screen and (max-width:800px)
+	h3.tit 
+		letter-spacing 3px !important
+		font-size 20px !important
+	
+
+	.subtitulo 
+		font-size 30px
+		font-weight normal
+		letter-spacing 2px
+	
+	#cuerpo
+		min-width 320px
+	
+	
+	#anteriores
+		.tit
+			font-size 18px
+	
+
+ 
+	#proximo 
+
+
+		h3 
+			font-size 22px
+			letter-spacing 2px
+
+
+		
+
+	#social
+		display none
+	
+	#ultimo 
+		overflow hidden
+		position relative
+		height 370px
+ 
+		.datos 
+			height 280px
+			position relative
+			z-index 4
+
+		.datos .titulo 
+			font-size 30px
+			line-height 35px
+			margin-right auto
+			position absolute
+			top 35px
+			max-width 100%
+			width 100%
+
+
+		.tela
+			width 100%
+
+		.boton
+		.fecha
+		.horario
+		.titulo 
+			float none
+			margin-right auto
+			text-align center
+		.boton 
+			bottom 0
+			font-size 20px
+			position absolute
+			width 100%
+
+		.fecha
+			bottom -20px
+			font-size 18px
+			position absolute
+			width 100%
+
+		.horario 
+			margin 60px auto 0 auto
+
+
+		.horario strong:nth-child(1)
+			font-weight normal
+
+		.horario .big 
+			font-size 30px  
+	
+
+	a.banner-link
+		display none
+@media screen and (max-width:600px)
+			
+	#empresas 
+		.sponsor 
+			float left 
+			width 40% 
+			margin 0 
+			 
+			&:nth-of-type(odd)
+				text-align right
+				padding-right 5%
+			&:nth-of-type(even)
+				text-align left
+				padding-left 5%
+	#anteriores
+		height auto
+		.capitulo 
+			border none
+			width 50%
+			height auto
+			// &:hover 
+			// 	box-shadow none
+			.imagen
+				height auto
+				img 
+					width 100%
+	#cursos 
+		.curso 
+			&:hover .right  .mes 
+				color white
+			.center 
+				max-width none
+				width auto
+				height auto
+				margin-right 0
+			.right 
+				height auto
+				border none
+				background #808285
+				h4 
+					float left
+					color white
+					line-height 17px
+
+				.mes 
+					font-size 13px
+					margin-right 10px
+					
+
+
+	#proximo 
+		.cuenta
+			margin 0 !important
+			.digito
+				font-size 40px
+
+

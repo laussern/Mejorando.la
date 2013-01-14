@@ -4,9 +4,7 @@
 
 {% block head %}
 <link href="{{ STATIC_PREFIX }}css/live.css" rel="stylesheet" />
-<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
-<script src="{{ STATIC_PREFIX }}js/jquery.debouncedresize.js"></script>
-<script src="{{ STATIC_PREFIX }}js/live.js"></script>
+
 <style type="text/css">
   .curso-ad{
     display: none;
@@ -55,4 +53,10 @@
     <section id="col2"></section>
   </div>
 </section>
+{% endblock %}
+
+{% block footer %}
+<script src="{{ STATIC_PREFIX }}js/jquery.form.js"></script>
+<script src="{{ STATIC_PREFIX }}js/jquery.debouncedresize.js"></script>
+<script src="{{ STATIC_PREFIX }}js/live.js"></script>
 {% endblock %}

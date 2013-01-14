@@ -4,8 +4,8 @@
 .visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
 .invisible{visibility:hidden}
 .noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
-.clearfix{zoom:1;}
-.clearfix:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
+.clearfix,#comentarios{zoom:1;}
+.clearfix:after,#comentarios:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
 .clear{display:block;clear:both;zoom:1}
 .nomargin{margin:0 !important}
 #contdes{background:#fff;padding-bottom:10px;width:100%;}

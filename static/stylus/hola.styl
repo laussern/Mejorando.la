@@ -1,43 +1,14 @@
 azul = #0670dd
 @import "classes.styl"
 body
-	overflow-x hidden
 	background #a6adb5
 	color #555a5e
 a 
 	color #555a5e
 	text-decoration none
-img 
-	border none
-footer 
-	background #60676f
-	border-bottom 30px solid white
-	text-align center
-	//height 65px
-
-	.centro 
-		background white
-		max-width 470px 
-		margin 0 auto
-		//height 65px
-		padding 10px 0
-		span
-			margin 0 50px
-		a,span
-			font-size 25px
-			font-weight bold
-		h4 
-			text-transform uppercase
-			font-weight normal
-			letter-spacing 5px
-			font-size 12px
-#white
-	background white 
-	margin 0 auto
-	max-width 1000px
-	text-align center
 	
-
+	&:hover 
+		text-decoration none
 #cuerpo
 	#azul 
 		background #0670dd
@@ -110,9 +81,10 @@ footer
 #formulario
 	background #0073E8 url("../images/hola/pattern_btn_post.png")
 	color #0073e8
-	max-width 880px
 	margin 0 auto 40px auto
+	max-width 880px
 	padding-bottom 20px
+	text-align center
 	label 
 		display block
 		color white
@@ -173,7 +145,6 @@ footer
 			.item
 				width 100%
 				@extends .clearfix
-				//border-bottom 3px solid #0073E8
 				.footer
 					background none
 					padding 20px 10px

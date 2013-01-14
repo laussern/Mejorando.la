@@ -2,7 +2,7 @@
 #anteriores h3 img{margin:0 10px}
 #cuerpo{padding-top:20px}
 #header_cursos{height:500px;margin:0 auto;max-width:1000px;position:relative;}
-#header_cursos .tela{background:rgba(0,0,0,0.50);height:100%;position:absolute;top:0;width:100%;z-index:2}
+#header_cursos .tela{background:rgba(0,0,0,0.5);height:100%;position:absolute;top:0;width:100%;z-index:2}
 #header_cursos .datos{position:absolute;right:20px;top:155px;z-index:3;text-align:right;}
 #header_cursos .datos h2{font-size:60px;font-weight:normal;line-height:35px}
 .capitulo{position:realtive}

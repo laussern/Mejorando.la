@@ -3,7 +3,6 @@
 {% block title %}{{video.titulo}} | Mejorando la Web{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/base.css?v=1" />
 <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/video.css" />
 {% endblock %}
 
@@ -74,6 +73,9 @@
   {% endif %}
 </section>
 
+{% endblock %}
+
+{% block footer %}
 <script src="//www.youtube.com/iframe_api"></script>
 <script>
 +function () {
