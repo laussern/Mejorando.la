@@ -7,6 +7,8 @@ from django.http import Http404
 from django.template import TemplateDoesNotExist, RequestContext
 from django.views.decorators.http import require_POST
 from django.core.mail import send_mail
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 from models import Curso, CursoRegistro, CursoPago
 from website.utils import get_pais
@@ -46,6 +48,12 @@ def curso(req, curso_slug):
                 tel = req.POST.get('telefono')
                 quantity = req.POST.get('quantity')
                 token = req.POST.get('stripeToken')
+
+                if email:
+                    try:
+                        validate_email(email)
+                    except ValidationError:
+                        email = False
 
                 if nombre and email and tel and quantity and token:
                     # realizar el cargo con la api de stripe
@@ -88,6 +96,12 @@ def curso(req, curso_slug):
                 email = req.POST.get('email')
                 tel = req.POST.get('telefono')
                 quantity = req.POST.get('quantity')
+
+                if email:
+                    try:
+                        validate_email(email)
+                    except ValidationError:
+                        email = False
 
                 if nombre and email and tel and quantity:
                     p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method=action)
