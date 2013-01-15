@@ -45,7 +45,7 @@ class CursoRegistroAdmin(admin.ModelAdmin):
 		return super(CursoRegistroAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 class CursoPagoAdmin(admin.ModelAdmin):
-	list_filter = ('curso', 'method', 'charged', 'pais')
+	list_filter = ('curso', 'method', 'charged', 'pais', 'version')
 	search_fields = ('nombre', 'email')
 	list_display = ('nombre', 'email',)
 
