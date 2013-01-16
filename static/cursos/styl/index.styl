@@ -1,3 +1,4 @@
+@import "../stylus/classes.styl"
 * 
 	margin 0
 	padding 0
@@ -466,9 +467,9 @@ header
 
 /* DOCENTES */
 .docentes 
-	overflow hidden
+	// overflow hidden
 	margin 20px 0
-
+	@extends .clearfix
 	.docente 
 		float left
 		width 445px
@@ -528,7 +529,11 @@ header
 				text-transform none
 				font-size 25px
 				font-weight normal
-
+/* Politica de reembolso */
+.politica 
+	padding 20px
+	h2 
+		font-weight bold
 /* QUIERES */
 .quieres 
 	text-align center
@@ -582,8 +587,10 @@ footer
 
 
 	ul 
+		@extends .clearfix
 		display inline-block
 		margin 40px 0 60px
+
 
 
 .video 
