@@ -17,6 +17,7 @@ from utils import calculate
 import stripe
 import logging
 import urllib
+from datetime import datetime, timedelta
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -54,6 +55,9 @@ def curso(req, curso_slug):
                         validate_email(email)
                     except ValidationError:
                         email = False
+
+                if CursoPago.objects.filter(email=email, curso=curso, charged=True, fecha__gt=datetime.now() - timedelta(days=1)).exists():
+                    return HttpResponse('ERR')
 
                 if nombre and email and tel and quantity and token:
                     # realizar el cargo con la api de stripe
