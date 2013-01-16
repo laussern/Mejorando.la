@@ -110,7 +110,7 @@ def video(solicitud, video_slug):
             if api.verify_key():
                 # por si el usuario esta detras de un proxy
 
-                if not api.comment_check(comment=comentario.content, data={
+                if not api.comment_check(comment=comentario.content.encode('utf-8'), data={
                         'user_ip': get_ip(solicitud.META),
                         'user_agent': solicitud.META['HTTP_USER_AGENT']
                     }):
