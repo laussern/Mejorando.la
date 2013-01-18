@@ -34,8 +34,7 @@ class VideoFeed(Feed):
         return Video.objects.all().order_by('-fecha')[:15]
 
     def item_enclosure_url(self, item):
-        if item.audio:
-            return item.audio
+        return 'https://mejorando.la/podcasts/%s.mp3' % item.slug
 
     def item_enclosure_mime_type(self, item):
         if item.audio:
