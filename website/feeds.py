@@ -31,7 +31,7 @@ class VideoFeed(Feed):
     description_template = 'feeds/video_description.html'
 
     def items(self):
-        return Video.objects.all().order_by('-fecha')[:15]
+        return Video.objects.all().order_by('-fecha')
 
     def item_enclosure_url(self, item):
         return 'https://mejorando.la/podcasts/%s.mp3' % item.slug
