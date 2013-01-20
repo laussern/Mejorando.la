@@ -27,7 +27,7 @@ class Video(models.Model):
     descripcion = models.TextField()
     participantes = models.TextField(blank=True)
     activado = models.BooleanField(default=False)
-    audio  = models.URLField(max_length=500, blank=True)
+    podcast = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.titulo
@@ -161,6 +161,7 @@ class RegistroConferencia(models.Model):
     def __unicode__(self):
         return '%s' % self.nombre
 
+
 class MailRegistroCurso(models.Model):
     TIPOS = (
         ('REG', 'Registro'),
@@ -176,38 +177,41 @@ class MailRegistroCurso(models.Model):
     def __unicode__(self):
         return self.subject
 
+
 # hooks
 def registro_post_save(sender, instance, created, *args, **kwargs):
-    if settings.DEBUG: return
+    if settings.DEBUG:
+        return
 
     if created:
         send_mail('Registro al "%s"' % instance.curso, 'Nombre: %s\nEmail: %s\nTelefono: %s\nTipo de pago: %s\nCurso: %s\nPais: %s\nLink: http://mejorando.la/track/%s\n' % (instance.nombre, instance.email, instance.telefono, instance.tipo, instance.curso, instance.pais, instance.id), settings.FROM_CURSOS_EMAIL, settings.TO_CURSOS_EMAIL)
 
-        try:    
+        try:
             mail = MailRegistroCurso.objects.get(code=instance.code, tipo='REG')
 
             # mail confirmando registro
             send_mail(mail.subject, u'%s\nTambién puedes realizar tu pago en http://mejorando.la/track/%s\n' % (mail.content, instance.id), settings.FROM_CURSOS_EMAIL, [instance.email])
-        except MailRegistroCurso.DoesNotExist: pass
+        except MailRegistroCurso.DoesNotExist:
+            pass
 
         if instance.tipo == 'deposito':
             try:
                 mail_inst = MailRegistroCurso.objects.get(code=instance.code, tipo='INS')
 
                 # mail con instrucciones de deposito
-                send_mail(mail_inst.subject, mail_inst.content, settings.FROM_CURSOS_EMAIL, [instance.email])                
-            except MailRegistroCurso.DoesNotExist: pass
+                send_mail(mail_inst.subject, mail_inst.content, settings.FROM_CURSOS_EMAIL, [instance.email])
+            except MailRegistroCurso.DoesNotExist:
+                pass
 
     if instance.pago:
         send_mail('Pago de "%s"' % instance.curso, '%s (%s) ha realizado el pago de %s por %s persona(s) mediante paypal al "%s"' % (instance.nombre, instance.email, instance.total, instance.personas, instance.curso), settings.FROM_CURSOS_EMAIL, settings.TO_CURSOS_EMAIL)
 
-        try:    
+        try:
             mail_pago = MailRegistroCurso.objects.get(code=instance.code, tipo='PAG')
 
             # mail confirmando el pago
             send_mail(mail_pago.subject, mail_pago.content, settings.FROM_CURSOS_EMAIL, [instance.email])
-        except MailRegistroCurso.DoesNotExist: pass
-    
-        
+        except MailRegistroCurso.DoesNotExist:
+            pass
 
 post_save.connect(registro_post_save, sender=RegistroCurso)
