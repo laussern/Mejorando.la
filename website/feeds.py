@@ -39,8 +39,7 @@ class VideoFeed(Feed):
         return 'https://mejorando.la%s%s.mp3' % (settings.PODCASTS_URL, item.slug)
 
     def item_enclosure_mime_type(self, item):
-        if item.audio:
-            return 'audio/mpeg'
+        return 'audio/mpeg'
 
     def item_pubdate(self, item):
         return datetime.combine(item.fecha, time())
