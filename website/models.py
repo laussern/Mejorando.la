@@ -65,6 +65,8 @@ class VideoComentario(models.Model):
     fecha = models.DateField(auto_now_add=True)
     content = models.TextField()
     video = models.ForeignKey(Video)
+    activado = models.BooleanField(default=True)
+    ip = models.CharField(max_length=50, blank=True)
 
     def __unicode__(self):
         return '%s dijo: %s' % (self.autor, self.content[:100])
