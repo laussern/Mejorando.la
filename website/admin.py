@@ -20,7 +20,8 @@ class VideoAdmin(admin.ModelAdmin):
 
 class VideoComentarioAdmin(admin.ModelAdmin):
     ordering = ('-fecha', )
-    readonly_fields = ('autor', 'autor_email', 'autor_url', 'content', 'video')
+    readonly_fields = ('autor', 'autor_email', 'autor_url', 'content', 'video', 'ip',)
+
 
 class RegistroCursoAdmin(admin.ModelAdmin):
     ordering = ('code', )
