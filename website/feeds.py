@@ -1,5 +1,7 @@
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
+from django.conf import settings
+
 from models import Video
 from datetime import datetime, time
 
@@ -34,7 +36,7 @@ class VideoFeed(Feed):
         return Video.objects.filter(podcast=True, activado=True).order_by('-fecha')
 
     def item_enclosure_url(self, item):
-        return 'https://mejorando.la/podcasts/%s.mp3' % item.slug
+        return 'https://mejorando.la%s%s.mp3' % (settings.PODCASTS_URL, item.slug)
 
     def item_enclosure_mime_type(self, item):
         if item.audio:
