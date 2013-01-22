@@ -22,6 +22,7 @@ class iTunesFeed(Rss201rev2Feed):
         handler.addQuickElement('itunes:category', 'Technology')
         handler.addQuickElement('itunes:category', 'Gadgets')
         handler.addQuickElement('itunes:category', 'Tech News')
+        handler.addQuickElement('itunes:image', 'https://mejorando.la/podcast.jpg')
 
 
 class VideoFeed(Feed):
