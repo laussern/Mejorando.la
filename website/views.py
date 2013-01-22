@@ -215,9 +215,6 @@ def podcast(solicitud):
 
 def all(req, path):
     try:
-        print '%s.html' % path
         return render_to_response('%s.html' % path)
     except TemplateDoesNotExist:
         raise Http404
-
-    return HttpResponse(path)
