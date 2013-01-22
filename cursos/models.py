@@ -164,6 +164,8 @@ class CursoPago(models.Model):
 	error 	 = models.CharField(max_length=200, blank=True)
 	sent	 = models.BooleanField(default=False)
 	version  = models.IntegerField(default=1)
+	ip = models.CharField(max_length=50, blank=True)
+	ua = models.TextField(blank=True)
 
 	def intentos(self):
 		return CursoPago.objects.filter(email=self.email, curso=self.curso, method=self.method).count()

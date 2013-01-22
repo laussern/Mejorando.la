@@ -11,7 +11,7 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
 from models import Curso, CursoRegistro, CursoPago
-from website.utils import get_pais
+from website.utils import get_pais, get_ip
 from utils import calculate
 
 import stripe
@@ -65,7 +65,7 @@ def curso(req, curso_slug):
 
                 if nombre and email and tel and quantity and token:
                     # realizar el cargo con la api de stripe
-                    p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method='card')
+                    p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), ip=get_ip(req.META), ua=req.META['HTTP_USER_AGENT'], quantity=quantity, curso=curso, method='card')
                     p.save()
 
                     concept = calculate(int(quantity), curso.precio)
@@ -116,7 +116,7 @@ def curso(req, curso_slug):
                     return HttpResponse('ERR TOO MANY TRIES')
 
                 if nombre and email and tel and quantity:
-                    p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method=action)
+                    p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), ip=get_ip(req.META), ua=req.META['HTTP_USER_AGENT'], quantity=quantity, curso=curso, method=action)
                     p.save()
 
                     return HttpResponse('OK')
