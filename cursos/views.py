@@ -56,8 +56,12 @@ def curso(req, curso_slug):
                     except ValidationError:
                         email = False
 
+                # si ya ha pagado hoy
                 if CursoPago.objects.filter(email=email, curso=curso, charged=True, fecha__gt=datetime.now() - timedelta(days=1)).exists():
-                    return HttpResponse('ERR')
+                    return HttpResponse('ERR ALREADY COMPLETED')
+
+                if CursoPago.objects.filter(email=email, curso=curso, charged=False, fecha__gt=datetime.now() - timedelta(days=1)).count() > 5:
+                    return HttpResponse('ERR TOO MANY TRIES')
 
                 if nombre and email and tel and quantity and token:
                     # realizar el cargo con la api de stripe
@@ -96,6 +100,7 @@ def curso(req, curso_slug):
                     return HttpResponse('ERR')
 
             elif action == 'deposit' or action == 'paypal':
+
                 nombre = req.POST.get('nombre')
                 email = req.POST.get('email')
                 tel = req.POST.get('telefono')
@@ -106,6 +111,9 @@ def curso(req, curso_slug):
                         validate_email(email)
                     except ValidationError:
                         email = False
+
+                if CursoPago.objects.filter(email=email, curso=curso, charged=False, fecha__gt=datetime.now() - timedelta(days=1)).count() > 5:
+                    return HttpResponse('ERR TOO MANY TRIES')
 
                 if nombre and email and tel and quantity:
                     p = CursoPago(nombre=nombre, email=email, telefono=tel, pais=get_pais(req.META), quantity=quantity, curso=curso, method=action)
