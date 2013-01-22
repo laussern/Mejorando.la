@@ -22,5 +22,5 @@ urlpatterns = patterns('',
     # podcast de mejorandola
     url(r'^podcast/?$', 'website.views.podcast'),
 
-    url(r'^(?P<path>.*?)$', 'website.views.all'),
+    url(r'^(?P<path>.*?)/?$', 'website.views.all'),
 )
