@@ -71,6 +71,11 @@ class VideoComentario(models.Model):
     def __unicode__(self):
         return '%s dijo: %s' % (self.autor, self.content[:100])
 
+class VideoComentarioSpamIP(models.Model):
+    ip = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.ip
 
 # el formulario para agregar un comentario al video
 class VideoComentarioForm(ModelForm):

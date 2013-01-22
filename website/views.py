@@ -9,7 +9,7 @@ from django.template import TemplateDoesNotExist
 from django.template.defaultfilters import slugify
 from akismet import Akismet
 import image
-from models import Setting, Video, VideoComentario, VideoComentarioForm, Curso, RegistroCurso, Conferencia
+from models import Setting, Video, VideoComentario, VideoComentarioSpamIP, VideoComentarioForm, Curso, RegistroCurso, Conferencia
 import datetime
 import time
 import requests
@@ -101,25 +101,26 @@ def video(solicitud, video_slug):
         if(form.is_valid()):
             ip = get_ip(solicitud.META)
 
-            # asignar el video
-            comentario = form.save(commit=False)
-            comentario.ip = ip
-            comentario.video = video
+            if not VideoComentarioSpamIP.objects.filter(ip=ip).exists():
+                # asignar el video
+                comentario = form.save(commit=False)
+                comentario.ip = ip
+                comentario.video = video
 
-            # detectar spam
-            api = Akismet(key=settings.AKISMET_API_KEY,
-                        blog_url=settings.AKISMET_URL,
-                        agent=settings.AKISMET_AGENT)
-            if api.verify_key():
-                # por si el usuario esta detras de un proxy
+                # detectar spam
+                api = Akismet(key=settings.AKISMET_API_KEY,
+                            blog_url=settings.AKISMET_URL,
+                            agent=settings.AKISMET_AGENT)
+                if api.verify_key():
+                    # por si el usuario esta detras de un proxy
 
-                if not api.comment_check(comment=comentario.content.encode('utf-8'), data={
-                        'user_ip': ip,
-                        'user_agent': solicitud.META['HTTP_USER_AGENT']
-                    }):
+                    if not api.comment_check(comment=comentario.content.encode('utf-8'), data={
+                            'user_ip': ip,
+                            'user_agent': solicitud.META['HTTP_USER_AGENT']
+                        }):
 
-                    # guardar el video
-                    comentario.save()
+                        # guardar el video
+                        comentario.save()
     else:
         form = VideoComentarioForm()
 
