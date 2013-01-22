@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     url(r'^conferencia/(?P<template>.*?)/?$', 'website.views.conferencia'),
     # podcast de mejorandola
     url(r'^podcast/?$', 'website.views.podcast'),
+
+    url(r'^(?P<path>.*?)$', 'website.views.all'),
 )

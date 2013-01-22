@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.utils import simplejson
@@ -211,3 +211,13 @@ def podcast(solicitud):
     return render_to_response('website/podcast.html', {
         'podcast_list': Video.objects.filter(podcast=True, activado=True).order_by('-fecha')
      })
+
+
+def all(req, path):
+    try:
+        print '%s.html' % path
+        return render_to_response('%s.html' % path)
+    except TemplateDoesNotExist:
+        raise Http404
+
+    return HttpResponse(path)
