@@ -14,8 +14,7 @@
 ::selection{text-shadow:0 0 20px #017ecd,1px 1px 1px #808080}
 a{color:#fff;text-decoration:none}
 a:hover{text-decoration:underline}
-p{margin:0}
-h1{position:absolute;z-index:10}
+h1.logotipo{position:absolute;z-index:10}
 h2,h5{font-weight:normal}
 body{background:#3c4043;color:#fff;font-family:'open sans',Arial,Sans-serif;font-size:16px}
 header{background:#323e4a;margin:0 auto;max-width:1000px;position:relative;z-index:3;}
