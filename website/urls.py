@@ -6,8 +6,6 @@ urlpatterns = patterns('',
     url(r'^$',         'website.views.home'),
     # archivo de videos
     url(r'^videos/?$', 'website.views.videos'),
-    # archivo de conferencias
-    url(r'^conferencias/?$', 'website.views.conferencias'),
     # video individual
     url(r'^videos/(?P<video_slug>.+?)/?$', 'website.views.video'),
     # transmision en vivo
