@@ -1,5 +1,6 @@
 *{margin:0;padding:0}
 body{font-family:'Open Sans',sans-serif;color:#747679;font-size:16px;background:#fff}
+.curso-ad{display:none}
 #wrapper{max-width:none}
 .podcast-header{background:url("../images/podcast/header_bg.gif") left top no-repeat;padding:15px 30px}
 #page{background:url("../images/podcast/page_bg.gif") 800px 50px no-repeat;max-width:1000px;margin:auto;margin-bottom:30px;}
