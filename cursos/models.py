@@ -37,7 +37,7 @@ class Curso(models.Model):
 
 	# variables externas del curso
 	def dias(self):      return CursoDia.objects.filter(curso=self)
-	def docentes(self):  return CursoDocente.objects.filter(curso=self)
+	def docentes(self):  return CursoDocente.objects.filter(cursos=self)
 	def registros(self): return CursoRegistro.objects.filter(curso=self)
 	def fecha(self):
 		dias = CursoDia.objects.filter(curso=self)
@@ -130,7 +130,7 @@ class CursoDocente(models.Model):
 	twitter = models.CharField(max_length=300)
 	perfil  = models.TextField()
 	imagen  = models.ImageField(upload_to='cursos_docentes')
-	curso   = models.ManyToManyField(Curso, blank=True, default=None)
+	cursos  = models.ManyToManyField(Curso, blank=True)
 
 	def __unicode__(self):
 		return self.nombre
