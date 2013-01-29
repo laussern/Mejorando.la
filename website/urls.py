@@ -20,5 +20,11 @@ urlpatterns = patterns('',
     # podcast de mejorandola
     url(r'^podcast/?$', 'website.views.podcast'),
 
-    #url(r'^(?P<path>.*?)/?$', 'website.views.all'),
+    url(r'^(?P<path>conferencias)/?$', 'website.views.all'),
+    url(r'^(?P<path>espana)/?$', 'website.views.all'),
+    url(r'^(?P<path>guia-html5)/?$', 'website.views.all'),
+    url(r'^(?P<path>privacidad)/?$', 'website.views.all'),
+    url(r'^(?P<path>respuesta)/?$', 'website.views.all'),
+    url(r'^(?P<path>terminos)/?$', 'website.views.all'),
+    url(r'^(?P<path>sponsors/bilingham)/?$', 'website.views.all'),
 )
