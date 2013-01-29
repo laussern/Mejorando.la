@@ -1,4 +1,5 @@
 .tweets{background:#0186c7;padding:20px;padding-bottom:80px;padding-top:40px;position:relative;text-align:center;font-family:'open sans',arial,sans-serif !important;}
+.tweets .content{position:relative}
 .tweets h3{text-align:center;font-weight:bold;color:#fff;font-size:20px;margin-bottom:10px}
 .tweets:before{border-bottom:30px solid transparent;border-left:40px solid #fff;content:"";left:0;position:absolute;top:0}
 .tweets:after{content:"";position:absolute;bottom:0;right:0;border-right:40px solid #fff;border-top:30px solid transparent}
