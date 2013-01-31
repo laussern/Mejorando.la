@@ -58,11 +58,11 @@
     <h3>{{ proximo.titulo }}</h3>
 
     {% with invitados=proximo.get_invitados %}
-    {% if invitados > 0 %}
+    {% if invitados|length > 0 %}
     <p>con <strong>{{ invitados|join:',' }}</strong></p>
     {% endif %}
     {% endwith %}
-    
+
     {% endif %}
   </div>
 
