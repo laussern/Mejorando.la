@@ -66,6 +66,9 @@
 #ultimo .horario .block{display:block}
 #ultimo .horario .big{font-size:40px;letter-spacing:1px}
 .cinta{background:url("../images/home/countdown_separador.jpg") repeat-y;-webkit-background-size:100%;background-size:100%;border-bottom:1px solid #fff;height:32px;width:100%}
+.banner-proximo-capitulo{background:#fff;padding:20px 20px 0 20px;}
+.banner-proximo-capitulo .titulo{font-size:20px;font-weight:bold;letter-spacing:2px;margin:0;text-align:left}
+.banner-proximo-capitulo .invitado{text-align:right}
 .ie8 #ultimo .datos .titulo{max-width:none !important;padding-left:30px !important}
 .ie8 .tela{background:url("../images/home/tela.png")}
 .ie8 .block .tit{background:url("../images/home/tela.png")}
