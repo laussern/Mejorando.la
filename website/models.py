@@ -57,6 +57,9 @@ class Video(models.Model):
     def get_single_image_url(self):
         return image.get_url_by(image.SINGLE, self.imagen)
 
+    def get_invitados(self):
+        return VideoInvitado.objects.filter(videos=self)
+
 
 class VideoInvitado(models.Model):
     nombre  = models.CharField(max_length=500)
