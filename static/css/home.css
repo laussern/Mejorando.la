@@ -39,6 +39,9 @@
 #cursos .curso .right .dia{font-size:13.5px}
 #proximo{background:#fff;background:url("../images/post/pattern_participantes_post.png");color:#3d4043;margin-bottom:45px;margin-top:50px;text-align:center;}
 #proximo h3{font-size:33px;font-weight:normal;letter-spacing:15px;margin:0 0 10px;text-transform:uppercase}
+#proximo .banner-proximo-capitulo{background:#fff;padding:10px;border-bottom:5px solid #919599;}
+#proximo .banner-proximo-capitulo h3.titulo{font-size:20px;font-weight:bold;letter-spacing:2px;margin:0;text-align:left}
+#proximo .banner-proximo-capitulo .invitado{text-align:right}
 #proximo .content{background:#fff;display:inline-block;zoom:1;*display:inline;padding:0 15px}
 #proximo .cuenta{display:inline-block;zoom:1;*display:inline;*display:inline;margin-right:50px;vertical-align:top;zoom:1;}
 #proximo .cuenta:last-child{margin-right:0}
@@ -66,9 +69,6 @@
 #ultimo .horario .block{display:block}
 #ultimo .horario .big{font-size:40px;letter-spacing:1px}
 .cinta{background:url("../images/home/countdown_separador.jpg") repeat-y;-webkit-background-size:100%;background-size:100%;border-bottom:1px solid #fff;height:32px;width:100%}
-.banner-proximo-capitulo{background:#fff;padding:20px 20px 0 20px;}
-.banner-proximo-capitulo .titulo{font-size:20px;font-weight:bold;letter-spacing:2px;margin:0;text-align:left}
-.banner-proximo-capitulo .invitado{text-align:right}
 .ie8 #ultimo .datos .titulo{max-width:none !important;padding-left:30px !important}
 .ie8 .tela{background:url("../images/home/tela.png")}
 .ie8 .block .tit{background:url("../images/home/tela.png")}
