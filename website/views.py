@@ -36,6 +36,8 @@ def home(solicitud):
     except Video.DoesNotExist:
         ultimo_video = None
 
+    proximos = Video.objects.filter(proximo=True)
+
     ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[1:5]
     # plantilla
     return render_to_response('website/home.html', {
@@ -44,7 +46,8 @@ def home(solicitud):
         'pais': get_pais(solicitud.META),  # el horario del programa localizado
         'timestamp': get_timestamp(),  # Obtiene el timestamp del sig. program.
         'cursos': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now()),
-        'cursos_geo': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now(), pais=get_pais(solicitud.META))
+        'cursos_geo': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now(), pais=get_pais(solicitud.META)),
+        'proximo': proximos[0] if proximos.exists() else None
     })
 
 

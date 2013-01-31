@@ -53,8 +53,13 @@
         <div class="leyenda">segundos</div>
       </div>
     </div>
-    
+  
+    {% if proximo %}
+    <h3>{{ proximo.titulo }}</h3>
+    {% endif %}
   </div>
+
+
   {% if cursos|length > 0 %}  
   <section id="cursos">
     <div class="cinta"></div>

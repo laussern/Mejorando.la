@@ -21,13 +21,14 @@ class Setting(models.Model):
 class Video(models.Model):
     titulo = models.CharField(max_length=150)
     slug = models.CharField(max_length=300)
-    imagen = models.ImageField(upload_to='videos')
+    imagen = models.ImageField(blank=True, upload_to='videos')
     fecha = models.DateField()
-    embed_code = models.TextField()
+    embed_code = models.TextField(blank=True)
     descripcion = models.TextField()
     participantes = models.TextField(blank=True)
     activado = models.BooleanField(default=False)
     podcast = models.BooleanField(default=False)
+    proximo = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.titulo
@@ -57,6 +58,24 @@ class Video(models.Model):
         return image.get_url_by(image.SINGLE, self.imagen)
 
 
+class VideoInvitado(models.Model):
+    nombre  = models.CharField(max_length=500)
+    twitter = models.CharField(max_length=300)
+    perfil  = models.TextField()
+    imagen  = models.ImageField(upload_to='video_invitados')
+    videos  = models.ManyToManyField(Video, blank=True)
+
+    def __unicode__(self):
+        return self.nombre
+
+    def save(self, *args, **kwargs):
+        super(VideoInvitado, self).save(*args, **kwargs)
+
+        if not self.id and not self.imagen:
+            return
+
+        image.resize((100, 100), self.imagen)
+
 # comentarios de los videos
 class VideoComentario(models.Model):
     autor_email = models.EmailField()
@@ -71,17 +90,20 @@ class VideoComentario(models.Model):
     def __unicode__(self):
         return '%s dijo: %s' % (self.autor, self.content[:100])
 
+
 class VideoComentarioSpamIP(models.Model):
     ip = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.ip
 
+
 # el formulario para agregar un comentario al video
 class VideoComentarioForm(ModelForm):
 	class Meta:
 		model  = VideoComentario
 		fields = ('autor', 'autor_email', 'autor_url', 'content')
+
 
 # el archivo de cursos
 class Curso(models.Model):
@@ -139,6 +161,7 @@ class Conferencia(models.Model):
 
     def get_image_url(self):
         return '%s%s' % (settings.MEDIA_URL, str(self.imagen))
+
 
 class RegistroCurso(models.Model):
     nombre    = models.CharField(max_length=500)
