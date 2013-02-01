@@ -1,7 +1,7 @@
 {% extends "website/base.html" %}
 
 {% block head %}
-  <link href="{{ STATIC_PREFIX }}css/home.css" rel="stylesheet"  />
+  <link href="{{ STATIC_PREFIX }}css/home.css?v=1.0" rel="stylesheet"  />
 {% endblock %}
 
 {% block body %}
@@ -55,13 +55,16 @@
     </div>
   
     {% if proximo %}
-    <h3>{{ proximo.titulo }}</h3>
+    <div class="banner-proximo-capitulo">
+      <h3 class="titulo">{{ proximo.titulo }}</h3>
 
-    {% with invitados=proximo.get_invitados %}
-    {% if invitados|length > 0 %}
-    <p>con <strong>{{ invitados|join:',' }}</strong></p>
-    {% endif %}
-    {% endwith %}
+      {% with invitados=proximo.get_invitados %}
+      {% if invitados|length > 0 %}
+      <p class="invitado">con <strong>{{ invitados|join:',' }}</strong></p>
+      {% endif %}
+      {% endwith %}
+    </div>
+    
 
     {% endif %}
   </div>

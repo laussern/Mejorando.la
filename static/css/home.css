@@ -39,6 +39,9 @@
 #cursos .curso .right .dia{font-size:13.5px}
 #proximo{background:#fff;background:url("../images/post/pattern_participantes_post.png");color:#3d4043;margin-bottom:45px;margin-top:50px;text-align:center;}
 #proximo h3{font-size:33px;font-weight:normal;letter-spacing:15px;margin:0 0 10px;text-transform:uppercase}
+#proximo .banner-proximo-capitulo{background:#fff;border-bottom:3px solid #3d4043;padding:10px;}
+#proximo .banner-proximo-capitulo h3.titulo{font-size:20px;font-weight:bold;letter-spacing:2px;margin:0;text-align:left}
+#proximo .banner-proximo-capitulo .invitado{text-align:right}
 #proximo .content{background:#fff;display:inline-block;zoom:1;*display:inline;padding:0 15px}
 #proximo .cuenta{display:inline-block;zoom:1;*display:inline;*display:inline;margin-right:50px;vertical-align:top;zoom:1;}
 #proximo .cuenta:last-child{margin-right:0}
