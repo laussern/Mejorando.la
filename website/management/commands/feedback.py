@@ -22,6 +22,6 @@ class Command(BaseCommand):
             for f in db.feedbacks.find({"comment": {"$ne": ""}, "datetime": {"$gte": the_time, "$lt": lt}}):
                 u = db.users.find_one({"_id": f['user']})
 
-                if not VideoComentario.objects.filter(video=v, content=f['comment'], autor=u['username']).exists():
+                if f['public'] and not VideoComentario.objects.filter(video=v, content=f['comment'], autor=u['username']).exists():
                     comment = VideoComentario(video=v, content=f['comment'], autor=u['username'], autor_url=u['link'], autor_image_url=u['avatar'])
                     comment.save()
