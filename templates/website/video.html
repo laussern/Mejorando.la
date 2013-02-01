@@ -3,7 +3,7 @@
 {% block title %}{{video.titulo}} | Mejorando la Web{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/video.css" />
+<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/video.css?v=1.0" />
 {% endblock %}
 
 {% block body %}
@@ -47,14 +47,22 @@
   
   {% for invitado in invitados %}
   <div class="invitado">
-    <img src="{{ invitado.get_imagen }}" alt="{{ invitado.nombre}}" />
+    <div class="content">
 
-    <h3>{{ invitado.nombre }}
-      <small><a href="http://twitter.com/{{ invitado.twitter }}">@{{ invitado.twitter }}</a></small></h3>
+      <div class="imagen">
+        <img src="{{ invitado.get_imagen }}" alt="{{ invitado.nombre}}" />   
+      </div>
+
+      <div class="descripcion">
+        <h3>{{ invitado.nombre }}
+        <small><a href="http://twitter.com/{{ invitado.twitter }}">@{{ invitado.twitter }}</a></small></h3>
+      </div>
 
       <div class="perfil">
-        {{ invitado.perfil }}
+        <p>{{ invitado.perfil }}</p>
       </div>
+
+    </div>  
   </div>
   {% endfor %}
 </div>

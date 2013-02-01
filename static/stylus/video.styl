@@ -90,8 +90,43 @@
 		position absolute
 		width 1000px
 		z-index 2
+.invitados 
+	// max-width 650px
+	margin auto
 
+	h2
+		color #3D4043
+		text-transform uppercase
+		// text-align center
+		margin 20px auto 0
+		font-weight bold
+		max-width 650px
+	.content
+		max-width 650px 
+		margin auto
+		padding 20px 0
+		@extends .clearfix
 
+	.invitado
+		background #0073E8
+		border-top 2px solid white
+		&:nth-of-type(2n)
+			background #0285B9
+		&:nth-of-type(3n)
+			background #04978D
+		&:nth-of-type(4n)
+			background #04A764
+		&:nth-of-type(5n)
+			background #05B838
+		
+	.imagen 
+		float right 
+		font-size 0
+		border 10px solid white
+		margin-left 20px
+		img 
+			max-width 100px 
+			height auto
 .ipad #comentarios .commentform
 .ipad #comentarios .comentarios
 	width 690px
