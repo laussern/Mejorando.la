@@ -80,6 +80,9 @@ class VideoInvitado(models.Model):
     def __unicode__(self):
         return self.nombre
 
+    def get_imagen(self):
+        return '%s%s' % (settings.MEDIA_URL, self.imagen)
+
     def save(self, *args, **kwargs):
         super(VideoInvitado, self).save(*args, **kwargs)
 

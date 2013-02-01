@@ -40,6 +40,25 @@
   </div>
 </aside>
 
+{% with invitados=video.get_invitados %}
+{% if invitados|length > 0 %}
+<div class="invitados">
+  {% for invitado in invitados %}
+  <div class="invitado">
+    <img src="{{ invitado.get_imagen }}" alt="{{ invitado.nombre}}" />
+    
+    <h3>{{ invitado.nombre }}
+      <small><a href="http://twitter.com/{{ invitado.twitter }}">@{{ invitado.twitter }}</a></small></h3>
+
+      <div class="perfil">
+        {{ invitado.perfil }}
+      </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
 {% if video.participantes %}
   {% include "website/participantes.html" %}
 {% endif %} 
