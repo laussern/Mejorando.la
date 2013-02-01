@@ -213,7 +213,7 @@ def track(solicitud, registro_id):
 
 def podcast(solicitud):
     return render_to_response('website/podcast.html', {
-        'podcast_list': Video.objects.filter(podcast=True, activado=True).order_by('-fecha')
+        'videos': Video.objects.filter(podcast=True, activado=True).order_by('-fecha')
      })
 
 

@@ -33,6 +33,9 @@ class Video(models.Model):
     def __unicode__(self):
         return self.titulo
 
+    def get_podcast_url(self):
+        return '/podcasts/%s.mp3' % self.slug
+
     def save(self, *args, **kwargs):
         super(Video, self).save(*args, **kwargs)
 

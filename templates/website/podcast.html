@@ -23,17 +23,17 @@
 
 
 	<div class="podcast-list" ng-app="myapp" >
-		{% for podcast in podcast_list %}
+		{% for video in videos %}
 		<div class="podcast-item" ng-controller="PlayCtrl">
-			<time>{{ podcast.fecha|date:"F d" }}</time>
+			<time>{{ video.fecha|date:"F d" }}</time>
 
-			<h2>{{ podcast.titulo }}</h2>
+			<h2>{{ video.titulo }}</h2>
 
-			<p>{{ podcast.descripcion|striptags|safe|truncatechars:240 }}</p>
+			<p>{{ video.descripcion|striptags|safe|truncatechars:240 }}</p>
 			
 			<div class="podcast-btns">
-				<a href="{{ podcast.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
-				<a href="https://mejorando.la/podcasts/{{ podcast.slug }}.mp3" class="podcast-btn" target="_blank">Descargar</a>
+				<a href="{{ video.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
+				<a href="{{ video.get_podcast_url }}" class="podcast-btn" target="_blank">Descargar</a>
 			</div>
 		</div>
 		{% endfor %}
