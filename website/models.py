@@ -36,7 +36,7 @@ class Video(models.Model):
     def save(self, *args, **kwargs):
         super(Video, self).save(*args, **kwargs)
 
-        if not self.id and not self.imagen:
+        if not self.id or not self.imagen:
             return
 
         image.resize(image.THUMB, self.imagen)
@@ -49,12 +49,21 @@ class Video(models.Model):
 
     # los diferentes imagenes para el sitio
     def get_home_image_url(self):
+        if not self.imagen:
+            return ''
+
         return image.get_url_by(image.HOME, self.imagen)
 
     def get_thumb_image_url(self):
+        if not self.imagen:
+            return ''
+
         return image.get_url_by(image.THUMB, self.imagen)
 
     def get_single_image_url(self):
+        if not self.imagen:
+            return ''
+
         return image.get_url_by(image.SINGLE, self.imagen)
 
     def get_invitados(self):
