@@ -3,30 +3,20 @@
 	padding:0;
 }
 
-body {
-	font-family: 'Open Sans', sans-serif;
-	color:#747679;
-	font-size:16px;
-	background white
+body
+	font-family 'Open Sans', sans-serif
+	color #747679
+	font-size 16px
+	background #3c4043
 
-	
-}
-
-.curso-ad
-	display none
 #wrapper
-	max-width none
-.podcast-header {
-	background:url( ../images/podcast/header_bg.gif) left top no-repeat;
-	padding:15px 30px;
-	// margin-top 10px
-}
+	background white url( ../images/podcast/header_bg.gif) left 42px no-repeat
 
-#page 
-	background:url( ../images/podcast/page_bg.gif) 800px 50px no-repeat;
-	max-width:1000px;
-	margin:auto;
-	margin-bottom:30px;
+#page
+	background url( ../images/podcast/page_bg.gif) 825px 110px no-repeat;
+	padding 0 50px
+	padding-top	70px
+
 	h1, h2, h3, h4, h5 {
 		font-weight: normal;
 	}
@@ -117,8 +107,29 @@ p {
 
 
 @media screen and (max-width:1000px)
-	#page 
-		background-position right 50px
+	.curso-ad:after
+		display none
+
+	.curso-ad
+		margin-top 10px
+
 	.podcast-item
 		padding 20px
+
+	#page
+		padding 0 20px
+		background-image none
 	
+
+.curso-ad
+	top 48px
+
+	&:after
+		content " "
+		display block
+		position absolute
+		background #a2a6a5
+		height 1px
+		left 10px
+		right 10px
+		bottom 9px
