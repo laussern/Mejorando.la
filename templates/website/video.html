@@ -21,7 +21,11 @@
   </article>
    <div id="contdes">
     <article class="desc">
-      <a href="{% url website.views.videos %}" class="archivogo">Archivo de videos</a>
+      <div class="botones">
+        <a href="{% url website.views.videos %}" class="archivogo">Archivo de videos</a>
+        <a href="{{ video.get_podcast_url }}" class="podcast-btn" target="_blank">Descargar</a>
+        <button class="play icon-play" data-url="https://mejorando.la{{ video.get_podcast_url }}" >Escuchar</button>
+      </div>
       <div class="intro">
         {{ video.descripcion|safe }}
       </div>
@@ -149,4 +153,49 @@
     };
 }();
 </script>
+<script src="{{ STATIC_PREFIX }}js/audio5.min.js"></script>
+<script>
+  var podcast;
+  function iniciar(yo) {
+    var url = yo.attr('data-url');
+    console.log(yo)
+      podcast = new Audio5js({
+        ready: function () {
+          this.load(url);
+          this.play();
+        }
+      });
+  }
+
+  var activo = true;
+  
+
+  $('.play').on('click',function(e){
+    if(activo == true){
+      var yo = $(this)
+
+      iniciar(yo)
+      $(this).removeClass('icon-play').addClass('icon-stop').text('Pausar');
+      activo = false;
+
+    }else{
+      if(podcast.playing){
+        podcast.pause() 
+        $(this).removeClass('icon-stop').addClass('icon-play').text('Reanudar');
+
+      }else{
+        podcast.play()  
+        $(this).removeClass('icon-play').addClass('icon-stop').text('Pausar');
+
+
+
+      }
+    }
+    
+    })
+   
+
+  
+  
+  </script>
 {% endblock %}
