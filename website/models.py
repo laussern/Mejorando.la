@@ -91,10 +91,12 @@ class VideoInvitado(models.Model):
 
         image.resize((100, 100), self.imagen)
 
+
 # comentarios de los videos
 class VideoComentario(models.Model):
     autor_email = models.EmailField()
     autor_url = models.URLField(blank=True)
+    autor_image_url = models.URLField(blank=True)
     autor = models.CharField(max_length=150)
     fecha = models.DateField(auto_now_add=True)
     content = models.TextField()

@@ -200,3 +200,5 @@ PLATAFORMA_API_KEY = ''
 
 PODCASTS_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'podcasts')
 PODCASTS_URL = '/podcasts/'
+
+FEEDBACK_DB = ''

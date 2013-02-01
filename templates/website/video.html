@@ -83,7 +83,13 @@
   {% for comentario in comentarios %}
   <article class="comentario" id="comment-{{ comentario.id }}">
     <div class="top">
-      <div class="avatar">{% gravatar_img_for_email comentario.autor_email 45 %}</div>
+      <div class="avatar">
+        {% if comentario.autor_image_url %}
+        <img src="{{ comentario.autor_image_url }}" height="45" width="45" alt="{{ comentario.autor }}" />
+        {% else %}
+        {% gravatar_img_for_email comentario.autor_email 45 %}
+        {% endif %}
+      </div>
       <div class="derecha">
         <h5 class="nombre">{{ comentario.autor }}</h5><span class="fecha">/ {{ comentario.fecha|date:"F.d" }} </span> 
     {% if comentario.autor_url %}
