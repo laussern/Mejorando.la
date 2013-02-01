@@ -43,10 +43,12 @@
 {% with invitados=video.get_invitados %}
 {% if invitados|length > 0 %}
 <div class="invitados">
+  <h2>Invitados</h2>
+  
   {% for invitado in invitados %}
   <div class="invitado">
     <img src="{{ invitado.get_imagen }}" alt="{{ invitado.nombre}}" />
-    
+
     <h3>{{ invitado.nombre }}
       <small><a href="http://twitter.com/{{ invitado.twitter }}">@{{ invitado.twitter }}</a></small></h3>
 
