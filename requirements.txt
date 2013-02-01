@@ -9,4 +9,5 @@ stripe==1.7.6
 wsgiref==0.1.2
 johnny-cache==1.4
 python-memcached==1.48
+pymongo==2.4.2
 git+git://github.com/maxmind/geoip-api-python.git
