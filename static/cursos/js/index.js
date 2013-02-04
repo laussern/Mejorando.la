@@ -31,7 +31,11 @@ jQuery(function ($) {
             $self.addClass('active');
         });
     }();
-
+    //cantidad de profesores
+    +function() {
+        var num_docentes = $('.docentes .docente').length;
+        $('.docentes').addClass("docentes"+num_docentes);
+    }();
     // funcionalidad de pago
     +function () {
         // constantes

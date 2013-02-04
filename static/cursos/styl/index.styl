@@ -470,6 +470,45 @@ header
 	// overflow hidden
 	margin 20px 0
 	@extends .clearfix
+	&.docentes1
+		.docente 
+			height auto
+			width auto
+	&.docentes2
+		.docente
+			&.docente2 
+				border-left-width 0
+	&.docentes3
+		.docente
+			width 280px 
+			border-left-width 5px
+			border-right-width 5px
+			&.docente1
+				border-left-width 10px
+				border-right-width 5px
+
+			&.docente3
+				border-right-width 10px
+				border-left-width 5px
+	&.docentes4 
+		.docente:nth-of-type(even)
+			border-left-width 0
+
+	&.docentes5 
+		.docente
+			&.docente2 
+				border-left-width 0
+			&.docente1
+			&.docente2
+				height 250px
+			&.docente3
+			&.docente4
+			&.docente5
+				width 280px
+			&.docente4
+				border-left-width 0
+				border-right-width 0
+
 	.docente 
 		float left
 		width 445px
@@ -477,26 +516,26 @@ header
 		padding 20px
 		border 10px solid #eaedf2
 
-		&.docente1, &.docente2 
-			height 250px
+		// &.docente1, &.docente2 
+		// 	height 250px
 
-		// first row
-		&.docente1
-			border-right-width 5px
-		&.docente2
-			border-left-width 5px
+		// // first row
+		// &.docente1
+		// 	border-right-width 5px
+		// &.docente2
+		// 	border-left-width 5px
 
-		&.docente3, &.docente4
-			border-right-width 5px
-		&.docente4, &.docente5
-			border-left-width 5px
+		// &.docente3, &.docente4
+		// 	border-right-width 5px
+		// &.docente4, &.docente5
+		// 	border-left-width 5px
 
-		&.docente2, &.docente5
-			float right
+		// &.docente2, &.docente5
+		// 	float right
 
-		&.docente3, &.docente4, &.docente5
-			width 280px
-			border-top 03px
+		// &.docente3, &.docente4, &.docente5
+		// 	width 280px
+		// 	border-top 03px
 
 		p 
 			line-height 16px
