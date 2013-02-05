@@ -4,8 +4,8 @@
 .visuallyhidden{left:-9999px;position:absolute !important;top:-9999px}
 .invisible{visibility:hidden}
 .noselect{-o-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none;-khtml-user-select:none}
-.clearfix,.docentes,footer ul{zoom:1;}
-.clearfix:after,.docentes:after,footer ul:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
+.clearfix,.top,.docentes,footer ul{zoom:1;}
+.clearfix:after,.top:after,.docentes:after,footer ul:after{clear:both;content:"\0020";display:block;height:0;visibility:hidden}
 .clear{display:block;clear:both;zoom:1}
 .nomargin{margin:0 !important}
 *{margin:0;padding:0}
@@ -52,7 +52,6 @@ header ul{overflow:hidden;float:left;background:url("../images/logos-bg.gif") le
 .main h1{background:#fff;color:#323e4a;margin:auto;text-align:center;font-size:30px;padding:15px;width:950px}
 .main .wrapper{background:#fff}
 .main-image{float:left}
-.top{overflow:hidden;}
 .top .col1{width:666px;background:#eaedf2;height:468px;float:left}
 .col2{background:#323e4a url("../images/pago-bg.gif") center bottom no-repeat;color:#fffefd;float:right;width:284px;height:448px;font-size:16px;line-height:19px;padding:10px 25px;}
 .col2 button.registrate{text-transform:uppercase;text-align:center;border-bottom:3px solid #bf932b;margin:auto;display:block;padding:5px 50px 15px;line-height:18px;margin-top:15px;}
