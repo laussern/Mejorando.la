@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es_ES">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1 ,maximum-scale=1" />
+
+    <title>{% block title %}Mejorando.la | un show en vivo de gente que crea Internet, todos los jueves a las 4pm GMT-5{% endblock %}</title>   
+
+    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{% url feed %}" />
+
+    <meta property="fb:page_id" content="198868566791554" />
+    <meta property="og:title" content="Mejorando.la" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://mejorando.la/"/>
+    <meta property="og:image" content="https://mejorando.la/static/images/isotipo.png" />
+    <meta property="og:site_name" content="mejorando.la" />
+    <meta property="fb:admins" content="1030603473" />
+
+    <link rel="stylesheet" href="{% static "css/base.css" %}" />
+    
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div id="wrapper">
+      {% block letrero %}{% endblock %}
+      <header>
+          <div class="mejor"> 
+              <h1 class="logotipo"><a href="{% url website.views.home %}" title="mejorando.la"><img class="logo-chico" src="{% static "images/logos/mejorandola.png" %}" alt="mejorando.la" /></a>
+
+              </h1>
+              <a id="maestros" href="http://maestrosdelweb.com" target="_blank" title="maestros del web"><img src="{% static "images/logos/maestros.png" %}" alt="maestros del web" width="35" height="35"></a><a id="cristalab" href="http://cristalab.com" target="_blank" title="cristalab"><img src="{% static "images/logos/cristalab.png" %}" alt="cristalab" width="35" height="35"></a>
+          </div>
+     
+            <nav class="menu">
+                <ul>
+                  <li><a href="{% url cursos.views.home %}" title="cursos">Cursos</a></li>
+                  <li><a href="/cursos/exalumnos/" title="Ex Alumnos">Ex alumnos</a></li>
+                  <li><a href="/conferencias" title="Conferencias">Conferencias</a></li>
+                  <li><a href="{% url website.views.videos %}" title="Videos">Videos</a></li>
+                </ul>
+            </nav>
+          
+      </header>
+
+    <a href="https://mejorando.la/cursos/diseno-desarrollo-web-online" class="curso-ad">
+            <span class="ad-title">Curso de Diseño y Desarrollo Web <strong>Online</strong>
+
+            <small>Febrero 26, 27 y 28 / Marzo 5, 6 y 7</small>
+            </span>
+
+            <span class="ad-teachers">
+            Con @freddier, @cvander, <br />@ajamaica, @ykro y @siedrix
+            </span>
+
+      </a>
+
+      
+      {% block body %}{% endblock %}
+      <footer id="footer">
+        <div class="centro">
+          <a href="http://twitter.com/freddier" target="blank">@freddier</a><span>+</span><a href="http://twitter.com/cvander" target="blank">@cvander</a>
+          <h4>Transmisión en vivo cada jueves</h4>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://apis.google.com/js/plusone.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!--[if (gte IE 6)&(lte IE 8)]>
+    <![endif]-->
+
+    <script>
+     var analyticsFileTypes = [''];
+     var analyticsEventTracking = 'enabled';
+
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-76863-8']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+    {% block footer %}{% endblock %}
+  </body>
+</html>

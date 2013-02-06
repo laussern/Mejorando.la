@@ -27,7 +27,7 @@ def home(req):
 
     # el archivo de cursos
     # organizados por mes-año
-    return render_to_response('cursos/home.html', {
+    return render_to_response('cursos_home.html', {
         'meses': [{
             'fecha': fecha,
             'cursos': website.models.Curso.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')

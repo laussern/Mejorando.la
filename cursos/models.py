@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-from django.template.defaultfilters import slugify
 from django.utils import simplejson
 from django.db.models.signals import post_save, post_delete
 

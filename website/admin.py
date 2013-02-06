@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Video, VideoComentario, VideoInvitado, VideoComentarioSpamIP, Setting, Curso, RegistroCurso, MailRegistroCurso, RegistroConferencia, Conferencia
+from models import Video, VideoComentario, VideoInvitado, VideoComentarioSpamIP, Setting, Curso
 from django.conf import settings
 
 
@@ -39,12 +39,8 @@ class RegistroCursoAdmin(admin.ModelAdmin):
 
 # registrar los modelos que utilizaran la interfaz de administracion d Django
 admin.site.register(Video, VideoAdmin)
-admin.site.register(VideoComentario, VideoComentarioAdmin)
 admin.site.register(VideoInvitado)
+admin.site.register(VideoComentario, VideoComentarioAdmin)
+admin.site.register(VideoComentarioSpamIP)
 admin.site.register(Setting)
 admin.site.register(Curso)
-admin.site.register(RegistroCurso, RegistroCursoAdmin)
-admin.site.register(MailRegistroCurso)
-admin.site.register(RegistroConferencia)
-admin.site.register(Conferencia)
-admin.site.register(VideoComentarioSpamIP)

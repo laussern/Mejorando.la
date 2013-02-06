@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from django.shortcuts import render_to_response, redirect, get_object_or_404
-from django.http import HttpResponse, Http404
-from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from django.utils import simplejson
-from django.template import TemplateDoesNotExist
-from django.template.defaultfilters import slugify
-from akismet import Akismet
-import image
-from models import Setting, Video, VideoComentario, VideoComentarioSpamIP, VideoComentarioForm, Curso, RegistroCurso, Conferencia
 import datetime
 import time
 import requests
-from utils import get_pais, get_ip, get_pais_by_ip
+
+from django.shortcuts import render_to_response, get_object_or_404
+from django.http import HttpResponse, Http404
+from django.conf import settings
+from django.utils import simplejson
+from django.template import TemplateDoesNotExist
+from django.template.defaultfilters import slugify
+
+from akismet import Akismet
+
+from .models import Setting, Video, VideoComentarioSpamIP, Curso
+from .forms import VideoComentarioForm
+
+from utils import get_pais, get_ip, get_pais_by_ip, get_timestamp
 
 
 # La vista del home muestra el ultimo video destacado
@@ -27,65 +30,42 @@ def home(solicitud):
 
     # checar si estamos transmitiendo en vivo
     # regresar la vista de "vivo" de ser asi
-    if ('live' in solicitud.GET and solicitud.GET['live'] == '1') or es_vivo:
-        return render_to_response('website/live.html')
+    if es_vivo:
+        return render_to_response('./live.html')
 
     # si no hay videos aun
     try:
-        ultimo_video = Video.objects.all().filter(activado=True).latest('fecha')
+        ultimo_video = Video.objects.filter(activado=True).latest('fecha')
     except Video.DoesNotExist:
         ultimo_video = None
 
     proximos = Video.objects.filter(proximo=True)
 
-    ultimos_4_videos = Video.objects.all().order_by('-fecha').filter(activado=True)[1:5]
+    ultimos_4_videos = Video.objects.filter(activado=True).order_by('-fecha')[1:5]
+
+    pais = get_pais(solicitud.META)
+
     # plantilla
-    return render_to_response('website/home.html', {
+    return render_to_response('./home.html', {
         'ultimo_video': ultimo_video,  # El ultimo video
         'videos': ultimos_4_videos,  # ultimos 4 videos
-        'pais': get_pais(solicitud.META),  # el horario del programa localizado
+        'pais': pais,  # el horario del programa localizado
         'timestamp': get_timestamp(),  # Obtiene el timestamp del sig. program.
-        'cursos': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now()),
-        'cursos_geo': Curso.objects.all().order_by('fecha').filter(activado=True, fecha__gte=datetime.datetime.now(), pais=get_pais(solicitud.META)),
+        'cursos': Curso.objects.filter(activado=True, fecha__gte=datetime.datetime.now()).order_by('fecha'),
+        'cursos_geo': Curso.objects.filter(activado=True, fecha__gte=datetime.datetime.now(), pais=pais).order_by('fecha'),
         'proximo': proximos[0] if proximos.exists() else None
     })
-
-
-def siguiente_jueves_4pm(now):
-    _4PM = datetime.time(hour=15)
-    _JUE = 3  # Monday=0 for weekday()
-    old_now = now
-    now += datetime.timedelta((_JUE - now.weekday()) % 7)
-    now = now.combine(now.date(), _4PM)
-    if old_now >= now:
-        now += datetime.timedelta(days=7)
-    return now
-
-
-def get_timestamp():
-    now = datetime.datetime.now()
-    sig_jueves = siguiente_jueves_4pm(now)
-    return int(time.mktime(sig_jueves.timetuple()) * 1000)
 
 
 # el archivo muestra todos los videos
 # organizados por mes-año
 def videos(solicitud):
-    return render_to_response('website/videos.html', {
+    return render_to_response('./videos.html', {
         'meses': [{
             'fecha': fecha,
             'videos': Video.objects.filter(fecha__year=fecha.year,
                                         fecha__month=fecha.month, activado=True).order_by('-fecha')
         } for fecha in Video.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
-    })
-
-
-def conferencias(solicitud):
-    return render_to_response('website/conferencias.html', {
-        'meses': [{
-            'fecha': fecha,
-            'confes': Conferencia.objects.filter(fecha__year=fecha.year, fecha__month=fecha.month, activado=True).order_by('-fecha')
-        } for fecha in Conferencia.objects.filter(activado=True).dates('fecha', 'month', order='DESC')]
     })
 
 
@@ -127,33 +107,15 @@ def video(solicitud, video_slug):
     else:
         form = VideoComentarioForm()
 
-    comentarios = VideoComentario.objects.filter(video_id=video.id, activado=True).\
-                                            order_by('-fecha', '-id')
-    return render_to_response('website/video.html', {
+    return render_to_response('./video.html', {
         'video': video,  # datos del video particular
         'form': form,  # formulario de comentarios
-        'comentarios': comentarios  # comentarios al video
     })
 
 
 # plantilla de transmision en vivo
 def live(solicitud):
-    return render_to_response('website/live.html')
-
-
-# volver a generar las imagenes de video
-# en todos sus sizes
-@login_required()
-def regenerate(solicitud):
-    for video in Video.objects.all():
-        image.resize(image.THUMB, video.imagen)
-        image.resize(image.SINGLE, video.imagen)
-        image.resize(image.HOME, video.imagen)
-
-    for curso in Curso.objects.all():
-        image.resize(image.THUMB, curso.imagen)
-
-    return redirect('/')
+    return render_to_response('./live.html')
 
 
 def locateme(solicitud):
@@ -189,30 +151,11 @@ def hola(solicitud):
 
         return HttpResponse(r.text)
 
-    return render_to_response('website/hola.html', {})
-
-
-def conferencia(solicitud, template):
-    if template:
-        try:
-            return render_to_response('%s.html' % template)
-        except TemplateDoesNotExist:
-            return render_to_response('default.html')
-
-    try:
-        return render_to_response('%s.html' % slugify(get_pais(solicitud.META)))
-    except TemplateDoesNotExist:
-        return render_to_response('default.html')
-
-
-def track(solicitud, registro_id):
-    registro = get_object_or_404(RegistroCurso, id=registro_id)
-
-    return render_to_response('website/track.html', {'registro': registro})
+    return render_to_response('./hola.html')
 
 
 def podcast(solicitud):
-    return render_to_response('website/podcast.html', {
+    return render_to_response('./podcast.html', {
         'videos': Video.objects.filter(podcast=True, activado=True).order_by('-fecha')
      })
 

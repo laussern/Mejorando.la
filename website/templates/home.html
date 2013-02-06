@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link href="{% static "css/home.css" %}" rel="stylesheet"  />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+{% endblock %}
+
+{% block footer %}
+<script data-main="{% static "js/home.js" %}" src="{% static "js/require-jquery.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+<section id="cuerpo">
+  <article id="ultimo">
+    <div class="tela"></div>
+    
+    <img src="{{ ultimo_video.get_home_image_url }}" alt="{{ ultimo_video.titulo }}" width="1000" height="500" class="absolute"/>
+    
+    <div class="datos">
+      <p class="horario"><span class="block">Todos los jueves - <strong>en vivo </strong></span>{% if pais %}<span class="big">{{ pais }} /</span>{% endif %}<strong id="hora" class="big"> 4:00PM GMT-5</strong>
+      </p><a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="titulo">
+        <h2 class="titulo">{{ ultimo_video.titulo }}</h2></a><span class="fecha">{{ ultimo_video.fecha|date:"F • j" }}</span>
+        <a href="{{ ultimo_video.get_absolute_url }}" title="{{ ultimo_video.titulo }}" class="boton">&#62; ver capitulo &#60;</a>
+    </div>
+  </article>
+  <aside id="social">
+    <div class="btn_youtube" data-id="mejorandolaweb"><a href="http://www.youtube.com/subscription_center?add_user=mejorandolaweb&amp;feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png"><span class="count" style="font-weight:bold; position:absolute; left:10px; top:8px; color:#333;"></span><img src="{% static "images/home/boton-youtube.png" %}" alt="Subscribe to me on YouTube"/></a><img src="https://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_64x64_red.png" style="display:none"/>
+
+    </div>
+    <div class="btn_twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-text="Yo también sintonizo #mejorandola" data-url="http://mejorando.la/" data-count="vertical" data-related="mejorandolaweb">Tweet</a><script src="https://platform.twitter.com/widgets.js"></script>
+
+    </div>
+    <div id="fb-root" class="btn_facebook"><script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="https://www.facebook.com/mejorandola" send="false" layout="box_count" width="80" show_faces="false" ></fb:like>
+
+    </div>
+    <div class="btn_googlemas"><g:plusone size="tall" href="http://mejorando.la"></g:plusone>	
+
+    </div>
+  </aside>
+
+  <div id="proximo" data-timestamp="{{ timestamp }}">
+    <div class="content">
+      <h3 class="subtitulo centro">próximo <strong>capítulo</strong> en</h3> 
+      <div class="cuenta">
+        <div class="dias digito"></div>
+        <div class="leyenda">días</div>
+      </div>
+      <div class="cuenta">
+        <div class="horas digito"></div>
+        <div class="leyenda">horas</div>
+      </div>
+      <div class="cuenta">
+        <div class="minutos digito"></div>
+        <div class="leyenda">minutos</div>
+      </div>
+      <div class="cuenta">
+        <div class="segundos digito"></div>
+        <div class="leyenda">segundos</div>
+      </div>
+    </div>
+  
+    {% if proximo %}
+    <div class="banner-proximo-capitulo">
+      <h3 class="titulo">{{ proximo.titulo }}</h3>
+
+      {% with invitados=proximo.get_invitados %}
+      {% if invitados|length > 0 %}
+      <p class="invitado">con <strong>{{ invitados|join:',' }}</strong></p>
+      {% endif %}
+      {% endwith %}
+    </div>
+    
+
+    {% endif %}
+  </div>
+
+
+  {% if cursos|length > 0 %}  
+  <section id="cursos">
+    <div class="cinta"></div>
+
+    <h3 class="subtitulo tit"><a title="Próximos cursos" href="{% url cursos.views.home %}">Nuevos <strong>cursos</strong></a></h3>
+
+    {% for curso in cursos %}
+
+    <div>
+      <a class="curso" href={{ curso.get_absolute_url }}" title="{{ curso.titulo }}">
+        <div class="center">
+          <span class="pais">
+            {{ curso.pais }}
+          </span>
+          <h3 class="subtitulo nombre">
+            {{ curso.titulo }}
+          </h3>
+        </div>
+        <div class="right">
+          <h4 class="mes">
+            {{ curso.fecha|date:"M" }}
+          </h4>
+          <h4 class="dia">
+            {{ curso.fecha|date:"d" }}
+          </h4>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+  <section id="anteriores">
+    <div class="cinta">
+      <div class="todos"><a href="{% url website.views.videos %}" title="Videos de Mejorando.la">ver mas videos</a>
+      </div>
+    </div>
+    <h3 class="subtitulo tit">últimos <strong>Programas</strong></h3>
+    {% for video in videos %}
+    <article class="capitulo"><a href="{{ video.get_absolute_url }}" title="{{ video.titulo }}">
+        <div class="imagen">
+        	<img src="{{ video.get_thumb_image_url }}" alt="{{ video.titulo }}" width="245" height="176"/>
+        </div>
+        <div class="texto">
+          <div class="block">
+            <h2 class="tit">{{ video.titulo|truncatechars:40 }}</h2>
+          </div>
+        </div></a>
+    </article>
+	{% endfor %}
+  </section>
+  <section id="empresas">
+    
+    <h3 class="subtitulo tit">Empresas que confían en nosotros</h3>
+    <div class="content">
+      <div class="cont">
+        <a href="http://mediastre.am/cl/" target="_blank" rel="nofollow" title="Mediastream" class="sponsor"><img src="{% static "images/sponsors/mediastream.jpg" %}" alt="Mediastream" height="28"></a>
+        <a href="http://infranetworking.com" target="_blank" rel="nofollow" title="Infranetworking" class="sponsor"><img src="{% static "images/sponsors/infranetworking.jpg" %}" alt="Infranetworking" height="28"></a>
+        <a href="http://www.movistar.cl/" target="_blank" rel="nofollow" title="Movistar" class="sponsor"><img src="{% static "images/sponsors/movistar.jpg" %}" alt="Movistar" height="28"></a>
+        <a href="http://www.microsoft.com/es-mx/" target="_blank" rel="nofollow" title="Microsoft" class="sponsor"><img src="{% static "images/sponsors/microsoft.jpg" %}" alt="Microsoft" height="28"></a>
+        <a href="http://adobe.com" target="_blank" rel="nofollow" title="Adobe" class="sponsor"><img src="{% static "images/sponsors/adobe.jpg" %}" alt="adobe" height="28"></a>
+        <a href="https://www.ufm.edu/index.php/Portal" target="_blank" rel="nofollow" title="Universdad Francisco Marroquin" class="sponsor"><img src="{% static "images/sponsors/ufm.jpg" %}" alt="Universdad Francisco Marroquin" height="28"></a>
+        <a href="http://welcu.com/cl/" target="_blank" rel="nofollow" title="Welcu" class="sponsor"><img src="{% static "images/sponsors/welcu.jpg" %} " alt="Welcu" height="28"></a>
+        <a href="http://www.italkyou.com/" target="_blank" rel="nofollow" title="ITalkyou" class="sponsor"><img src="{% static "images/sponsors/italkyou.jpg" %}" alt="Italkyou" height="28"></a>
+        <a href="http://www.shiftt.com/" target="_blank" rel="nofollow" title="Shiftt" class="sponsor"><img src="{% static "images/sponsors/shiftt.jpg" %}"" alt="Shiftt" height="28"></a>
+        <a href="http://www.prensalibre.com/" target="_blank" rel="nofollow" title="Prensa libre" class="sponsor"><img src="{% static "images/sponsors/prensalibre.jpg" %}" alt="Prensa libre" height="28"></a>
+        <a href="http://www.geekoteca.com.mx/" target="_blank" rel="nofollow" title="Geekoteca" class="sponsor"><img src="{% static "images/sponsors/geekoteca.jpg" %}" alt="Geekoteca" height="28"></a>
+        <a href="http://www.rubengomez.net/" target="_blank" rel="nofollow" title="Ruben Gomez" class="sponsor"><img src="{% static "images/sponsors/rubengomez.jpg" %}" alt="Ruben Gomez" height="28"></a>
+        <a href="http://www.monterilla.cl/" target="_blank" rel="nofollow" title="Hotel Monterilla" class="sponsor"><img src="{% static "images/sponsors/monterilla.jpg" %}" alt="Hotel Monterilla" height="28"></a>
+        <a href="/sponsors/bilingham/" title="Grupo Billingham" class="sponsor"><img src="{% static "images/sponsors/billingham.jpg" %}" alt="Grupo Billingham" height="28"></a>
+
+
+      </div>    
+    </div>
+  </section>
+  
+</section>
+
+{% endblock %}

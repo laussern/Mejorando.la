@@ -16,7 +16,6 @@ urlpatterns = patterns('',
     url(r'^locateme/?$', 'website.views.locateme'),
     # suscripcion a las listas de correo
     url(r'^hola/?$', 'website.views.hola'),
-    url(r'^conferencia/(?P<template>.*?)/?$', 'website.views.conferencia'),
     # podcast de mejorandola
     url(r'^podcast/?$', 'website.views.podcast'),
 
