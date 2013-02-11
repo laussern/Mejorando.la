@@ -85,7 +85,7 @@
     {% for curso in cursos %}
 
     <div>
-      <a class="curso" href="{{ curso.get_absolute_url }}" title="{{ curso.titulo }}">
+      <a class="curso" href="/cursos/{{ curso.slug }}" title="{{ curso.titulo }}">
         <div class="center">
           <span class="pais">
             {{ curso.pais }}
