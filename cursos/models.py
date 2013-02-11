@@ -232,7 +232,25 @@ def create_registro(sender, instance, created, *args, **kwargs):
                 'email_type': 'html'
             }
 
-            requests.post('http://us4.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
+            req = requests.post('http://us4.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
+
+            if not req.text == 'true':
+                payload = payload = {
+                    'email_address': instance.email,
+                    'apikey': settings.MAILCHIMP_APIKEY,
+                    'update_existing': True,
+                    'merge_vars': {
+                        'FNAME': instance.pago.nombre,
+                        'OPTINIP': instance.pago.ip,
+                        'OPTIN_TIME': time.time(),
+                        'PAIS': instance.pago.pais,
+                        'GROUPINGS': (dict(name='Online', groups=curso.mailchimp), )
+                    },
+                    'id': settings.MAILCHIMP_LISTID,
+                    'email_type': 'html'
+                }
+
+                requests.post('http://us4.api.mailchimp.com/1.3/?method=listSubscribe', simplejson.dumps(payload))
 
 
 def delete_registro(sender, instance, **kwargs):
