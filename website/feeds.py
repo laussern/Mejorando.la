@@ -1,5 +1,6 @@
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed
+from django.template import defaultfilters as filters
 from django.conf import settings
 
 from models import Video
@@ -22,7 +23,14 @@ class iTunesFeed(Rss201rev2Feed):
         handler.addQuickElement('itunes:category', 'Technology')
         handler.addQuickElement('itunes:category', 'Gadgets')
         handler.addQuickElement('itunes:category', 'Tech News')
-        handler.addQuickElement('itunes:image', 'https://mejorando.la/podcast.jpg')
+        handler.addQuickElement('itunes:author', 'Mejorando.la')
+
+        handler.addQuickElement('itunes:image', None, attrs={'href': 'https://mejorando.la/podcast.jpg'})
+
+    def add_item_elements(self, handler, item):
+        super(iTunesFeed, self).add_item_elements(handler, item)
+
+        handler.addQuickElement('itunes:subtitle', filters.striptags(item['description']))
 
 
 class VideoFeed(Feed):
