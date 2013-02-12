@@ -86,6 +86,9 @@
 
     <div>
       <a class="curso" href="/cursos/{{ curso.slug }}" title="{{ curso.titulo }}">
+        <div class="left">
+          <img data-original="{% static "images/home/"%}{{curso.pais|slugify}}.jpg" src="{% static "images/transparent.gif" %}" alt="{{ curso.pais }}" class="bandera">
+        </div>
         <div class="center">
           <span class="pais">
             {{ curso.pais }}
