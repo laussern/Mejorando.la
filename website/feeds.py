@@ -35,7 +35,7 @@ class iTunesFeed(Rss201rev2Feed):
 
 class VideoFeed(Feed):
     feed_type = iTunesFeed
-    title = 'Mejorando.la'
+    title = 'Mejorando la Web'
     link = 'http://mejorando.la'
     author_name = 'Mejorando.la INC'
     description = 'Un show en vivo de gente que crea Internet, todos los jueves a las 4pm GMT-5'
