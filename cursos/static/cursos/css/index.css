@@ -38,6 +38,9 @@ label.wrap-tip{padding-right:20px;background:url("../images/ayuda.png") right ce
 label.wrap-tip:hover:after{background:rgba(16,21,27,0.9);position:absolute;top:5px;left:75px;content:attr(data-tip);color:#fff;padding:5px;min-width:150px;z-index:9;border:1px solid #0e1217;text-transform:uppercase;-o-border-radius:5px;-ms-border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;font-size:12px}
 label.wrap-tip.tip-cvc:hover:after{width:200px;line-height:14px;left:115px;top:0}
 input.card-expiry-month{margin-left:5px}
+.descargas{background:#e9eef4;color:#3d4b58;padding:25px 80px;text-align:center;font-size:23px;text-align:left;overflow:hidden;margin:30px 0;}
+.descargas p{float:left;font-size:20px}
+.descargas .descarga{background:#ffc33f url("../images/descarga.jpg") no-repeat 13px center;border:1px solid #82620b;border-bottom:3px solid #82620b;color:#82620b;font-weight:bold;margin-left:60px;padding:18px 18px 18px 60px;text-transform:uppercase;float:right}
 .tip-paypal{margin:3px 0 0;text-align:right;margin-right:26px;}
 .tip-paypal label.wrap-tip:hover:after{text-align:center;left:115px;top:-8px;line-height:14px}
 .tip-paypal a{color:#fff}
@@ -115,7 +118,7 @@ header ul{overflow:hidden;float:left;background:url("../images/logos-bg.gif") le
 .quieres p{text-align:left;margin-left:220px;margin-right:220px}
 .quieres h3{margin:17px 0;font-weight:bold}
 .quieres .video{background:#ffc43a;margin-left:-10px;margin-right:-10px;margin-top:70px;margin-bottom:57px;height:290px;}
-.quieres .video a{-webkit-background-size:50px 50px;background-size:50px 50px;display:block;position:relative;top:-40px;background:#fff;margin:auto;width:660px}
+.quieres .video a{-moz-background-size:50px 50px;-webkit-background-size:50px 50px;background-size:50px 50px;display:block;position:relative;top:-40px;background:#fff;margin:auto;width:660px}
 footer{background:url("../images/footer-bg.gif") left bottom repeat-x;overflow:hidden;text-align:center;}
 footer li{float:left;margin:0 50px}
 footer ul{display:inline-block;zoom:1;*display:inline;margin:40px 0 60px}
@@ -204,7 +207,9 @@ form.sending::after{content:"";text-align:center;background:#323e4a;opacity:.7;-
 .social .social-btn{display:inline-block;zoom:1;*display:inline;margin:3px 10px 6px;position:relative;}
 .social .social-btn.google{top:6px}
 .social .social-btn.twitter{top:2px}
-@media screen and (max-width:1000px){.wrapper{width:auto}
+@media screen and (max-width:1000px){.descargas .descarga{display:inline-block;zoom:1;*display:inline;margin:0 auto;float:none}
+.descargas .descargas p{float:none}
+.wrapper{width:auto}
 .main h1{width:auto}
 .top .col2{width:auto;height:auto !important;float:none}
 .top .col1{height:auto !important;float:none;width:100%;}
