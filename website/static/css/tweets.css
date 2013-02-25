@@ -11,7 +11,7 @@
 .tweets .twitter-tweet-rendered .twt-media.e-content .twt-media-link img{display:none !important}
 .tweets .cards-base.cards-multimedia img{display:none !important}
 .tweets .twt-tweet .e-content .p-name,.tweets .twt-o .e-content .p-name a,.tweets .twt-o .e-content .p-name b{font-family:'open sans',arial,sans-serif !important}
-@media screen and (max-width:1000px){.tweets .twitter-tweet-rendered{max-width:none !important;display:block !important;}
-.tweets .twitter-tweet-rendered:nth-of-type(odd){position:relative;top:0;margin-right:0 !important}
+@media screen and (max-width:1000px){.tweets .twitter-tweet-rendered{max-width:none !important;display:block !important;width:100% !important;box-sizing:border-box;position:static !important;top:0;margin-right:0 !important;}
 .tweets .twitter-tweet-rendered .twt-border{max-width:none !important}
+.tweets .content{height:auto !important}
 }

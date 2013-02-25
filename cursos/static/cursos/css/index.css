@@ -262,8 +262,8 @@ form.sending::after{content:"";text-align:center;background:#323e4a;opacity:.7;-
 .docentes .docente{width:auto !important;background:#fff;float:none !important;height:auto !important;border:0 !important}
 .quieres h2{font-size:30px;line-height:30px;margin-left:5px;margin-right:5px}
 .quieres iframe{width:100%}
-.quieres .video{margin-left:0;margin-right:0;}
-.quieres .video iframe,.quieres .video a,.quieres .video img{width:100%}
+.quieres .video{margin-left:0;margin-right:0;height:auto;font-size:0;}
+.quieres .video iframe,.quieres .video a,.quieres .video img{width:100%;top:0}
 .quieres p{margin-left:10px;margin-right:10px}
 footer li{float:none}
 }.small{font-size:12px;text-align:center;line-height:15px;color:#a0a5ab;margin:5px 0}
