@@ -56,8 +56,11 @@ header ul{overflow:hidden;float:left;background:url("../images/logos-bg.gif") le
 .main .wrapper{background:#fff}
 .main-image{float:left}
 .top .col1{width:666px;background:#eaedf2;height:468px;float:left}
+.top.alignl .col1{float:right}
+.top.alignl .col2{float:left}
 .col2{background:#323e4a url("../images/pago-bg.gif") center bottom no-repeat;color:#fffefd;float:right;width:284px;height:448px;font-size:16px;line-height:19px;padding:10px 25px;}
 .col2 button.registrate{text-transform:uppercase;text-align:center;border-bottom:3px solid #bf932b;margin:auto;display:block;padding:5px 50px 15px;line-height:18px;margin-top:15px;}
+.col2 button.registrate.sround{-o-border-radius:1em;-ms-border-radius:1em;-moz-border-radius:1em;-webkit-border-radius:1em;border-radius:1em}
 .col2 button.registrate strong{font-size:28px;display:block}
 .horarios{color:#a0a5ab;font-size:12px;text-align:center;line-height:13px}
 .contacto{text-align:center;font-size:12px;background:#495662;margin:10px -25px 0;padding:5px 5px;color:#c7cfd7;}
