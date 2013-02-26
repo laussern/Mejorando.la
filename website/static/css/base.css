@@ -77,7 +77,7 @@ a.banner-link:hover{text-decoration:none}
 }#envivo .patron{-webkit-animation:25s envivo infinite linear;-moz-animation:25s envivo infinite linear;background:url("../images/patron.jpg") repeat-x;width:2000px;height:60px;position:relative;z-index:1}
 #envivo .vivo{position:absolute;right:0;top:0;display:block;z-index:2}
 @media screen and (max-width:1000px){#wrapper{width:auto}
-}@media screen and (max-width:800px){header{height:87px;}
+header{height:87px;}
 header h1 a img{height:42px;width:auto}
 header .mejor{width:auto}
 .menu{top:42px;}
@@ -85,7 +85,7 @@ header .mejor{width:auto}
 .menu ul li{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:auto;}
 .menu ul li:nth-child(even){background:none;border-left:2px solid #898c93;border-right:2px solid #898c93}
 .menu ul li a{height:44px;line-height:44px}
-}@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:12px}
+}@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:9px}
 #footer .centro span{margin:0 10px}
 }.plat-ad{background:url("../images/ad-left.gif") left bottom no-repeat,url("../images/ad-right.gif") right bottom no-repeat,#fff url("../images/plat-ad.jpg") 439px 3px no-repeat;height:68px;-moz-background-clip:border, border, content;-webkit-background-clip:border, border, content;background-clip:border-box,border-box,content-box;padding-bottom:10px;display:block;position:absolute;z-index:9;top:60px;left:-10px;right:-10px;overflow:hidden;color:#36434b;}
 .plat-ad .plat-ad-title{text-transform:uppercase;float:left;font-size:22px;width:500px;margin-top:14px;margin-left:21px;line-height:20px}

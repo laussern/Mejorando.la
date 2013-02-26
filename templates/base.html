@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="mejorando.la" />
     <meta property="fb:admins" content="1030603473" />
 
-    <link rel="stylesheet" href="{% static "css/base.css" %}" />
+    <link rel="stylesheet" href="{% static "css/base.css" %}?v=1.0" />
     
     {% block head %}{% endblock %}
   </head>
@@ -40,6 +40,7 @@
                   <li><a href="/cursos/exalumnos/" title="Ex Alumnos">Ex alumnos</a></li>
                   <li><a href="/conferencias" title="Conferencias">Conferencias</a></li>
                   <li><a href="{% url website.views.videos %}" title="Videos">Videos</a></li>
+                  <li><a href="{% url website.views.podcast %}" title="Podcast">Podcast</a></li>
                 </ul>
             </nav>
           
