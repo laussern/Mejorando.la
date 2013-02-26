@@ -90,7 +90,8 @@ header ul{overflow:hidden;float:left;background:url("../images/logos-bg.gif") le
 .middle .email address{padding:9px 25px;font-style:normal}
 .middle h2{font-size:30px}
 .middle .tabs.js{position:relative;}
-.middle .tabs.js .tab{position:absolute;left:333px;top:0;background:#fff}
+.middle .tabs.js .tab{position:absolute;left:333px;top:0;background:#fff;}
+.middle .tabs.js .tab li ul li{list-style:disc;font-size:12px;margin-left:30px}
 .middle .direccion{background:#eaedf2;width:333px;height:256px;float:right;font-size:12px;text-align:center;}
 .middle .direccion .content{padding:9px 25px;font-style:normal}
 .middle .direccion h2{font-size:30px;text-align:left;background:url("../images/online.jpg") left center no-repeat;padding-left:40px;}
