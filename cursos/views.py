@@ -81,7 +81,7 @@ def curso(req, curso_slug):
                         p.error = str(e)
                         p.save()
 
-                        send_mail(u'¿Podemos ayudarte de alguna forma?', u'Vimos que tuviste problemas pagando el %s de Mejorando.la\n¿Podemos ayudarte de alguna forma?\nNo olvides que puedes contactarnos vía skype en mejorandola' % curso.nombre, 'Ventas Mejorando.la <ventas@mejorando.la>', [p.email], fail_silently=True)
+                        send_mail(u'¿Podemos ayudarte de alguna forma?', u'Vimos que tuviste problemas pagando el %s de Mejorando.la\n¿Podemos ayudarte de alguna forma?\nNo olvides que puedes contactarnos vía skype en mejorandola\nNos interesa mucho apoyarte, ofrecerte soluciones de pago adicionales si no logras pagar con paypal o tarjeta de crédito y que no te pierdas el curso' % curso.nombre, 'Milena Alfonso <ventas@mejorando.la>', [p.email], fail_silently=True)
 
                         return HttpResponse('ERR')
 
