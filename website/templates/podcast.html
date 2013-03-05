@@ -3,11 +3,17 @@
 
 {% block title %}Podcast | Mejorando.la{% endblock %}
 
-{% block head%}
+{% block head %}
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,latin-ext' rel='stylesheet' />
-	<link href="{% static "css/podcast.css" %}" rel="stylesheet" />
+	<link href="{% static "css/podcast.css" %}?v=1.0" rel="stylesheet" />
+
 {% endblock %}
-{
+
+{% block footer %}
+	<script data-main="{% static "js/podcast.js" %}" src="/static/js/require-jquery.js"></script>
+
+{% endblock %}
+
 {% block body %}
 	<div id="page">
 	<section class="podcast-header">
@@ -30,7 +36,9 @@
 			<p>{{ video.descripcion|striptags|safe|truncatechars:240 }}</p>
 			
 			<div class="podcast-btns">
-				<a href="{{ video.get_absolute_url }}" class="podcast-btn">Ver el episodio</a>
+				<button class="play icon-play" data-playing="false" data-url="https://mejorando.la{{ video.get_podcast_url }}" >Escuchar</button>
+				<a href="{{ video.get_absolute_url }}" class="podcast-btn">Ver</a>
+
 				<a href="{{ video.get_podcast_url }}" class="podcast-btn" target="_blank">Descargar MP3</a>
 			</div>
 		</div>

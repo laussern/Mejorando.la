@@ -19,6 +19,9 @@ p{margin:25px 0}
 .podcast-btn{color:#fff;background:#86ba40;text-decoration:none;padding:5px 20px;display:inline-block;-webkit-transition:background-color .4s;-moz-transition:background-color .4s;-o-transition:background-color .4s;-ms-transition:background-color .4s;transition:background-color .4s}
 .podcast-btn:hover{color:#fff;background:#6ea226}
 .podcast-btns{text-align:right}
+.play{background:#86ba40;font-weight:normal;cursor:pointer;width:120px;padding:5px 10px;border:none;color:#fff;font-size:16px;height:29px;box-sizing:border-box;transition:.3s;}
+.play:before{margin-right:10px}
+.play:hover{background:#6ea226}
 @media screen and (max-width:1000px){.curso-ad:after{display:none}
 .curso-ad{margin-top:10px}
 .podcast-item{padding:20px}
