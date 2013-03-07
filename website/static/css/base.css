@@ -83,24 +83,26 @@ header .mejor{width:auto}
 .menu{top:42px;}
 .menu ul{min-width:320px;padding-top:0;text-align:center;}
 .menu ul li{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;width:auto;}
-.menu ul li:nth-child(even){background:none;border-left:2px solid #898c93;border-right:2px solid #898c93}
+.menu ul li:nth-child(even){background:none;border-left:1px solid #898c93;border-right:1px solid #898c93}
 .menu ul li a{height:44px;line-height:44px}
 }@media screen and (max-width:480px){.menu ul li a{padding:0 5px;font-size:9px}
 #footer .centro span{margin:0 10px}
 }.plat-ad{background:url("../images/ad-left.gif") left bottom no-repeat,url("../images/ad-right.gif") right bottom no-repeat,#fff url("../images/plat-ad.jpg") 439px 3px no-repeat;height:68px;-moz-background-clip:border, border, content;-webkit-background-clip:border, border, content;background-clip:border-box,border-box,content-box;padding-bottom:10px;display:block;position:absolute;z-index:9;top:60px;left:-10px;right:-10px;overflow:hidden;color:#36434b;}
 .plat-ad .plat-ad-title{text-transform:uppercase;float:left;font-size:22px;width:500px;margin-top:14px;margin-left:21px;line-height:20px}
-.curso-ad{background:url("../images/banners/ad-left.gif") left bottom no-repeat,url("../images/banners/ad-right.gif") right bottom no-repeat,#fff url("../images/banners/online-ad-node.jpg") center 5px no-repeat;height:68px;-moz-background-clip:border, border, content;-webkit-background-clip:border, border, content;background-clip:border-box,border-box,content-box;padding-bottom:10px;display:block;position:absolute;z-index:9;top:60px;left:-10px;right:-10px;overflow:hidden;}
+.curso-ad{background:url("../images/banners/ad-left.gif") left bottom no-repeat,url("../images/banners/ad-right.gif") right bottom no-repeat,#fff;height:68px;-moz-background-clip:border, border, content;-webkit-background-clip:border, border, content;background-clip:border-box,border-box,content-box;padding-bottom:10px;display:block;position:absolute;z-index:9;top:60px;left:-10px;right:-10px;overflow:hidden;}
 .curso-ad:hover{text-decoration:none}
+.curso-ad .img{text-align:right;margin:0}
 .curso-ad span{display:block;color:#36434b;margin-top:5px;}
 .curso-ad span.ad-title{text-transform:uppercase;float:left;font-size:20px;width:300px;margin-left:21px;line-height:20px;}
 .curso-ad span.ad-title small{font-size:12px;display:block;font-weight:bold}
 .curso-ad span.ad-teachers{float:right;font-size:14px;line-height:15px;font-weight:bold;margin-top:19px;margin-right:40px}
-@media screen and (max-width:1000px){.curso-ad{position:static;background:#fff url("../images/online-ad.jpg") center 5px no-repeat;height:58px}
+@media screen and (max-width:1000px){.curso-ad{position:static;background:#fff;height:58px;}
+.curso-ad img{max-width:100%}
+.curso-ad .img{text-align:center}
 .plat-ad{position:static;background:#fff;text-align:center;}
 .plat-ad .plat-ad-title{width:auto}
 }@media screen and (max-width:960px){.curso-ad{background-position:center center;text-align:center;height:auto;}
-.curso-ad span.ad-title{float:none;width:auto;margin:5px 0 70px}
-.curso-ad span.ad-teachers{float:none;margin:70px 5px 0 5px}
+.curso-ad span.ad-title{float:none;width:auto}
 }@media screen and (max-width:465px){.curso-ad{-webkit-background-size:100%;background-size:100%;}
 .curso-ad span.ad-title{font-size:15px;line-height:16px}
 .curso-ad span.ad-teachers{font-size:12px;line-height:13px}

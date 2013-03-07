@@ -390,8 +390,8 @@ a.banner-link
 				width auto
 				&:nth-child(even)
 					background none 
-					border-left 2px solid #898C93 
-					border-right 2px solid #898C93
+					border-left 1px solid #898C93 
+					border-right 1px solid #898C93
 				a 
 					height 44px 
 					line-height 44px
@@ -433,7 +433,7 @@ a.banner-link
 		line-height 20px
 
 .curso-ad
-	background url(../images/banners/ad-left.gif) left bottom no-repeat, url(../images/banners/ad-right.gif) right bottom no-repeat, white url(../images/banners/online-ad-node.jpg) center 5px no-repeat
+	background url(../images/banners/ad-left.gif) left bottom no-repeat, url(../images/banners/ad-right.gif) right bottom no-repeat, white //url(../images/banners/nodejs.jpg) right 5px no-repeat
 	height 68px
 	background-clip border-box, border-box, content-box
 	padding-bottom 10px
@@ -447,7 +447,9 @@ a.banner-link
 
 	&:hover
 		text-decoration none
-
+	.img 
+		text-align right
+		margin 0
 	span 
 		display block
 		color #36434b
@@ -480,9 +482,13 @@ a.banner-link
 @media screen and (max-width:1000px)
 	.curso-ad
 		position static
-		background white url(../images/online-ad.jpg) center 5px no-repeat
+		background white
+		// background white url(../images/online-ad.jpg) center 5px no-repeat
 		height 58px
-
+		img 
+			max-width 100%
+		.img 
+			text-align center
 	.plat-ad
 		position static
 		background white 
@@ -500,11 +506,11 @@ a.banner-link
 		span.ad-title 
 			float none
 			width auto
-			margin 5px 0 70px
+			// margin 5px 0 70px
 
-		span.ad-teachers
-			float none
-			margin 70px 5px 0 5px
+		// span.ad-teachers
+		// 	float none
+		// 	margin 70px 5px 0 5px
 
 
 @media screen and (max-width:465px)
